@@ -10,7 +10,7 @@
 
 1. Clone repo
 ```
-git clone https://github.com/KATITB22/ohu-fe.git
+git clone https://github.com/arkavidia-hmif/arkavidia-frontend-8.0.git
 ```
 2. Install dependencies
 ```
