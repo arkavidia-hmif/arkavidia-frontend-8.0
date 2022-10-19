@@ -12,15 +12,15 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const Layout = ({ children, ...customMeta }: LayoutProps) => {
-  const router = useRouter();
-  const { asPath } = router;
+                  const Layout = ({ children, ...customMeta }: LayoutProps) => {
+                               const router = useRouter();
+                                                    const { asPath } = router;
 
-  const { name, url, title, description, socialPreview } =
+                                   const { name, url, title, description, socialPreview } =
     publicRuntimeConfig.site;
 
-  const meta = {
-    name,
+                                                          const meta = {
+          name,
     url,
     title,
     description,
