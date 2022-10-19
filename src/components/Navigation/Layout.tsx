@@ -1,23 +1,23 @@
-import getConfig from "next/config";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import getConfig from 'next/config'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
-type LayoutProps = {
-  title?: string;
-  description?: string;
-  date?: string;
-  socialPreview?: string;
-  children: React.ReactNode;
-};
+interface LayoutProps {
+  title?: string
+  description?: string
+  date?: string
+  socialPreview?: string
+  children: React.ReactNode
+}
 
-const Layout = ({ children, ...customMeta }: LayoutProps) => {
-  const router = useRouter();
-  const { asPath } = router;
+const Layout = ({ children, ...customMeta }: LayoutProps): JSX.Element => {
+  const router = useRouter()
+  const { asPath } = router
 
   const { name, url, title, description, socialPreview } =
-    publicRuntimeConfig.site;
+    publicRuntimeConfig.site
 
   const meta = {
     name,
@@ -25,13 +25,14 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
     title,
     description,
     socialPreview,
-    ...customMeta,
-  };
+    ...customMeta
+  }
 
   return (
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" key="favicon" />
+
         <link rel="canonical" href={`${url}${asPath}`} key="canonical" />
 
         {/* Twitter */}
@@ -66,10 +67,10 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
           content={`${url}${socialPreview}`}
           key="og_image"
         />
-        <meta property="og:image:width" content={`1200`} key="og_image_width" />
+        <meta property="og:image:width" content={'1200'} key="og_image_width" />
         <meta
           property="og:image:height"
-          content={`630`}
+          content={'630'}
           key="og_image_height"
         />
 
@@ -81,7 +82,7 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
       </Head>
       <main>{children}</main>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

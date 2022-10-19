@@ -10,7 +10,7 @@ next.config.js
 package.json
 package-lock.json
 postcss.config.js
-README.mod
+README.md
 tailwind.config.js
 tsconfig.json
 yarn.lock

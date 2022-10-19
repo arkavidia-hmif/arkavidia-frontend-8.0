@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "start": "next start",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -22,8 +19,7 @@
       "prettier --write",
       "git add"
     ]
-  }
-  ,
+  },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
