@@ -1,0 +1,30 @@
+const colours = {
+  white: '#FFFFFF',
+  black: '#000000',
+  gray200: '#F9F9F9',
+  gray300: '#C4C4C4',
+  gray400: '#9B9B9B',
+  gray500: '#777676',
+  gray600: '#535252',
+  gray700: '#2F2E2E',
+  yellow200: '#FFD271',
+  yellow300: '#FEB20E',
+  yellow400: '#DF9800',
+  red200: '#FF634B',
+  red300: '#F43518',
+  red400: '#B71800',
+  green200: '#E6FEED',
+  green300: '#069154',
+  green400: '#01703F',
+  blue200: '#6979BE',
+  blue300: '#1F307C',
+  blue400: '#0B1A5C',
+  cream200: '#FFF2EB',
+  cream300: '#FFEADF',
+  cream400: '#F5D5C4',
+  pink200: '#FEE9E6',
+  pink300: '#E28281',
+  pink400: '#C86564'
+}
+
+export default colours
