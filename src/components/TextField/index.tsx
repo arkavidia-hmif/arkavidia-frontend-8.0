@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 // Import Icons
@@ -18,13 +19,13 @@ const variantStyles: { [key in variants]: string } = {
   error: 'border-red300 bg-cream200 focus:ring-0 focus:border-red300',
   success: 'bg-green200 border-none focus:ring-0 focus:border-none',
   disabled:
-    'border-none bg-gray400 placeholder-gray300 focus:ring-0 focus:border-none',
+    'border-none bg-gray400 placeholder-gray300 focus:ring-0 focus:border-none'
 }
 
 const TextField: React.FC<ITextField> = ({
   description,
   ftype = 'default',
-  variant = 'default',
+  variant = 'default'
 }): JSX.Element => {
   const [visible, setVisible] = useState(false)
 
@@ -44,19 +45,21 @@ const TextField: React.FC<ITextField> = ({
          transition-colors rounded-md`}
         />
         {ftype?.toLowerCase() === 'show' &&
-          (visible ? (
+          (visible
+            ? (
             <EyeHideIcon
               onClick={() => setVisible(false)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"
             />
-          ) : (
+              )
+            : (
             <EyeShowIcon
               onClick={() => setVisible(true)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"
             />
-          ))}
+              ))}
 
         {ftype?.toLowerCase() === 'search' && (
           <SearchIcon size={16} className="absolute left-0 ml-4 h-full " />
@@ -69,7 +72,7 @@ const TextField: React.FC<ITextField> = ({
 
 const TextArea: React.FC<ITextField> = ({
   description,
-  variant = 'default',
+  variant = 'default'
 }): JSX.Element => {
   const [countChar, setCountChar] = useState(0)
 
@@ -81,7 +84,6 @@ const TextArea: React.FC<ITextField> = ({
         maxLength={200}
         onChange={e => setCountChar(e.target.value.length)}
         className={`form-textarea py-3 px-4 text-xs resize-none
-
         rounded-md
         h-32
         ${variantStyles[variant]}}`}
