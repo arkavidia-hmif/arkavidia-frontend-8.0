@@ -1,12 +1,17 @@
 import getConfig from 'next/config';
 
+import DropZoneComponent from '@src/components/DropZoneComponent/index';
+
 import Layout from '@src/components/Navigation/Layout';
+import { useState } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 const { name } = publicRuntimeConfig.site;
 
 const Home = () => {
+  const[file, setFile] = useState(null)
   return (
+    <DropZoneComponent setFile={setFile}>
     <Layout>
       <section className="py-12">
         <div className="container mx-auto px-4">
@@ -116,6 +121,7 @@ const Home = () => {
         </div>
       </section>
     </Layout>
+    </DropZoneComponent> 
   );
 };
 
