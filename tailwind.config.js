@@ -33,12 +33,32 @@ module.exports = {
         pink200: '#FEE9E6',
         pink300: '#E28281',
         pink400: '#C86564'
-      },      
+      },
       fontFamily: {
         archivo: ["Archivo", "sans-serif"],
         varela: ["Varela-Round", "sans-serif"],
         helvatica: ["Helvatica", "sans-serif"],
       },
+      keyframes: {
+        toastSlideUp: {
+          '0%': { transform: 'translateY(200%)' },
+        },
+        toastSlideDown: {
+          '0%': { transform: 'translateY(-200%)' },
+        },
+        toastSlideLeft: {
+          '0%': { transform: 'translateX(200%)' },
+        },
+        toastSlideRight: {
+          '0%': { transform: 'translateX(-200%)' },
+        }
+      },
+      animation: {
+        toastSlideUp: 'toastSlideUp 1s',
+        toastSlideDown: 'toastSlideDown 1s',
+        toastSlideLeft: 'toastSlideLeft 1s',
+        toastSlideRight: 'toastSlideRight 1s',
+      }
     },
   },
   variants: {},
