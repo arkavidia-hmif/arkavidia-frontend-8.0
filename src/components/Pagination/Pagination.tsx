@@ -18,7 +18,6 @@ const Pagination = ({
   const [seenPage, setSeenPage] = useState(minPage)
   useEffect(() => {
     runOnPageChange(seenPage)
-    console.log(seenPage)
   }, [seenPage])
 
   function incrementSeenPage(): void {
@@ -34,16 +33,19 @@ const Pagination = ({
   }
 
   function numberButtons(): JSX.Element[] {
-    const dotsVisible = pageRange + 2 < maxPage - minPage + 1
-    const dotsOnRight = seenPage >= maxPage - pageRange
-    const dotsOnLeft = seenPage > minPage + pageRange
-    // Jika terdapat lebih banyak halaman dibanding range yang bisa ditunjukkan, maka aka diadakan elemen pertama (atau terakhir tergantung posisi) beserta tombol ... yang disabled
-    // shownN adalah mencegah angka yang ditunjukkan adalah batch baru jika jumlah halaman di bawah range
-    const flooredN = Math.floor(seenPage / pageRange)
-    const shownN = flooredN === 0 ? flooredN : flooredN - (dotsVisible ? 0 : 1)
+    const visibleMinimum =
+      seenPage + pageRange > maxPage ? maxPage - pageRange + 1 : seenPage
+    const visibleMaximum =
+      visibleMinimum + pageRange - 1 > maxPage
+        ? maxPage
+        : visibleMinimum + pageRange - 1
+    const dotsOnLeft = visibleMinimum > minPage
+    const dotsOnRight = visibleMaximum < maxPage
     const returns = Array.from(
-      { length: dotsVisible ? pageRange : maxPage - minPage + 1 },
-      (_, i) => shownN * pageRange + i + 1
+      {
+        length: visibleMaximum - visibleMinimum + 1
+      },
+      (_, i) => visibleMinimum + i
     ).map(pageNumber => {
       return (
         <PaginationNumber
@@ -51,35 +53,39 @@ const Pagination = ({
           disabled={false}
           number={pageNumber}
           key={pageNumber}
+          active={seenPage === pageNumber}
         />
       )
     })
-    if (dotsVisible) {
-      if (dotsOnRight) {
-        const maxPageButton = (
-          <PaginationNumber
-            onClick={() => setSeenPage(maxPage)}
-            disabled={seenPage === maxPage}
-            number={maxPage}
-            key={maxPage}
-          />
-        )
-        const dots = <PaginationNumber dots={true} />
+    if (dotsOnRight) {
+      const maxPageButton = (
+        <PaginationNumber
+          onClick={() => setSeenPage(maxPage)}
+          disabled={seenPage === maxPage}
+          number={maxPage}
+          key={maxPage}
+        />
+      )
+      const dots = <PaginationNumber dots={true} />
+      if (visibleMaximum + 1 < maxPage) {
         returns.push(dots)
-        returns.push(maxPageButton)
-      } else if (dotsOnLeft) {
-        const minPageButton = (
-          <PaginationNumber
-            onClick={() => setSeenPage(minPage)}
-            disabled={seenPage === minPage}
-            number={minPage}
-            key={minPage}
-          />
-        )
-        const dots = <PaginationNumber dots={true} />
-        returns.unshift(dots)
-        returns.unshift(minPageButton)
       }
+      returns.push(maxPageButton)
+    }
+    if (dotsOnLeft) {
+      const minPageButton = (
+        <PaginationNumber
+          onClick={() => setSeenPage(minPage)}
+          disabled={seenPage === minPage}
+          number={minPage}
+          key={minPage}
+        />
+      )
+      const dots = <PaginationNumber dots={true} />
+      if (visibleMinimum - 1 > minPage) {
+        returns.unshift(dots)
+      }
+      returns.unshift(minPageButton)
     }
     return returns
   }
