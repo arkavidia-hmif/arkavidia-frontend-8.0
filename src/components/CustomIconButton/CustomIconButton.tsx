@@ -5,11 +5,11 @@ interface CustomIconButtonProps {
   bgColor?: string;
 }
 
-type Variants = 'Primary' | 'Secondary';
+type Variants = 'primary' | 'secondary';
 
 const variantStyle: { [key in Variants]: string } = {
-  Primary: 'bg-blue300 hover:bg-blue200',
-  Secondary: 'bg-red300 hover:bg-red200',
+  primary: 'bg-blue300 hover:bg-blue200',
+  secondary: 'bg-red300 hover:bg-red200',
 };
 
 const CustomIconButton: React.FC<CustomIconButtonProps> = ({ bgColor }) => {
