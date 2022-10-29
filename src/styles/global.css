@@ -49,4 +49,19 @@
   .prose :where(code):not(:where([class~='not-prose'] *))::after {
     content: '';
   }
+
+  @font-face {
+    font-family: 'Archivo';
+    src: url('../assets/fonts/Archivo-Black.otf');
+  }
+
+  @font-face {
+    font-family: 'Varela-Round';
+    src: url('../assets/fonts/VarelaRound-Regular.otf');
+  }
+
+  @font-face {
+    font-family: 'Helvatica';
+    src: url('../assets/fonts/Helvetica.otf');
+  }
 }

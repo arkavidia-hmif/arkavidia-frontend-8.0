@@ -1,7 +1,7 @@
 import getConfig from 'next/config';
 
 import Layout from '@src/components/Navigation/Layout';
-import Dropdown from '@src/components/Dropdown/dropdown';
+import Dropdown from '@src/components/Dropdown';
 
 const { publicRuntimeConfig } = getConfig();
 const { name } = publicRuntimeConfig.site;
@@ -10,9 +10,6 @@ const Home = () => {
   return (
     <Layout>
       <section className="py-12">
-        <div className="flex justify-center pb-52">
-          <Dropdown />
-        </div>
         <div className="container mx-auto px-4">
           <div className="prose prose-blue mx-auto">
             <h1>{name}</h1>
