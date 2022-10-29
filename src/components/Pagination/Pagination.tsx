@@ -6,12 +6,14 @@ export interface PaginationProps {
   minPage: number
   maxPage: number
   runOnPageChange: (arg: number) => void
+  pageRange?: number
 }
 
 const Pagination = ({
   maxPage,
   minPage,
-  runOnPageChange
+  runOnPageChange,
+  pageRange = 5
 }: PaginationProps): JSX.Element => {
   const [seenPage, setSeenPage] = useState(minPage)
   useEffect(() => {
@@ -38,8 +40,8 @@ const Pagination = ({
       />
       <div className="flex flex-row gap-1 items-center justify-center">
         {Array.from(
-          { length: 5 },
-          (_, i) => Math.floor(seenPage / 5) * 5 + i
+          { length: pageRange },
+          (_, i) => Math.floor(seenPage / pageRange) * pageRange + i
         ).map(pageNumber => {
           return (
             <PaginationNumber
