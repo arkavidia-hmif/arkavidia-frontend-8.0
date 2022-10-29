@@ -57,7 +57,7 @@ const Countdown = ({date, dateString, title} : CountdownProps) => {
                         <span className="font-archivo text-lg p-2">{w2}</span>
                     </div>
                 </div>
-                <span className="label font-helvetica text-sm font-bold text-white ml-0.5 mt-0.5">{str}</span>
+                <span className="label font-helvetica text-[10px] md:text-sm font-bold text-white ml-0.5 mt-0.5">{str}</span>
             </div>
         );
     };
@@ -65,22 +65,24 @@ const Countdown = ({date, dateString, title} : CountdownProps) => {
     return (
         <>
     {habis ? (
-
         <div className="flex items-center justify-center overflow-hidden">
         <div className="flex flex-col items-center space-y-2 bg-orange-400 pt-1 justify-center overflow-hidden">
             {/* Bagian title */}
             <div className="w-40 bg-black rounded-md font-archivo text-white text-center text-sm">{title}</div>
             {/* Bagian tanggal */}
-            <div className="font-varela text-center text-sm">{dateString}</div>
+            <div className="font-varela text-center md:text-sm">{dateString}</div>
             {/* Bagian countdown */}
-            <div className="flex flex-row items-baseline pb-1">
-                {PrintWaktu(0, 0, "DAYS")}
-                <div className="flex font-archivo text-lg p-2">:</div>
-                {PrintWaktu(0, 0, "HOURS")}
-                <div className="font-archivo text-lg p-2">:</div>
-                {PrintWaktu(0, 0, "MINUTES")}
-                <div className="font-archivo text-lg p-2">:</div>
-                {PrintWaktu(0, 0, "SECONDS")}
+            <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-4">
+                <div className="flex flex-row items-baseline pb-1">
+                    {PrintWaktu(0, 0, "DAYS")}
+                    <div className="flex font-archivo text-lg p-2">:</div>
+                    {PrintWaktu(0, 0, "HOURS")}
+                </div>
+                <div className="flex flex-row items-baseline pb-1">
+                    {PrintWaktu(0, 0, "MINUTES")}
+                    <div className="font-archivo text-lg p-2">:</div>
+                    {PrintWaktu(0, 0, "SECONDS")}
+                </div>
             </div>
         </div>
     </div>
@@ -95,14 +97,17 @@ const Countdown = ({date, dateString, title} : CountdownProps) => {
             {/* Bagian tanggal */}
             <div className="font-varela text-center text-sm">{dateString}</div>
             {/* Bagian countdown */}
-            <div className="flex flex-row items-baseline pb-1">
-                {PrintWaktu(d1, d2, "DAYS")}
-                <div className="flex font-archivo text-lg p-2">:</div>
-                {PrintWaktu(h1, h2, "HOURS")}
-                <div className="font-archivo text-lg p-2">:</div>
-                {PrintWaktu(m1, m2, "MINUTES")}
-                <div className="font-archivo text-lg p-2">:</div>
-                {PrintWaktu(s1, s2, "SECONDS")}
+            <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-4">
+                <div className="flex flex-row items-baseline pb-1">
+                    {PrintWaktu(d1, d2, "DAYS")}
+                    <div className="flex font-archivo text-lg p-2">:</div>
+                    {PrintWaktu(h1, h2, "HOURS")}
+                </div>
+                <div className="flex flex-row items-baseline pb-1">
+                    {PrintWaktu(m1, m2, "MINUTES")}
+                    <div className="font-archivo text-lg p-2">:</div>
+                    {PrintWaktu(s1, s2, "SECONDS")}
+                </div>
             </div>
         </div>
     </div>
