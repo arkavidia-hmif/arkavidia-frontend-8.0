@@ -1,19 +1,20 @@
 export interface PaginationNumberProps {
-  onClick: () => void
-  disabled: boolean
+  onClick?: () => void
+  disabled?: boolean
   number?: number
   dots?: boolean
 }
 
 const PaginationNumber = ({
   number,
-  onClick,
+  onClick = () => {},
   disabled = false,
   dots = false
 }: PaginationNumberProps): JSX.Element => {
   return (
     <button
       onClick={onClick}
+      disabled={dots ? true : disabled}
       className={`flex flex-row items-start w-7 h-28 p-1 rounded  ${
         disabled ? 'bg-[#F1F2F4]' : 'bg-white'
       } ${

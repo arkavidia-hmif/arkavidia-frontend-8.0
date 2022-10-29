@@ -31,6 +31,15 @@ const Pagination = ({
       prevSeenPage === minPage ? prevSeenPage : prevSeenPage - 1
     )
   }
+
+  function dotsOnRight(
+    seenPage: number,
+    pageRange: number,
+    maxPage: number
+  ): boolean {
+    return seenPage >= maxPage - pageRange
+  }
+
   return (
     <div className="flex flex-row gap-2 items-center justify-center">
       <PaginationButton
@@ -39,6 +48,15 @@ const Pagination = ({
         isLeft={true}
       />
       <div className="flex flex-row gap-1 items-center justify-center">
+        {dotsOnRight(seenPage, pageRange, maxPage) ? null : (
+          <PaginationNumber
+            onClick={() => runOnPageChange(minPage)}
+            number={minPage}
+          />
+        )}
+        {dotsOnRight(seenPage, pageRange, maxPage) ? null : (
+          <PaginationNumber dots={true} />
+        )}
         {Array.from(
           { length: pageRange },
           (_, i) => Math.floor(seenPage / pageRange) * pageRange + i
@@ -52,6 +70,15 @@ const Pagination = ({
             />
           )
         })}
+        {!dotsOnRight(seenPage, pageRange, maxPage) ? null : (
+          <PaginationNumber dots={true} />
+        )}
+        {!dotsOnRight(seenPage, pageRange, maxPage) ? null : (
+          <PaginationNumber
+            onClick={() => runOnPageChange(maxPage)}
+            number={maxPage}
+          />
+        )}
       </div>
       <PaginationButton
         onClick={incrementSeenPage}
