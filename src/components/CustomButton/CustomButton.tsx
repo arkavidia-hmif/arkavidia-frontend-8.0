@@ -5,6 +5,7 @@ interface CustomButtonProps {
   bgColor?: string;
   icon?: boolean;
   size?: string;
+  onClick?: () => void;
 }
 
 type colors = 'primary' | 'secondary' | 'ghost';
@@ -42,10 +43,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   icon,
   size,
   children,
+  onClick,
 }) => {
   return (
     <div>
       <button
+        onClick={onClick}
         className={clsx(
           'rounded-xl flex items-center justify-center mb-2',
           variantColor[bgColor],

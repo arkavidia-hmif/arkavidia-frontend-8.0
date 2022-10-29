@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 interface CustomIconButtonProps {
   bgColor?: string;
+  onClick?: () => void;
 }
 
 type Variants = 'primary' | 'secondary';
@@ -12,10 +13,14 @@ const variantStyle: { [key in Variants]: string } = {
   secondary: 'bg-red300 hover:bg-red200',
 };
 
-const CustomIconButton: React.FC<CustomIconButtonProps> = ({ bgColor }) => {
+const CustomIconButton: React.FC<CustomIconButtonProps> = ({
+  bgColor,
+  onClick,
+}) => {
   return (
     <div>
       <button
+        onClick={onClick}
         className={clsx(
           'rounded-full p-3 w-12 h-12 flex items-center justify-center',
           variantStyle[bgColor],
