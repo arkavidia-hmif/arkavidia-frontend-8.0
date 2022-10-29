@@ -33,17 +33,24 @@ const Pagination = ({
   }
 
   function numberButtons(): JSX.Element[] {
-    const visibleMinimum =
-      seenPage + pageRange > maxPage ? maxPage - pageRange + 1 : seenPage
-    const visibleMaximum =
-      visibleMinimum + pageRange - 1 > maxPage
-        ? maxPage
-        : visibleMinimum + pageRange - 1
+    const underCapacity = maxPage - minPage < pageRange
+    const visibleMinimum = underCapacity
+      ? minPage
+      : seenPage + pageRange > maxPage
+      ? maxPage - pageRange + 1
+      : seenPage
+    const visibleMaximum = underCapacity
+      ? maxPage
+      : visibleMinimum + pageRange - 1 > maxPage
+      ? maxPage
+      : visibleMinimum + pageRange - 1
     const dotsOnLeft = visibleMinimum > minPage
     const dotsOnRight = visibleMaximum < maxPage
     const returns = Array.from(
       {
-        length: visibleMaximum - visibleMinimum + 1
+        length: underCapacity
+          ? maxPage - minPage + 1
+          : visibleMaximum - visibleMinimum + 1
       },
       (_, i) => visibleMinimum + i
     ).map(pageNumber => {
