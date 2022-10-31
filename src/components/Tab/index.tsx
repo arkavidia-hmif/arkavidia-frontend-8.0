@@ -1,6 +1,7 @@
 import React from 'react'
 
 // HOW TO USE //
+// <Tab>Your Text/Component Here</Tab>
 
 const Tab = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
