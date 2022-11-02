@@ -24,7 +24,8 @@ yarn dev
 ## Branching and Commit Messages
 
 Setiap membuat branch baru harus ambil base dari `main`. Untuk penamaan commit dan branch mengikuti format berikut.
-Format: `<type>/<title>`
+Format branch: `<type>/<title>`
+Format commit: `<type>: <subject>`
 Penamaan menggunakan kebab case
 
 Untuk type mengikuti semantic berikut.
@@ -42,7 +43,7 @@ Untuk melakukan pull request perlu mengikuti flow berikut.
 1. Saat selesai mengerjakan task, perlu melakukan PR ke development dengan membuat PR dari branch pengerjaan ke `dev`
 2. Setelah dilakukan testing di `dev` dan dapat approval, bisa melakukan PR ke `main` dan memberitahukan lead/kadiv/wakadiv.
 3. Merge untuk branch `main` dilakukan oleh lead/kadiv/wakadiv.
-4. Penamaan PR mengikuti format branch dan commit messages.
+4. Penamaan PR mengikuti format penamaan branch.
 5. Pada deskripsi PR mohon menyertakan format berikut.
   - What PR About?
   - What trello link this PR refers to?
