@@ -1,3 +1,6 @@
+// Create new plugin to add individual color to individual border
+let flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -35,12 +38,12 @@ module.exports = {
         pink400: '#C86564'
       },
       fontFamily: {
-        archivo: ['Archivo', 'sans-serif'],
-        varela: ['Varela-Round', 'sans-serif'],
-        helvatica: ['Helvatica', 'sans-serif']
-      }
-    }
+        archivo: ["Archivo", "sans-serif"],
+        varela: ["Varela-Round", "sans-serif"],
+        helvatica: ["Helvatica", "sans-serif"],
+      },
+    },
   },
   variants: {},
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
-}
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+};
