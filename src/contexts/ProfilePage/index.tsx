@@ -1,15 +1,12 @@
 import Layout from '@src/components/Navigation/Layout';
-import Navbar from '@src/components/Navigation/Navbar';
 import EditIcon from '@src/components/Icon/EditIcon';
 import { TextField } from '@src/components/TextField';
 import OutputIcon from '@src/components/Icon/OutputIcon';
-import Footer from '@src/components/Footer/footer';
 
 const ProfilePage = () => {
     return(
         <Layout>
             <div className='p-12 bg-gray200'>
-                <Navbar isLoggedIn={true} loggedInAs="user" type="desktop"></Navbar>
                 <div className="flex pt-8">
                     <div className="bg-gray-200 w-1/4 flex justify-center items-center">
                         Placeholder Gambar
@@ -49,7 +46,6 @@ const ProfilePage = () => {
                     </button>
                 </div>
             </div>
-            <Footer variant='redCompEvent'/>
         </Layout>
     )
 }
