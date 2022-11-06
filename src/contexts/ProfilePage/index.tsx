@@ -2,14 +2,16 @@ import Layout from '@src/components/Navigation/Layout';
 import EditIcon from '@src/components/Icon/EditIcon';
 import { TextField } from '@src/components/TextField';
 import OutputIcon from '@src/components/Icon/OutputIcon';
+import Image from "next/image";
+import ProfileImage from '@src/assets/images/profile_page.png'
 
 const ProfilePage = () => {
     return(
         <Layout>
             <div className='p-12 bg-gray200'>
                 <div className="flex pt-8">
-                    <div className="bg-gray-200 w-1/4 flex justify-center items-center">
-                        Placeholder Gambar
+                    <div className="w-1/4 flex justify-center items-center pt-16">
+                        <Image src={ProfileImage}/>
                     </div>
                     <div className="w-3/4 pl-16">
                         <div className="flex justify-between pb-8">
