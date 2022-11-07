@@ -1,23 +1,33 @@
 import React from 'react'
 
-export interface IRadioButton {
+export type IRadioButton<T> = {
   value: string
   groupName: string
   setExternalState: (arg0: any) => void
+  defaultState: T
+  externalState: T
+  disabled?: boolean
 }
 
-export default function RadioButton({
+export default function RadioButton<T>({
   groupName,
   value,
-  setExternalState
-}: IRadioButton) {
+  setExternalState,
+  disabled = false,
+  externalState,
+  defaultState
+}: IRadioButton<T>) {
   return (
     <div className="flex justify-center items-center gap-2">
       <input
         type="radio"
         value={value}
         id={`${value}${groupName}`}
-        onChange={() => setExternalState(value)}
+        onChange={() => {
+          setExternalState(externalState === value ? defaultState : value)
+        }}
+        checked={externalState === value}
+        disabled={disabled}
       />
       <label
         className="text-base font-medium"
