@@ -9,6 +9,8 @@ function DataDiri(): JSX.Element {
   const [dataAnggota1, setDataAnggota1] = useDataDiri({})
   const [dataAnggota2, setDataAnggota2] = useDataDiri({})
 
+  function handleSubmit() {}
+
   return (
     <Dashboard>
       <h3 className="font-archivo text-5xl text-shadow text-white">
@@ -30,7 +32,7 @@ function DataDiri(): JSX.Element {
         dataState={dataAnggota2}
       />
       <div className="w-full flex items-center justify-center">
-        <CustomButton bgColor="primary" size="normal">
+        <CustomButton bgColor="primary" size="normal" onClick={handleSubmit}>
           Submit
         </CustomButton>
       </div>
