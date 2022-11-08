@@ -12,9 +12,9 @@ const Submission = () => {
   return (
     <>
       <Dashboard>
-        <h1 className="font-archivo text-5xl text-shadow text-white">
+        <h3 className="font-archivo text-5xl text-shadow text-white">
           Submission
-        </h1>
+        </h3>
         <Dropdown header={'1st Stage'} />
         <Dropdown header={'2nd Stage'} />
         <Dropdown header={'3rd Stage'} />
