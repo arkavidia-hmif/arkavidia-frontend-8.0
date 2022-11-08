@@ -2,6 +2,7 @@ import getConfig from 'next/config';
 
 import Layout from '@src/components/Navigation/Layout';
 import Navbar from '@src/components/Navigation/Navbar';
+import Submission from '@src/contexts/Submission/Submission';
 
 const { publicRuntimeConfig } = getConfig();
 const { name } = publicRuntimeConfig.site;
