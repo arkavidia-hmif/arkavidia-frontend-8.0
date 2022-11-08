@@ -25,9 +25,9 @@ const MENU_LIST = [
 
 function MobileHoverDropdown({contents, dropdownIdx, idx} : {contents: Array<{text: string, href: string}>, dropdownIdx: number, idx: number}) {
   return (
-    <div className={`${dropdownIdx == idx ? "" : "hidden"} flex flex-col items-left`}>
+    <div className={`${dropdownIdx == idx ? "" : "hidden"} flex flex-col text-left`}>
       {contents.map((content, idx) => (
-        <a key={idx} className="pl-12 py-2 hover:bg-blue-900 text-blue-900 opacity-90 hover:text-white font-bold" href={content.href}>{content.text}</a>
+        <a key={idx} className="py-2 text-blue-900 opacity-90 hover:opacity-70 font-bold" href={content.href}>{content.text}</a>
       ))}
     </div>
   )
@@ -48,30 +48,27 @@ function MobileNav({isLogged, isAdmin, open, dropdownIdx, setDropdownIdx} : {isL
   const [hoverIdx, setHoverIdx] = useState(-1)
 
   return (
-    <div className={`fixed overflow-y-auto top-0 left-0 z-10 h-screen w-screen lg:hidden bg-white transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
-      <div className="flex items-center justify-center filter drop-shadow-md bg-white h-28"> {/*logo container*/}
-        <a href="/"><img src="/images/logo_arkav.png" width="35rem" alt="Logo Arkavidia"></img></a>
-      </div>
-      <div className="flex flex-col mt-4">
+    <div className={`fixed overflow-y-auto top-0 left-0 z-10 h-screen w-screen lg:hidden bg-white transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
+      <div className="flex flex-col h-screen justify-center items-center">
         {MENU_LIST.map((menu, idx) => {
           if ((!isLogged && [0, 1, 2, 5].includes(idx)) ||
               (isLogged && isAdmin && [0, 1, 2, 3, 4, 6].includes(idx)) ||
               (isLogged && !isAdmin && [0, 1, 2, 4, 7].includes(idx))) {
             return (
-              <div key={idx} className="relative transform transition" onClick={() => {
+              <div key={idx} className="w-40 mx-auto" onClick={() => {
                   setDropdownIdx(dropdownIdx == idx ? -1 : idx)
                 }} onMouseEnter={() => {
                   setHoverIdx(idx)
                 }} onMouseLeave={() => {
                   setHoverIdx(-1)
               }}>
-              <a className={`cursor-pointer inline-block inline-flex items-center w-screen pl-8 py-4 text-blue-900 hover:bg-blue-900 hover:text-white font-bold`} href={menu.contents ? undefined : menu.href}>
-                  <div className={`${(router.pathname == menu.href && idx == 0) || (router.pathname.includes(menu.href) && idx != 0) ? [5, 6, 7].includes(idx) ? `${hoverIdx == idx ? "bg-white text-blue-900" : "bg-blue-900 text-white"} rounded-xl px-8` : `${hoverIdx == idx ? "hover:border-white" : "border-blue-900"} border-b-2` : [5, 6, 7].includes(idx) ? `border-2 px-8 ${hoverIdx == idx ? "hover:border-white" : "border-blue-900"} rounded-xl` : ""} inline-flex items-center ${[5, 6, 7].includes(idx) ? "py-2" : "py-1"}`}>
+              <a className={`cursor-pointer hover:opacity-80 inline-block py-2 text-blue-900 font-bold ${[5, 6, 7].includes(idx) ? "mt-4" : ""}`} href={menu.contents ? undefined : menu.href}>
+                  <div className={`${[5, 6, 7].includes(idx) ? router.pathname.includes(menu.href) ? "bg-blue-900 rounded-xl text-white px-4" : "border-2 px-4 border-blue-900 rounded-xl" : ""} py-2 inline-flex items-center`}>
                     {/* Replace ProfileIcon with AdminIcon later */}
-                    {isAdmin && idx == 6 ? <ProfileIcon height={25} width={25} fill={hoverIdx == idx && router.pathname == menu.href ? "" : hoverIdx !== idx ? "" : "white"} className={"mr-2"}></ProfileIcon> : ""}
-                    {!isAdmin && idx == 7 ? <ProfileIcon height={25} width={25} fill={hoverIdx == idx && router.pathname == menu.href ? "" : hoverIdx !== idx ? "" : "white"} className={"mr-2"}></ProfileIcon> : ""}
+                    {isAdmin && idx == 6 ? <ProfileIcon height={25} width={25} fill={router.pathname.includes(menu.href) ? "white" : ""} className={"mr-2"}></ProfileIcon> : ""}
+                    {!isAdmin && idx == 7 ? <ProfileIcon height={25} width={25} fill={router.pathname.includes(menu.href) ? "white" : ""} className={"mr-2"}></ProfileIcon> : ""}
                     {menu.text}
-                    {menu.contents ? <ArrowDownIcon fill={hoverIdx == idx && router.pathname == menu.href ? "" : hoverIdx !== idx ? "" : "white"}></ArrowDownIcon> : ""}
+                    {menu.contents ? <ArrowDownIcon className='ml-1'></ArrowDownIcon> : ""}
                   </div>
                 </a>
                 {menu.contents ? <MobileHoverDropdown contents={menu.contents} dropdownIdx={dropdownIdx} idx={idx}></MobileHoverDropdown> : ""}
@@ -79,7 +76,7 @@ function MobileNav({isLogged, isAdmin, open, dropdownIdx, setDropdownIdx} : {isL
             )
           }
         })}
-      </div>  
+      </div>
     </div>
   )
 }
@@ -96,12 +93,12 @@ export default function Navbar({isLogged, isAdmin} : {isLogged: boolean, isAdmin
         <a href="/"><img src="/images/logo_arkav.png" className={"w-8 lg:w-12"} alt="Logo Arkavidia"></img></a>
       </div>
       <div className="w-9/12 flex justify-end items-center">
-          <div className={`${open ? "fixed" : ""} right-12 top-11 z-50 flex flex-col w-10 h-6 justify-between items-center lg:hidden`} onClick={() => {
+          <div className={`${open ? "fixed right-6" : ""} right-12 top-11 z-50 flex flex-col w-10 h-6 justify-between items-center lg:hidden`} onClick={() => {
             setOpen(!open)
           }}>
-            <span className={`h-1 w-6 bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} />
+            <span className={`h-1 w-6 bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? "w-7 bg-blue-900 rotate-45 translate-y-2.5" : ""}`} />
             <span className={`h-1 w-6 bg-black rounded-lg transition-all duration-300 ease-in-out ${open ? "h-0" : "w-6"}`} />
-            <span className={`h-1 w-6 bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`} />
+            <span className={`h-1 w-6 bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? "w-7 bg-blue-900 -rotate-45 -translate-y-2.5" : ""}`} />
           </div>
           <div className="hidden lg:flex">
             {MENU_LIST.map((menu, idx) => {
