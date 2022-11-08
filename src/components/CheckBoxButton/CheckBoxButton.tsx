@@ -1,4 +1,6 @@
 import React from 'react'
+import * as Checkbox from '@radix-ui/react-checkbox'
+import { CheckIcon } from '@radix-ui/react-icons'
 
 export interface ICheckBoxButton {
   value: string
@@ -18,17 +20,21 @@ export default function CheckBoxButton({
 }: ICheckBoxButton): JSX.Element {
   return (
     <div className="flex justify-start items-center gap-2">
-      <input
-        type="checkbox"
+      <Checkbox.Root
         value={value}
-        id={`${value}${groupName}`}
-        onChange={() => toggleFunction(value)}
+        name={value}
+        onCheckedChange={toggleFunction}
         checked={checked}
         disabled={disabled}
-      />
+        className="w-4 h-4 bg-yellow300 rounded flex justify-center items-center"
+        id={`${groupName} ${value}`}>
+        <Checkbox.Indicator>
+          <CheckIcon />
+        </Checkbox.Indicator>
+      </Checkbox.Root>
       <label
-        className="text-base font-medium"
-        htmlFor={`${value} ${groupName}`}>
+        className="text-base font-normal"
+        htmlFor={`${groupName} ${value}`}>
         {value}
       </label>
     </div>
