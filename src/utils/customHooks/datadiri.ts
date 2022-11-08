@@ -44,9 +44,9 @@ function useDataDiri ({
 
     function removeOrAddMinat (m : string) {
         if (minat.includes(m)) {
-            appendMinat(m)
-        } else {
             removeMinat(m)
+        } else {
+            appendMinat(m)
         }
     }
 
