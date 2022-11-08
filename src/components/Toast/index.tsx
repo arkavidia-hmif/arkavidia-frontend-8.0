@@ -9,7 +9,7 @@ interface ToastProperties {
     type: string;
     label: string;
     position: string;
-    timer: number;
+    timer?: number;
 }
 
 const Types: Record<string, { primaryIcon: JSX.Element, clearIcon: JSX.Element, className: string }> = {
@@ -55,7 +55,9 @@ const Toast: React.FC<ToastProperties> = (props) => {
     const {timer, label, type, position} = props
 
     useEffect(() => {
-        setTimeout(closeToast, timer)
+        if(timer){
+            setTimeout(closeToast, timer)
+        }
     }, [showToast])
 
     const closeToast = () => {
@@ -65,7 +67,7 @@ const Toast: React.FC<ToastProperties> = (props) => {
     return (
         <>
             {showToast && 
-                <div className={clsx('flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-sm bg-gray-200 border border-solid rounded-lg fixed', 
+                <div className={clsx('flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-sm bg-gray200 border border-solid rounded-lg fixed', 
                                     Types[type].className, 
                                     Positions[position].className
                                 )}>

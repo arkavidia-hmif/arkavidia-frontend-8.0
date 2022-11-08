@@ -10,6 +10,7 @@ interface ITextField {
   ftype?: 'show' | 'search' | 'default'
   description?: string
   variant?: 'default' | 'error' | 'success' | 'disabled'
+  width?: string
 }
 
 type variants = 'default' | 'error' | 'success' | 'disabled'
@@ -25,13 +26,14 @@ const variantStyles: { [key in variants]: string } = {
 const TextField: React.FC<ITextField> = ({
   description,
   ftype = 'default',
-  variant = 'default'
+  variant = 'default',
+  width,
 }): JSX.Element => {
   const [visible, setVisible] = useState(false)
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="relative flex items-center h-10 w-[260px]">
+      <div className={`relative flex items-center h-10 ${width ? width : "w-[260px]"}`}>
         <input
           type={visible ? 'text' : 'password'}
           id="text"
