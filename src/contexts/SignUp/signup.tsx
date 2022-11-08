@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from 'react'
+import React, { FC, useState } from 'react'
 import { TextField } from '@src/components/TextField/index'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import kolaborasi from '@src/assets/images/carousel-image/kolaborasi.svg'
