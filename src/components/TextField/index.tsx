@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 // Import Icons
 import EyeHideIcon from '../Icon/EyeHideIcon'
@@ -11,6 +11,9 @@ interface ITextField {
   description?: string
   variant?: 'default' | 'error' | 'success' | 'disabled'
   width?: string
+  placeholder?: string
+  externalState: string
+  setExternalState: Dispatch<SetStateAction<string>>
 }
 
 type variants = 'default' | 'error' | 'success' | 'disabled'
@@ -27,7 +30,10 @@ const TextField: React.FC<ITextField> = ({
   description,
   ftype = 'default',
   variant = 'default',
-  width
+  width,
+  placeholder = 'Text',
+  externalState,
+  setExternalState
 }): JSX.Element => {
   const [visible, setVisible] = useState(false)
 
@@ -38,10 +44,12 @@ const TextField: React.FC<ITextField> = ({
           width ? width : 'w-[260px]'
         }`}>
         <input
-          type={visible ? 'text' : 'password'}
+          type={ftype === 'show' ? (visible ? 'text' : 'password') : 'text'}
           id="text"
+          value={externalState}
+          onChange={e => setExternalState(e.target.value)}
           disabled={variant === 'disabled'}
-          placeholder="Text"
+          placeholder={placeholder}
           className={`form-input
           w-full text-xs overflow-hidden ${
             ftype === 'show' ? 'pr-8' : ftype === 'search' ? 'pl-10' : ''
