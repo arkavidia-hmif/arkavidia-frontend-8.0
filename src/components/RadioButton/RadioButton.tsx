@@ -16,7 +16,7 @@ export default function RadioButton<T>({
   disabled = false,
   externalState,
   defaultState
-}: IRadioButton<T>) {
+}: IRadioButton<T>): JSX.Element {
   return (
     <div className="flex justify-center items-center gap-2">
       <input

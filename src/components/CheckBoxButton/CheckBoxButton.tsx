@@ -15,7 +15,7 @@ export default function CheckBoxButton({
   toggleFunction,
   checked,
   disabled = false
-}: ICheckBoxButton) {
+}: ICheckBoxButton): JSX.Element {
   return (
     <div className="flex justify-center items-center gap-2">
       <input
