@@ -1,4 +1,5 @@
 import FAQ from '@src/contexts/CompetitionDetail/FAQ'
+import Timeline from '@src/contexts/CompetitionDetail/Timeline'
 
 export default function TestPage() {
   const faqs: { title: string; content: string }[] = [
@@ -38,6 +39,7 @@ export default function TestPage() {
 
   return (
     <div>
+      <Timeline date={new Date(2022, 10, 10)} />
       <FAQ faqs={faqs} />
     </div>
   )
