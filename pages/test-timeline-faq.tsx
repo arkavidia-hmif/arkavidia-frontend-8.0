@@ -37,9 +37,42 @@ export default function TestPage() {
     }
   ]
 
+  const dates = [
+    {
+      title: 'Registration',
+      startDate: new Date(2022, 10, 9),
+      endDate: new Date(2022, 10, 15)
+    },
+    {
+      title: 'Preliminary stage',
+      startDate: new Date(2022, 10, 17),
+      endDate: new Date(2022, 10, 19)
+    },
+    {
+      title: 'Final stage',
+      startDate: new Date(2022, 10, 20),
+      endDate: new Date(2022, 10, 22)
+    },
+    {
+      title: 'Registration',
+      startDate: new Date(2022, 10, 24),
+      endDate: new Date(2022, 10, 26)
+    },
+    {
+      title: 'Preliminary stage',
+      startDate: new Date(2022, 10, 26),
+      endDate: new Date(2022, 10, 27)
+    },
+    {
+      title: 'Final stage',
+      startDate: new Date(2022, 11, 1),
+      endDate: new Date(2022, 11, 15)
+    }
+  ]
+
   return (
     <div>
-      <Timeline date={new Date(2022, 10, 10)} />
+      <Timeline dates={dates} />
       <FAQ faqs={faqs} />
     </div>
   )
