@@ -2,6 +2,7 @@
   "name": "arkavidia-8.0",
   "description": "Frontend Arkavidia 8.0",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
