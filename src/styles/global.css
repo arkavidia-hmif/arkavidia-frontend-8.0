@@ -64,4 +64,20 @@
     font-family: 'Helvatica';
     src: url('../assets/fonts/Helvetica.otf');
   }
+  .folded {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-top: 17px solid white;
+    border-right: 25px solid #FFEADF;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.25);
+  }
+  .text-shadow {
+    text-shadow:
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    8px 7px 0px black;
+  }
 }
