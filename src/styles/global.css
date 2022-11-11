@@ -80,4 +80,15 @@
     3px 3px 0 #000,
     8px 7px 0px black;
   }
+  .text-shadow {
+    text-shadow:
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    8px 7px 0px black;
+  }
+  .text-stroke-black {
+    -webkit-text-stroke:1px black;
+  }
 }

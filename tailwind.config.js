@@ -85,6 +85,7 @@ module.exports = {
       const utilities = Object.assign({}, ...colorMap)
 
       addUtilities(utilities, variants('borderColor'))
-    }
+    },
+    require('tailwindcss-text-fill-stroke'),
   ]
 }
