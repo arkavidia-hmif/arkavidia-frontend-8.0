@@ -9,7 +9,7 @@ const { name } = publicRuntimeConfig.site
 const Home = () => {
   return (
     <Layout>
-      {/* <Navbar isLoggedIn={false} loggedInAs="" type="desktop"></Navbar> */}
+      <Navbar isLogged={false} isAdmin={false}></Navbar>
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="prose prose-blue mx-auto">
