@@ -4,7 +4,7 @@ import clsx from 'clsx'
 // HOW TO USE //
 // <CustomChip variant='greenContained' shadow={true}>Your Text/Component Here</CustomChip>
 
-type Variants = 'redOutlined' | 'redContained' | 'blueOutlined' | 'blueContained' | 'greenContained' | 'greenOutlined' | 'yellowContained' | 'yellowOutlined'
+type Variants = 'redOutlined' | 'redContained' | 'blueOutlined' | 'blueContained' | 'greenContained' | 'greenOutlined' | 'yellowContained' | 'yellowOutlined' | 'redVerifikasi' | 'greenVerifikasi' | 'orangeVerifikasi'
 
 type ChipProps = {
   variant: Variants
@@ -20,6 +20,9 @@ const variantStyle: { [key in Variants]: string } = {
   greenOutlined : 'border-2 border-green400 text-green400',
   yellowContained : 'bg-yellow400 text-white border-2 border-transparent',
   yellowOutlined : 'border-2 border-yellow400 text-yellow400',
+  redVerifikasi : 'bg-pink200 text-red300 border-2 border-red300',
+  greenVerifikasi : 'bg-green200 text-green300 border-2 border-green300',
+  orangeVerifikasi : 'bg-cream200 text-yellow400 border-2 border-yellow400',
 }
 
 const CustomChip: FC<ChipProps> = (props) => {
