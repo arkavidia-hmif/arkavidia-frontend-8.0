@@ -1,7 +1,7 @@
 import FAQ from '@src/contexts/CompetitionDetail/FAQ'
 import Timeline from '@src/contexts/CompetitionDetail/Timeline'
 
-export default function TestPage() {
+export default function TestPage(): JSX.Element {
   const faqs: { title: string; content: string }[] = [
     {
       title: 'Bagaimana pengumpulannya?',

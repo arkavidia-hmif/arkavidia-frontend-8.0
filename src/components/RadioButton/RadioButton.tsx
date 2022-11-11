@@ -1,11 +1,11 @@
 import React from 'react'
 
-export type IRadioButton<T> = {
+export type IRadioButton = {
   value: string
   groupName: string
   setExternalState: (arg0: any) => void
-  defaultState: T
-  externalState: T
+  defaultState: string
+  externalState: string
   disabled?: boolean
 }
 
@@ -16,7 +16,7 @@ export default function RadioButton<T>({
   disabled = false,
   externalState,
   defaultState
-}: IRadioButton<T>): JSX.Element {
+}: IRadioButton): JSX.Element {
   return (
     <div className="flex justify-center items-center gap-2">
       <input
@@ -31,7 +31,8 @@ export default function RadioButton<T>({
       />
       <label
         className="text-base font-medium"
-        htmlFor={`${value} ${groupName}`}>
+        htmlFor={`${value} ${groupName}`}
+      >
         {value}
       </label>
     </div>

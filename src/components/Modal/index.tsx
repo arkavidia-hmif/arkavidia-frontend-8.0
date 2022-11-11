@@ -188,7 +188,8 @@ export default function Modal({
           className={clsx(
             'relative flex flex-col items-center bg-gray200',
             variantStyle[variant].mainContainer
-          )}>
+          )}
+        >
           <button onClick={handleClose}>
             <ModalCloseIcon
               size={9.75}
@@ -204,14 +205,16 @@ export default function Modal({
               'font-varela text-[#1A4152] text-2xl text-center capitalize',
               variantStyle[variant].header,
               headerStyle
-            )}>
+            )}
+          >
             {header}
           </h6>
           <p
             className={clsx(
               'text-base text-center font-helvatica text-[rgba(26,65,82,0.54)] leading-5',
               variantStyle[variant].desc
-            )}>
+            )}
+          >
             {description}
           </p>
           {primaryBtnEl}

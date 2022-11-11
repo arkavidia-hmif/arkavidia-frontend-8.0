@@ -42,7 +42,8 @@ const TextField: React.FC<ITextField> = ({
       <div
         className={`relative flex items-center h-10 ${
           width ? width : 'w-[260px]'
-        }`}>
+        }`}
+      >
         <input
           type={ftype === 'show' ? (visible ? 'text' : 'password') : 'text'}
           id="text"

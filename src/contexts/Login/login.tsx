@@ -47,12 +47,16 @@ const Login: React.FC<ILoginContext> = () => {
             <label className="font-helvatica font-bold text-base">
               Username
             </label>
-            <TextField />
+            <TextField externalState="" setExternalState={() => null} />
             <div />
             <label className="font-helvatica font-bold text-base">
               Password
             </label>
-            <TextField ftype="show" />
+            <TextField
+              ftype="show"
+              externalState=""
+              setExternalState={() => null}
+            />
             <p className="font-helvatica font-bold text-red300 text-[14px]">
               Lupa password?
             </p>

@@ -21,7 +21,8 @@ const PaginationNumber = ({
         active ? 'bg-blue300 text-white' : ''
       } ${
         disabled ? 'bg-[#F1F2F4] text-gray-300' : 'bg-white text-black'
-      } hover:bg-blue200 hover:text-black `}>
+      } hover:bg-blue200 hover:text-black `}
+    >
       {dots ? '...' : number ?? 0}
     </button>
   )

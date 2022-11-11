@@ -27,14 +27,16 @@ export default function CheckBoxButton({
         checked={checked}
         disabled={disabled}
         className="w-4 h-4 bg-yellow300 rounded flex justify-center items-center"
-        id={`${groupName} ${value}`}>
+        id={`${groupName} ${value}`}
+      >
         <Checkbox.Indicator>
           <CheckIcon />
         </Checkbox.Indicator>
       </Checkbox.Root>
       <label
         className="text-base font-normal"
-        htmlFor={`${groupName} ${value}`}>
+        htmlFor={`${groupName} ${value}`}
+      >
         {value}
       </label>
     </div>
