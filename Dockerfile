@@ -23,3 +23,8 @@ EXPOSE 3000
 RUN npx browserslist@latest --update-db
 
 RUN yarn build
+CMD [ "yarn", "start" ]
+
+# Docker Command:
+# docker pull [nama image]
+# docker run -d -p [port host]:[port container] [nama image]
