@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 // Import Icons
 import EyeHideIcon from '../Icon/EyeHideIcon'
@@ -10,6 +10,10 @@ interface ITextField {
   ftype?: 'show' | 'search' | 'default'
   description?: string
   variant?: 'default' | 'error' | 'success' | 'disabled'
+  width?: string
+  placeholder?: string
+  externalState: string
+  setExternalState: Dispatch<SetStateAction<string>>
 }
 
 type variants = 'default' | 'error' | 'success' | 'disabled'
@@ -25,18 +29,27 @@ const variantStyles: { [key in variants]: string } = {
 const TextField: React.FC<ITextField> = ({
   description,
   ftype = 'default',
-  variant = 'default'
+  variant = 'default',
+  width,
+  placeholder = 'Text',
+  externalState,
+  setExternalState
 }): JSX.Element => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <div className="flex flex-col gap-1">
-      <div className="relative flex items-center h-10 w-[260px]">
+    <div className={`flex flex-col gap-1 ${width ? width : 'w-full'}`}>
+      <div
+        className={`relative flex items-center h-10 ${
+          width ? width : 'w-[260px]'
+        }`}>
         <input
-          type={visible ? 'text' : 'password'}
+          type={ftype === 'show' ? (visible ? 'text' : 'password') : 'text'}
           id="text"
+          value={externalState}
+          onChange={e => setExternalState(e.target.value)}
           disabled={variant === 'disabled'}
-          placeholder="Text"
+          placeholder={placeholder}
           className={`form-input
           w-full text-xs overflow-hidden ${
             ftype === 'show' ? 'pr-8' : ftype === 'search' ? 'pl-10' : ''
@@ -45,21 +58,19 @@ const TextField: React.FC<ITextField> = ({
          transition-colors rounded-md`}
         />
         {ftype?.toLowerCase() === 'show' &&
-          (visible
-            ? (
+          (visible ? (
             <EyeHideIcon
               onClick={() => setVisible(false)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"
             />
-              )
-            : (
+          ) : (
             <EyeShowIcon
               onClick={() => setVisible(true)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"
             />
-              ))}
+          ))}
 
         {ftype?.toLowerCase() === 'search' && (
           <SearchIcon size={16} className="absolute left-0 ml-4 h-full " />
