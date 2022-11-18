@@ -41,7 +41,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME_HOST }}
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        passphrase: ""
         script: |
             # Stop running container
             docker stop $(echo $IMAGE_NAME)
