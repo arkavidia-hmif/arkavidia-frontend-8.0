@@ -2,7 +2,7 @@ import HomeIcon from '../Icon/HomeIcon';
 import clsx from 'clsx';
 
 interface CustomIconButtonProps {
-  bgColor?: string;
+  bgColor?: Variants;
   onClick?: () => void;
 }
 
@@ -16,14 +16,14 @@ const variantStyle: { [key in Variants]: string } = {
 const CustomIconButton: React.FC<CustomIconButtonProps> = ({
   bgColor,
   onClick,
-}) => {
+} ) => {
   return (
     <div>
       <button
         onClick={onClick}
         className={clsx(
           'rounded-full p-3 w-12 h-12 flex items-center justify-center',
-          variantStyle[bgColor],
+          variantStyle[bgColor as Variants],
         )}>
         <div>
           <HomeIcon className="fill-white w-6 h-6" />

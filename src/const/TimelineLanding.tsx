@@ -32,6 +32,30 @@ export const timeline = [
         dateStart: date2_start,
         dateEnd: date2_end,
         title: "Arkavidia Academya",
-        dateString: "19 Oktober 2022 - 1 Desember 2022"
-    }
+        dateString: "Coming Soon!"
+    },
+    {
+      dateStart: date2_start,
+      dateEnd: date2_end,
+      title: "Arkavidia For Indonesia",
+      dateString: "Coming Soon!"
+    },
+    {
+      dateStart: date2_start,
+      dateEnd: date2_end,
+      title: "Arkavidia Goes To School",
+      dateString: "Coming Soon!"
+    },
+    {
+      dateStart: date2_start,
+      dateEnd: date2_end,
+      title: "Arkavidia Talks",
+      dateString: "Coming Soon!"
+    },
+    {
+      dateStart: date2_start,
+      dateEnd: date2_end,
+      title: "IT Fest",
+      dateString: "Coming Soon!"
+    },
 ];

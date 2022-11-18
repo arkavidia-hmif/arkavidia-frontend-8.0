@@ -11,7 +11,7 @@ const FAQItem = ({ question, answer }: faqsProps) => {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <div className="bg-white py-1">
+        <div className="py-1">
             <div className={`
                 border
                 border-black
@@ -35,21 +35,9 @@ const FAQItem = ({ question, answer }: faqsProps) => {
                         color="#f9f9f9"
                     />}
                 </div>
-                {/* <div>{isActive ? 
-                    <ArrowTopIcon 
-                        size={24}
-                        className="absolute bottom-1/4 right-0 mr-4 cursor-pointer"
-                        color="#f9f9f9"
-                    /> 
-                    : <ArrowDownIcon 
-                        size={24}
-                        className="absolute bottom-1/4 right-0 mr-4 cursor-pointer"
-                        color="#f9f9f9"
-                    />}
-                </div> */}
             </div>
             {isActive && 
-                <div className="py-3 px-5 border-x-2 border-b-2 border-black rounded-b-lg">
+                <div className="bg-white py-3 px-5 border-x-2 border-b-2 border-black rounded-b-lg">
                     {answer}
                 </div>
             }

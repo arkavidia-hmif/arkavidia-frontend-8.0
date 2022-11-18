@@ -14,4 +14,29 @@ export const faqs = [
     answer:
       "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
   },
+  {
+    question: "Kapan Arkavidia Dimulai?",
+    answer:
+      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+  },
+  {
+    question: "Kapan Arkavidia Dimulai?",
+    answer:
+      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+  },
+  {
+    question: "Kapan Arkavidia Dimulai?",
+    answer:
+      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+  },
+  {
+    question: "Kapan Arkavidia Dimulai?",
+    answer:
+      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+  },
+  {
+    question: "Kapan Arkavidia Dimulai?",
+    answer:
+      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+  },
 ];

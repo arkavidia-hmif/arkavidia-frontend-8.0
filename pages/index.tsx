@@ -2,6 +2,7 @@ import getConfig from 'next/config';
 
 import Layout from '@src/components/Navigation/Layout';
 import Navbar from '@src/components/Navigation/Navbar';
+import Landing from '@src/contexts/Landing';
 
 const { publicRuntimeConfig } = getConfig();
 const { name } = publicRuntimeConfig.site;
@@ -10,6 +11,7 @@ const Home = () => {
   return (
     <Layout>
       <Navbar isLoggedIn={false} loggedInAs="" type="desktop"></Navbar>
+      <Landing />
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="prose prose-blue mx-auto">
