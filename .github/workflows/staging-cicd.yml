@@ -41,6 +41,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME_HOST }}
         key: ${{ secrets.SSH_KEY }}
+        passphrase: ""
         script: |
             # Stop running container
             docker stop $(echo $IMAGE_NAME)
@@ -55,8 +56,3 @@ jobs:
             yes | ./script
             # Run image and open port
             docker run -p 3000:3000 -t $(echo $IMAGE_NAME)
-        
-      
-      
-      
-    
