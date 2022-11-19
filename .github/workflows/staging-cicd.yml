@@ -51,8 +51,5 @@ jobs:
             docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
             # Pull image
             docker pull $(echo $IMAGE_NAME)
-            # Remove dangling image
-            docker image prune -a
-            yes | ./script
             # Run image and open port
             docker run -p 3000:3000 $(echo $IMAGE_NAME)
