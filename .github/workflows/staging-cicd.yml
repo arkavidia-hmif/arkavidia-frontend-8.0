@@ -61,5 +61,5 @@ jobs:
             yes | ./script
             echo "dangling image removed"
             # Run image and open port
-            docker run -p 3000:3000 --name staging reyshazni/a8-staging-test
+            docker run -d -p 3000:3000 --name staging reyshazni/a8-staging-test
             echo "container started succesfully"
