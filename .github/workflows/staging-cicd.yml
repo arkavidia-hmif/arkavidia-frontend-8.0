@@ -45,10 +45,10 @@ jobs:
         script: |
             echo "running script in server"
             # Stop running container
-            docker stop $(echo $IMAGE_NAME)
+            docker stop staging
             echo "old container stopped"
             # Remove old container
-            docker rm $(echo $IMAGE_NAME)
+            docker rm staging
             echo "old container removed"
             # Login Docker
             docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
@@ -61,5 +61,5 @@ jobs:
             yes | ./script
             echo "dangling image removed"
             # Run image and open port
-            docker run -p 3000:3000 --name $(echo $IMAGE_NAME) $(echo $IMAGE_NAME)
+            docker run -p 3000:3000 --name staging $(echo $IMAGE_NAME)
             echo "container started succesfully"
