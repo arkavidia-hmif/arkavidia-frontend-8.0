@@ -57,7 +57,7 @@ jobs:
             echo "old container removed"
             # Remove dangling image
             docker image prune -a
-            yes
+            yes | head -1
             echo "dangling image removed"
             # Run image and open port
             docker run -d -p 443:3000 --name staging reyshazni/a8-staging-test
