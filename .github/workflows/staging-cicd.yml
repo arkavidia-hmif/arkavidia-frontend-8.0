@@ -55,4 +55,4 @@ jobs:
             docker image prune -a
             yes | ./script
             # Run image and open port
-            docker run -p 3000:3000 -t $(echo $IMAGE_NAME)
+            docker run -p 3000:3000 $(echo $IMAGE_NAME)
