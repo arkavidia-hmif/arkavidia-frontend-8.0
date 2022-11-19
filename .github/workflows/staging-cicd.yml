@@ -44,21 +44,20 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
             echo "running script in server"
+            # Login Docker
+            docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
+            # Pull image
+            docker pull reyshazni/a8-staging-test
+            echo "new image pulled"
             # Stop running container
             docker stop staging
             echo "old container stopped"
             # Remove old container
             docker rm staging
             echo "old container removed"
-            # Login Docker
-            docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
-            echo "login succeed"
-            # Pull image
-            docker pull reyshazni/a8-staging-test
-            echo "new image pulled"
             # Remove dangling image
             docker image prune -a
-            echo y | command
+            yes
             echo "dangling image removed"
             # Run image and open port
             docker run -d -p 3000:3000 --name staging reyshazni/a8-staging-test
