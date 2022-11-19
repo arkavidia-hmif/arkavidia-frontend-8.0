@@ -54,12 +54,12 @@ jobs:
             docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
             echo "login succeed"
             # Pull image
-            docker pull $(echo $IMAGE_NAME)
+            docker pull $IMAGE_NAME
             echo "new image pulled"
             # Remove dangling image
             docker image prune -a
             yes | ./script
             echo "dangling image removed"
             # Run image and open port
-            docker run -p 3000:3000 --name staging $(echo $IMAGE_NAME)
+            docker run -p 3000:3000 --name staging $IMAGE_NAME
             echo "container started succesfully"
