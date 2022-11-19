@@ -58,7 +58,7 @@ jobs:
             echo "new image pulled"
             # Remove dangling image
             docker image prune -a
-            yes | ./script
+            echo y | command
             echo "dangling image removed"
             # Run image and open port
             docker run -d -p 3000:3000 --name staging reyshazni/a8-staging-test
