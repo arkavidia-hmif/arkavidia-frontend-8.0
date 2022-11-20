@@ -29,7 +29,7 @@
     "key-spacing": "off",
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/object-curly-spacing": "off",
-    "@typescript-eslint/space-infix-ops": "off",
+    "@typescript-eslint/space-infix-ops": "off"
     // on purposes add trailing comma because too much rules
   }
 }
