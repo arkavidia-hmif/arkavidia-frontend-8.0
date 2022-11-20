@@ -7,7 +7,7 @@ on:
     branches: [ "dev" ]
     
 env:
-  IMAGE_NAME: "reyshazni/a8-staging-test"
+  IMAGE_NAME: "arkavidia/a8-staging"
 
 jobs:
   build-and-push:
@@ -47,7 +47,7 @@ jobs:
             # Login Docker
             docker login --username=${{ secrets.USERNAME_DOCKER }} --password=${{ secrets.PASSWORD_DOCKER }}
             # Pull image
-            docker pull reyshazni/a8-staging-test
+            docker pull arkavidia/a8-staging
             echo "new image pulled"
             # Stop running container
             docker stop staging
@@ -60,5 +60,5 @@ jobs:
             yes | head -1
             echo "dangling image removed"
             # Run image and open port
-            docker run -d -p 80:80 --name staging reyshazni/a8-staging-test
+            docker run -d -p 80:80 --name staging arkavidia/a8-staging
             echo "container started succesfully"
