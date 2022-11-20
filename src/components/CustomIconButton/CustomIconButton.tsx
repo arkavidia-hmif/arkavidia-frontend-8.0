@@ -2,8 +2,8 @@ import HomeIcon from '../Icon/HomeIcon'
 import clsx from 'clsx'
 
 interface CustomIconButtonProps {
-  bgColor?: Variants
-  onClick?: () => void
+  bgColor?: Variants;
+  onClick?: () => void;
 }
 
 type Variants = 'primary' | 'secondary'
