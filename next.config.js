@@ -1,13 +1,13 @@
 module.exports = {
   publicRuntimeConfig: {
     site: {
-      name: 'Next.js + Tailwind CSS template',
+      name: 'Arkavidia 8.0',
       url:
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000'
           : 'https://earvinpiamonte-nextjs-tailwindcss-template.vercel.app',
-      title: 'Next.js + Tailwind CSS template',
-      description: 'Next.js + Tailwind CSS template',
+      title: 'Arkavidia 8.0',
+      description: 'Arkavidia merupakan acara IT tahunan yang diadakan oleh Himpunan Mahasiswa Informatika ITB. Dengan tema “Adaptive Collaboration to Encounter Digital Disruption”, Arkavidia 8.0 diharapkan akan lebih banyak individu sadar akan hak dan kewajibannya di dunia digital, sehingga dapat mewujudkan kemerdekaan digital bagi dirinya.',
       socialPreview: '/images/preview.png',
     },
   },
