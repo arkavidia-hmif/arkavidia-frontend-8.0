@@ -33,12 +33,14 @@ export default function DropdownComponent({
   return (
     <div
       style={{ maxHeight: clicked ? 350 : headerHeight }}
-      className="flex flex-col rounded-xl border-2 border-black overflow-hidden w-[70vw] transition-[max-height] duration-700 ease-out mb-6">
+      className="flex flex-col rounded-xl border-2 border-black overflow-hidden w-[70vw] transition-[max-height] duration-700 ease-out mb-6"
+    >
       {/* Dropdown header */}
       <div
         ref={dropdownHeaderEl}
         onClick={() => setClicked(!clicked)}
-        className="flex items-center justify-between bg-black text-white w-full px-6 py-4 cursor-pointer">
+        className="flex items-center justify-between bg-black text-white w-full px-6 py-4 cursor-pointer"
+      >
         <h3 className=" font-varela capitalize text-3xl w-11/12">{title}</h3>
         {clicked ? (
           <ArrowTopIcon size={48} className="text-white cursor-pointer" />

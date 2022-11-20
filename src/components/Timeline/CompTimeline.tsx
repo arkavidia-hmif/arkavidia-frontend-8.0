@@ -44,7 +44,8 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
           className={clsx(
             'h-[50%] w-full border-b-8 absolute top-0',
             borderColor
-          )}></div>
+          )}
+        ></div>
         <Image width={72} src={DiskImage} />
       </div>
 
@@ -53,7 +54,8 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
         className={clsx(
           'mt-4 font-black text-2xl capitalize font-archivo px-1 text-center',
           textColor
-        )}>
+        )}
+      >
         {title}
       </h6>
       <p className={clsx('font-Helvatica font-bold text-base', textColor)}>

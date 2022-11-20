@@ -19,7 +19,8 @@ const PaginationButton = ({
         disabled ? 'bg-[#F1F2F4]' : 'bg-white'
       } ${
         disabled ? 'text-gray-300' : 'text-black'
-      } hover:bg-blue200 hover:text-black active:bg-blue300 active:text-white`}>
+      } hover:bg-blue200 hover:text-black active:bg-blue300 active:text-white`}
+    >
       {isLeft ? <ArrowLeftIcon /> : <ArrowRightIcon />}
     </button>
   )

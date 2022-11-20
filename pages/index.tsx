@@ -1,19 +1,17 @@
 import getConfig from 'next/config'
-
 import Layout from '@src/components/Navigation/Layout'
 import Navbar from '@src/components/Navigation/Navbar'
 
 const { publicRuntimeConfig } = getConfig()
 const { name } = publicRuntimeConfig.site
 
-const Home = () => {
+const Home = (): JSX.Element => {
   return (
     <Layout>
       <Navbar isLogged={false} isAdmin={false}></Navbar>
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="prose prose-blue mx-auto">
-            
             <h1>{name}</h1>
             <p>Welcome to my Next.js + Tailwind CSS starter template.</p>
 
@@ -44,7 +42,8 @@ const Home = () => {
                 <a
                   href="https://nextjs.org/"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   Next.js
                 </a>
               </li>
@@ -52,7 +51,8 @@ const Home = () => {
                 <a
                   href="https://tailwindcss.com/"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   Tailwind CSS
                 </a>
               </li>
@@ -60,7 +60,8 @@ const Home = () => {
                 <a
                   href="https://github.com/tailwindlabs/tailwindcss-typography"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   @tailwindcss/typography
                 </a>
               </li>
@@ -68,7 +69,8 @@ const Home = () => {
                 <a
                   href="https://github.com/tailwindlabs/tailwindcss-forms"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   @tailwindcss/forms
                 </a>
               </li>
@@ -79,7 +81,8 @@ const Home = () => {
               <div>
                 <label
                   htmlFor="sample-email"
-                  className="block text-sm font-medium text-gray-700 mb-1">
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Sample email input
                 </label>
                 <input

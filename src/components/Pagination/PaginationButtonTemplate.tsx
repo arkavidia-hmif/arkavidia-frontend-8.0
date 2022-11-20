@@ -16,7 +16,8 @@ const PaginationButtonTemplate = ({
         disabled ? 'bg-[#F1F2F4]' : 'bg-white'
       } ${
         disabled ? 'text-gray-300' : 'text-black'
-      } hover:bg-blue-200 hover:text-black active:bg-blue-300 active:text-white`}></button>
+      } hover:bg-blue-200 hover:text-black active:bg-blue-300 active:text-white`}
+    ></button>
   )
 }
 
