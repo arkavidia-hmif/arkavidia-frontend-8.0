@@ -10,12 +10,12 @@ const PrintWaktu = (w1: number, w2: number, str: string) => {
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-row items-center justify-center">
         <div className="flex bg-white rounded-2xl drop-shadow-md border-2 border-black ml-2 mr-2">
-          <span className="font-archivo text-6xl font-black py-8 px-5">
+          <span className="font-archivo text-2xl font-black py-8 px-5">
             {w1}
           </span>
         </div>
         <div className="flex bg-white rounded-2xl drop-shadow-md border-2 border-black ml-2 mr-2">
-          <span className="font-archivo text-6xl font-black py-8 px-5">
+          <span className="font-archivo text-2xl font-black py-8 px-5">
             {w2}
           </span>
         </div>
@@ -40,8 +40,10 @@ const PrintCountdown = (
   // Enabling window object, by using useEffect
   let isSmallScreen
   useEffect(() => {
-    window.matchMedia('(max-width: 768px)').matches
-    isSmallScreen = window.matchMedia('(max-width: 1024px)').matches
+    if (window !== undefined) {
+      window.matchMedia('(max-width: 768px)').matches
+      isSmallScreen = window.matchMedia('(max-width: 1024px)').matches
+    }
   }, [])
 
   // Check if the screen is lg.
@@ -110,7 +112,7 @@ const Countdown = ({ date, title }: CountdownProps) => {
   return (
     <>
       {/* Box */}
-      <div className="flex flex-col items-center space-y-2 bg-yellow300 pt-1 justify-center overflow-hidden">
+      <div className="flex flex-col items-center space-y-2 bg-brownblack pt-1 justify-center overflow-hidden">
         {/* Bagian title */}
         <div className="p-2.5 uppercase mb-6 font-archivo text-black text-center text-sm lg:bg-black lg:text-white lg:text-4xl">
           {title}

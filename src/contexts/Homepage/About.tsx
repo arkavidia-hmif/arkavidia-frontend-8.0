@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Countdown from '../../components/Icon/CountdownCard'
-import Image1 from '../src/components/Images/Mask group.png'
-import Image2 from '../src/components/Images/Mask group (1).png'
+import Countdown from '@src/components/CountdownCard/CompCountdown'
+import Image1 from '@src/components/Images/Mask group.png'
+import Image2 from '@src/components/Images/Mask group (1).png'
 
-export default function About() {
+const About = (): JSX.Element => {
   return (
     <>
       <div
@@ -13,14 +13,13 @@ export default function About() {
         CLOSE REGISTRATION CLOSE REGISTRATION CLOSE REGISTRATION CLOSE
         REGISTRATION
       </div>
-      <div
-        className="
-        "
-      >
-        <Countdown date="" dateString="" title="" />
+      <div className="flex bg-brownblack justify-center w-full">
+        <div className="w-3/5">
+          <Countdown date="" title="" />
+        </div>
       </div>
       <div
-        className="bg-black text-center
+        className="bg-brownblack text-center
         xl:h-[104px]"
       >
         <button
@@ -180,3 +179,5 @@ export default function About() {
     </>
   )
 }
+
+export default About

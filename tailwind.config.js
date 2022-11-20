@@ -18,6 +18,8 @@ module.exports = {
         gray500: '#777676',
         gray600: '#535252',
         gray700: '#2F2E2E',
+        grayblack: '#0B0A0A',
+        brownblack:'#110002',
         yellow200: '#FFD271',
         yellow300: '#FEB20E',
         yellow400: '#DF9800',
@@ -55,6 +57,10 @@ module.exports = {
         toastSlideRight: {
           '0%': { transform: 'translateX(-200%)' },
         }
+      },
+      boxShadow: {
+        buttonShadow : '3px 7px black',
+        buttonPressed: '0 5px black',
       },
       animation: {
         toastSlideUp: 'toastSlideUp 1s',
