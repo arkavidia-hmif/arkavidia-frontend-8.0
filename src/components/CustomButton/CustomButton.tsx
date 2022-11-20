@@ -10,7 +10,7 @@ interface CustomButtonProps {
 
 type colors = 'primary' | 'secondary' | 'ghost';
 type sizes = 'small' | 'normal';
-type textColors = 'white' | 'ghost';
+type textColors = 'primary' | 'secondary' | 'ghost';
 
 const variantColor: { [key in colors]: string } = {
   primary:
@@ -51,19 +51,19 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         onClick={onClick}
         className={clsx(
           'rounded-xl flex items-center justify-center mb-2',
-          variantColor[bgColor],
-          variantSize[size],
+          variantColor[bgColor as colors],
+          variantSize[size as sizes],
         )}>
         <div className="flex items-center justify-center font-helvatica font-bold text-base text-white px-8">
           {icon && (
             <HomeIcon
               className={clsx(
                 'fill-white w-6 h-6 mr-2',
-                variantIconColor[bgColor],
+                variantIconColor[bgColor as colors],
               )}
             />
           )}
-          <div className={clsx(variantTextColor[bgColor])}>{children}</div>
+          <div className={clsx(variantTextColor[bgColor as textColors])}>{children}</div>
         </div>
       </button>
     </div>
