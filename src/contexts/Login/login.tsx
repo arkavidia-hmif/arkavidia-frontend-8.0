@@ -6,9 +6,9 @@ interface ILoginContext {}
 const Login: React.FC<ILoginContext> = () => {
   return (
     <Layout title="Sign In" description="Sign In">
-      <div className="flex flex-row justify-between w-full h-screen">
+      <div className="flex flex-row justify-between w-full">
         {/* Sisi Kiri */}
-        <div className="container hidden md:flex flex-col justify-center items-center gap-[3.75rem] w-1/2 bg-yellow300">
+        <div className="container hidden md:flex flex-col justify-center items-center gap-[3.75rem] w-1/2 bg-yellow300 pt-[5rem]">
           {/* Image Container */}
           <div className="h-[360px] w-[300px] lg:h-[480px] lg:w-[400px] bg-blue200">
             Gaada logonya :(
@@ -27,7 +27,7 @@ const Login: React.FC<ILoginContext> = () => {
         </div>
 
         {/* Sisi Kanan */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-6 px-5 md:px-[80px] container">
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-6 px-5 md:px-[80px] container pt-[5rem]">
           {/* Image Container */}
           <div className="h-[167px] w-[167px] bg-blue200">Gaada logonya :(</div>
           {/* Text Container */}
@@ -41,7 +41,7 @@ const Login: React.FC<ILoginContext> = () => {
           </div>
           {/* Login Container */}
           <h1 className="font-archivo font-black text-4xl md:text-6xl">
-            Login
+            Sign - In
           </h1>
           <div className="flex flex-col w-full gap-3">
             <label className="font-helvatica font-bold text-base">
