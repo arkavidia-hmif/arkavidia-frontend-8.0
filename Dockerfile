@@ -22,7 +22,7 @@ RUN yarn build
 # NGINX CONFIG IF NEEDED
 
 # Config nginx
-FROM nginx:1.23.2-alpine
+FROM nginx:1.15
 COPY --from=build /usr/src/app/out /usr/share/nginx/html
 # COPY --from=build /tmp /tmp
 # COPY /usr/share/nginx/app/build /usr/share/nginx/html
