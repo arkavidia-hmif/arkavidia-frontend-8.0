@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "export": "next export",
+    "start": "next start",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
