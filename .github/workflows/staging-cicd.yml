@@ -56,9 +56,9 @@ jobs:
             docker rm staging
             echo "old container removed"
             # Remove dangling image
-            docker image prune -a
-            yes | head -1
-            echo "dangling image removed"
+            # docker image prune -a
+            # yes | head -1
+            # echo "dangling image removed"
             # Run image and open port
             docker run -p 80:80 --name staging reyshazni/a8-staging-test
             echo "container started succesfully"
