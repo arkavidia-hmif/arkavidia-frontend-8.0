@@ -24,8 +24,8 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/test-timeline-faq': {page: '/test-timeline-faq'},
-      // '/sign-in': {page: '/sign-in'},
-      // '/sign-up': {page: '/sign-up'},
+      '/sign-in': {page: '/sign-in'},
+      '/sign-up': {page: '/sign-up'},
       // '/competition/competitive-programing': {page: '/competition/competitive-programing'},
       // '/competition/arkalogica': {page: '/competition/arkalogica'},
       // '/competition/uxvidia': {page: '/competition/uxvidia'},

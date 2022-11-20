@@ -90,10 +90,10 @@ interface FooterProps {
 }
 
 const variantStyle: { [key in Variants]: string } = {
-  redGeneral: 'bg-red200 w-[100%] h-[100%]',
-  yellowGeneral: 'bg-yellow400 w-[100%] h-[100%]',
-  redCompEvent: 'bg-red200 w-[100%] h-[100%]',
-  yellowCompEvent: 'bg-yellow400 max-w-[100%] w-[100%] h-[100%]'
+  redGeneral: 'bg-red200 w-[100%] h-[100%] mt-[1rem]',
+  yellowGeneral: 'bg-yellow400 w-[100%] h-[100%] mt-[1rem]',
+  redCompEvent: 'bg-red300 w-[100%] h-[100%] mt-[1rem]',
+  yellowCompEvent: 'bg-yellow400 max-w-[100%] w-[100%] h-[100%] mt-[1rem]'
 }
 
 const CompEventFooter: React.FC<FooterProps> = props => {
@@ -126,17 +126,29 @@ const CompEventFooter: React.FC<FooterProps> = props => {
         <div className="font-helvatica text-700 text-[16px] font-bold text-white bg-black text-center my-[4%]">
           Competition
         </div>
-        <div className="font-helvatica text-normal text-[14px] text-blue300">
-          <a className="block mb-[10px]" href="">
+        <div className="font-helvatica text-normal font-bold text-[14px] text-blue300">
+          <a
+            className="block mb-[10px] no-underline"
+            href="/competition/competitive-programming"
+          >
             Competitive Programming
           </a>
-          <a className="block mb-[10px]" href="">
+          <a
+            className="block mb-[10px] no-underline"
+            href="/competition/datavidia"
+          >
             Datavidia
           </a>
-          <a className="block mb-[10px]" href="">
+          <a
+            className="block mb-[10px] no-underline"
+            href="/competition/arkalogica"
+          >
             Arkalogica
           </a>
-          <a className="block mb-[10px]" href="">
+          <a
+            className="block mb-[10px] no-underline"
+            href="/competition/uxvidia"
+          >
             UXVidia
           </a>
         </div>
@@ -145,7 +157,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
         <div className="font-helvatica text-700 text-[16px] font-bold text-white bg-black text-center my-[4%]">
           Event
         </div>
-        <div className="font-helvatica text-normal text-[14px] text-blue300">
+        <div className="font-helvatica text-normal font-bold text-[14px] text-blue300">
           <a className="block mb-[10px]" href="">
             Arkavidia Academya
           </a>
@@ -167,7 +179,14 @@ const CompEventFooter: React.FC<FooterProps> = props => {
   )
 
   return (
-    <div className={variantStyle[variant]} {...rest}>
+    <div
+      className={variantStyle[variant]}
+      style={{
+        backgroundImage:
+          'linear-gradient(90deg, black 5%, transparent 5%), linear-gradient(black 5%, transparent 5%)',
+        backgroundSize: '60px 60px'
+      }}
+    >
       <div className="bg-black">.</div>
       <div className="lg:grid lg:grid-cols-2">
         <div className="">{Header}</div>
