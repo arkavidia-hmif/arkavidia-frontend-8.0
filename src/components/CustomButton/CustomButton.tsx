@@ -8,9 +8,9 @@ interface CustomButtonProps {
   onClick?: () => void
 }
 
-type colors = 'primary' | 'secondary' | 'ghost'
-type sizes = 'small' | 'normal'
-type textColors = 'primary' | 'secondary' | 'ghost'
+type colors = 'primary' | 'secondary' | 'ghost';
+type sizes = 'small' | 'normal';
+type textColors = 'primary' | 'secondary' | 'ghost';
 
 const variantColor: { [key in colors]: string } = {
   primary:
