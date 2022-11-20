@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && next export",
+    "export": "next export",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
