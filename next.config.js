@@ -12,8 +12,28 @@ module.exports = {
     },
   },
   swcMinify: true,
-  i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/test-timeline-faq': {page: '/test-timeline-faq'},
+      '/sign-in': {page: '/sign-in'},
+      '/sign-up': {page: '/sign-up'},
+      // '/competition/competitive-programing': {page: '/competition/competitive-programing'},
+      // '/competition/arkalogica': {page: '/competition/arkalogica'},
+      // '/competition/uxvidia': {page: '/competition/uxvidia'},
+      // '/competition/datavidia': {page: '/competition/datavidia'},
+      // '/profile': {page: '/profile/'},
+      // '/profile/change-password': {page: '/profile/change-password'},
+      // '/dashboard/information': {page: '/dashboard/information'},
+      // '/dashboard/participant-data': {page: '/dashboard/participant-data'},
+      // '/dashboard/submission': {page: '/dashboard/submission'},
+    }
+  },
+  images: {
+    loader: 'akamai',
+    path: '',
   },
 };
