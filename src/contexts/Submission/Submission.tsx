@@ -1,11 +1,4 @@
-import Footer from '@src/components/Footer/footer'
-import Navbar from '@src/components/Navigation/Navbar'
-import Tab from '@src/components/Tab'
 import Dropdown from './Dropdown'
-import ArkalogicaLogo from '@src/assets/images/logo_arkalogica.png'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Dashboard from '@src/layout/Dashboard'
 
 const Submission = () => {
