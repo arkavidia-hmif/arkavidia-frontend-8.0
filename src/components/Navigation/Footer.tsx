@@ -24,7 +24,7 @@ const logoStyle: { [key in logoVar]: string } = {
 
 interface logoProps {
   logoVariants: logoVar
-  children?: JSX.Element | JSX.Element[]
+  children?: React.ReactNode
 }
 
 const Logo: React.FC<logoProps> = props => {
@@ -88,7 +88,7 @@ const Copyright = (): JSX.Element => {
 
 interface FooterProps {
   variant: Variants
-  children?: JSX.Element | JSX.Element[]
+  children?: React.ReactNode
 }
 
 const variantStyle: { [key in Variants]: string } = {
