@@ -18,7 +18,6 @@ module.exports = {
   ) {
     return {
       '/': { page: '/' },
-      '/test-timeline-faq': {page: '/test-timeline-faq'},
       '/sign-in': {page: '/sign-in'},
       '/sign-up': {page: '/sign-up'},
       // '/competition/competitive-programing': {page: '/competition/competitive-programing'},
@@ -35,5 +34,10 @@ module.exports = {
   images: {
     loader: 'akamai',
     path: '',
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 };
