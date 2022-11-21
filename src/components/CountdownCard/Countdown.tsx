@@ -35,12 +35,13 @@ const PrintCountdown = (
   s2: number
 ) => {
   // Enabling window object, by using useEffect
+  let isSmallScreen
   useEffect(() => {
-    window.matchMedia('(max-width: 768px)').matches
+    if (window !== undefined) {
+      window.matchMedia('(max-width: 768px)').matches
+      isSmallScreen = window.matchMedia('(max-width: 1024px)').matches
+    }
   }, [])
-
-  // Check if the screen is lg.
-  const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches
 
   return isSmallScreen ? (
     <div className="grid grid-rows-2 grid-flow-col gap-2">

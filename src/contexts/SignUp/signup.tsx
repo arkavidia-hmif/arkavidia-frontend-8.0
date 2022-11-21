@@ -24,8 +24,8 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
 
   return (
     <>
-      <div className="flex justify-center mt-20">
-        <div className="container xl-auto box-border flex w-screen h-[1080px] m-0 bg-gray200">
+      <div className="flex justify-center">
+        <div className="container xl-auto box-border flex max-w-[100vw] h-[1080px] m-0 bg-gray200">
           <div className="box-border border-solid w-[50%] bg-yellow300 items-center inline-flex justify-center">
             <div
               id="default-carousel"
@@ -112,7 +112,7 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> {/* HERE */}
           <div className="box-border border-solid w-[50%] h-[1080px] pt-[10%] font-helvatica">
             <div className="w-[100%] flex justify-center mb-5">
               <h1 className="font-archivo text-6xl">Sign Up</h1>
@@ -210,7 +210,7 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
             <div className="flex justify-center text-sm font-helvatica mt-1">
               <h2>
                 Sudah punya akun?{' '}
-                <a href="#" className="text-red300 font-bold">
+                <a href="/sign-in" className="text-red300 font-bold">
                   Login!
                 </a>
               </h2>

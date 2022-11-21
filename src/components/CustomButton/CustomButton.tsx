@@ -1,3 +1,4 @@
+import React from 'react';
 import HomeIcon from '../Icon/HomeIcon'
 import clsx from 'clsx'
 
@@ -6,6 +7,7 @@ interface CustomButtonProps {
   icon?: boolean
   size?: string
   onClick?: () => void
+  children?: React.ReactNode
 }
 
 type colors = 'primary' | 'secondary' | 'ghost';

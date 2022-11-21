@@ -1,4 +1,3 @@
-import CustomButton from '@src/components/CustomButton/CustomButton'
 import { useState } from 'react'
 
 // Colors and Icon
