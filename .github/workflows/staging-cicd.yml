@@ -60,7 +60,7 @@ jobs:
             yes | head -1
             echo "dangling image removed"
             # Run image and open port
-            docker run -d -p 80:80 --name staging arkavidia/a8-staging
+            docker run -d -p 80:80 --name staging -t arkavidia/a8-staging
             # Copy SSL cert for HTTPS
             docker cp /etc/letsencrypt/live/boi.arkavidia.com staging:/ssl
             echo "container started succesfully"
