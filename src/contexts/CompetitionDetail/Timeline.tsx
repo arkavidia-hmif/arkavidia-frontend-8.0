@@ -10,7 +10,7 @@ interface AppProps {
 }
 
 export default function Timeline({ dates }: AppProps) {
-  let nearestDate = { title: '', startDate: new Date() }
+  const nearestDate = { title: '', startDate: new Date() }
   for (const date of dates) {
     if (date.startDate.getTime() - Date.now() >= 0) {
       nearestDate.title = date.title

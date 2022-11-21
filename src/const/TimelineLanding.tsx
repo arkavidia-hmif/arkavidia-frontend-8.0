@@ -16,10 +16,14 @@ export const carousel = [
   },
 ];
 
-let date1_start: Date = new Date(2022, 8, 27);
-let date1_end: Date = new Date(2022, 10, 19);
-let date2_start: Date = new Date(2022, 10, 19);
-let date2_end: Date = new Date(2022, 12, 1);
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const date1_start: Date = new Date(2022, 8, 27);
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const date1_end: Date = new Date(2022, 10, 19);
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const date2_start: Date = new Date(2022, 10, 19);
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const date2_end: Date = new Date(2022, 12, 1);
 
 export const timeline = [
     {

@@ -46,8 +46,8 @@ export default function Dropdown() {
               ${d?.id === selectedId &&
               'bg-gray-300 font-bold'}`
               }
-              onClick={() =>{
-                if(d?.id !== selectedId) {
+              onClick={() => {
+                if (d?.id !== selectedId) {
                   setSelectedId(d?.id);
                   setOpen(false);
                 }

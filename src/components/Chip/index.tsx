@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import React, { ButtonHTMLAttributes, FC, useState } from 'react'
 import clsx from 'clsx'
 

@@ -38,9 +38,11 @@ const TextField: React.FC<ITextField> = ({
   const [visible, setVisible] = useState(false)
 
   return (
+    // eslint-disable-next-line no-unneeded-ternary
     <div className={`flex flex-col gap-1 ${width ? width : 'w-full'}`}>
       <div
         className={`relative flex items-center h-10 ${
+          // eslint-disable-next-line no-unneeded-ternary
           width ? width : 'w-[260px]'
         }`}
       >
@@ -59,6 +61,7 @@ const TextField: React.FC<ITextField> = ({
          transition-colors rounded-md`}
         />
         {ftype?.toLowerCase() === 'show' &&
+          // eslint-disable-next-line multiline-ternary
           (visible ? (
             <EyeHideIcon
               onClick={() => setVisible(false)}

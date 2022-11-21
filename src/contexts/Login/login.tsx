@@ -2,6 +2,7 @@ import CustomButton from '@src/components/CustomButton/CustomButton'
 import Layout from '@src/components/Navigation/Layout'
 import { TextField } from '@src/components/TextField'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ILoginContext {}
 const Login: React.FC<ILoginContext> = () => {
   return (

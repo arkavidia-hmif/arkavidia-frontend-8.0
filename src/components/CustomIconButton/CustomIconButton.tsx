@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import HomeIcon from '../Icon/HomeIcon'
 import clsx from 'clsx'
 

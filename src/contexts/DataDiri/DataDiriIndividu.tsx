@@ -6,7 +6,7 @@ import { TextField } from '@src/components/TextField'
 import CheckBoxButton from '@src/components/CheckBoxButton/CheckBoxButton'
 import { DataDiriSetter, DataDiriState } from '@src/utils/customHooks/datadiri'
 
-type DataDiriIndividuProps = {
+interface DataDiriIndividuProps {
   subject: string
   dataState: DataDiriState
   dataSetter: DataDiriSetter

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import EyeShowIcon from '../Icon/EyeShowIcon'
 
 interface ICard {}

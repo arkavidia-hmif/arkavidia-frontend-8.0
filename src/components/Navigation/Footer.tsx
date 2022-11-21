@@ -27,6 +27,7 @@ interface logoProps {
 }
 
 const Logo: React.FC<logoProps> = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, logoVariants, ...rest } = props
   return (
     <div
@@ -97,6 +98,7 @@ const variantStyle: { [key in Variants]: string } = {
 }
 
 const CompEventFooter: React.FC<FooterProps> = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, variant, ...rest } = props
   let color
   if (variant === 'yellowCompEvent') {
@@ -224,6 +226,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
 }
 
 const GeneralFooter: React.FC<FooterProps> = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, variant, ...rest } = props
   let shadowColor
   if (variant === 'yellowGeneral') {
@@ -270,6 +273,7 @@ const GeneralFooter: React.FC<FooterProps> = props => {
 }
 
 const Footer: React.FC<FooterProps> = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, variant, ...rest } = props
   let finalFooter
   if (variant === 'yellowCompEvent') {

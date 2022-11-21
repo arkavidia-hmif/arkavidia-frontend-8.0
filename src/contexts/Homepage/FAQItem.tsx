@@ -2,7 +2,7 @@ import { useState } from "react";
 import ArrowDownIcon from "@src/components/Icon/ArrowDownIcon";
 // import ArrowTopIcon from "@src/components/Icon/ArrowTopIcon";
 
-type faqsProps = {
+interface faqsProps {
   question: string
   answer: string
 }

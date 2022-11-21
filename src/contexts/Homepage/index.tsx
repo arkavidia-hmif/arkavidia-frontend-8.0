@@ -5,9 +5,8 @@ import Image from "next/image"
 import QMark from "src/assets/images/qmark.png";
 import QMark_Reversed from "src/assets/images/qmark-reversed.png"
 
-
 // Your components pages here
-const Landing = ()=> {
+const Landing = () => {
     return (
         <div>
             <Timeline />
@@ -33,6 +32,5 @@ const Landing = ()=> {
         </div>
     )
 }
-
 
 export default Landing

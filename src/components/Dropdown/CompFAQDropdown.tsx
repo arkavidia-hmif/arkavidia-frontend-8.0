@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import { useState, useRef, useEffect } from 'react'
 import ArrowDownIcon from '@src/components/Icon/ArrowDownIcon'
 import ArrowTopIcon from '@src/components/Icon/ArrowTopIcon'

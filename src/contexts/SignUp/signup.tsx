@@ -15,9 +15,9 @@ interface SignUpProps {
 const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
   const [pos, setPos] = useState(0)
 
-  let autoLoop = setInterval(() => {
+  const autoLoop = setInterval(() => {
     setPos(pos + 1)
-    if (pos == 2) {
+    if (pos === 2) {
       setPos(0)
     }
   }, 4000)

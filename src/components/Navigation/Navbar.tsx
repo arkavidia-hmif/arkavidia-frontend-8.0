@@ -1,3 +1,5 @@
+/* eslint-disable multiline-ternary */
+/* eslint-disable array-callback-return */
 import { Dispatch, SetStateAction, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -50,7 +52,7 @@ function MobileHoverDropdown({
   return (
     <div
       className={`${
-        dropdownIdx == idx ? '' : 'hidden'
+        dropdownIdx === idx ? '' : 'hidden'
       } flex flex-col text-left`}
     >
       {contents.map((content, idx) => (
@@ -101,6 +103,7 @@ function MobileNav({
   setDropdownIdx: Dispatch<SetStateAction<number>>
 }) {
   const router = useRouter()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoverIdx, setHoverIdx] = useState(-1)
 
   return (
@@ -121,7 +124,7 @@ function MobileNav({
                 key={idx}
                 className="w-40 mx-auto"
                 onClick={() => {
-                  setDropdownIdx(dropdownIdx == idx ? -1 : idx)
+                  setDropdownIdx(dropdownIdx === idx ? -1 : idx)
                 }}
                 onMouseEnter={() => {
                   setHoverIdx(idx)
@@ -146,7 +149,8 @@ function MobileNav({
                     } py-2 inline-flex items-center`}
                   >
                     {/* Replace ProfileIcon with AdminIcon later */}
-                    {isAdmin && idx == 6 ? (
+                    {/* eslint-disable-next-line multiline-ternary */}
+                    {isAdmin && idx === 6 ? (
                       <ProfileIcon
                         height={25}
                         width={25}
@@ -158,7 +162,8 @@ function MobileNav({
                     ) : (
                       ''
                     )}
-                    {!isAdmin && idx == 7 ? (
+                    {/* eslint-disable-next-line multiline-ternary */}
+                    {!isAdmin && idx === 7 ? (
                       <ProfileIcon
                         height={25}
                         width={25}
@@ -281,8 +286,8 @@ export default function Navbar({
                     >
                       <div
                         className={`${
-                          (router.pathname == menu.href && idx == 0) ||
-                          (router.pathname.includes(menu.href) && idx != 0)
+                          (router.pathname === menu.href && idx === 0) ||
+                          (router.pathname.includes(menu.href) && idx !== 0)
                             ? [5, 6, 7].includes(idx)
                               ? 'bg-blue-900 rounded-xl text-white px-8'
                               : 'border-b-2 border-blue-900'
@@ -294,21 +299,21 @@ export default function Navbar({
                         }`}
                       >
                         {/* Replace ProfileIcon with AdminIcon later */}
-                        {isAdmin && idx == 6 ? (
+                        {isAdmin && idx === 6 ? (
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname === menu.href ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (
                           ''
                         )}
-                        {!isAdmin && idx == 7 ? (
+                        {!isAdmin && idx === 7 ? (
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname === menu.href ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Image1 from '@src/components/Images/cewe 2.png'
 import Image2 from '@src/components/Images/Layer 2.png'
-import ArrowDownAltIcon from '@src/components/Icon/ArrowDownAltIcon'
+import ArrowDownAltIcon from '../../components/Icon/ArrowDownAltIcon'
 
 const Jumbotron = (): JSX.Element => {
   const handleExplore = () => {

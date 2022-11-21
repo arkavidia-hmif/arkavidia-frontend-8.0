@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type IRadioButton = {
   value: string
   groupName: string
@@ -9,6 +10,7 @@ export type IRadioButton = {
   disabled?: boolean
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function RadioButton<T>({
   groupName,
   value,
