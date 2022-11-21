@@ -20,6 +20,7 @@ type Variants =
 type ChipProps = {
   variant: Variants
   shadow: boolean
+  children?: JSX.Element | JSX.Element[]
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 const variantStyle: { [key in Variants]: string } = {

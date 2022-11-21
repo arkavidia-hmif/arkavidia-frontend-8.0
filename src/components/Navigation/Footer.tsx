@@ -24,6 +24,7 @@ const logoStyle: { [key in logoVar]: string } = {
 
 interface logoProps {
   logoVariants: logoVar
+  children?: JSX.Element | JSX.Element[]
 }
 
 const Logo: React.FC<logoProps> = props => {

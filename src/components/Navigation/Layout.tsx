@@ -9,7 +9,7 @@ interface LayoutProps {
   description?: string
   date?: string
   socialPreview?: string
-  children: React.ReactNode
+  children: JSX.Element | JSX.Element[]
 }
 
 const Layout = ({ children, ...customMeta }: LayoutProps): JSX.Element => {
