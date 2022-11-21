@@ -61,14 +61,7 @@ export default function Timeline() {
                 <Image src={CompeImage} layout="fill" />
               </div>
             </div>
-            <Swiper
-                style={{
-                  "--swiper-pagination-color": "#1F307C",
-                  "--swiper-pagination-bullet-inactive-color": "#999999",
-                  "--swiper-pagination-bullet-inactive-opacity": "1",
-                  "--swiper-pagination-bullet-size": "8px",
-                  "--swiper-pagination-bullet-horizontal-gap": "6px"
-                }} 
+            <Swiper 
                 spaceBetween={30} 
                 slidesPerView={1} 
                 autoplay={{
