@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import colours from '@src/utils/colors'
 import Image from 'next/image'
 import Disk from 'src/assets/images/disk.png'
 
-type timelineProps = {
+interface timelineProps {
   dateStart: Date
   dateEnd: Date
   title: string
