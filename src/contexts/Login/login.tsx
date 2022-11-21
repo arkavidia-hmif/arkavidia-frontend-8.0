@@ -8,7 +8,7 @@ import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import Fox from '@src/assets/images/sign-in/fox.webp'
+import Fox from '@src/assets/images/sign-in/fox.png'
 
 
 interface ILoginContext {}
