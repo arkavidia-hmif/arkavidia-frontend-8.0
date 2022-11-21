@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import CompeIcon from 'src/assets/images/compe_icon.png'
@@ -62,13 +61,6 @@ export default function Timeline() {
               </div>
             </div>
             <Swiper
-                style={{
-                  "--swiper-pagination-color": "#1F307C",
-                  "--swiper-pagination-bullet-inactive-color": "#999999",
-                  "--swiper-pagination-bullet-inactive-opacity": "1",
-                  "--swiper-pagination-bullet-size": "8px",
-                  "--swiper-pagination-bullet-horizontal-gap": "6px"
-                }} 
                 spaceBetween={30} 
                 slidesPerView={1} 
                 autoplay={{
@@ -80,7 +72,7 @@ export default function Timeline() {
                 }}
                 modules={[Autoplay, Pagination]}
             >
-              {datas.map((data, idx)=>{
+              {datas.map((data, idx) => {
                 return (
                   <SwiperSlide key={idx}>
                     <div className="flex flex-col gap-6 bg-cream300 w-full h-[375px] mt-2 p-4 border-2 border-black">
@@ -101,8 +93,9 @@ export default function Timeline() {
         </div>
         <div className="col-span-3 h-min relative">
           <div className="w-[2px] h-[90%] bg-black t-0 l-0 absolute z-10" />
-          {timeline.map(item => (
+          {timeline.map((item, idx) => (
             <TimelineItem
+              key={idx}
               dateStart={item.dateStart}
               dateEnd={item.dateEnd}
               title={item.title}
