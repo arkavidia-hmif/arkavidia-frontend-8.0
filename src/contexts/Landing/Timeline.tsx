@@ -60,7 +60,7 @@ export default function Timeline() {
                 <Image src={CompeImage} layout="fill" />
               </div>
             </div>
-            <Swiper
+            <Swiper 
                 spaceBetween={30} 
                 slidesPerView={1} 
                 autoplay={{
