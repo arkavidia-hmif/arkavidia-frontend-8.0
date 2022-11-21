@@ -6,6 +6,7 @@ interface CustomButtonProps {
   icon?: boolean
   size?: string
   onClick?: () => void
+  childern?: JSX.Element
 }
 
 type colors = 'primary' | 'secondary' | 'ghost';
