@@ -88,6 +88,7 @@ const Copyright = (): JSX.Element => {
 
 interface FooterProps {
   variant: Variants
+  children?: JSX.Element | JSX.Element[]
 }
 
 const variantStyle: { [key in Variants]: string } = {
