@@ -27,7 +27,6 @@ module.exports = {
   },
   images: {
     loader: 'akamai',
-    path: '',
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
