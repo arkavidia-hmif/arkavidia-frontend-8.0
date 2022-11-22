@@ -13,10 +13,6 @@ const Home = (): JSX.Element => {
   return (
     <SEO title="Arkavida 8.0">
       <SignUp text=''/>
-      {/* <Jumbotron />
-      <About />
-      <Timeline />
-      <FAQ /> */}
     </SEO>
   )
 }
