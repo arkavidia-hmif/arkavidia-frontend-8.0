@@ -1,42 +1,42 @@
 export const faqs = [
   {
-    question: "Apa Itu Arkavidia?",
+    question: "Apa itu Arkavidia 8.0?",
     answer:
-      "Tenetur ullam rerum ad iusto possimus sequi mollitia dolore sunt quam praesentium. Tenetur ullam rerum ad iusto possimus sequi mollitia dolore sunt quam praesentium.Tenetur ullam rerum ad iusto possimus sequi mollitia dolore sunt quam praesentium.",
+      `Arkavidia 8.0 merupakan acara dan kompetisi IT tahunan yang diadakan oleh Himpunan Mahasiswa Informatika (HMIF) ITB. Dengan mengusung tema “Adaptive Collaboration to Encounter Digital Disruption”, Arkavidia 8.0 diharapkan dapat lebih banyak menyadarkan individu akan hak dan kewajibannya di dunia digital, sehingga dapat mewujudkan kemerdekaan digital bagi dirinya. Diharapkan Arkavidia 8.0 dapat memberikan manfaat bagi pelajar, civitas akademik, dan masyarakat umum seluruh Indonesia.`,
   },
   {
-    question: "Bagaimana Pelaksanaannya?",
+    question: "Apa saja rangkaian acara pada Arkavidia 8.0?",
     answer:
-      "Aperiam ab atque incidunt dolores ullam est, earum ipsa recusandae velit cumque. Aperiam ab atque incidunt dolores ullam est, earum ipsa recusandae velit cumque.",
+      `Arkavidia 8.0 akan terdiri dari lima rangkaian acara, yakni Arkavidia Goes To School (AGTS), Arkavidia Talks, Arkavidia Academya, IT Festival, dan Arkavidia For Indonesia (AFI) serta akan ditutup dengan Gala Dinner pada akhir rangkaian kegiatan.`,
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Apa saja lomba yang dapat diikuti pada Arkavidia 8.0?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Arkavidia 8.0 menyelenggarakan empat mata lomba, yakni Arkalogica, Competitive Programming (CP), Datavidia, dan UXvidia.",
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Siapa saja yang dapat mengikuti rangkaian acara dan lomba pada Arkavidia 8.0?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Arkalogica terbuka untuk siswa SMA/sederajat, sedangkan Competitive Programming (CP), Datavidia, dan UXvidia terbuka untuk mahasiswa strata satu/sederajat.",
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Bagaimana pelaksanaan Arkavidia 8.0?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Rangkaian acara Arkavidia 8.0 akan diselenggarakan secara hybrid, sedangkan rangkaian lomba akan diselenggarakan secara online pada babak penyisihan dan offline pada babak semifinal hingga final.",
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Bagaimana cara mendaftar menjadi peserta lomba Arkavidia 8.0?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Peserta dapat mendaftarkan timnya pada website resmi Arkavidia 8.0 serta mengisi data diri dan melakukan pembayaran hingga tervalidasi.",
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Apakah peserta dapat mendaftar pada lebih dari satu jenis lomba?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Peserta dapat mengikuti lebih dari satu jenis lomba dengan tidak menjadi ketua lebih dari satu tim.",
   },
   {
-    question: "Kapan Arkavidia Dimulai?",
+    question: "Apakah kegiatan Arkavidia 8.0 dipungut biaya?",
     answer:
-      "Blanditiis aliquid adipisci quisquam reiciendis voluptates itaque.",
+      "Rangkaian acara akan sepenuhnya tidak dipungut biaya, namun kegiatan berbayar hanya ada pada pendaftaran lomba pada Arkavidia 8.0.",
   },
 ];
