@@ -13,6 +13,10 @@ export interface UserDataRes {
   stage: number;
 }
 
+export interface CompRegisReq {
+  password: string;
+}
+
 // export interface UserResponse {
 //   token: string;
 //   data: UserData;

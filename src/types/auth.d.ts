@@ -13,3 +13,8 @@ export interface AuthRegisterReq {
   member2_name: string;
   member2_email: string;
 }
+
+export interface ChangePassReq {
+  old_password: string
+  new_password: string
+}
