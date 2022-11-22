@@ -80,9 +80,9 @@ export default function Timeline() {
               {datas.map((data, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <div className="flex flex-col gap-6 bg-cream300 w-full h-[375px] mt-2 p-4 border-2 border-black">
+                    <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 p-4 border-2 border-black">
                       <div className="text-4xl font-['Archivo']">{data.title}</div>
-                      <div className="text-base leading-4 text-left font-helvetica">
+                      <div className="text-base leading-4 text-left font-helvetica text-justify">
                         {data.value}
                       </div>
                       <button

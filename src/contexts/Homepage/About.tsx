@@ -66,7 +66,7 @@ const About = (): JSX.Element => {
             Indonesia.
           </div>
         </div>
-        <div className="">Carousell</div>
+        <div className=""></div> {/* Carousell */} 
       </div>
       <div
         className="flex
@@ -92,7 +92,7 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              412
             </div>
           </div>
           <div
@@ -120,13 +120,13 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              329
             </div>
             <div
               className="text-white font-archivo text-center
               xl:text-[24px] xl:mt-[48px]"
             >
-              ENTRANTS
+              COMMITTEES
             </div>
             <div
               className="text-white font-varela text-center
@@ -148,7 +148,7 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              69
             </div>
             <div
               className="text-white font-archivo text-center
