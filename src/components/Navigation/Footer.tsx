@@ -205,7 +205,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
             <div className="flex items-stretch py-[4.5%] pl-[5%] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
               <ContactPhoneIcon className="inline mr-[3%] w-[24px] h-[18px] pb-[2px]" />
               <div className="inline font-helvatica text-700">
-                CP: Dika (0851-5503-6559)
+                CP: Nelsen (0821-1274-9139)
               </div>
             </div>
           </div>
