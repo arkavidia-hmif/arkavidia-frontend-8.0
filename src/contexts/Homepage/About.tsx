@@ -96,16 +96,16 @@ const About = (): JSX.Element => {
             </div>
           </div>
           <div
-            className="text-white font-archivo text-center
-            xl:text-[24px] xl:mt-[32px]"
+            className="text-white font-varela text-center
+            xl:text-[20px] xl:mt-[10px]"
           >
-            PARTICIPANT
+            PAST
           </div>
           <div
-            className="text-white font-varela text-center
-            xl:text-[20px]"
+            className="text-white font-archivo text-center
+            xl:text-[24px]"
           >
-            FOR EACH YEAR
+            PARTICIPANTS
           </div>
         </div>
         <div
@@ -132,7 +132,6 @@ const About = (): JSX.Element => {
               className="text-white font-varela text-center
               xl:text-[20px]"
             >
-              FOR EACH YEAR
             </div>
           </div>
         </div>
@@ -151,17 +150,17 @@ const About = (): JSX.Element => {
               69
             </div>
             <div
-              className="text-white font-archivo text-center
-            xl:text-[24px] xl:mt-[48px]"
-            >
-              PARTNERS
-            </div>
-            <div
-              className="text-white font-varela text-center
-            xl:text-[20px]"
-            >
-              FOR EACH YEAR
-            </div>
+            className="text-white font-varela text-center
+            xl:text-[20px] xl:mt-[32px]"
+          >
+            PAST
+          </div>
+          <div
+            className="text-white font-archivo text-center
+            xl:text-[24px]"
+          >
+            PARTNERS
+          </div>
           </div>
         </div>
         <div
