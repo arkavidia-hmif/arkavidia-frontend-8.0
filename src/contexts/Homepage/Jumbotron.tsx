@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Image1 from '@src/components/Images/cewe 2.png'
-import Image2 from '@src/components/Images/Layer 2.png'
+import Image1 from '@src/assets/images/Homepage2.svg'
+import Image2 from '@src/assets/images/Homepage1.svg'
 import ArrowDownAltIcon from '@src/components/Icon/ArrowDownAltIcon'
 
 const Jumbotron = (): JSX.Element => {

@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import CompeIcon from 'src/assets/images/compe_icon.png'
 import CompeImage from 'src/assets/images/compe_img.png'
-import Clock from 'src/assets/images/clock.png'
+import Clock from 'src/assets/images/clock.svg'
 import TimelineItem from './TimelineItem'
 import { timeline } from '@src/const/TimelineLanding'
 
@@ -48,10 +48,12 @@ const datas = [
 export default function Timeline() {
   return (
     <>
-    <div className="relative top-[0px] left-[0px]">
-        <Image src={Clock} />
+    <div className="absolute">
+      <div className="relative top-[0px] left-[0px]">
+          <Image src={Clock} />
+      </div>
     </div>
-    <div className="container mx-auto pt-20 w-3/4">
+    <div className="container mx-auto w-3/4 pt-[20px]">
       <h1 className="text-center text-[60px] font-archivo font-[900] mb-[60px]">
         TIMELINE
       </h1>
