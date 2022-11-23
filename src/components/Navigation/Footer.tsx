@@ -203,10 +203,12 @@ const CompEventFooter: React.FC<FooterProps> = props => {
         <div className="lg:grid lg:grid-cols-2">
           <div className="mx-[4.42%] my-[3.7%] w-[328px] y-[47px] lg:mt-[1%] lg:mb-[4.32%] lg:mx-[9%] ">
             <div className="flex items-stretch py-[4.5%] pl-[5%] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
-              <ContactPhoneIcon className="inline mr-[3%] w-[24px] h-[18px] pb-[2px]" />
-              <div className="inline font-helvatica text-700">
-                CP: Nelsen (0821-1274-9139)
-              </div>
+              <a href="https://wa.me/6282112749139" target="_blank">
+                <ContactPhoneIcon className="inline mr-[3%] w-[24px] h-[18px] pb-[2px]" />
+                <div className="inline font-helvatica text-700">
+                  CP: Nelsen (0821-1274-9139)
+                </div>
+              </a>
             </div>
           </div>
           <div className="flex gap-x-[12px] mb-[4.32%] ml-[5.14%] mt-[1.89%]">
