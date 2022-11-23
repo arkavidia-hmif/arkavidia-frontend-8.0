@@ -4,13 +4,10 @@ import ArkavStamp from 'src/assets/images/arkav-stamp.png'
 import Image from "next/image"
 import QMark from "src/assets/images/qmark.png";
 import QMark_Reversed from "src/assets/images/qmark-reversed.png"
-
-
 // Your components pages here
-const Landing = ()=> {
+const Landing = () => {
     return (
         <div>
-            <Timeline />
             <div className="mb-[-30px] relative">
                 <div className="absolute top-[-50%] right-0">
                     <Image src={ArkavStamp} />
@@ -33,6 +30,5 @@ const Landing = ()=> {
         </div>
     )
 }
-
 
 export default Landing

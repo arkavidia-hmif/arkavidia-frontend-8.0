@@ -1,3 +1,4 @@
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import Countdown from '@src/components/CountdownCard/CompCountdown'
 import Image1 from '@src/components/Images/Mask group.png'
@@ -30,7 +31,7 @@ const About = (): JSX.Element => {
           Register Now!
         </button>
       </div>
-      <div className="flex">
+      <div className="flex justify-center align-center">
         <div className="">
           <div className="mt-[120px]">
             <div
@@ -66,7 +67,10 @@ const About = (): JSX.Element => {
             Indonesia.
           </div>
         </div>
-        <div className=""></div> {/* Carousell */} 
+        {/* Carousell */} 
+        <div className="">
+          test
+        </div> 
       </div>
       <div
         className="flex

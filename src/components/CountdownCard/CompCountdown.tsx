@@ -75,7 +75,6 @@ const Countdown = ({ date, title }: CountdownProps) => {
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
 
-  console.log(habis)
 
   useEffect(() => {
     const interval = setInterval(() => {
