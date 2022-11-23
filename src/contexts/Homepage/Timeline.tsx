@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import CompeIcon from 'src/assets/images/compe_icon.png'
 import CompeImage from 'src/assets/images/compe_img.png'
-import Clock from 'src/assets/images/clock.png'
+import Clock from 'src/assets/images/clock.svg'
 import TimelineItem from './TimelineItem'
 import { timeline } from '@src/const/TimelineLanding'
 
@@ -16,36 +16,44 @@ const datas = [
   {
     title: 'COMPETITION',
     value:
-      'Competition adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lectus elit. Phasellus elementum malesuada enim quis blandit. Nunc suscipit facilisis consectetur. In ante dolor, finibus id tortor volutpat, pulvinar porttitor sapien. Nunc sollicitudin gravida eros ut convallis. Phasellus in quam eu erat tincidunt aliquam. In dictum accumsan molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'Competition merupakan salah satu main event yang diselenggarakan untuk menguji kemampuan peserta dalam memecahkan persoalan yang ada pada berbagai bidang teknologi informasi. Dengan adanya perlombaan ini, diharapkan peserta pada khususnya dapat melatih kemampuan pemecahan masalah yang ada sebagai bentuk persiapan dalam memecahkan masalah-masalah yang ditemukan di dunia nyata. Terdapat empat cabang perlombaan yang diselenggarakan dalam Arkavidia 8.0, yakni Competitive Programming, Datavidia, UXvidia, dan Arkalogica.'
   },
   {
-    title: 'ACADEMY',
+    title: 'AGTS',
     value:
-      'Academy adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'Arkavidia Goes To School merupakan salah satu pre-event yang berupa kunjungan ke Sekolah Menengah Atas (SMA) atau sederajat di Bandung dan sekitarnya. Kegiatan ini bertujuan untuk memperkenalkan dan juga menyadarkan adik-adik SMA terhadap tema utama Arkavidia tahun ini, yaitu Adaptive Collaboration to Encounter Digital Disruption, secara interaktif dan menyenangkan agar dapat dimengerti oleh adik-adik SMA. Untuk penyampaiannya, akan dilakukan seminar beserta kegiatan group-based project. Hal ini bertujuan agar ilmu yang disampaikan melalui seminar dapat langsung diimplementasikan melalui project tersebut.'
   },
   {
-    title: 'COMPETITION',
+    title: 'ACADEMYA',
     value:
-      'Competition adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lectus elit. Phasellus elementum malesuada enim quis blandit. Nunc suscipit facilisis consectetur. In ante dolor, finibus id tortor volutpat, pulvinar porttitor sapien. Nunc sollicitudin gravida eros ut convallis. Phasellus in quam eu erat tincidunt aliquam. In dictum accumsan molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'Arkavidia Academya merupakan salah satu pre-event yang bertujuan untuk meningkatkan kemampuan mahasiswa dan siswa SMA/sederajat dalam bidang informatika. Dalam pelaksanaannya, Arkavidia Academya bekerjasama dengan perusahaan atau startup di Indonesia yang bergerak dalam bidang teknologi untuk mengadakan bootcamp dengan topik keinformatikaan. Kegiatan bootcamp ini mencakup pembahasan teori, praktik, dan pengerjaan tugas. Setelah mengikuti Arkavidia Academya, peserta diharapkan memiliki pengetahuan dan kemampuan yang bermanfaat untuk bisa bersaing di era digital ini.'
   },
   {
-    title: 'COMPETITION',
+    title: 'AFI',
     value:
-      'Competition adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lectus elit. Phasellus elementum malesuada enim quis blandit. Nunc suscipit facilisis consectetur. In ante dolor, finibus id tortor volutpat, pulvinar porttitor sapien. Nunc sollicitudin gravida eros ut convallis. Phasellus in quam eu erat tincidunt aliquam. In dictum accumsan molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'Arkavidia For Indonesia (AFI) merupakan salah satu main event yang bertujuan untuk mengaplikasikan ilmu-ilmu yang didapat dari perkuliahan melalui pengabdian masyarakat. AFI berfokus untuk membantu masyarakat di bidang pendidikan, khususnya dengan mengadakan pelatihan khusus mengenai penggunaan Google Workspace kepada pendidik di beberapa sekolah dan membantu pengadaan pendukung keberlangsungan sekolah (baik barang fisik maupun tidak fisik) sehingga proses pembelajaran lebih efektif dan efisien terutama untuk kegiatan yang berhubungan langsung dengan Kegiatan Belajar Mengajar (KBM).'
   },
   {
-    title: 'COMPETITION',
+    title: 'TALKS',
     value:
-      'Competition adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lectus elit. Phasellus elementum malesuada enim quis blandit. Nunc suscipit facilisis consectetur. In ante dolor, finibus id tortor volutpat, pulvinar porttitor sapien. Nunc sollicitudin gravida eros ut convallis. Phasellus in quam eu erat tincidunt aliquam. In dictum accumsan molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'Arkavidia Talks merupakan salah satu main event berupa seminar yang mengundang praktisi dan profesional dalam industri teknologi informasi. Tujuan kegiatan ini adalah sebagai media pertukaran ide dari berbagai disiplin yang terkait IT guna menambah wawasan mengenai perkembangan teknologi dan membuka kesempatan untuk kolaborasi. Arkavidia Talks akan terdiri dari dua sesi dengan fokus berbeda dalam bentuk Public Talks (untuk memperkenalkan inovasi teknologi informasi secara general) dan Advanced Talks (untuk memperkaya wawasan masyarakat akan teknologi yang berhubungan dengan perkembangan di industri IT). Selain itu, terdapat pula podcast yang akan diisi oleh pembicara dengan tema yang berhubungan dengan dunia IT serta dikemas secara semiformal.'
+  },
+  {
+    title: 'IT Fest',
+    value:
+      'IT Festival merupakan pameran yang diisi oleh berbagai perusahaan dan startup di bidang teknologi informasi. Selain itu, startup/perusahaan juga dapat membuka kesempatan bagi para pengunjung untuk turut berpartisipasi dalam perusahaan sebagai seorang intern. Kegiatan ini diharapkan dapat mencerdaskan sekaligus merangkul pengunjung yang hadir. Dengan metode penyampaian yang menarik dan interaktif, diharapkan pengunjung dapat mengenal dan dapat ikut membantu mengedukasi masyarakat luas dengan pengetahuan mengenai startup dan teknologi yang bersangkutan.'
   },
 ]
 
 export default function Timeline() {
   return (
-    <div className="container mx-auto pt-20 w-3/4">
-      <div className="absolute top-0 left-0">
-        <Image src={Clock} />
+    <>
+    <div className="absolute">
+      <div className="relative top-[0px] left-[0px]">
+          <Image src={Clock} />
       </div>
+    </div>
+    <div className="container mx-auto w-3/4 pt-[20px]">
       <h1 className="text-center text-[60px] font-archivo font-[900] mb-[60px]">
         TIMELINE
       </h1>
@@ -75,9 +83,9 @@ export default function Timeline() {
               {datas.map((data, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <div className="flex flex-col gap-6 bg-cream300 w-full h-[375px] mt-2 p-4 border-2 border-black">
+                    <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 p-4 border-2 border-black">
                       <div className="text-4xl font-['Archivo']">{data.title}</div>
-                      <div className="text-base leading-4 text-left font-helvetica">
+                      <div className="text-base leading-4 text-left font-helvetica text-justify">
                         {data.value}
                       </div>
                       <button
@@ -105,5 +113,6 @@ export default function Timeline() {
         </div>
       </div>
     </div>
+    </>
   )
 }

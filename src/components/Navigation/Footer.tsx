@@ -4,6 +4,8 @@ import LinkedinIcon from '../Icon/LinkedinIcon'
 import TiktokIcon from '../Icon/TikTokIcon'
 import YoutubeIcon from '../Icon/YoutubeIcon'
 import ContactPhoneIcon from '../Icon/ContactPhoneIcon'
+import ArkavLogo from 'src/assets/images/logo/logo-arkavidia.png'
+import Image from 'next/image'
 
 // How to use
 // <Footer variant='yellowGeneral'/>
@@ -31,8 +33,12 @@ const Logo: React.FC<logoProps> = props => {
   const { children, logoVariants, ...rest } = props
   return (
     <div
-      className={`${logoStyle[logoVariants]} flex bg-white text-center justify-center border border-black `}
-    ></div>
+      className={`${logoStyle[logoVariants]} flex bg-cream300 text-center items-center justify-center border border-black `}
+    >
+      <div className="w-[100px]">
+        <Image src={ArkavLogo} />
+      </div>
+    </div>
   )
 }
 
@@ -109,7 +115,8 @@ const CompEventFooter: React.FC<FooterProps> = props => {
   const Header = (
     <div className="grid grid-rows-2 grid-cols-11 gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[3%] my-[3%] lg:my-[6%] lg:mb-[2%]">
       <div className="flex flex-wrap row-span-2 col-span-2 border-[2px] border-black min-w-[125px] max-w-[125px]">
-        <Logo logoVariants="square" />
+        <Logo logoVariants="square">
+        </Logo>
       </div>
       <div className="col-span-8 font-archivo text-white text-900 bg-black flex text-[24px] lg:text-[36px] justify-center items-center lg:w-[85%]">
         Arkavidia 8.0
@@ -198,22 +205,30 @@ const CompEventFooter: React.FC<FooterProps> = props => {
             <div className="flex items-stretch py-[4.5%] pl-[5%] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
               <ContactPhoneIcon className="inline mr-[3%] w-[24px] h-[18px] pb-[2px]" />
               <div className="inline font-helvatica text-700">
-                CP: Abdul (0888-8888-8888)
+                CP: Nelsen (0821-1274-9139)
               </div>
             </div>
           </div>
           <div className="flex gap-x-[12px] mb-[4.32%] ml-[5.14%] mt-[1.89%]">
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://instagram.com/arkavidia/" target="_blank">
               <InstagramIcon className="w-[24px] h-[24px]" />
+              </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.tiktok.com/@arkavidia/" target="_blank">
               <TiktokIcon className="w-[24px] h-[24px]" />
+              </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.youtube.com/channel/UC7QQH48TgjZKAIJeZNRrKyw" target="_blank">
               <YoutubeIcon className="w-[24px] h-[24px]" />
+              </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.linkedin.com/company/arkavidia" target="_blank">
               <LinkedinIcon className="w-[24px] h-[24px]" />
+              </a>
             </div>
           </div>
         </div>

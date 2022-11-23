@@ -15,7 +15,7 @@ const About = (): JSX.Element => {
       </div>
       <div className="flex bg-brownblack justify-center w-full">
         <div className="w-3/5">
-          <Countdown date="" title="" />
+          <Countdown date="2023/02/25" title="" />
         </div>
       </div>
       <div
@@ -66,7 +66,7 @@ const About = (): JSX.Element => {
             Indonesia.
           </div>
         </div>
-        <div className="">Carousell</div>
+        <div className=""></div> {/* Carousell */} 
       </div>
       <div
         className="flex
@@ -92,20 +92,20 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              412
             </div>
           </div>
           <div
-            className="text-white font-archivo text-center
-            xl:text-[24px] xl:mt-[32px]"
+            className="text-white font-varela text-center
+            xl:text-[20px] xl:mt-[10px]"
           >
-            PARTICIPANT
+            PAST
           </div>
           <div
-            className="text-white font-varela text-center
-            xl:text-[20px]"
+            className="text-white font-archivo text-center
+            xl:text-[24px]"
           >
-            FOR EACH YEAR
+            PARTICIPANTS
           </div>
         </div>
         <div
@@ -120,19 +120,18 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              329
             </div>
             <div
               className="text-white font-archivo text-center
               xl:text-[24px] xl:mt-[48px]"
             >
-              ENTRANTS
+              COMMITTEES
             </div>
             <div
               className="text-white font-varela text-center
               xl:text-[20px]"
             >
-              FOR EACH YEAR
             </div>
           </div>
         </div>
@@ -148,20 +147,20 @@ const About = (): JSX.Element => {
               className="
               xl:mt-[20px]"
             >
-              999
+              69
             </div>
             <div
-              className="text-white font-archivo text-center
-            xl:text-[24px] xl:mt-[48px]"
-            >
-              PARTNERS
-            </div>
-            <div
-              className="text-white font-varela text-center
-            xl:text-[20px]"
-            >
-              FOR EACH YEAR
-            </div>
+            className="text-white font-varela text-center
+            xl:text-[20px] xl:mt-[32px]"
+          >
+            PAST
+          </div>
+          <div
+            className="text-white font-archivo text-center
+            xl:text-[24px]"
+          >
+            PARTNERS
+          </div>
           </div>
         </div>
         <div
