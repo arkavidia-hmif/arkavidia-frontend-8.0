@@ -47,10 +47,11 @@ const datas = [
 
 export default function Timeline() {
   return (
-    <div className="container mx-auto pt-20 w-3/4">
-      <div className="absolute top-0 left-0">
+    <>
+    <div className="relative top-[0px] left-[0px]">
         <Image src={Clock} />
-      </div>
+    </div>
+    <div className="container mx-auto pt-20 w-3/4">
       <h1 className="text-center text-[60px] font-archivo font-[900] mb-[60px]">
         TIMELINE
       </h1>
@@ -110,5 +111,6 @@ export default function Timeline() {
         </div>
       </div>
     </div>
+    </>
   )
 }

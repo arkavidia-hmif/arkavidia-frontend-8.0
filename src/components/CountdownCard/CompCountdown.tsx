@@ -68,12 +68,14 @@ const PrintCountdown = (
 }
 
 const Countdown = ({ date, title }: CountdownProps) => {
-  const [habis, setHabis] = useState(0)
+  const [habis, setHabis] = useState(false)
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
+
+  console.log(habis)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -93,8 +95,8 @@ const Countdown = ({ date, title }: CountdownProps) => {
       setSeconds(s)
 
       if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-        setHabis(1)
-      }
+        setHabis(true)
+      }else setHabis(false)
     }, 1000)
     return () => clearInterval(interval)
   }, [])

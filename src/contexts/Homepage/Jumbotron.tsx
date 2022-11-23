@@ -22,13 +22,13 @@ const Jumbotron = (): JSX.Element => {
         backgroundSize: '80px 80px'
       }}
     >
+    <div
+      className="
+        absolute left-[50px] top-[50px] z-5"
+    >
+      <Image src={Image1} />
+    </div>
       <div className="flex flex-col justify-center items-center min-h-[80vh]">
-        <div
-          className="
-            absolute xl:ml-[155px] xl:mt-[80px] z-5"
-        >
-          <Image src={Image1} />
-        </div>
         <div className="z-10 divide-y border-black border-4 mx-[410px] h-[296px] w-[694px] mt-[5rem]">
           <div
             className="flex bg-black
@@ -82,13 +82,13 @@ const Jumbotron = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div
+      </div>
+      <div
           className="
-            absolute xl:ml-[570px] xl:mt-[243px] z-5"
+            absolute top-[30vh] right-[50px] z-5"
         >
           <Image src={Image2} />
         </div>
-      </div>
       <div className="flex w-full justify-center">
         <div
           className="flex flex-col w-[80px] h-[80px] items-center justify-center box bg-white rounded-lg my-[30px] pl-[5px] shadow-buttonShadow cursor-pointer active:shadow-buttonPressed active:translate-y-[4px]"

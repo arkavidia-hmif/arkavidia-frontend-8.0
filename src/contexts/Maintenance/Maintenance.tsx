@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Roadblock from 'src/assets/images/404/roadblock.png'
+import Roadblock from 'src/assets/images/404/roadblock.svg'
 import PoliceLineTop from 'src/assets/images/404/policeline-top.png'
 import PoliceLineBottom from 'src/assets/images/404/policeline-bottom.png'
 
