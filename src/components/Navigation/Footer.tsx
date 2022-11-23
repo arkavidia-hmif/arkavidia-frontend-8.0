@@ -211,15 +211,19 @@ const CompEventFooter: React.FC<FooterProps> = props => {
           </div>
           <div className="flex gap-x-[12px] mb-[4.32%] ml-[5.14%] mt-[1.89%]">
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://instagram.com/arkavidia/"></a>
               <InstagramIcon className="w-[24px] h-[24px]" />
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.tiktok.com/@arkavidia/"></a>
               <TiktokIcon className="w-[24px] h-[24px]" />
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.youtube.com/channel/UC7QQH48TgjZKAIJeZNRrKyw"></a>
               <YoutubeIcon className="w-[24px] h-[24px]" />
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
+              <a href="https://www.linkedin.com/company/arkavidia"></a>
               <LinkedinIcon className="w-[24px] h-[24px]" />
             </div>
           </div>
