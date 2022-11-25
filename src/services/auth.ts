@@ -2,8 +2,8 @@ import axios from 'axios';
 import API from '@src/utils/api';
 import { store } from '@src/redux/store/index';
 import { setToken } from '@src/redux/action/auth';
-import { AuthLoginReq, AuthRegisterReq, ChangePassReq } from '@src/types/auth';
-import { UserDataRes } from '@src/types/user';
+import { LoginRes, Auth } from '@src/types/auth';
+import { TeamLoginReq, TeamRegisterReq, ChangePassReq } from '@src/types/team'
 import { isStaging } from './env';
 
 // Brute force to change API endpoint for short-term dev purpose only
@@ -16,7 +16,7 @@ const HOST = {
 
 const URL = ENV ? HOST.STG : HOST.PROD
 
-export const register = async (payload: AuthRegisterReq) => {
+export const register = async (payload: TeamRegisterReq) => {
     try {
       const response = await axios(
         {
@@ -24,16 +24,17 @@ export const register = async (payload: AuthRegisterReq) => {
           url: URL + API.auth.register,
           data: payload,
         },
-      )
-      const userData = response.data.data as UserDataRes;
-      store.dispatch(setToken(userData.auth_token));
-      return response.data;
+      ) 
+      const data = response.data as LoginRes
+      const token  = data.Data;
+      store.dispatch(setToken(token));
+      return data.Message;
     } catch (e) {
-      console.log(e);
+      return "FAILED";
     }
 };
 
-export const login = async (payload: AuthLoginReq) => {
+export const login = async (payload: TeamLoginReq) => {
   try {
     const response = await axios(
       {
@@ -42,11 +43,12 @@ export const login = async (payload: AuthLoginReq) => {
         data: payload,
       },
     )
-    const userData = response.data.data as UserDataRes;
-    store.dispatch(setToken(userData.auth_token));
-    return response.data;
+    const data = response.data as LoginRes
+    const token  = data.Data;
+    store.dispatch(setToken(token));
+    return data.Message;
   } catch (e) {
-    console.log(e);
+    return "FAILED";
   }
 };
 
@@ -54,16 +56,7 @@ export const logout = async () => {
   const { auth } = store.getState()
 
   try {
-    const response = await axios(
-      {
-        method: 'GET',
-        url: URL + API.auth.logout,
-        headers: {
-          Authorization: `${auth.token}`
-        }
-      }
-    )
-    return response;
+    // CLEAR THE STATE //
   } catch (e) {
     console.log(e);
   }
@@ -88,36 +81,3 @@ export const changePass = async (payload: ChangePassReq) => {
     console.log(e);
   }
 };
-
-// export const getAllUsers = async (authToken: string) => {
-//   const response = await axios.get(
-//     'https://bankrut.herokuapp.com' + API.user.allUsers, {
-//         headers: {
-//           Authorization: `${authToken}` 
-//       }
-//     })
-//   )
-//   return response;
-// };
-
-// export const getUser = async (id: number, authToken: string) => {
-//   const response = (await axios.get(
-//     'https://bankrut.herokuapp.com' + API.user.user(id), {
-//         headers: {
-//           Authorization: `${authToken}` 
-//       }
-//     })
-//   )
-//   return response;
-// };
-
-// export const verifyUser = async (id: number, authToken: string) => {
-//   const response = (await axios.put(
-//     'https://bankrut.herokuapp.com' + API.user.verify(id), {
-//         headers: {
-//           Authorization: `${authToken}` 
-//       }
-//     })
-//   )
-//   return response;
-// };
