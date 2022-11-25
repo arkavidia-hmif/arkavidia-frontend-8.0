@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Countdown from '@src/components/CountdownCard/CompCountdown'
 import Image1 from '@src/components/Images/Mask group.png'
 import Image2 from '@src/components/Images/Mask group (1).png'
+import Carousel from './Carousel'
 
 const About = (): JSX.Element => {
   return (
@@ -32,7 +33,7 @@ const About = (): JSX.Element => {
         </button>
       </div>
       <div className="flex justify-center align-center">
-        <div className="">
+        <div className=" w-[55vw]">
           <div className="mt-[120px]">
             <div
               className="bg-black text-white font-[archivo] rotate-[-4deg]
@@ -55,7 +56,7 @@ const About = (): JSX.Element => {
           </div>
           <div
             className="text-justify font-helvatica tracking-tighter
-            xl:mt-[50px] xl:ml-[60px] xl:mr-[680px]"
+            xl:mt-[50px] xl:ml-[60px] pr-[40px]"
           >
             Arkavidia merupakan acara IT tahunan yang diadakan oleh Himpunan
             Mahasiswa Informatika ITB. Dengan tema “Adaptive Collaboration to
@@ -68,8 +69,8 @@ const About = (): JSX.Element => {
           </div>
         </div>
         {/* Carousell */} 
-        <div className="">
-          test
+        <div className=" w-[45vw] m-auto">
+          <Carousel />
         </div> 
       </div>
       <div
