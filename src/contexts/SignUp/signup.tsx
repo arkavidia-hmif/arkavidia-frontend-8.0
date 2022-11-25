@@ -7,13 +7,79 @@ import roket from '@src/assets/images/carousel-image/roket.svg'
 import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
+import Toast from '@src/components/Toast'
+import { TeamRegisterReq } from '@src/types/team';
+import { MemberList } from '@src/types/participant'
+import { register } from '@src/services/auth';
+import { useRouter } from 'next/router'
+
 
 interface SignUpProps {
   text: string
 }
 
 const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
-  const [pos, setPos] = useState(0)
+  const [pos, setPos] = useState(0);
+  const [username, setUsername] = useState("");
+  const [teamName, setTeamName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [teamLeader, setTeamLeader] = useState("");
+  const [leaderEmail, setLeaderEmail] = useState("");
+  const [member1, setMember1] = useState("");
+  const [member1Email, setMember1Email] = useState("");
+  const [member2, setMember2] = useState("");
+  const [member2Email, setMember2Email] = useState("");
+
+  const [toastList, setToastList] = useState<JSX.Element[]>([]);
+
+  const router = useRouter();
+
+
+  const validation = () => {
+    if(!username || !teamName || !password || !confirmPass || !teamLeader || !leaderEmail || !member1 || !member1Email){
+      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!' } type={'danger'} position={'top'} />]);
+      return false;
+    }
+    if((member2 && !member2Email) || (member2 && !member2Email)){
+      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!' } type={'danger'} position={'top'} />]);
+      return false;
+    }
+    if(password !== confirmPass){
+      setToastList([...toastList, <Toast timer={3000} label={'Password tidak sesuai dengan konfirmasi!' } type={'danger'} position={'top'} />]);
+      return false;
+    }
+    return true;
+  }
+
+  const handleOnRegister = async () => {
+    if(validation()){
+      const memberList = [
+        {
+          name: teamLeader,
+          email: leaderEmail,
+          career_interest: [],
+          role: "leader"
+        },
+        {
+          name: member1,
+          email: member1Email,
+          career_interest: [],
+          role: "member"
+        }
+      ] as MemberList[];
+      if(member2 && member2Email) memberList.push({ name: member2, email: member2Email, career_interest: [], role: "member"})
+      const payload = {
+        username: username,
+        password: password,
+        team_name: teamName,
+        member_list: memberList,
+      } as TeamRegisterReq
+      const res = await register(payload);
+      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : 'Gagal daftar! Mohon cek form Anda.' } type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+      if(res === 'SUCCESS') router.push('/competition')
+    }
+  }
 
   let autoLoop = setInterval(() => {
     setPos(pos + 1)
@@ -24,6 +90,7 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
 
   return (
     <>
+      {toastList}
       <div className="flex justify-center">
         <div className="container xl-auto box-border flex max-w-[100vw] h-[1080px] m-0 bg-gray200">
           <div className="box-border border-solid w-[50%] bg-yellow300 items-center inline-flex justify-center">
@@ -122,13 +189,13 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
               <div className="m-2">
                 <h2>Username</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={username} setExternalState={setUsername} />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Nama Tim</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={teamName} setExternalState={setTeamName} />
                 </div>
               </div>
             </div>
@@ -139,8 +206,8 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
                 <div>
                   <TextField
                     ftype="show"
-                    externalState=""
-                    setExternalState={() => null}
+                    externalState={password}
+                    setExternalState={setPassword}
                   />
                 </div>
               </div>
@@ -149,8 +216,8 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
                 <div>
                   <TextField
                     ftype="show"
-                    externalState=""
-                    setExternalState={() => null}
+                    externalState={confirmPass}
+                    setExternalState={setConfirmPass}
                   />
                 </div>
               </div>
@@ -160,13 +227,13 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Ketua Tim</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={teamLeader} setExternalState={setTeamLeader} />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Ketua Tim</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={leaderEmail} setExternalState={setLeaderEmail} />
                 </div>
               </div>
             </div>
@@ -175,13 +242,13 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Anggota 1</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={member1} setExternalState={setMember1} />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 1</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={member1Email} setExternalState={setMember1Email} />
                 </div>
               </div>
             </div>
@@ -190,19 +257,19 @@ const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Anggota 2</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={member2} setExternalState={setMember2} />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 2</h2>
                 <div>
-                  <TextField externalState="" setExternalState={() => null} />
+                  <TextField externalState={member2Email} setExternalState={setMember2Email} />
                 </div>
               </div>
             </div>
 
             <div className="flex justify-center mt-6">
-              <CustomButton bgColor="primary" icon={false} size="normal">
+              <CustomButton bgColor="primary" icon={false} size="normal" onClick={handleOnRegister}>
                 <div className="w-[470px]">Sign Up</div>
               </CustomButton>
             </div>

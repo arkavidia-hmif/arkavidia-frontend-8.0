@@ -9,19 +9,45 @@ import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import Fox from '@src/assets/images/sign-in/fox.png'
+import { TeamLoginReq } from '@src/types/team';
+import { login } from '@src/services/auth';
+import Toast from '@src/components/Toast'
+import { useRouter } from 'next/router'
 
+// interface ILoginContext {}
+const Login = () => {
+  const [pos, setPos] = useState(0);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [toastList, setToastList] = useState<JSX.Element[]>([]);
 
-interface ILoginContext {}
-const Login: React.FC<ILoginContext> = () => {
-  const [pos, setPos] = useState(0)
+  const handleShowToast = (res : string) => {
+    setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil masuk!' : 'Gagal masuk! Mohon cek username dan password Anda.' } type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+  }
 
-  let autoLoop = setInterval(() => {
-    setPos(pos + 1)
+  const router = useRouter();
+
+  const handleOnLogin = async () => {
+    const payload = {
+      username: username,
+      password: password
+    } as TeamLoginReq
+    const response = await login(payload);
+    handleShowToast(response);
+    if(response === 'SUCCESS') router.push('/competition')
+  }
+
+  const autoLoop = setInterval(() => {
     if (pos == 2) {
       setPos(0)
+    }else{
+      setPos(pos + 1)
     }
   }, 4000)
+
   return (
+    <>
+    {toastList}
     <Layout title="Sign In" description="Sign In">
       <div className="flex flex-row justify-between w-full">
         {/* Sisi Kiri */}
@@ -154,21 +180,23 @@ const Login: React.FC<ILoginContext> = () => {
             <label className="font-helvatica font-bold text-base">
               Username
             </label>
-            <TextField externalState="" setExternalState={() => null} />
+            <TextField width={'w-full'} externalState={username} setExternalState={setUsername} />
             <div />
             <label className="font-helvatica font-bold text-base">
               Password
             </label>
             <TextField
               ftype="show"
-              externalState=""
-              setExternalState={() => null}
+              width={'w-full'}
+              externalState={password}
+              setExternalState={setPassword}
             />
-            <p className="font-helvatica font-bold text-red300 text-[14px]">
+            {/* <p className="font-helvatica font-bold text-red300 text-[14px]">
               Lupa password?
-            </p>
-            <CustomButton bgColor="primary" size="normal">
-              Login
+            </p> */}
+            <div className="mt-[30px]" />
+            <CustomButton bgColor="primary" size="normal" onClick={handleOnLogin}>
+             <div className="w-[470px]">Login</div>
             </CustomButton>
             <p className="font-helvatica font-normal text-[14px] text-center">
               Belum punya akun?{' '}
@@ -178,6 +206,7 @@ const Login: React.FC<ILoginContext> = () => {
         </div>
       </div>
     </Layout>
+    </>
   )
 }
 

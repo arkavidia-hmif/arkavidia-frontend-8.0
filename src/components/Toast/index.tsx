@@ -44,16 +44,16 @@ const Types: Record<
 
 const Positions: Record<string, { className: string }> = {
   bottom: {
-    className: 'bottom-10 animate-toastSlideUp'
+    className: 'bottom-10 left-[40vw] animate-toastSlideUp'
   },
   top: {
-    className: 'top-10 animate-toastSlideDown'
-  },
+    className: 'top-10 left-[40vw] animate-toastSlideDown'
+  }, 
   left: {
-    className: 'left-10 animate-toastSlideRight'
+    className: 'top-10 left-10 animate-toastSlideRight'
   },
   right: {
-    className: 'right-10 animate-toastSlideLeft'
+    className: 'top-10 right-10 animate-toastSlideLeft'
   }
 }
 
@@ -76,7 +76,7 @@ const Toast: React.FC<ToastProperties> = props => {
       {showToast && (
         <div
           className={clsx(
-            'flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-sm bg-gray200 border border-solid rounded-lg fixed',
+            'flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-sm bg-gray200 border border-solid rounded-lg fixed z-[100]',
             Types[type].className,
             Positions[position].className
           )}
