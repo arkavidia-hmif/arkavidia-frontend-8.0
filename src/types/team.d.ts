@@ -23,8 +23,7 @@ export interface TeamData {
 
 
 export interface ChangePassReq {
-  old_password: string;
-  new_password: string;
+  password: string;
 }
 
 export interface TeamDataRes {

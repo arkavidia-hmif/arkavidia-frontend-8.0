@@ -298,7 +298,7 @@ export default function Navbar({
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname.includes(menu.href) ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (
@@ -308,7 +308,7 @@ export default function Navbar({
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname.includes(menu.href) ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (

@@ -62,13 +62,13 @@ const TextField: React.FC<ITextField> = ({
         />
         {ftype?.toLowerCase() === 'show' &&
           (visible ? (
-            <EyeHideIcon
+            <EyeShowIcon
               onClick={() => setVisible(false)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"
             />
           ) : (
-            <EyeShowIcon
+            <EyeHideIcon
               onClick={() => setVisible(true)}
               size={16}
               className="absolute right-0 mr-4 h-full cursor-pointer"

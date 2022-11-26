@@ -40,19 +40,27 @@ const ProfilePage = () => {
   return (
     <Layout>
       <div className="p-12 bg-gray200">
-        <div className="flex pt-8">
+        <div className="flex pt-[3rem]">
           <div className="w-1/4 flex justify-center items-center pt-16">
             <Image src={ProfileImage} />
           </div>
           <div className="w-3/4 pl-16">
             <div className="flex justify-between pb-8">
-              <h4 className="font-archivo text-5xl drop-shadow-xl">Profil</h4>
+            <p
+              className="text-center font-archivo text-white text-[48px] mt-[20px]"
+              style={{
+                textShadow:
+                  '-2px -2px 0 #000, 6px -3px 0 #000, -2px 4px 0 #000, 6px 4px 0px #000'
+              }}
+            >
+              Profil
+            </p>
               <div>
-                <button className="rounded-full p-3 w-12 h-12 flex items-center justify-center bg-blue300 hover:bg-blue200">
+                {/* <button className="rounded-full p-3 w-12 h-12 flex items-center justify-center bg-blue300 hover:bg-blue200">
                   <div>
                     <EditIcon className="fill-white w-6 h-6" />
                   </div>
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="p-8 bg-white rounded-xl drop-shadow">
@@ -94,7 +102,7 @@ const ProfilePage = () => {
                 variant="default"
                 width="w-full"
               /> */}
-              <p className="font-helvatica font-bold text-xs text-red-500 hover:cursor-pointer pt-2">
+              <p className="font-helvatica font-bold text-xs text-red-500 hover:cursor-pointer pt-2" onClick={() => router.push('/profile/change-password')}>
                 Ubah Password
               </p>
             </div>

@@ -72,7 +72,9 @@ const SignUp = (): JSX.Element => {
       } as TeamRegisterReq
       const res = await register(payload);
       setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : 'Gagal daftar! Mohon cek form Anda.' } type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
-      if(res === 'SUCCESS') router.push('/competition')
+      setInterval(() => {
+        if(res === 'SUCCESS') router.push('/competition')
+      }, 1000);
     }
   }
 

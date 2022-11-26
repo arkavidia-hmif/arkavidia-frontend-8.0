@@ -34,7 +34,9 @@ const Login = () => {
     } as TeamLoginReq
     const response = await login(payload);
     handleShowToast(response);
-    if(response === 'SUCCESS') router.push('/competition')
+    setInterval(() => {
+      if(response === 'SUCCESS') router.push('/competition')
+   }, 1000);
   }
 
   const autoLoop = setInterval(() => {

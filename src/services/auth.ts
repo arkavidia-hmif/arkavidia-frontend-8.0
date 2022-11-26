@@ -75,8 +75,8 @@ export const changePass = async (payload: ChangePassReq) => {
         data: payload
       }
     )
-    return response.data;
+    return response.data.Message;
   } catch (e) {
-    console.log(e);
+    return "FAILED";
   }
 };
