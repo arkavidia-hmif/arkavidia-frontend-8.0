@@ -4,6 +4,6 @@ export const setToken = (token: string) => ({
     token,
   });
 
-  // export const userLogout = () => ({
-  //   type: 'USER_LOGOUT',
-  // });
+export const userLogout = () => ({
+  type: 'USER_LOGOUT',
+});

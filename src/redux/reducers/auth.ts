@@ -3,7 +3,7 @@ interface AuthReducerState {
 }
 
 export type AuthReducerActions =
-  | { type: 'SET_TOKEN'; token: string}
+  | { type: 'SET_TOKEN'; token: string} | { type: 'USER_LOGOUT'}
 
 const defaultState = {
   token: null
@@ -15,6 +15,8 @@ export default function reducer(prevState = defaultState, action: AuthReducerAct
       return {
         token: action.token,
       };
+    case 'USER_LOGOUT':
+      return null;
     default:
       return prevState;
   }

@@ -13,12 +13,7 @@ import { MemberList } from '@src/types/participant'
 import { register } from '@src/services/auth';
 import { useRouter } from 'next/router'
 
-
-interface SignUpProps {
-  text: string
-}
-
-const SignUp: FC<SignUpProps> = ({ text }: SignUpProps): JSX.Element => {
+const SignUp = (): JSX.Element => {
   const [pos, setPos] = useState(0);
   const [username, setUsername] = useState("");
   const [teamName, setTeamName] = useState("");

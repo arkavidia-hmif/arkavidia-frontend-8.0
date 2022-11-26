@@ -1,8 +1,8 @@
 import axios from 'axios';
 import API from '@src/utils/api';
 import { store } from '@src/redux/store/index';
-import { setToken } from '@src/redux/action/auth';
-import { LoginRes, Auth } from '@src/types/auth';
+import { setToken, userLogout } from '@src/redux/action/auth';
+import { LoginRes } from '@src/types/auth';
 import { TeamLoginReq, TeamRegisterReq, ChangePassReq } from '@src/types/team'
 import { isStaging } from './env';
 
@@ -53,10 +53,9 @@ export const login = async (payload: TeamLoginReq) => {
 };
 
 export const logout = async () => {
-  const { auth } = store.getState()
-
   try {
-    // CLEAR THE STATE //
+    store.dispatch(userLogout());
+    localStorage.clear();
   } catch (e) {
     console.log(e);
   }

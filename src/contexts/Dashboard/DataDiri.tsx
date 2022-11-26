@@ -1,4 +1,4 @@
-import Dashboard from '@src/layout/Dashboard'
+import Dashboard from '@src/components/Navigation/Dashboard'
 import { useState } from 'react'
 import DataDiriIndividu from './DataDiriIndividu'
 import CustomButton from '@src/components/CustomButton/CustomButton'

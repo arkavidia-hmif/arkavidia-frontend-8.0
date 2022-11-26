@@ -1,14 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import arkalogica1 from '@src/assets/images/arkalogica1.png'
-import Tab from '@src/components/Tab'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import CustomChip from '@src/components/Chip'
 import DashboardCountdown from '@src/components/CountdownCard/dashboardCountdown'
-import FoxImage from '@src/assets/images/fox.png'
-import NoAnnouncement from '@src/assets/images/noAnnouncement.png'
-import NotRegistered from '@src/assets/images/StatusNotRegistered.png'
-
+import FoxImage from '@src/assets/images/fox.svg'
+import NoAnnouncement from '@src/assets/images/noAnnouncement.svg'
+import NotRegistered from '@src/assets/images/StatusNotRegistered.svg'
+import Dashboard from '@src/components/Navigation/Dashboard'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
 
@@ -98,40 +96,16 @@ const DashboardInfo = (props: any) => {
     'font-archivo font-black text-[24px] mt-[24px] pl-[10px]'
   const textStyle = 'font-helvatica font-normal text-[12px] pl-[10px]'
   return (
-    <div className="bg-[rgb(236,236,236)] relative pb-[96px]">
-      <div className="">
-        <div className="grid grid-cols-12">
-          <div className="col-span-2 bg-white ml-[75px] mr-[25px] shadow-[0_0_16px_rgba(132,132,132,0.25)] rounded-[12px] max-h-[400px]">
-            <div className="grid grid-rows-3 mt-[15%] mb-[10%]">
-              <div className="flex justify-center items-center row-span-1 mb-[15%]">
-                <Image
-                  src={arkalogica1}
-                  width={'126%'}
-                  height={'87%'}
-                  alt="Logo"
-                ></Image>
-              </div>
-              <div className="grid grid-rows-3 font-varela text-400 text-[20px] row-span-2">
-                <div className="flex justify-center items-center my-[7%] shadow-none">
-                  <Tab>Informasi</Tab>
-                </div>
-                <p className="flex align-items justify-center my-[7%]">
-                  Data Peserta
-                </p>
-                <p className="flex align-items justify-center my-[7%]">
-                  Submission
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-10 mr-[116px] ml-[5px]">
-            <div className="mt-[3%] ml-[11px] mb-[30px]">
+    <div className="bg-[rgb(236,236,236)] relative">
+    <Dashboard>
+      <div className="w-full">
+          <div className="w-full mr-[116px] ml-[5px]">
+            <div className="ml-[11px] mb-[30px]">
               <div className="font-archivo text-900 text-[48px] ml-[2px] text-white text-stroke-black text-shadow">
                 Informasi
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-[12px]">
+            <div className="grid grid-cols-3 gap-[12px] z-[20]">
               {isEmpty === 'false' ? (
                 <>
                   <div className="grid grid-row-2 pl-[4%]  rounded-[8px]">
@@ -150,7 +124,7 @@ const DashboardInfo = (props: any) => {
                         </CustomButton>
                       </div>
                     </div>
-                    <div className="rounded-[8px] bg-white mt-[10px] pr-[20px] pl-[12px] mb-[">
+                    <div className="rounded-[8px] bg-white mt-[10px] pr-[20px] pl-[12px] z-[10]">
                       <p className={`${subHeader1Style} mb-[22px]`}>
                         Pengumuman
                       </p>
@@ -247,9 +221,9 @@ const DashboardInfo = (props: any) => {
               </div>
             </div>
           </div>
-        </div>
       </div>
-      <div className="absolute z-10 bottom-0">
+    </Dashboard>
+    <div className="absolute z-0 bottom-0 mb-[-5rem] ml-[-1rem]">
         <Image src={FoxImage} />
       </div>
     </div>

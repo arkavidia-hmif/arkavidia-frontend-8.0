@@ -6,8 +6,8 @@ import { store } from '@src/redux/store';
 import '@src/styles/global.css'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
-const isLogin = store.getState().auth ? true : false;
-
+  const isLogin = store.getState()?.auth?.token == null ? false : true;
+  
   return (
     <div className="flex-col w-full overflow-x-hidden">
       <Navbar isLogged={isLogin} isAdmin={false} />

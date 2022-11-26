@@ -14,6 +14,7 @@ interface ITextField {
   placeholder?: string
   externalState: string
   setExternalState: Dispatch<SetStateAction<string>>
+  isDisable?: boolean
 }
 
 type variants = 'default' | 'error' | 'success' | 'disabled'
@@ -33,7 +34,8 @@ const TextField: React.FC<ITextField> = ({
   width,
   placeholder = 'Text',
   externalState,
-  setExternalState
+  setExternalState,
+  isDisable = false
 }): JSX.Element => {
   const [visible, setVisible] = useState(false)
 
@@ -49,7 +51,7 @@ const TextField: React.FC<ITextField> = ({
           id="text"
           value={externalState}
           onChange={e => setExternalState(e.target.value)}
-          disabled={variant === 'disabled'}
+          disabled={isDisable ? true : variant === 'disabled'}
           placeholder={placeholder}
           className={`form-input
           w-full text-xs overflow-hidden ${

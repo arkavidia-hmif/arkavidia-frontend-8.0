@@ -1,10 +1,12 @@
 import Image from 'next/image'
+import SEO from '@src/components/SEO';
 import Sadface from 'src/assets/images/404/sadface.svg'
 import PoliceLineTop from 'src/assets/images/404/policeline-top.png'
 import PoliceLineBottom from 'src/assets/images/404/policeline-bottom.png'
 
 const Maintenance = () => {
     return (
+        <SEO title="Arkavida 8.0 | Page Not Found">
         <div className="flex flex-col justify-center items-center text-center h-[100vh]">
             <div className="absolute top-0 left-0 w-[50%]">
                 <Image src={PoliceLineTop} />
@@ -23,6 +25,7 @@ const Maintenance = () => {
                 <Image src={PoliceLineBottom} />
             </div>
         </div>
+        </SEO>
     )
 }
 
