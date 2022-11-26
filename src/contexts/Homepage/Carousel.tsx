@@ -82,7 +82,7 @@ const Carousel = () => {
   return (
     <div className="flex justify-center gap-[60px] items-center relative">
       <div
-        className="w-[48px] h-[48px] p-[5px] text-xl flex justify-center items-center cursor-pointer text-white bg-red300 rounded-full font-varela"
+        className="w-[48px] h-[48px] p-[5px] text-xl flex justify-center items-center cursor-pointer text-white bg-red300 rounded-full font-varela cursor-pointer"
         onClick={() => handleLeftClick()}>
         {'<'}
       </div>
@@ -93,7 +93,7 @@ const Carousel = () => {
             <Card key={index} prop={card.img} type={index} />
           ))}
       <div
-        className="w-[48px] h-[48px] p-[5px] text-xl flex justify-center items-center cursor-pointer text-white bg-red300 rounded-full font-varela"
+        className="w-[48px] h-[48px] p-[5px] text-xl flex justify-center items-center cursor-pointer text-white bg-red300 rounded-full font-varela cursor-pointer"
         onClick={() => handleRightClick()}>
         {'>'}
       </div>

@@ -1,7 +1,19 @@
 /* eslint-disable react/prop-types */
 import Image from 'next/image'
 
-function CarouselItem({prop, type}) {
+export interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+}
+interface StaticRequire {
+  default: StaticImageData;
+}
+
+declare type StaticImport = StaticRequire | StaticImageData;
+
+function CarouselItem({prop, type} :  {type: number; prop: StaticImport }) {
   if (type === 2) {
     return (
       <div className="
@@ -17,7 +29,7 @@ function CarouselItem({prop, type}) {
       border-2
       z-[-10]">
         <div className="w-40 h-40">
-          <Image src={prop} layout="fill" alt="Carousel Image 2"/>
+          <Image src={prop} layout="fill" objectFit="cover" alt="Carousel Image 2"/>
         </div>
 
       </div>
@@ -37,7 +49,7 @@ function CarouselItem({prop, type}) {
       border-black
       border-2">
         <div className="w-40 h-40">
-          <Image src={prop} layout="fill" alt="Carousel Image 3"/>
+          <Image src={prop} layout="fill" objectFit="cover" alt="Carousel Image 3"/>
         </div>
         
       </div>
@@ -54,7 +66,7 @@ function CarouselItem({prop, type}) {
           border-2
           relative"
       >
-          <Image src={prop} layout="fill" alt="Carousel Image 1"/>
+          <Image src={prop} layout="fill" objectFit="cover" alt="Carousel Image 1"/>
       </div>
     );
   }
