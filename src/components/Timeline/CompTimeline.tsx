@@ -1,4 +1,4 @@
-import DiskImage from '@src/assets/images/disk.png'
+import DiskImage from '@src/assets/images/disk.svg'
 import Image from 'next/image'
 import clsx from 'clsx'
 
@@ -59,7 +59,7 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
         {title}
       </h6>
       <p className={clsx('font-Helvatica font-bold text-base', textColor)}>
-        <span>{startDate.getDate()}</span> - <span>{endDate.getDate()}</span>{' '}
+        <span>{startDate.getDate()}{month[startDate.getMonth()] != month[endDate.getMonth()] && ` ${month[startDate.getMonth()]}`}{startDate.getFullYear() != endDate.getFullYear() && ` ${startDate.getFullYear()}`}</span> - <span>{endDate.getDate()}</span>{' '}
         <span>
           {month[endDate.getMonth()]} {endDate.getFullYear()}
         </span>
@@ -70,7 +70,7 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
 
 export default function Timeline({ dates }: AppProps) {
   return (
-    <div className="flex w-[83vw] overflow-x-auto pt-16 pb-20 bg-gradient-to-b from-[rgba(217,217,217,0)] to-[#FF634B]">
+    <div className="flex w-[83vw] overflow-x-auto scrollbar scrollbar-thumb-white scrollbar-track-yellow200 pt-16 pb-20 bg-gradient-to-b from-[rgba(217,217,217,0)] to-[#FF634B]">
       {dates.map(({ title, startDate, endDate }) => (
         <_DateComponent
           title={title}

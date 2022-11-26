@@ -41,7 +41,7 @@ export default function DropdownComponent({
         onClick={() => setClicked(!clicked)}
         className="flex items-center justify-between bg-black text-white w-full px-6 py-4 cursor-pointer"
       >
-        <h3 className=" font-varela capitalize text-3xl w-11/12">{title}</h3>
+        <h3 className=" font-varela capitalize text-xl w-11/12">{title}</h3>
         {clicked ? (
           <ArrowTopIcon size={48} className="text-white cursor-pointer" />
         ) : (

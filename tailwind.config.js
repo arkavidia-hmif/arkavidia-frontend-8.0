@@ -71,7 +71,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms'),
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms'), require('tailwind-scrollbar'),
     ({ addUtilities, e, theme, variants }) => {
       let colors = flattenColorPalette(theme('borderColor'))
       delete colors['default']

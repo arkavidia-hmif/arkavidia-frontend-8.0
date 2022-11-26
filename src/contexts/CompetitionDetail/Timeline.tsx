@@ -1,5 +1,8 @@
-import CompCountdown from '@src/components/CountdownCard/CompCountdown'
+import CompCountdown from '@src/components/CountdownCard/CompDetailCountdown'
 import CompTimeline from '@src/components/Timeline/CompTimeline'
+import Image from 'next/image'
+import Game from '@src/assets/images/game.svg'
+import Star from '@src/assets/images/3star.svg'
 
 interface AppProps {
   dates: {
@@ -20,7 +23,10 @@ export default function Timeline({ dates }: AppProps) {
   }
 
   return (
-    <section className="w-full flex flex-col items-center bg-yellow300 pt-24 pb-8">
+    <section className="w-full flex flex-col items-center bg-yellow300 pt-24 pb-8 relative">
+      <div className="absolute left-5 top-10">
+        <Image src={Star} />
+      </div>
       <h3 className="font-black text-6xl text-center uppercase font-archivo mb-16">
         Timeline
       </h3>
@@ -29,6 +35,9 @@ export default function Timeline({ dates }: AppProps) {
         title={nearestDate.title}
       />
       <CompTimeline dates={dates} />
+      <div className="absolute right-[-5%] top-20">
+        <Image src={Game} />
+      </div>
     </section>
   )
 }

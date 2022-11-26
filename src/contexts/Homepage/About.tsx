@@ -1,4 +1,3 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import Countdown from '@src/components/CountdownCard/CompCountdown'
 import Image1 from '@src/components/Images/Mask group.png'

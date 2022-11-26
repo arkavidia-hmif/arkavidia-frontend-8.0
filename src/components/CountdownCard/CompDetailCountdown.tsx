@@ -113,9 +113,9 @@ const Countdown = ({ date, title }: CountdownProps) => {
   return (
     <>
       {/* Box */}
-      <div className="flex flex-col items-center space-y-2 bg-brownblack pt-1 justify-center overflow-hidden">
+      <div className="flex flex-col items-center space-y-2 pt-1 justify-center overflow-hidden">
         {/* Bagian title */}
-        <div className="p-2.5 mb-2 mt-4 font-archivo text-black text-center text-sm lg:bg-black lg:text-white lg:text-xl">
+        <div className="py-2.5 uppercase px-[50px] mb-2 mt-4 font-archivo text-black text-center text-sm lg:bg-black lg:text-white lg:text-4xl">
           {title}
         </div>
         {/* Bagian countdown */}
