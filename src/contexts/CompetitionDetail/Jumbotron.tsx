@@ -30,7 +30,7 @@ const Jumbotron = ({logo,title, description} :IJumbotronCompe) => {
 
   const handleRegister = () => {
     if(isLogin) router.push(router.pathname + '/registration');
-    else router.push('sign-in');
+    else router.push('/sign-in');
   }
 
   return (
