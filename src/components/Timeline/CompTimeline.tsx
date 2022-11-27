@@ -59,10 +59,17 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
         {title}
       </h6>
       <p className={clsx('font-Helvatica font-bold text-base', textColor)}>
-        <span>{startDate.getDate()}{month[startDate.getMonth()] != month[endDate.getMonth()] && ` ${month[startDate.getMonth()]}`}{startDate.getFullYear() != endDate.getFullYear() && ` ${startDate.getFullYear()}`}</span> - <span>{endDate.getDate()}</span>{' '}
+      {(startDate.getDate() != endDate.getDate()) || (startDate.getMonth() != endDate.getMonth()) || (startDate.getFullYear() != endDate.getFullYear()) ? (
+        <>
+        <span>{startDate.getDate()}{month[startDate.getMonth()] != month[endDate.getMonth()] && ` ${month[startDate.getMonth()]}`}{startDate.getFullYear() != endDate.getFullYear() && ` ${startDate.getFullYear()}`}</span>
+         - <span>{endDate.getDate()}</span>{' '}
         <span>
           {month[endDate.getMonth()]} {endDate.getFullYear()}
         </span>
+        </>
+      ) : (
+        <span>{startDate.getDate()} {month[startDate.getMonth()]} {startDate.getFullYear()}</span>
+      )}
       </p>
     </div>
   )
