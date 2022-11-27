@@ -11,7 +11,7 @@ const HOST = {
   PROD: 'https://arkavidia-backend-8-0-6d47ozplva-et.a.run.app'
 }
 
-const URL = ENV ? HOST.STG : HOST.PROD;
+const URL = HOST.PROD;
 
 
 export const getTeamData = async () => {

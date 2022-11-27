@@ -4,6 +4,7 @@ import Star from '@src/assets/images/3star.svg'
 import Gameboy from '@src/assets/images/gameboy.svg'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import { useRouter } from 'next/router'
+import { store } from '@src/redux/store/index';
 
 export interface StaticImageData {
   src: string;
@@ -25,6 +26,12 @@ interface IJumbotronCompe {
 
 const Jumbotron = ({logo,title, description} :IJumbotronCompe) => {
   const router = useRouter();
+  const isLogin = store.getState()?.auth?.token == null ? false : true;
+
+  const handleRegister = () => {
+    if(isLogin) router.push(router.pathname + '/registration');
+    else router.push('sign-in');
+  }
 
   return (
   <div className="flex flex-col w-full pt-[8rem] pb-[5rem] justify-center items-center bg-yellow300 relative"       
@@ -57,7 +64,7 @@ const Jumbotron = ({logo,title, description} :IJumbotronCompe) => {
           </div>
           </a>
           </CustomButton>
-        <CustomButton bgColor='primary' size='normal' onClick={() => router.push(router.pathname + '/registration')}>
+        <CustomButton bgColor='primary' size='normal' onClick={handleRegister}>
           <div className="py-[10px] px-[50px]">
           Register Now
           </div>
