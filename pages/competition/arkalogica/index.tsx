@@ -56,6 +56,7 @@ const CP = (): JSX.Element => {
         title="Arkalogica" 
         description="Arkalogica adalah kompetisi yang mengasah kemampuan peserta dalam penggunaan logika dan menyelesaikan masalah secara logis. Jenis-jenis permasalahan yang diberikan antara lain berbagai soal logika dan game menarik." 
         logo={Logo}
+        guidebook="https://drive.google.com/file/d/1_C_gDpvTlCLubuBDy8CLwCtKRv6Vs1VO/view?usp=sharing"
         />
       <CountdownComp />
       <Prize prizes={PRIZES} />

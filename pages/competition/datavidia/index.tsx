@@ -54,6 +54,7 @@ const CP = (): JSX.Element => {
         title="Datavidia" 
         description='Datavida merupakan kompetisi yang bertujuan untuk menjadi ajang pengembangan kompetensi dan pertandingan antara talenta digital Indonesia khususnya di dunia sains data untuk memberikan keputusan yang bijak dan terarah.' 
         logo={Logo}
+        guidebook="https://drive.google.com/file/d/1IYBLbQb-ljb7iGCy8jcTrk3KFF7p1c0f/view?usp=sharing"
         />
       <CountdownComp />
       <Prize prizes={PRIZES} />

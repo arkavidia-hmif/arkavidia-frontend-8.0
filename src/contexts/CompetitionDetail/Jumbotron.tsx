@@ -22,9 +22,10 @@ interface IJumbotronCompe {
   logo: StaticImport
   title: string;
   description: string;
+  guidebook: string;
 }
 
-const Jumbotron = ({logo,title, description} :IJumbotronCompe) => {
+const Jumbotron = ({logo,title, description, guidebook} :IJumbotronCompe) => {
   const router = useRouter();
   const isLogin = store.getState()?.auth?.token == null ? false : true;
 
@@ -58,7 +59,7 @@ const Jumbotron = ({logo,title, description} :IJumbotronCompe) => {
             </p>
     <div className="flex gap-3 w-full items-center justify-center mt-8">
         <CustomButton bgColor='ghost' size='normal'>
-          <a href="https://drive.google.com/file/d/112TOCLLWU_kwnToIdbDsRWs7a-Ed2851/view" style={{ textDecoration: 'none' }} target="_blank">
+          <a href={guidebook} style={{ textDecoration: 'none' }} target="_blank">
           <div className="py-[10px] px-[20px]">
             Download Guidebook
           </div>
