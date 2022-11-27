@@ -8,7 +8,7 @@ import QMark_Reversed from "src/assets/images/qmark-reversed-full.png"
 interface AppProps {
   faqs: {
     title: string
-    content: string
+    content: string | JSX.Element
   }[]
 }
 

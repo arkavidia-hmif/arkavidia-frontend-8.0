@@ -5,7 +5,7 @@ import ArrowTopIcon from '@src/components/Icon/ArrowTopIcon'
 /** FAQ dropdown component properties */
 interface DropdownProps {
   title: string
-  content: string
+  content: string | JSX.Element
 }
 
 /**
