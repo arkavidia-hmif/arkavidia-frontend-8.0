@@ -2,7 +2,7 @@ import SEO from '@src/components/SEO';
 import Jumbotron from '@src/contexts/CompetitionDetail/Jumbotron';
 import CountdownComp from '@src/contexts/CompetitionDetail/Countdown';
 import Prize from '@src/contexts/CompetitionDetail/Prize'
-import { FAQ_UXVIDIA, TIMELINE_UXVIDIA } from '@src/const/CompetitionDetail';
+import { FAQ_DATAVIDIA, TIMELINE_DATAVIDIA } from '@src/const/CompetitionDetail';
 import FAQ from '@src/contexts/CompetitionDetail/FAQ';
 import Timeline from '@src/contexts/CompetitionDetail/Timeline'
 import Contact from '@src/contexts/CompetitionDetail/Contact'
@@ -14,7 +14,7 @@ const CONTACT = {
       contact: 'rizkyramadhana26',
       name: 'Rizky'
     },    {
-      contact: 'rioalexande723',
+      contact: 'rioalexander723',
       name: 'Rio'
     },
   ],
@@ -57,8 +57,8 @@ const CP = (): JSX.Element => {
         />
       <CountdownComp />
       <Prize prizes={PRIZES} />
-      <Timeline dates={TIMELINE_UXVIDIA} />
-      <FAQ faqs={FAQ_UXVIDIA} />
+      <Timeline dates={TIMELINE_DATAVIDIA} />
+      <FAQ faqs={FAQ_DATAVIDIA} />
       <Contact 
         line={CONTACT.line}
         wa={CONTACT.wa}
