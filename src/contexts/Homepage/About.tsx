@@ -16,7 +16,7 @@ const About = (): JSX.Element => {
       </div>
       <div className="flex bg-brownblack justify-center w-full">
         <div className="w-3/5">
-          <Countdown date="2023/02/25" title="" />
+          <Countdown date="2022/12/24" title="" />
         </div>
       </div>
       <div
