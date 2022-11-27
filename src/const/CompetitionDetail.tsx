@@ -7,12 +7,12 @@ export const TIMELINE_ARKALOGICA = [
     {
       title: "Close Registration",
       startDate: new Date("2022/12/24"),
-      endDate: new Date("2022/12/31")
+      endDate: new Date("2022/12/24")
     },
     {
         title: "Warmup Penyisihan",
         startDate: new Date("2023/01/20"),
-        endDate: new Date("2023/01/21")
+        endDate: new Date("2023/01/20")
     },
     {
         title: "Penyisihan",
@@ -22,17 +22,17 @@ export const TIMELINE_ARKALOGICA = [
     {
         title: "Pengumuman Finalist",
         startDate: new Date("2023/02/04"),
-        endDate: new Date("2023/02/05")
+        endDate: new Date("2023/02/04")
     },
     {
         title: "Warm Up Final",
         startDate: new Date("2023/02/24"),
-        endDate: new Date("2023/02/25")
+        endDate: new Date("2023/02/24")
     },
     {
         title: "Final",
         startDate: new Date("2023/02/25"),
-        endDate: new Date("2023/02/26")
+        endDate: new Date("2023/02/25")
     },
 ]
   
@@ -43,7 +43,7 @@ export const FAQ_ARKALOGICA = [
     },
     {
         title: "Apa saja syarat peserta Arkalogica?",
-        content: "1. Peserta Arkalogica merupakan siswa SMA/SMK sederajat yang berstatus siswa aktif.\n2. Setiap tim terdiri atas tepat dua orang dan berasal dari sekolah yang sama.\n3. Setiap peserta hanya dapat berada pada satu tim."
+        content: <>1. Peserta Arkalogica merupakan siswa SMA/SMK sederajat yang berstatus siswa aktif.<br />2. Setiap tim terdiri atas tepat dua orang dan berasal dari sekolah yang sama.<br />3. Setiap peserta hanya dapat berada pada satu tim.</>
     },
     {
         title: "Apakah Arkalogica diadakan secara berkelompok?",
@@ -76,12 +76,12 @@ export const TIMELINE_CP = [
     {
       title: "Close Registration",
       startDate: new Date("2022/12/24"),
-      endDate: new Date("2022/12/31")
+      endDate: new Date("2022/12/24")
     },
     {
         title: "Warmup Penyisihan",
         startDate: new Date("2023/01/20"),
-        endDate: new Date("2023/01/21")
+        endDate: new Date("2023/01/20")
     },
     {
         title: "Penyisihan",
@@ -91,17 +91,17 @@ export const TIMELINE_CP = [
     {
         title: "Pengumuman Finalist",
         startDate: new Date("2023/02/04"),
-        endDate: new Date("2023/02/05")
+        endDate: new Date("2023/02/04")
     },
     {
         title: "Warm Up Final",
         startDate: new Date("2023/02/24"),
-        endDate: new Date("2023/02/25")
+        endDate: new Date("2023/02/24")
     },
     {
         title: "Final",
         startDate: new Date("2023/02/25"),
-        endDate: new Date("2023/02/26")
+        endDate: new Date("2023/02/25")
     },
 ]
   
@@ -112,7 +112,7 @@ export const FAQ_CP = [
     },
     {
         title: "Apa saja syarat peserta Competitive Programming?",
-        content: "1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.\n2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.\n3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama."
+        content: <>1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.<br />2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.<br />3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama.</>
     },
     {
         title: "Apakah Competitive Programming diadakan secara berkelompok?",
@@ -145,7 +145,7 @@ export const TIMELINE_DATAVIDIA = [
     {
       title: "Close Registration",
       startDate: new Date("2022/12/24"),
-      endDate: new Date("2022/12/31")
+      endDate: new Date("2022/12/24")
     },
     {
         title: "Penyisihan",
@@ -155,7 +155,7 @@ export const TIMELINE_DATAVIDIA = [
     {
         title: "Pengumuman Finalist",
         startDate: new Date("2023/02/04"),
-        endDate: new Date("2023/02/05")
+        endDate: new Date("2023/02/04")
     },
     {
         title: "Submisi Pra-Final",
@@ -165,12 +165,12 @@ export const TIMELINE_DATAVIDIA = [
     {
         title: "Warm Up Final",
         startDate: new Date("2023/02/24"),
-        endDate: new Date("2023/02/25")
+        endDate: new Date("2023/02/24")
     },
     {
         title: "Final",
         startDate: new Date("2023/02/25"),
-        endDate: new Date("2023/02/26")
+        endDate: new Date("2023/02/25")
     },
 ]
   
@@ -181,7 +181,7 @@ export const FAQ_DATAVIDIA = [
     },
     {
         title: "Apa saja syarat peserta Datavidia?",
-        content: "1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.\n2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.\n3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama"
+        content: <>1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.<br />2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.<br />3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama</>
     },
     {
         title: "Apakah Datavidia diadakan secara berkelompok?",
@@ -214,7 +214,7 @@ export const FAQ_DATAVIDIA = [
     {
       title: "Close Registration",
       startDate: new Date("2022/12/24"),
-      endDate: new Date("2022/12/31")
+      endDate: new Date("2022/12/24")
     },
     {
         title: "Penyisihan",
@@ -224,7 +224,7 @@ export const FAQ_DATAVIDIA = [
     {
         title: "Pengumuman Finalist",
         startDate: new Date("2023/02/04"),
-        endDate: new Date("2023/02/05")
+        endDate: new Date("2023/02/04")
     },
     {
         title: "Submisi Pra-Final",
@@ -234,12 +234,12 @@ export const FAQ_DATAVIDIA = [
     {
         title: "Warm Up Final",
         startDate: new Date("2023/02/24"),
-        endDate: new Date("2023/02/25")
+        endDate: new Date("2023/02/24")
     },
     {
         title: "Final",
         startDate: new Date("2023/02/25"),
-        endDate: new Date("2023/02/26")
+        endDate: new Date("2023/02/25")
     },
 ]
   
@@ -250,7 +250,7 @@ export const FAQ_UXVIDIA = [
     },
     {
         title: "Apa saja syarat peserta UXvidia??",
-        content: "1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.\n2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.\n3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama"
+        content: <>1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.<br />2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.<br />3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama</>
     },
     {
         title: "Apakah UXvidia diadakan secara berkelompok?",
