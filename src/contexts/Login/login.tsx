@@ -182,7 +182,11 @@ const Login = () => {
             <label className="font-helvatica font-bold text-base">
               Username
             </label>
-            <TextField width={'w-full'} externalState={username} setExternalState={setUsername} />
+            <TextField 
+              width={'w-full'} 
+              externalState={username} 
+              setExternalState={setUsername}
+              placeholder="Username" />
             <div />
             <label className="font-helvatica font-bold text-base">
               Password
@@ -192,6 +196,7 @@ const Login = () => {
               width={'w-full'}
               externalState={password}
               setExternalState={setPassword}
+              placeholder="Password"
             />
             {/* <p className="font-helvatica font-bold text-red300 text-[14px]">
               Lupa password?

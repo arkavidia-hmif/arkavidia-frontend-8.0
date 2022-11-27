@@ -186,13 +186,19 @@ const SignUp = (): JSX.Element => {
               <div className="m-2">
                 <h2>Username</h2>
                 <div>
-                  <TextField externalState={username} setExternalState={setUsername} />
+                  <TextField
+                   externalState={username}
+                   setExternalState={setUsername}
+                   placeholder="Username" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Nama Tim</h2>
                 <div>
-                  <TextField externalState={teamName} setExternalState={setTeamName} />
+                  <TextField
+                   externalState={teamName}
+                   setExternalState={setTeamName}
+                   placeholder="Nama Tim" />
                 </div>
               </div>
             </div>
@@ -205,6 +211,7 @@ const SignUp = (): JSX.Element => {
                     ftype="show"
                     externalState={password}
                     setExternalState={setPassword}
+                    placeholder="Password"
                   />
                 </div>
               </div>
@@ -215,6 +222,7 @@ const SignUp = (): JSX.Element => {
                     ftype="show"
                     externalState={confirmPass}
                     setExternalState={setConfirmPass}
+                    placeholder="Konfirmasi Password"
                   />
                 </div>
               </div>
@@ -224,13 +232,19 @@ const SignUp = (): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Ketua Tim</h2>
                 <div>
-                  <TextField externalState={teamLeader} setExternalState={setTeamLeader} />
+                  <TextField
+                   externalState={teamLeader} 
+                   setExternalState={setTeamLeader}
+                   placeholder="Nama Ketua Tim" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Ketua Tim</h2>
                 <div>
-                  <TextField externalState={leaderEmail} setExternalState={setLeaderEmail} />
+                  <TextField
+                   externalState={leaderEmail}
+                   setExternalState={setLeaderEmail}
+                   placeholder="Email Ketua Tim" />
                 </div>
               </div>
             </div>
@@ -239,13 +253,19 @@ const SignUp = (): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Anggota 1</h2>
                 <div>
-                  <TextField externalState={member1} setExternalState={setMember1} />
+                  <TextField
+                   externalState={member1}
+                   setExternalState={setMember1}
+                   placeholder="Nama Anggota 1" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 1</h2>
                 <div>
-                  <TextField externalState={member1Email} setExternalState={setMember1Email} />
+                  <TextField
+                   externalState={member1Email}
+                   setExternalState={setMember1Email}
+                   placeholder="Email Anggota 1" />
                 </div>
               </div>
             </div>
@@ -254,13 +274,13 @@ const SignUp = (): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Anggota 2</h2>
                 <div>
-                  <TextField externalState={member2} setExternalState={setMember2} />
+                  <TextField externalState={member2} setExternalState={setMember2} placeholder="Nama Anggota 2" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 2</h2>
                 <div>
-                  <TextField externalState={member2Email} setExternalState={setMember2Email} />
+                  <TextField externalState={member2Email} setExternalState={setMember2Email} placeholder="Email Anggota 2" />
                 </div>
               </div>
             </div>
