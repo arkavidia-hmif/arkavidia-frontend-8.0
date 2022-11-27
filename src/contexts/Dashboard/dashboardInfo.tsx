@@ -192,7 +192,7 @@ const DashboardInfo = (props: any) => {
                   </div>
                 </>
               )}
-              <div className="grid ">
+              {/* <div className="grid ">
                 <div className="bg-white mb-[12px] rounded-[8px] max-h-[300px] pb-[15px]">
                   <div
                     className={`${subHeader1Style} mb-[10px] mt-[12px] pl-[12px]`}
@@ -218,7 +218,7 @@ const DashboardInfo = (props: any) => {
                   <TextDate text1="Pendaftaran" text2="DD/MM/YYY" />
                   <TextDate text1="Pendaftaran" text2="DD/MM/YYY" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
       </div>
