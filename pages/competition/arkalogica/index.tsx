@@ -11,32 +11,40 @@ import Logo from '@src/assets/images/LogoArkalogica.svg'
 const CONTACT = {
   line: [
     {
-      contact: 'abdulganteng',
-      name: 'Abdul'
+      contact: 'ruaac',
+      name: 'Marcho'
+    },
+    {
+      contact: 'gare26',
+      name: 'Gare'
     },
   ],
   wa: [
     {
-      contact: '0888-8888-88889',
-      name: 'Abdul'
-    }
+      contact: '081228051404',
+      name: 'Marcho'
+    },
+    {
+      contact: '082216612992',
+      name: 'Gare'
+    },
   ]
 }
 
 const PRIZES = [
   {
     title: 'Juara 1',
-    prize:'Rp 10.000.000,-',
+    prize:'Rp 7.000.000,-',
     bgColor: 'bg-red300'
   },
   {
     title: 'Juara 2',
-    prize:'Rp 7.000.000,-',
+    prize:'Rp 5.000.000,-',
     bgColor: 'bg-green300'
   },
   {
     title: 'Juara 3',
-    prize:'Rp 4.000.000,-',
+    prize:'Rp 3.000.000,-',
     bgColor: 'bg-blue200'
   },
 ]

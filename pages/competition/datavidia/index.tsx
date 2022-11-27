@@ -11,32 +11,38 @@ import Logo from '@src/assets/images/LogoDatavidia.svg'
 const CONTACT = {
   line: [
     {
-      contact: 'abdulganteng',
-      name: 'Abdul'
+      contact: 'rizkyramadhana26',
+      name: 'Rizky'
+    },    {
+      contact: 'rioalexande723',
+      name: 'Rio'
     },
   ],
   wa: [
     {
-      contact: '0888-8888-88889',
-      name: 'Abdul'
-    }
+      contact: '081252870313',
+      name: 'Rizky'
+    },    {
+      contact: '082339981757',
+      name: 'Rio'
+    },
   ]
 }
 
 const PRIZES = [
   {
     title: 'Juara 1',
-    prize:'Rp 10.000.000,-',
+    prize:'Rp 7.000.000,-',
     bgColor: 'bg-red300'
   },
   {
     title: 'Juara 2',
-    prize:'Rp 7.000.000,-',
+    prize:'Rp 5.000.000,-',
     bgColor: 'bg-green300'
   },
   {
     title: 'Juara 3',
-    prize:'Rp 4.000.000,-',
+    prize:'Rp 3.000.000,-',
     bgColor: 'bg-blue200'
   }
 ]

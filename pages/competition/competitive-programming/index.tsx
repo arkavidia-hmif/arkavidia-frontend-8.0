@@ -34,17 +34,17 @@ const CONTACT = {
 const PRIZES = [
   {
     title: 'Juara 1',
-    prize:'Rp 10.000.000,-',
+    prize:'Rp 7.000.000,-',
     bgColor: 'bg-red300'
   },
   {
     title: 'Juara 2',
-    prize:'Rp 7.000.000,-',
+    prize:'Rp 5.000.000,-',
     bgColor: 'bg-green300'
   },
   {
     title: 'Juara 3',
-    prize:'Rp 4.000.000,-',
+    prize:'Rp 3.000.000,-',
     bgColor: 'bg-blue200'
   },
   {
