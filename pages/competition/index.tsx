@@ -1,16 +1,16 @@
-import getConfig from 'next/config';
 import SEO from '@src/components/SEO';
-import Maintenance from '@src/contexts/Maintenance/Maintenance';
+import Jumbotron from '@src/contexts/Competition/Jumbotron';
+import Prize from '@src/contexts/Competition/Prize'
+import Category from '@src/contexts/Competition/Category'
 
-const { publicRuntimeConfig } = getConfig()
-const { name } = publicRuntimeConfig.site
-
-const Home = (): JSX.Element => {
+const Competition = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0">
-      <Maintenance />
+    <SEO title="Arkavida 8.0 | Competition">
+      <Jumbotron />
+      <Prize/>
+      <Category/>
     </SEO>
   )
 }
 
-export default Home
+export default Competition;

@@ -32,7 +32,7 @@ const MENU_LIST = [
     ]
   },
   { text: 'LMS', href: '/lms' },
-  { text: 'Dashboard', href: '/dashboard' },
+  { text: 'Dashboard', href: '/dashboard/information' },
   { text: 'Sign In | Sign Up', href: '/sign-in', border: true },
   { text: 'Admin', href: '/admin', border: true },
   { text: 'Profile', href: '/profile', border: true }
@@ -298,7 +298,7 @@ export default function Navbar({
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname.includes(menu.href) ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (
@@ -308,7 +308,7 @@ export default function Navbar({
                           <ProfileIcon
                             height={25}
                             width={25}
-                            fill={router.pathname == menu.href ? 'white' : ''}
+                            fill={router.pathname.includes(menu.href) ? 'white' : ''}
                             className={'mr-2'}
                           ></ProfileIcon>
                         ) : (

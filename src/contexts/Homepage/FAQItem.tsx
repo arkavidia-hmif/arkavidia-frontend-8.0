@@ -4,7 +4,7 @@ import ArrowDownIcon from "@src/components/Icon/ArrowDownIcon";
 
 type faqsProps = {
   question: string
-  answer: string
+  answer: string | JSX.Element
 }
 
 const FAQItem = ({ question, answer }: faqsProps) => {

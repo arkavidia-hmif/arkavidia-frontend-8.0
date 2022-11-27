@@ -1,5 +1,5 @@
 import Dropdown from './Dropdown'
-import Dashboard from '@src/layout/Dashboard'
+import Dashboard from '@src/components/Navigation/Dashboard'
 
 const Submission = () => {
   return (

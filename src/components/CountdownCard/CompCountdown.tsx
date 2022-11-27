@@ -75,7 +75,6 @@ const Countdown = ({ date, title }: CountdownProps) => {
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
 
-  console.log(habis)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -116,7 +115,7 @@ const Countdown = ({ date, title }: CountdownProps) => {
       {/* Box */}
       <div className="flex flex-col items-center space-y-2 bg-brownblack pt-1 justify-center overflow-hidden">
         {/* Bagian title */}
-        <div className="p-2.5 uppercase mb-6 font-archivo text-black text-center text-sm lg:bg-black lg:text-white lg:text-4xl">
+        <div className="p-2.5 mb-2 mt-4 font-archivo text-black text-center text-sm lg:bg-black lg:text-white lg:text-xl">
           {title}
         </div>
         {/* Bagian countdown */}

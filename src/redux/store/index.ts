@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 
 import rootReducer from '../reducers';
+import { RootState } from '@src/types/index';
 
 const persistConfig = {
   key: 'root',
@@ -17,7 +18,7 @@ const persistConfig = {
 
 const middleware = applyMiddleware(thunk);
 const enhancer = composeWithDevTools(middleware);
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer<RootState>(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, enhancer);
 export const persistor = persistStore(store);
