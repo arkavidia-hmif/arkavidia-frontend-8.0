@@ -11,7 +11,7 @@ import Logo from '@src/assets/images/LogoArkalogica.svg'
 const CONTACT = {
   line: [
     {
-      contact: 'ruaac',
+      contact: 'ruaaco',
       name: 'Marcho'
     },
     {
