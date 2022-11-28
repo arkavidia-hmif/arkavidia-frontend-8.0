@@ -249,7 +249,7 @@ export const FAQ_UXVIDIA = [
         content: "UXvidia adalah kompetisi desain pengalaman pengguna atau user experience (UX) sebuah aplikasi mobile yang berfokus pada pencapaian user experience goals dan usability goals, utamanya kenyamanan dan kemudahan pengguna dalam menggunakan sebuah aplikasi."
     },
     {
-        title: "Apa saja syarat peserta UXvidia??",
+        title: "Apa saja syarat peserta UXvidia?",
         content: <>1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.<br />2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.<br />3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama</>
     },
     {
