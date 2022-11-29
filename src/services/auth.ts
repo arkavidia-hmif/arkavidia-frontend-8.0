@@ -1,20 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import API from '@src/utils/api';
 import { store } from '@src/redux/store/index';
 import { setToken, userLogout } from '@src/redux/action/auth';
-import { LoginRes } from '@src/types/auth';
+import { LoginRes, ErrorRes } from '@src/types/auth';
 import { TeamLoginReq, TeamRegisterReq, ChangePassReq } from '@src/types/team'
-import { isStaging } from './env';
 
-// Brute force to change API endpoint for short-term dev purpose only
-const ENV = isStaging;
-
-const HOST = {
-  STG: 'https://arkavidia-backend-8-0-staging-6d47ozplva-et.a.run.app',
-  PROD: 'https://arkavidia-backend-8-0-6d47ozplva-et.a.run.app'
-}
-
-const URL = HOST.PROD
+const URL = process.env.NEXT_PUBLIC_API_URL
 
 export const register = async (payload: TeamRegisterReq) => {
     try {
@@ -28,9 +19,12 @@ export const register = async (payload: TeamRegisterReq) => {
       const data = response.data as LoginRes
       const token  = data.Data;
       store.dispatch(setToken(token));
+      console.log(response)
       return data.Message;
     } catch (e) {
-      return "FAILED";
+      const err = e as AxiosError;
+      const errorMsg = err.response as ErrorRes
+      return errorMsg?.data?.Message;
     }
 };
 

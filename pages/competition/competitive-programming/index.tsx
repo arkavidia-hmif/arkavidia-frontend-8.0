@@ -56,7 +56,7 @@ const PRIZES = [
 
 const CP = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Competitive Programming">
+    <SEO title="Arkavidia 8.0 | Competitive Programming">
       <Jumbotron 
         title="Competitive Programming" 
         description="Competitive Programming adalah kompetisi yang menguji kemampuan analisis para peserta dalam pemecahan masalah dan berpikir komputasional dengan menyelesaikan persoalan - persoalan yang diberikan dengan menggunakan bahasa pemrograman tertentu dan tidak melanggar batasan waktu dan memori yang ditentukan. Kompetisi ini ditujukan untuk Mahasiswa S1/D3/D4 se-Indonesia." 

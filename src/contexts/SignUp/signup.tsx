@@ -32,23 +32,23 @@ const SignUp = (): JSX.Element => {
 
 
   const validation = () => {
-    if(!username || !teamName || !password || !confirmPass || !teamLeader || !leaderEmail || !member1 || !member1Email){
-      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!' } type={'danger'} position={'top'} />]);
+    if (!username || !teamName || !password || !confirmPass || !teamLeader || !leaderEmail || !member1 || !member1Email) {
+      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!'} type={'danger'} position={'top'} />]);
       return false;
     }
-    if((member2 && !member2Email) || (member2 && !member2Email)){
-      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!' } type={'danger'} position={'top'} />]);
+    if ((member2 && !member2Email) || (member2 && !member2Email)) {
+      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!'} type={'danger'} position={'top'} />]);
       return false;
     }
-    if(password !== confirmPass){
-      setToastList([...toastList, <Toast timer={3000} label={'Password tidak sesuai dengan konfirmasi!' } type={'danger'} position={'top'} />]);
+    if (password !== confirmPass) {
+      setToastList([...toastList, <Toast timer={3000} label={'Password tidak sesuai dengan konfirmasi!'} type={'danger'} position={'top'} />]);
       return false;
     }
     return true;
   }
 
   const handleOnRegister = async () => {
-    if(validation()){
+    if (validation()) {
       const memberList = [
         {
           name: teamLeader,
@@ -63,7 +63,7 @@ const SignUp = (): JSX.Element => {
           role: "member"
         }
       ] as MemberList[];
-      if(member2 && member2Email) memberList.push({ name: member2, email: member2Email, career_interest: [], role: "member"})
+      if (member2 && member2Email) memberList.push({ name: member2, email: member2Email, career_interest: [], role: "member" })
       const payload = {
         username: username,
         password: password,
@@ -71,14 +71,15 @@ const SignUp = (): JSX.Element => {
         member_list: memberList,
       } as TeamRegisterReq
       const res = await register(payload);
-      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : 'Gagal daftar! Mohon cek form Anda.' } type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+      console.log(res)
+      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : res ?? 'Gagal!'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
       setInterval(() => {
-        if(res === 'SUCCESS') router.push('/competition')
+        if (res === 'SUCCESS') router.push('/competition')
       }, 1000);
     }
   }
 
-  let autoLoop = setInterval(() => {
+  let autoLoop = setTimeout(() => {
     setPos(pos + 1)
     if (pos == 2) {
       setPos(0)
@@ -98,9 +99,8 @@ const SignUp = (): JSX.Element => {
             >
               <div className="relative h-auto overflow-hidden">
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 0 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 0 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -114,9 +114,8 @@ const SignUp = (): JSX.Element => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 1 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 1 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -130,9 +129,8 @@ const SignUp = (): JSX.Element => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 2 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 2 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -152,7 +150,7 @@ const SignUp = (): JSX.Element => {
                     src={pos === 0 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(0)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -161,7 +159,7 @@ const SignUp = (): JSX.Element => {
                     src={pos === 1 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(1)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -170,7 +168,7 @@ const SignUp = (): JSX.Element => {
                     src={pos === 2 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(2)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -187,18 +185,18 @@ const SignUp = (): JSX.Element => {
                 <h2>Username</h2>
                 <div>
                   <TextField
-                   externalState={username}
-                   setExternalState={setUsername}
-                   placeholder="Username" />
+                    externalState={username}
+                    setExternalState={setUsername}
+                    placeholder="Username" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Nama Tim</h2>
                 <div>
                   <TextField
-                   externalState={teamName}
-                   setExternalState={setTeamName}
-                   placeholder="Nama Tim" />
+                    externalState={teamName}
+                    setExternalState={setTeamName}
+                    placeholder="Nama Tim" />
                 </div>
               </div>
             </div>
@@ -233,18 +231,18 @@ const SignUp = (): JSX.Element => {
                 <h2>Nama Ketua Tim</h2>
                 <div>
                   <TextField
-                   externalState={teamLeader} 
-                   setExternalState={setTeamLeader}
-                   placeholder="Nama Ketua Tim" />
+                    externalState={teamLeader}
+                    setExternalState={setTeamLeader}
+                    placeholder="Nama Ketua Tim" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Ketua Tim</h2>
                 <div>
                   <TextField
-                   externalState={leaderEmail}
-                   setExternalState={setLeaderEmail}
-                   placeholder="Email Ketua Tim" />
+                    externalState={leaderEmail}
+                    setExternalState={setLeaderEmail}
+                    placeholder="Email Ketua Tim" />
                 </div>
               </div>
             </div>
@@ -254,18 +252,18 @@ const SignUp = (): JSX.Element => {
                 <h2>Nama Anggota 1</h2>
                 <div>
                   <TextField
-                   externalState={member1}
-                   setExternalState={setMember1}
-                   placeholder="Nama Anggota 1" />
+                    externalState={member1}
+                    setExternalState={setMember1}
+                    placeholder="Nama Anggota 1" />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 1</h2>
                 <div>
                   <TextField
-                   externalState={member1Email}
-                   setExternalState={setMember1Email}
-                   placeholder="Email Anggota 1" />
+                    externalState={member1Email}
+                    setExternalState={setMember1Email}
+                    placeholder="Email Anggota 1" />
                 </div>
               </div>
             </div>
@@ -286,9 +284,8 @@ const SignUp = (): JSX.Element => {
             </div>
 
             <div className="flex justify-center px-12 text-[12px]">
-                <p className="text-red300 font-helvatica font-bold">*Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica hanya 1 tim hanya boleh berisi 2 orang</p>
-              </div>
-
+                <p className="text-red300 font-helvatica font-bold">*Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica, 1 tim hanya boleh berisi 2 orang</p>
+            </div>
 
             <div className="flex justify-center mt-6">
               <CustomButton bgColor="primary" icon={false} size="normal" onClick={handleOnRegister}>

@@ -3,7 +3,7 @@ import ChangePassword from '@src/contexts/ChangePassword';
 
 const ChangePass = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Change Password">
+    <SEO title="Arkavidia 8.0 | Change Password">
       <ChangePassword />
     </SEO>
   )

@@ -5,7 +5,7 @@ import Category from '@src/contexts/Competition/Category'
 
 const Competition = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Competition">
+    <SEO title="Arkavidia 8.0 | Competition">
       <Jumbotron />
       <Prize/>
       <Category/>

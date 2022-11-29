@@ -8,7 +8,7 @@ const { name } = publicRuntimeConfig.site
 
 const SignUp = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0">
+    <SEO title="Arkavidia 8.0">
       <Register />
     </SEO>
   )

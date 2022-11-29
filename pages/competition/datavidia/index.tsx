@@ -49,7 +49,7 @@ const PRIZES = [
 
 const CP = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Datavidia">
+    <SEO title="Arkavidia 8.0 | Datavidia">
       <Jumbotron 
         title="Datavidia" 
         description='Datavida merupakan kompetisi yang bertujuan untuk menjadi ajang pengembangan kompetensi dan pertandingan antara talenta digital Indonesia khususnya di dunia sains data untuk memberikan keputusan yang bijak dan terarah.' 
