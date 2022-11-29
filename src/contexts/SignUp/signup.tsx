@@ -71,7 +71,8 @@ const SignUp = (): JSX.Element => {
         member_list: memberList,
       } as TeamRegisterReq
       const res = await register(payload);
-      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : 'Gagal daftar! Mohon cek form Anda.'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+      console.log(res)
+      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : res ?? 'Gagal!'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
       setInterval(() => {
         if (res === 'SUCCESS') router.push('/competition')
       }, 1000);
