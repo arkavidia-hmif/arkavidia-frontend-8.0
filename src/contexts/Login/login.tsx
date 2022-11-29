@@ -204,7 +204,7 @@ const Login = () => {
             </p> */}
               <div className="mt-[30px]" />
               <CustomButton bgColor="primary" size="normal" onClick={handleOnLogin}>
-                <div className="w-[470px]">Login</div>
+                <div className="w-[510px]">Login</div>
               </CustomButton>
               <p className="font-helvatica font-normal text-[14px] text-center">
                 Belum punya akun?{' '}
