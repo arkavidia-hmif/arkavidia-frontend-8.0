@@ -8,8 +8,6 @@ import '@src/styles/global.css'
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   const isLogin = store.getState()?.auth?.token == null ? false : true;
 
-  console.log(process.env.NEXT_PUBLIC_API_URL);
-  
   return (
     <div className="flex-col w-full overflow-x-hidden">
       <Navbar isLogged={isLogin} isAdmin={false} />
