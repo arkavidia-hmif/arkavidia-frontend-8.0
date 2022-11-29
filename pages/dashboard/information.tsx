@@ -3,7 +3,7 @@ import Info from '@src/contexts/Dashboard/dashboardInfo';
 
 const DashboardInfo = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Dashboard Information">
+    <SEO title="Arkavidia 8.0 | Dashboard Information">
       <Info />
     </SEO>
   )

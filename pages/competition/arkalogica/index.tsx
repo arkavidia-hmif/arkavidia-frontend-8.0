@@ -51,7 +51,7 @@ const PRIZES = [
 
 const CP = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0 | Arkalogica">
+    <SEO title="Arkavidia 8.0 | Arkalogica">
       <Jumbotron 
         title="Arkalogica" 
         description="Arkalogica adalah kompetisi yang mengasah kemampuan peserta dalam penggunaan logika dan menyelesaikan masalah secara logis. Jenis-jenis permasalahan yang diberikan antara lain berbagai soal logika dan game menarik." 

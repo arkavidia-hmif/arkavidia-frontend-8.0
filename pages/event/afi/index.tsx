@@ -7,7 +7,7 @@ const { name } = publicRuntimeConfig.site
 
 const Home = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0">
+    <SEO title="Arkavidia 8.0">
       <Maintenance />
     </SEO>
   )

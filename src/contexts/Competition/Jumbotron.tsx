@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Disk from '@src/assets/images/competition-disk.svg'
 import Game from '@src/assets/images/game.svg'
-import ArkavidaStamp from '@src/assets/images/arkavidia-stamp-green.svg'
+import ArkavidiaStamp from '@src/assets/images/arkavidia-stamp-green.svg'
 
 const Jumbotron = (): JSX.Element => {
   const handleExplore = () => {
@@ -21,7 +21,7 @@ const Jumbotron = (): JSX.Element => {
       </div>
     <div className="flex flex-col w-full align-center bg-yellow300 pt-[8rem] mb-[-1rem] px-12 rounded-[55% 100%]">
       <div className="flex justify-center">
-        <Image src={ArkavidaStamp} />
+        <Image src={ArkavidiaStamp} />
       </div>
       <p
               className="text-center font-archivo text-white text-[84px] mt-[20px]"

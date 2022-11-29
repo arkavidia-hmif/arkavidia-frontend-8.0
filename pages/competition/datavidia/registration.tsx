@@ -6,7 +6,7 @@ import CompeRegist from '@src/contexts/CompetitionRegistration'
 
 const CompetitionRegistration = (): JSX.Element => {
   return (
-    <SEO title="Arkavida 8.0">
+    <SEO title="Arkavidia 8.0">
       <CompeRegist image={DatavidiaImage} title={'Datavidia'} params={'datavidia'} desc={'Datavida merupakan kompetisi yang bertujuan untuk menjadi ajang pengembangan kompetensi dan pertandingan antara talenta digital Indonesia khususnya di dunia sains data untuk memberikan keputusan yang bijak dan terarah.'} />
     </SEO>
   )
