@@ -285,6 +285,10 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
+            <div className="flex justify-center px-12 text-[12px]">
+                <p className="text-red300 font-helvatica font-bold">*Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica, 1 tim hanya boleh berisi 2 orang</p>
+            </div>
+
             <div className="flex justify-center mt-6">
               <CustomButton bgColor="primary" icon={false} size="normal" onClick={handleOnRegister}>
                 <div className="w-[470px]">Sign Up</div>
