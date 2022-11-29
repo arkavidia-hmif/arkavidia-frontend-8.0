@@ -7,7 +7,7 @@ import roket from '@src/assets/images/carousel-image/roket.svg'
 import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Fox from '@src/assets/images/sign-in/fox.png'
 import { TeamLoginReq } from '@src/types/team';
 import { login } from '@src/services/auth';
@@ -21,8 +21,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [toastList, setToastList] = useState<JSX.Element[]>([]);
 
-  const handleShowToast = (res : string) => {
-    setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil masuk!' : 'Gagal masuk! Mohon cek username dan password Anda.' } type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+  const handleShowToast = (res: string) => {
+    setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil masuk!' : 'Gagal masuk! Mohon cek username dan password Anda.'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
   }
 
   const router = useRouter();
@@ -35,26 +35,30 @@ const Login = () => {
     const response = await login(payload);
     handleShowToast(response);
     setInterval(() => {
-      if(response === 'SUCCESS') router.push('/competition')
-   }, 1000);
+      if (response === 'SUCCESS') router.push('/competition')
+    }, 1000);
   }
 
-  const autoLoop = setInterval(() => {
+  useEffect(() => {
+
+  }, [])
+
+  const autoLoop = setTimeout(() => {
     if (pos == 2) {
       setPos(0)
-    }else{
+    } else {
       setPos(pos + 1)
     }
   }, 4000)
 
   return (
     <>
-    {toastList}
-    <Layout title="Sign In" description="Sign In">
-      <div className="flex flex-row justify-between w-full">
-        {/* Sisi Kiri */}
+      {toastList}
+      <Layout title="Sign In" description="Sign In">
+        <div className="flex flex-row justify-between w-full">
+          {/* Sisi Kiri */}
 
-        {/* <div className="container hidden md:flex flex-col justify-center items-center gap-[3.75rem] w-1/2 bg-yellow300 pt-[5rem]">
+          {/* <div className="container hidden md:flex flex-col justify-center items-center gap-[3.75rem] w-1/2 bg-yellow300 pt-[5rem]">
           // Image Container
           <div className="h-[360px] w-[300px] lg:h-[480px] lg:w-[400px]">
             <Image src={Rocket} />
@@ -71,7 +75,7 @@ const Login = () => {
           // Dots Container
           <div className="h-[12px] w-[120px] " />
         </div> */}
-        <div className="box-border border-solid w-[50%] bg-yellow300 items-center inline-flex justify-center">
+          <div className="box-border border-solid w-[50%] bg-yellow300 items-center inline-flex justify-center">
             <div
               id="default-carousel"
               className="relative"
@@ -79,9 +83,8 @@ const Login = () => {
             >
               <div className="relative h-auto overflow-hidden">
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 0 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 0 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -95,9 +98,8 @@ const Login = () => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 1 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 1 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -111,9 +113,8 @@ const Login = () => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${
-                    pos === 2 ? 'content' : 'hidden'
-                  }`}
+                  className={`content duration-1000 ease-in-out ${pos === 2 ? 'content' : 'hidden'
+                    }`}
                   data-carousel-item
                 >
                   <div className="flex justify-center">
@@ -133,7 +134,7 @@ const Login = () => {
                     src={pos === 0 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(0)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -142,7 +143,7 @@ const Login = () => {
                     src={pos === 1 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(1)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -151,7 +152,7 @@ const Login = () => {
                     src={pos === 2 ? buttonFilled : buttonUnfill}
                     onClick={() => {
                       setPos(2)
-                      clearInterval(autoLoop)
+                      clearTimeout(autoLoop)
                     }}
                   />
                 </div>
@@ -159,60 +160,60 @@ const Login = () => {
             </div>
           </div>
 
-        {/* Sisi Kanan */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-6 px-5 md:px-[80px] container py-[5rem]">
-          {/* Image Container */}
-          <div className="h-[167px] w-[167px]">
-            <Image src={Fox} />
-          </div>
-          {/* Text Container */}
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="z-10 font-archivo text-2xl md:text-4xl text-center md:w-[200px] font-black text-white py-1 px-6 md:py-2 md:px-10 bg-black rotate-[7deg] -mb-[0.125rem]">
-              Hello
+          {/* Sisi Kanan */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-6 px-5 md:px-[80px] container py-[5rem]">
+            {/* Image Container */}
+            <div className="h-[167px] w-[167px]">
+              <Image src={Fox} />
+            </div>
+            {/* Text Container */}
+            <div className="flex flex-col justify-center items-center">
+              <h1 className="z-10 font-archivo text-2xl md:text-4xl text-center md:w-[200px] font-black text-white py-1 px-6 md:py-2 md:px-10 bg-black rotate-[7deg] -mb-[0.125rem]">
+                Hello
+              </h1>
+              <h1 className="z-0 font-archivo text-2xl md:text-4xl text-center md:w-[336px] font-black text-white py-1 px-6 md:py-2 md:px-6 bg-black">
+                Arkavidians!
+              </h1>
+            </div>
+            {/* Login Container */}
+            <h1 className="font-archivo font-black text-4xl md:text-6xl">
+              Sign - In
             </h1>
-            <h1 className="z-0 font-archivo text-2xl md:text-4xl text-center md:w-[336px] font-black text-white py-1 px-6 md:py-2 md:px-6 bg-black">
-              Arkavidians!
-            </h1>
-          </div>
-          {/* Login Container */}
-          <h1 className="font-archivo font-black text-4xl md:text-6xl">
-            Sign - In
-          </h1>
-          <div className="flex flex-col w-full gap-3">
-            <label className="font-helvatica font-bold text-base">
-              Username
-            </label>
-            <TextField 
-              width={'w-full'} 
-              externalState={username} 
-              setExternalState={setUsername}
-              placeholder="Username" />
-            <div />
-            <label className="font-helvatica font-bold text-base">
-              Password
-            </label>
-            <TextField
-              ftype="show"
-              width={'w-full'}
-              externalState={password}
-              setExternalState={setPassword}
-              placeholder="Password"
-            />
-            {/* <p className="font-helvatica font-bold text-red300 text-[14px]">
+            <div className="flex flex-col w-full gap-3">
+              <label className="font-helvatica font-bold text-base">
+                Username
+              </label>
+              <TextField
+                width={'w-full'}
+                externalState={username}
+                setExternalState={setUsername}
+                placeholder="Username" />
+              <div />
+              <label className="font-helvatica font-bold text-base">
+                Password
+              </label>
+              <TextField
+                ftype="show"
+                width={'w-full'}
+                externalState={password}
+                setExternalState={setPassword}
+                placeholder="Password"
+              />
+              {/* <p className="font-helvatica font-bold text-red300 text-[14px]">
               Lupa password?
             </p> */}
-            <div className="mt-[30px]" />
-            <CustomButton bgColor="primary" size="normal" onClick={handleOnLogin}>
-             <div className="w-[470px]">Login</div>
-            </CustomButton>
-            <p className="font-helvatica font-normal text-[14px] text-center">
-              Belum punya akun?{' '}
-              <a href='/sign-up'><span className="text-red300 font-bold">Daftar sekarang!</span></a>
-            </p>
+              <div className="mt-[30px]" />
+              <CustomButton bgColor="primary" size="normal" onClick={handleOnLogin}>
+                <div className="w-[470px]">Login</div>
+              </CustomButton>
+              <p className="font-helvatica font-normal text-[14px] text-center">
+                Belum punya akun?{' '}
+                <a href='/sign-up'><span className="text-red300 font-bold">Daftar sekarang!</span></a>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
     </>
   )
 }
