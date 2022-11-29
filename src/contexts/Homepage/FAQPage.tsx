@@ -12,7 +12,7 @@ const Landing = () => {
                 <div className="absolute top-[-50%] right-0">
                     <Image src={ArkavStamp} />
                 </div>
-                <svg width="100%" height="203" viewBox="0 0 1438 203" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg fill="none" viewBox="0 0 1438 203" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1438 0C886.22 170.772 571.373 164.307 0 0V203H1438V0Z" fill="#FEB20E"/>
                 </svg>
             </div>
