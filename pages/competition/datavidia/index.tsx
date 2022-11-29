@@ -2,7 +2,7 @@ import SEO from '@src/components/SEO';
 import Jumbotron from '@src/contexts/CompetitionDetail/Jumbotron';
 import CountdownComp from '@src/contexts/CompetitionDetail/Countdown';
 import Prize from '@src/contexts/CompetitionDetail/Prize'
-import { FAQ_UXVIDIA, TIMELINE_UXVIDIA } from '@src/const/CompetitionDetail';
+import { FAQ_DATAVIDIA, TIMELINE_DATAVIDIA } from '@src/const/CompetitionDetail';
 import FAQ from '@src/contexts/CompetitionDetail/FAQ';
 import Timeline from '@src/contexts/CompetitionDetail/Timeline'
 import Contact from '@src/contexts/CompetitionDetail/Contact'
@@ -14,7 +14,7 @@ const CONTACT = {
       contact: 'rizkyramadhana26',
       name: 'Rizky'
     },    {
-      contact: 'rioalexande723',
+      contact: 'rioalexander723',
       name: 'Rio'
     },
   ],
@@ -54,11 +54,12 @@ const CP = (): JSX.Element => {
         title="Datavidia" 
         description='Datavida merupakan kompetisi yang bertujuan untuk menjadi ajang pengembangan kompetensi dan pertandingan antara talenta digital Indonesia khususnya di dunia sains data untuk memberikan keputusan yang bijak dan terarah.' 
         logo={Logo}
+        guidebook="https://drive.google.com/file/d/1IYBLbQb-ljb7iGCy8jcTrk3KFF7p1c0f/view?usp=sharing"
         />
       <CountdownComp />
       <Prize prizes={PRIZES} />
-      <Timeline dates={TIMELINE_UXVIDIA} />
-      <FAQ faqs={FAQ_UXVIDIA} />
+      <Timeline dates={TIMELINE_DATAVIDIA} />
+      <FAQ faqs={FAQ_DATAVIDIA} />
       <Contact 
         line={CONTACT.line}
         wa={CONTACT.wa}

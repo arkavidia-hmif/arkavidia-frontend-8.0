@@ -1,8 +1,8 @@
 export const TIMELINE_ARKALOGICA = [
     {
       title: "Registration",
-      startDate: new Date("2022/11/29"),
-      endDate: new Date("2022/12/24")
+      startDate: new Date("2022/11/27"),
+      endDate: new Date("2022/11/27")
     },
     {
       title: "Close Registration",
@@ -70,8 +70,8 @@ export const FAQ_ARKALOGICA = [
 export const TIMELINE_CP = [
     {
       title: "Registration",
-      startDate: new Date("2022/11/29"),
-      endDate: new Date("2022/12/24")
+      startDate: new Date("2022/11/27"),
+      endDate: new Date("2022/11/27")
     },
     {
       title: "Close Registration",
@@ -139,8 +139,8 @@ export const FAQ_CP = [
 export const TIMELINE_DATAVIDIA = [
     {
       title: "Registration",
-      startDate: new Date("2022/11/29"),
-      endDate: new Date("2022/12/24")
+      startDate: new Date("2022/11/27"),
+      endDate: new Date("2022/11/27")
     },
     {
       title: "Close Registration",
@@ -208,8 +208,8 @@ export const FAQ_DATAVIDIA = [
   export const TIMELINE_UXVIDIA = [
     {
       title: "Registration",
-      startDate: new Date("2022/11/29"),
-      endDate: new Date("2022/12/24")
+      startDate: new Date("2022/11/27"),
+      endDate: new Date("2022/11/27")
     },
     {
       title: "Close Registration",

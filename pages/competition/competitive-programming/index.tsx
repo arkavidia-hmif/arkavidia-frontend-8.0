@@ -61,6 +61,7 @@ const CP = (): JSX.Element => {
         title="Competitive Programming" 
         description="Competitive Programming adalah kompetisi yang menguji kemampuan analisis para peserta dalam pemecahan masalah dan berpikir komputasional dengan menyelesaikan persoalan - persoalan yang diberikan dengan menggunakan bahasa pemrograman tertentu dan tidak melanggar batasan waktu dan memori yang ditentukan. Kompetisi ini ditujukan untuk Mahasiswa S1/D3/D4 se-Indonesia." 
         logo={Logo}
+        guidebook="https://drive.google.com/file/d/1iur4GvCFUhacTzcSS8kQ7GTjArK45Xqk/view?usp=sharing"
         />
       <CountdownComp />
       <Prize prizes={PRIZES} />
