@@ -3,8 +3,17 @@ import Countdown from '@src/components/CountdownCard/CompCountdown'
 import Image1 from '@src/components/Images/Mask group.png'
 import Image2 from '@src/components/Images/Mask group (1).png'
 import Carousel from './Carousel'
+import { store } from '@src/redux/store/index';
+import { useRouter } from 'next/router'
 
 const About = (): JSX.Element => {
+  const isLogin = store.getState()?.auth?.token == null ? false : true;
+  const router = useRouter();
+
+  const handleRegister = () => {
+    if(isLogin) router.push('/competition');
+    else router.push('/sign-in');
+  }
   return (
     <>
       <div
@@ -16,7 +25,7 @@ const About = (): JSX.Element => {
       </div>
       <div className="flex bg-brownblack justify-center w-full">
         <div className="w-3/5">
-          <Countdown date="2023/02/25" title="" />
+          <Countdown date="2022/12/24" title="" />
         </div>
       </div>
       <div
@@ -27,6 +36,7 @@ const About = (): JSX.Element => {
           className="text-center mt-2 mb-4 px-[20px] py-[3px] text-[9px] font-medium text-white bg-red300 rounded-xl hover:bg-red200 hover:drop-shadow-lg transition-all active:bg-red400 
             xl:px-[160px] xl:py-[20px] xl:text-[16px]
             "
+          onClick={handleRegister}
         >
           Register Now!
         </button>
