@@ -11,7 +11,7 @@ interface CustomButtonProps {
 }
 
 type colors = 'primary' | 'secondary' | 'ghost';
-type sizes = 'small' | 'normal';
+type sizes = 'small' | 'normal' | 'full';
 type textColors = 'primary' | 'secondary' | 'ghost';
 
 const variantColor: { [key in colors]: string } = {
@@ -25,7 +25,8 @@ const variantColor: { [key in colors]: string } = {
 
 const variantSize: { [key in sizes]: string } = {
   small: 'w-auto h-10',
-  normal: 'w-auto h-12'
+  normal: 'w-auto h-12',
+  full:'w-full h-12'
 }
 
 const variantTextColor: { [key in textColors]: string } = {

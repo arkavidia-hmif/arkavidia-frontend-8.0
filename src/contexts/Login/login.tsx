@@ -203,7 +203,7 @@ const Login = () => {
               Lupa password?
             </p> */}
               <div className="mt-[30px]" />
-              <CustomButton bgColor="primary" size="normal" onClick={handleOnLogin}>
+              <CustomButton bgColor="primary" size="full" onClick={handleOnLogin}>
                 <div className="w-[470px]">Login</div>
               </CustomButton>
               <p className="font-helvatica font-normal text-[14px] text-center">
