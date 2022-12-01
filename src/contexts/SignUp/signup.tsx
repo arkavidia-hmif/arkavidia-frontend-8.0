@@ -90,8 +90,8 @@ const SignUp = (): JSX.Element => {
     <>
       {toastList}
       <div className="flex justify-center">
-        <div className="container xl-auto box-border flex max-w-[100vw] h-[1080px] m-0 bg-gray200">
-          <div className="box-border border-solid w-[50%] bg-yellow300 items-center inline-flex justify-center">
+        <div className="container xl-auto box-border flex max-w-[100vw] h-auto md:h-[1080px] m-0 bg-gray200">
+          <div className="hidden md:inline-flex box-border border-solid w-[50%] bg-yellow300 items-center justify-center">
             <div
               id="default-carousel"
               className="relative"
@@ -175,15 +175,17 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
           </div> {/* HERE */}
-          <div className="box-border border-solid w-[50%] h-[1080px] pt-[10%] font-helvatica">
-            <div className="w-[100%] flex justify-center mb-5">
+          <div className="box-border border-solid md:w-[50%] h-auto font-helvatica pt-40 pb-20 md:mt-0">
+            <div className="w-[100%] flex justify-center mb-5 ">
               <h1 className="font-archivo text-6xl">Sign Up</h1>
             </div>
 
-            <div className="flex justify-center font-bold text-base">
+            {/* FIELDS */}
+
+            <div className="flex flex-wrap justify-center font-bold text-base">
               <div className="m-2">
                 <h2>Username</h2>
-                <div>
+                <div className="">
                   <TextField
                     externalState={username}
                     setExternalState={setUsername}
@@ -201,7 +203,7 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex justify-center font-bold text-base">
+            <div className="flex flex-wrap justify-center font-bold text-base">
               <div className="m-2">
                 <h2>Password</h2>
                 <div>
@@ -226,7 +228,7 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex justify-center font-bold text-base">
+            <div className="flex flex-wrap justify-center font-bold text-base">
               <div className="m-2">
                 <h2>Nama Ketua Tim</h2>
                 <div>
@@ -247,7 +249,7 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex justify-center font-bold text-base">
+            <div className="flex flex-wrap justify-center font-bold text-base">
               <div className="m-2">
                 <h2>Nama Anggota 1</h2>
                 <div>
@@ -268,7 +270,7 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex justify-center font-bold text-base">
+            <div className="flex flex-wrap justify-center font-bold text-base">
               <div className="m-2">
                 <h2>Nama Anggota 2</h2>
                 <div>
@@ -283,13 +285,17 @@ const SignUp = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex justify-center px-12 text-[12px]">
+           
+
+            {/* END FIELDS */}
+
+            <div className="flex justify-center px-14 md:px-12 text-[12px]">
                 <p className="text-red300 font-helvatica font-bold">*Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica, 1 tim hanya boleh berisi 2 orang</p>
             </div>
 
             <div className="flex justify-center mt-6">
               <CustomButton bgColor="primary" icon={false} size="normal" onClick={handleOnRegister}>
-                <div className="w-[470px]">Sign Up</div>
+                <div className="w-[210px] md:w-[470px]">Sign Up</div>
               </CustomButton>
             </div>
 
