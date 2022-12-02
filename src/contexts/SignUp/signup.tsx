@@ -11,7 +11,7 @@ import Toast from '@src/components/Toast'
 import { TeamRegisterReq } from '@src/types/team';
 import { MemberList } from '@src/types/participant'
 import { register } from '@src/services/auth';
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 const SignUp = (): JSX.Element => {
   const [pos, setPos] = useState(0);
@@ -28,7 +28,7 @@ const SignUp = (): JSX.Element => {
 
   const [toastList, setToastList] = useState<JSX.Element[]>([]);
 
-  const router = useRouter();
+  // const router = useRouter();
 
 
   const validation = () => {
@@ -74,7 +74,7 @@ const SignUp = (): JSX.Element => {
       console.log(res)
       setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : res ?? 'Gagal!'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
       setInterval(() => {
-        if (res === 'SUCCESS') router.push('/competition')
+        if (res === 'SUCCESS') window.location.href = '/competition';
       }, 1000);
     }
   }
