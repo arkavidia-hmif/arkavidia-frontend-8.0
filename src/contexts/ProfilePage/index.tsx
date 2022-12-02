@@ -23,7 +23,7 @@ const ProfilePage = () => {
 
   const handleOnLogout = () => {
     logout();
-    router.push('/')
+    window.location.href = '/competition';
   }
 
   const pascalCaseConverter = (text: string | undefined) => {

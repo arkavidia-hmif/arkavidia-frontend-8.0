@@ -48,7 +48,6 @@ const TextField: React.FC<ITextField> = ({
       >
         <input
           type={ftype === 'show' ? (visible ? 'text' : 'password') : 'text'}
-          id="text"
           value={externalState}
           onChange={e => setExternalState(e.target.value)}
           disabled={isDisable ? true : variant === 'disabled'}
@@ -93,7 +92,6 @@ const TextArea: React.FC<ITextField> = ({
   return (
     <div className="flex flex-col w-64 gap-1">
       <textarea
-        id="text"
         placeholder="Text"
         maxLength={200}
         onChange={e => setCountChar(e.target.value.length)}

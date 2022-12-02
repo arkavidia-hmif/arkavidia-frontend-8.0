@@ -78,8 +78,9 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
 export default function Timeline({ dates }: AppProps) {
   return (
     <div className="flex w-[83vw] overflow-x-auto scrollbar scrollbar-thumb-white scrollbar-track-yellow200 pt-16 pb-20 bg-gradient-to-b from-[rgba(217,217,217,0)] to-[#FF634B]">
-      {dates.map(({ title, startDate, endDate }) => (
+      {dates.map(({ title, startDate, endDate }, idx) => (
         <_DateComponent
+          key={idx}
           title={title}
           startDate={startDate}
           endDate={endDate}

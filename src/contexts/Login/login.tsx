@@ -8,11 +8,11 @@ import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Fox from '@src/assets/images/sign-in/fox.png'
+import Fox from '@src/assets/images/sign-in/fox.svg'
 import { TeamLoginReq } from '@src/types/team';
 import { login } from '@src/services/auth';
 import Toast from '@src/components/Toast'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 // interface ILoginContext {}
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
     setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil masuk!' : 'Gagal masuk! Mohon cek username dan password Anda.'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
   }
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleOnLogin = async () => {
     const payload = {
@@ -35,7 +35,7 @@ const Login = () => {
     const response = await login(payload);
     handleShowToast(response);
     setInterval(() => {
-      if (response === 'SUCCESS') router.push('/competition')
+      if (response === 'SUCCESS') window.location.href = '/competition';
     }, 1000);
   }
 
