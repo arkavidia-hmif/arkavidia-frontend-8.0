@@ -1,14 +1,10 @@
-import getConfig from 'next/config';
 import SEO from '@src/components/SEO';
-import Maintenance from '@src/contexts/Maintenance/Maintenance';
-
-const { publicRuntimeConfig } = getConfig()
-const { name } = publicRuntimeConfig.site
+import ComingSoon from '@src/contexts/ComingSoon/ComingSoon';
 
 const Home = (): JSX.Element => {
   return (
     <SEO title="Arkavidia 8.0">
-      <Maintenance />
+      <ComingSoon />
     </SEO>
   )
 }
