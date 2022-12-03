@@ -1,7 +1,7 @@
 import CompCountdown from '@src/components/CountdownCard/CompDetailCountdown'
 import CompTimeline from '@src/components/Timeline/CompTimeline'
 import Image from 'next/image'
-import Game from '@src/assets/images/game.svg'
+import Game from '@src/assets/images/game-large.svg'
 import Star from '@src/assets/images/3star.svg'
 
 interface AppProps {
