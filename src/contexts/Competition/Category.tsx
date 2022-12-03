@@ -10,11 +10,11 @@ const Category = (): JSX.Element => {
   const router = useRouter()
   return (
     <div className="flex flex-col w-full bg-gray400 pt-[3rem] relative pb-[5rem] z-0 md:pt-[10rem]">
-      <div className="absolute min-w-[69px] w-[8vw] max-w-[120px] z-40 bottom-4 left-[4%] rotate-[19.57deg] md:w-[120px] md:top-[55%] md:z-0">
+      <div className="absolute min-w-[69px] w-[8vw] max-w-[120px] z-40 bottom-4 left-[4%] rotate-[19.57deg] md:w-[120px] md:top-[55%] md:z-0 md:left-[1%]">
         <Image src={Star} />
       </div>
       <p className="text-center text-[24px] mt-4 font-archivo sm:mt-8 md:mt-0 lg:mt-8 md:text-[64px]">CATEGORY</p>
-      <div className="mx-auto grid grid-cols-[134px_124px] mt-8 grid-rows-[129px_114px] justify-items-center items-center md:w-fit md:px-[3rem] md:flex md:justify-center">
+      <div className="mx-auto grid grid-cols-[134px_124px] mt-8 grid-rows-[129px_114px] justify-items-center items-center md:px-[3rem] md:flex md:justify-center">
         <div
           className="min-w-[139px] w-1/4 rotate-[-5.95deg] self-end mr-[-15px] z-[5] cursor-pointer hover:scale-110 hover:z-[10] md:self-auto"
           onClick={() => router.push('competition/competitive-programming')}>

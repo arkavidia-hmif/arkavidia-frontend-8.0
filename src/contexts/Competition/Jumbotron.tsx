@@ -1,10 +1,7 @@
 import Image from 'next/image'
-import SmallDisk from '@src/assets/images/competition-disk-small.svg'
-import LargeDisk from '@src/assets/images/competition-disk-large.svg'
-import SmallGame from '@src/assets/images/game-small.svg'
-import LargeGame from '@src/assets/images/game-large.svg'
-import SmallArkavidiaStamp from '@src/assets/images/arkavidia-stamp-green-small.svg'
-import LargeArkavidiaStamp from '@src/assets/images/arkavidia-stamp-green-large.svg'
+import Disk from '@src/assets/images/competition-disk.svg'
+import Game from '@src/assets/images/game.svg'
+import ArkavidiaStamp from '@src/assets/images/arkavidia-stamp-green.svg'
 import { useState, useEffect } from 'react'
 
 const Jumbotron = (): JSX.Element => {
@@ -29,16 +26,14 @@ const Jumbotron = (): JSX.Element => {
   return (
     <>
       <div className="bg-yellow300 relative">
-        <div className="absolute left-0 top-0 w-[400px]">
-          <Image src={windowWidth >= 768 ? LargeDisk : SmallDisk} />
+        <div className="absolute left-0 top-0 min-w-[214px] w-[59vw] max-w-[248px] md:w-[400px] md:max-w-none">
+          <Image src={Disk} />
         </div>
         <div className="flex flex-col w-full align-center bg-yellow300 pt-[9rem] mb-[-1rem] px-12 rounded-[55% 100%] md:pt-[8rem]">
           <div className="flex justify-center">
-            <Image
-              src={
-                windowWidth >= 768 ? LargeArkavidiaStamp : SmallArkavidiaStamp
-              }
-            />
+            <div className="min-w-[78px] w-[21vw] max-w-[88px] md:max-w-none md:w-[252px]">
+              <Image src={ArkavidiaStamp} />
+            </div>
           </div>
           <p
             className="text-center font-archivo text-white text-[28px] mt-1.5 z-10 md:text-[56px] lg:text-[84px] lg:mt-[20px]"
@@ -73,8 +68,8 @@ const Jumbotron = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="absolute right-0 bottom-[-5rem] z-10 md:bottom-[-10rem]">
-          <Image src={windowWidth >= 768 ? LargeGame : SmallGame} />
+        <div className="absolute right-0 bottom-[-5rem] z-10 min-w-[83px] w-[26vw] max-w-[114px] sm:bottom-[-7rem] md:w-[203px] md:max-w-none md:bottom-[-10rem] lg:w-[243px]">
+          <Image src={Game} />
         </div>
       </div>
       <svg viewBox="0 0 1440 320">
