@@ -41,7 +41,7 @@ const Jumbotron = (): JSX.Element => {
             />
           </div>
           <p
-            className="text-center font-archivo text-white text-[28px] mt-[20px] z-10 md:text-[56px] lg:text-[84px]"
+            className="text-center font-archivo text-white text-[28px] mt-1.5 z-10 md:text-[56px] lg:text-[84px] lg:mt-[20px]"
             style={
               windowWidth >= 768
                 ? {
@@ -61,8 +61,7 @@ const Jumbotron = (): JSX.Element => {
               px-[20px] py-[2px] text-[8px] md:text-[18px] md:px-[50px] md:py-[4px] lg:px-[100px] lg:py-[7px]">
               ADAPTIVE COLLABORATION
             </div>
-            <div
-              className="bg-black text-white font-[archivo] rotate-[-1.76deg] px-[20px] py-[2px] text-[8px] text-center md:text-[18px] md:px-[40px] md:py-[4px] lg:px-[100px] lg:py-[7px]">
+            <div className="bg-black text-white font-[archivo] rotate-[-1.76deg] px-[20px] py-[2px] text-[8px] text-center md:text-[18px] md:px-[40px] md:py-[4px] lg:px-[100px] lg:py-[7px]">
               TO ENCOUNTER DIGITAL DISRUPTION
             </div>
           </div>
