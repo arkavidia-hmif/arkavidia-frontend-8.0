@@ -1,4 +1,4 @@
-import { Participant, MembershipTeam, MemberList } from '@src/types/participant'
+import { Participant, MemberList } from '@src/types/participant'
 
 export interface TeamLoginReq {
   username: string;
@@ -17,10 +17,9 @@ export interface TeamData {
   password: string;
   team_name: string;
   team_category: string;
-  memberships: MembershipTeam[];
+  memberships: Participant[];
   submission: string | null;
 }
-
 
 export interface ChangePassReq {
   password: string;

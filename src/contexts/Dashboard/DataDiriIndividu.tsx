@@ -40,8 +40,7 @@ export default function DataDiriIndividu({
         onClick={() => {
           setOpen(prevOpen => !prevOpen)
         }}
-        className="flex flex-row items-center justify-between cursor-pointer w-full"
-      >
+        className="flex flex-row items-center justify-between cursor-pointer w-full">
         <h6 className="font-black capitalize text-2xl">Data Diri {subject}</h6>
         <div className="flex-grow"></div>
         <button>
