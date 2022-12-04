@@ -48,71 +48,71 @@ const datas = [
 export default function Timeline() {
   return (
     <>
-    <div className="absolute">
-      <div className="relative top-[0px] left-[0px]">
+      <div className="absolute">
+        <div className="relative top-[0px] left-[0px]">
           <Image src={Clock} />
+        </div>
       </div>
-    </div>
-    <div className="container mx-auto w-3/4 pt-[20px]">
-      <h1 className="text-center text-[60px] font-archivo font-[900] mb-[60px]">
-        TIMELINE
-      </h1>
-      <div className="grid grid-cols-5 gap-28 text-center ">
-        <div className="col-span-2">
-          <div className="grid-rows-2">
-            <div className="grid grid-cols-11 gap-2 box-border overflow-hidden ">
-              <div className=" col-span-5 border-2 border-black bg-green300 overflow-hidden">
-                <Image src={CompeIcon} />
+      <div className="container mx-auto w-3/4 pt-[20px]">
+        <h1 className="text-center text-[60px] font-archivo font-[900] mb-[60px]">
+          TIMELINE
+        </h1>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-28 text-center">
+          <div className="col-span-2">
+            <div className="grid-rows-2">
+              <div className="grid grid-cols-11 gap-2 box-border overflow-hidden ">
+                <div className=" col-span-5 border-2 border-black bg-green300 overflow-hidden">
+                  <Image src={CompeIcon} />
+                </div>
+                <div className="col-span-6 relative">
+                  <Image src={CompeImage} layout="fill" />
+                </div>
               </div>
-              <div className="col-span-6 relative">
-                <Image src={CompeImage} layout="fill" />
-              </div>
-            </div>
-            <Swiper
-                spaceBetween={30} 
-                slidesPerView={1} 
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
                 autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
+                  delay: 4000,
+                  disableOnInteraction: false,
                 }}
                 pagination={{
-                    clickable: true,
+                  clickable: true,
                 }}
                 modules={[Autoplay, Pagination]}
-            >
-              {datas.map((data, idx) => {
-                return (
-                  <SwiperSlide key={idx}>
-                    <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 p-4 border-2 border-black">
-                      <div className="text-4xl font-['Archivo']">{data.title}</div>
-                      <div className="text-base leading-4 text-left font-helvetica text-justify">
-                        {data.value}
+              >
+                {datas.map((data, idx) => {
+                  return (
+                    <SwiperSlide key={idx}>
+                      <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 p-4 border-2 border-black">
+                        <div className="text-4xl font-['Archivo']">{data.title}</div>
+                        <div className="text-base leading-4 font-helvetica text-justify">
+                          {data.value}
+                        </div>
+                        <button
+                          className={`bg-[#1F307C] h-12 text-white font-bold btn py-2 px-4 rounded-lg w-full`}>
+                          Lihat Selengkapnya
+                        </button>
                       </div>
-                      <button
-                        className={`bg-[#1F307C] h-12 text-white font-bold btn py-2 px-4 rounded-lg w-full`}>
-                        Lihat Selengkapnya
-                      </button>
-                    </div>
-                  </SwiperSlide>
-                )
-              })}
-            </Swiper>
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+            </div>
+          </div>
+          <div className="col-span-2 md:col-span-3 h-min relative">
+            <div className="w-[2px] h-[90%] bg-black t-0 l-0 absolute z-10" />
+            {timeline.map((item, idx) => (
+              <TimelineItem
+                key={idx}
+                dateStart={item.dateStart}
+                dateEnd={item.dateEnd}
+                title={item.title}
+                dateString={item.dateString}
+              />
+            ))}
           </div>
         </div>
-        <div className="col-span-3 h-min relative">
-          <div className="w-[2px] h-[90%] bg-black t-0 l-0 absolute z-10" />
-          {timeline.map((item, idx) => (
-            <TimelineItem
-              key={idx}
-              dateStart={item.dateStart}
-              dateEnd={item.dateEnd}
-              title={item.title}
-              dateString={item.dateString}
-            />
-          ))}
-        </div>
       </div>
-    </div>
     </>
   )
 }
