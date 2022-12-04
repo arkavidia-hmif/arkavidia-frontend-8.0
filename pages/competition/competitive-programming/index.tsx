@@ -11,21 +11,21 @@ import Logo from '@src/assets/images/LogoCP.svg'
 const CONTACT = {
   line: [
     {
-      contact: '089507646369',
-      name: 'Aira'
-    },
-    {
-      contact: '081283603881',
-      name: 'Ubai'
-    }
-  ],
-  wa: [
-    {
       contact: 'airathalca',
       name: 'Aira'
     },
     {
       contact: 'ubaidillah_ariq',
+      name: 'Ubai'
+    }
+  ],
+  wa: [
+    {
+      contact: '089507646369',
+      name: 'Aira'
+    },
+    {
+      contact: '081283603881',
       name: 'Ubai'
     }
   ]
