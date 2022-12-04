@@ -158,7 +158,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
             className="block mb-[10px] no-underline"
             href="/competition/uxvidia"
           >
-            UXVidia
+            UXvidia
           </a>
         </div>
       </div>

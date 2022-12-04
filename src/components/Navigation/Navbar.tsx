@@ -28,7 +28,7 @@ const MENU_LIST = [
       },
       { text: 'Datavidia', href: '/competition/datavidia' },
       { text: 'Arkalogica', href: '/competition/arkalogica' },
-      { text: 'UXVidia', href: '/competition/uxvidia' }
+      { text: 'UXvidia', href: '/competition/uxvidia' }
     ]
   },
   { text: 'LMS', href: '/lms' },

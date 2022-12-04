@@ -11,6 +11,9 @@ const API = {
   },
   submission: {
     add: '/add-submission',
+  },
+  participant: {
+    memberData: '/get-member'
   }
 }
 
