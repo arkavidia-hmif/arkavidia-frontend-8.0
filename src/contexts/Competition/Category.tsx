@@ -4,7 +4,7 @@ import Star from '@src/assets/images/star.svg'
 import ArkalogicaLogo from '@src/assets/images/LogoArkalogica.svg'
 import CPLogo from '@src/assets/images/LogoCP.svg'
 import DatavidiaLogo from '@src/assets/images/LogoDatavidia.svg'
-import UXVidiaLogo from '@src/assets/images/LogoUXvidia.svg'
+import UXVidiaLogo from '@src/assets/images/LogoUXVidia.svg'
 
 const Category = (): JSX.Element => {
   const router = useRouter()
