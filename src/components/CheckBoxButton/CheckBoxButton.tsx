@@ -26,17 +26,17 @@ export default function CheckBoxButton({
         onCheckedChange={toggleFunction}
         checked={checked}
         disabled={disabled}
-        className="w-4 h-4 bg-yellow300 rounded flex justify-center items-center"
-        id={`${groupName} ${value}`}
-      >
+        className={`w-4 h-4 border-black ${
+          checked ? 'bg-yellow300' : 'bg-white border-2'
+        } rounded flex justify-center items-center`}
+        id={`${groupName} ${value}`}>
         <Checkbox.Indicator>
           <CheckIcon />
         </Checkbox.Indicator>
       </Checkbox.Root>
       <label
         className="text-base font-normal"
-        htmlFor={`${groupName} ${value}`}
-      >
+        htmlFor={`${groupName} ${value}`}>
         {value}
       </label>
     </div>
