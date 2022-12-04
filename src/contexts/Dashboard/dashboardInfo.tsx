@@ -7,6 +7,7 @@ import FoxImage from '@src/assets/images/fox.svg'
 import NoAnnouncement from '@src/assets/images/noAnnouncement.svg'
 import NotRegistered from '@src/assets/images/StatusNotRegistered.svg'
 import Dashboard from '@src/components/Navigation/Dashboard'
+import Toast from '@src/components/Toast'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
 
@@ -35,8 +36,7 @@ const TextChipVerifikasi = (props: any) => {
   return (
     <div className="grid grid-cols-2 mb-[10px]">
       <div
-        className={`font-helvatica font-bold text-[${textSize}] col-span-1 flex items-center`}
-      >
+        className={`font-helvatica font-bold text-[${textSize}] col-span-1 flex items-center`}>
         {text}
       </div>
       <div className="flex justify-center items-center pr-[10px]">
@@ -97,8 +97,26 @@ const DashboardInfo = (props: any) => {
   const textStyle = 'font-helvatica font-normal text-[12px] pl-[10px]'
   return (
     <div className="bg-[rgb(236,236,236)] relative">
-    <Dashboard>
-      <div className="w-full">
+      <Toast
+        timer={6000}
+        label={
+          <>
+            Please fill this form for alternative signup/registration if you are
+            experiencing issues:{' '}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScTii0F2iEsHCObkS1FVdUi1uewwrDopTD9e7StxYE4o7Owdw/viewform"
+              target="_blank"
+              style={{ textDecoration: 'underline' }}>
+              bit.ly/TemporaryFormArkavidia
+            </a>
+          </>
+        }
+        type={'danger'}
+        position={'bottom'}
+        key={'toast1'}
+      />
+      <Dashboard>
+        <div className="w-full">
           <div className="w-full mr-[116px] ml-[5px]">
             <div className="ml-[11px] mb-[30px]">
               <div className="font-archivo text-900 text-[48px] ml-[2px] text-white text-stroke-black text-shadow">
@@ -221,9 +239,9 @@ const DashboardInfo = (props: any) => {
               </div> */}
             </div>
           </div>
-      </div>
-    </Dashboard>
-    <div className="absolute z-0 bottom-0 mb-[-5rem] ml-[-1rem]">
+        </div>
+      </Dashboard>
+      <div className="absolute z-0 bottom-0 mb-[-5rem] ml-[-1rem]">
         <Image src={FoxImage} />
       </div>
     </div>
