@@ -7,7 +7,7 @@ const API = {
   },
   team: {
     compRegis: (compe: string) => `/competition-registration?competition=${compe}`,
-    teamData: '/get-team-data'
+    teamData: '/get-team'
   },
   submission: {
     add: '/add-submission',

@@ -34,7 +34,7 @@ const CompetitionRegistration = ({image, title, params, desc}: ICompetitionRegis
   const handleOnRegisterCompe = async () => {
     const response = await competitionRegistration(params);
     handleShowToast(response);
-    if(response === 'SUCCESS') router.push('/dashboard')
+    if(response === 'SUCCESS') router.push('/dashboard/information')
   }
 
 
