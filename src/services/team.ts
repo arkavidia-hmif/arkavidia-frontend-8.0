@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import API from '@src/utils/api'
 import { store } from '@src/redux/store/index'
 import { ErrorRes } from '@src/types/auth'
