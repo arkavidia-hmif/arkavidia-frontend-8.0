@@ -3,7 +3,7 @@ import API from '@src/utils/api'
 import { store } from '@src/redux/store/index'
 import { ErrorRes } from '@src/types/auth'
 
-const URL = process.env.NEXT_PUBLIC_API_URL
+const URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 export const getTeamData = async () => {
   const { auth } = store.getState()
@@ -22,6 +22,24 @@ export const getTeamData = async () => {
     return errorMsg?.data?.Message
   }
 }
+
+export const getMemberData = async () => {
+  const { auth } = store.getState();
+    try {
+      const response = await axios(
+        {
+          method: 'GET',
+          url: URL + API.team.memberData,
+          headers: {
+            Authorization: `Bearer ${auth.token}`
+          },
+        }
+      ) 
+      return response.data;
+    } catch (e) {
+      return "FAILED";
+    }
+};
 
 export const competitionRegistration = async (compe: string) => {
   const { auth } = store.getState()

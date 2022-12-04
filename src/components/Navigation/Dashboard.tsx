@@ -18,9 +18,9 @@ const routes = [
 ]
 
 const getLogo = (type: string) => {
-  switch(type){
+  switch (type) {
     case 'competitive-programming':
-      return CPLogo;
+      return CPLogo
     case 'datavidia':
       return DatavidiaLogo
     case 'arkalogica':
@@ -32,7 +32,7 @@ const getLogo = (type: string) => {
   }
 }
 
-function SideNav({compe} : {compe: string}) {
+function SideNav({ compe }: { compe: string }) {
   const router = useRouter()
   return (
     <div className="flex flex-col w-full h-fit shadow-[0_2px_8px_1px_rgba(0,0,0,0.1)] bg-white rounded-lg py-[36px] px-[24px] gap-8">
@@ -57,21 +57,21 @@ function SideNav({compe} : {compe: string}) {
 }
 
 function Dashboard({ children }: React.PropsWithChildren<{}>) {
-  const [teamData, setTeamData] = useState<TeamData | null>();
+  const [teamData, setTeamData] = useState<TeamData | null>()
 
   const fetchTeamData = async () => {
-    const response = await getTeamData();
-    setTeamData(response.Data);
+    const response = await getTeamData()
+    setTeamData(response.Data)
   }
 
   useEffect(() => {
-    fetchTeamData();
+    fetchTeamData()
   }, [])
   return (
     <div className="p-14">
       <div className="flex">
         <div className="w-2/12 py-[33px]">
-          <SideNav compe={teamData?.team_category ?? '' as string}></SideNav>
+          <SideNav compe={teamData?.team_category ?? ('' as string)}></SideNav>
         </div>
         <div className="flex flex-col w-10/12 px-[55px] py-[69px] gap-[30px]">
           {children}
