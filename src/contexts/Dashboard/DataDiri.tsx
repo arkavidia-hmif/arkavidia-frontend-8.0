@@ -12,38 +12,43 @@ function DataDiri(): JSX.Element {
   const [dataAnggota2, setDataAnggota2] = useDataDiri({})
 
   const syncTeamData = async () => {
-    const rawData = (await getMemberData()) as { Data: MembershipParticipant[] }
-    const teamMemberData = rawData?.Data
-    const {
-      name: namaKetuaF,
-      email: emailKetuaF,
-      career_interest: minatKetuaF
-    } = teamMemberData[0]
-    const {
-      name: namaAnggota1F,
-      email: emailAnggota1F,
-      career_interest: minatAnggota1F
-    } = teamMemberData[1]
-    const {
-      name: namaAnggota2F,
-      email: emailAnggota2F,
-      career_interest: minatAnggota2F
-    } = teamMemberData[2]
     const { setAll: setAllDataKetua } = setDataKetua
     const { setAll: setAllDataAnggota1 } = setDataAnggota1
     const { setAll: setAllDataAnggota2 } = setDataAnggota2
+
+    const rawData = (await getMemberData()) as { Data: MembershipParticipant[] }
+    const teamMemberData = rawData?.Data
+
+    // Tidy this up later!
+
+    const [
+      { name: namaKetuaF, email: emailKetuaF, career_interest: minatKetuaF },
+      {
+        name: namaAnggota1F,
+        email: emailAnggota1F,
+        career_interest: minatAnggota1F
+      },
+      {
+        name: namaAnggota2F,
+        email: emailAnggota2F,
+        career_interest: minatAnggota2F
+      }
+    ] = teamMemberData
+
     setAllDataKetua({
       nama: namaKetuaF,
       email: emailKetuaF,
       minat: minatKetuaF ?? [],
       nomor: ''
     })
+
     setAllDataAnggota1({
       nama: namaAnggota1F,
       email: emailAnggota1F,
       minat: minatAnggota1F ?? [],
       nomor: ''
     })
+
     setAllDataAnggota2({
       nama: namaAnggota2F,
       email: emailAnggota2F,
