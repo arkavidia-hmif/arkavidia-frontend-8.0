@@ -2,9 +2,9 @@ import Dashboard from '@src/components/Navigation/Dashboard'
 import DataDiriIndividu from './DataDiriIndividu'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import useDataDiri from '@src/utils/customHooks/datadiri'
-import { getTeamData } from '@src/services/team'
+import { getMemberData } from '@src/services/team'
 import { useEffect } from 'react'
-import { TeamData } from '@src/types/team'
+import { MembershipParticipant } from '@src/types/participant'
 
 function DataDiri(): JSX.Element {
   const [dataKetua, setDataKetua] = useDataDiri({})
@@ -12,30 +12,26 @@ function DataDiri(): JSX.Element {
   const [dataAnggota2, setDataAnggota2] = useDataDiri({})
 
   const syncTeamData = async () => {
-    const rawData = (await getTeamData()) as { Data: TeamData }
-    const teamData = rawData?.Data
+    const rawData = (await getMemberData()) as { Data: MembershipParticipant[] }
+    const teamMemberData = rawData?.Data
     const {
       name: namaKetuaF,
       email: emailKetuaF,
       career_interest: minatKetuaF
-    } = teamData.memberships.filter(member => member.role === 'leader')[0]
-      .participant
+    } = teamMemberData[0]
     const {
       name: namaAnggota1F,
       email: emailAnggota1F,
       career_interest: minatAnggota1F
-    } = teamData.memberships.filter(member => member.role === 'member')[0]
-      .participant
+    } = teamMemberData[1]
     const {
       name: namaAnggota2F,
       email: emailAnggota2F,
       career_interest: minatAnggota2F
-    } = teamData.memberships.filter(member => member.role === 'member')[1]
-      .participant
+    } = teamMemberData[2]
     const { setAll: setAllDataKetua } = setDataKetua
     const { setAll: setAllDataAnggota1 } = setDataAnggota1
     const { setAll: setAllDataAnggota2 } = setDataAnggota2
-    console.log(teamData)
     setAllDataKetua({
       nama: namaKetuaF,
       email: emailKetuaF,

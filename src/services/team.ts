@@ -22,6 +22,24 @@ export const getTeamData = async () => {
     }
 };
 
+export const getMemberData = async () => {
+  const { auth } = store.getState();
+    try {
+      const response = await axios(
+        {
+          method: 'GET',
+          url: URL + API.team.memberData,
+          headers: {
+            Authorization: `Bearer ${auth.token}`
+          },
+        }
+      ) 
+      return response.data;
+    } catch (e) {
+      return "FAILED";
+    }
+};
+
 export const competitionRegistration = async (compe: string) => {
   const { auth } = store.getState();
   try {
