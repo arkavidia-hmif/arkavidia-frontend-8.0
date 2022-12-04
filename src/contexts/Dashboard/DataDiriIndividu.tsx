@@ -59,8 +59,8 @@ export default function DataDiriIndividu({
               ftype="default"
             />
           </div>
-          <div className="w-full flex items-start justify-center gap-6">
-            <div className="w-1/2 flex flex-col items-start justify-center">
+          <div className="w-full flex flex-col lg:flex-row lg:items-start lg:justify-center gap-6">
+            <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
               <p className="font-helvatica font-bold text-base">
                 Email {subject}
               </p>
@@ -72,7 +72,7 @@ export default function DataDiriIndividu({
                 ftype="default"
               />
             </div>
-            <div className="w-1/2 flex flex-col items-start justify-center">
+            <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
               <p className="font-helvatica font-bold text-base">
                 Nomor Telepon {subject}
               </p>
@@ -90,7 +90,7 @@ export default function DataDiriIndividu({
             <p className="font-helvatica text-xs text-gray600">
               Pilih bidang karir yang kamu minati
             </p>
-            <div className="grid grid-cols-2 grid-rows-6  gap-y-3 gap-x-2">
+            <div className="flex flex-col items-start justify-center lg:grid lg:grid-cols-2 lg:grid-rows-6 gap-y-3 gap-x-2">
               {checkBoxContent.map(content => {
                 return (
                   <CheckBoxButton

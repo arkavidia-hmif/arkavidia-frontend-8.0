@@ -35,7 +35,7 @@ const getLogo = (type: string) => {
 function SideNav({ compe }: { compe: string }) {
   const router = useRouter()
   return (
-    <div className="flex flex-col w-full h-fit shadow-[0_2px_8px_1px_rgba(0,0,0,0.1)] bg-white rounded-lg py-[36px] px-[24px] gap-8">
+    <div className="flex flex-col w-4/5 lg:w-full h-fit shadow-[0_2px_8px_1px_rgba(0,0,0,0.1)] bg-white rounded-lg py-[36px] px-[24px] gap-8">
       <div className="flex justify-center items-center">
         <Image width={'120px'} height={'120px'} src={getLogo(compe)} />
       </div>
@@ -68,12 +68,12 @@ function Dashboard({ children }: React.PropsWithChildren<{}>) {
     fetchTeamData()
   }, [])
   return (
-    <div className="p-14">
-      <div className="flex">
-        <div className="w-2/12 py-[33px]">
+    <div className="lg:pb-14 lg:px-14 pt-32">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+        <div className="w-full flex items-start justify-center lg:w-2/12 lg:pb-[33px]">
           <SideNav compe={teamData?.team_category ?? ('' as string)}></SideNav>
         </div>
-        <div className="flex flex-col w-10/12 px-[55px] py-[69px] gap-[30px]">
+        <div className="flex flex-col w-full lg:w-10/12 lg:px-[55px] lg:py-[69px] gap-[30px]">
           {children}
         </div>
       </div>

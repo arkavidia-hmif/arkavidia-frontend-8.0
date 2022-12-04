@@ -65,7 +65,7 @@ function DataDiri(): JSX.Element {
 
   return (
     <Dashboard>
-      <h3 className="font-archivo text-5xl text-shadow text-white">
+      <h3 className="font-archivo text-5xl text-shadow text-white lg:text-left text-center">
         Data Peserta
       </h3>
       <DataDiriIndividu
