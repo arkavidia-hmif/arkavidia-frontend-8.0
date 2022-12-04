@@ -18,7 +18,10 @@ export type DataDiriSetter = {
   setNama: Dispatch<SetStateAction<string>>
   setNomor: Dispatch<SetStateAction<string>>
   setEmail: Dispatch<SetStateAction<string>>
-  removeOrAddMinat: (m: string) => void
+  setMinat: Dispatch<SetStateAction<string[]>>
+  removeOrAddMinat: (m: string) => void,
+  setAll: (all: DataDiriState) => void,
+
 }
 
 export type DataDiriHookRet = [DataDiriState, DataDiriSetter]
@@ -50,6 +53,13 @@ function useDataDiri({
     }
   }
 
+  function setAll({email, minat, nama, nomor}: DataDiriState) {
+    setNama(nama);
+    setEmail(email);
+    setMinat(minat);
+    setNomor(nomor);
+  }
+
   return [
     {
       nama,
@@ -57,7 +67,7 @@ function useDataDiri({
       nomor,
       minat
     },
-    { setNama, setEmail, setNomor, removeOrAddMinat }
+    { setNama, setEmail, setNomor, removeOrAddMinat, setAll, setMinat }
   ] as DataDiriHookRet
 }
 

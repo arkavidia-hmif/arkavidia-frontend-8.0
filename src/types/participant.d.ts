@@ -6,7 +6,7 @@ export interface MemberList {
 }
 
 export interface Participant {
-  ID:number;
+  ID: number;
   team_id: number;
   participant_id: number;
   role: "leader" | "member";
