@@ -11,13 +11,24 @@ import { getTeamData } from '@src/services/team'
 import { getTeamMembersData } from '@src/services/participant'
 import { TeamData } from '@src/types/team'
 import { ParticipantData } from '@src/types/participant'
-import { TIMELINE_ARKALOGICA, TIMELINE_CP, TIMELINE_DATAVIDIA, TIMELINE_UXVIDIA } from '@src/const/CompetitionDetail'
+import {
+  TIMELINE_ARKALOGICA,
+  TIMELINE_CP,
+  TIMELINE_DATAVIDIA,
+  TIMELINE_UXVIDIA
+} from '@src/const/CompetitionDetail'
 import Toast from '@src/components/Toast'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
 
-const CapitalizeFirstLetter = (str : string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const CapitalizeFirstLetter = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+interface TimelineDetail {
+  title: string
+  startDate: Date
+  endDate: Date
 }
 
 const Section = () => {
@@ -41,17 +52,14 @@ const Section = () => {
 
 const TextChipVerifikasi = (props: any) => {
   const { text, variant, textSize, berhasil, unggah } = props
-  const chipStyle = 'w-[160px] h-[24px] flex justify-center items-center xl:text-[12px] lg:text-[9px]'
-  if (unggah){
-    if (berhasil === 'berhasil'){
-      variant = 'greenVerifikasi';
-    }
-    else{
-      variant = 'orangeVerifikasi';
-    }
-  }
-  else{
-    variant = 'redVerifikasi';
+  const chipStyle =
+    'w-[160px] h-[24px] flex justify-center items-center xl:text-[12px] lg:text-[9px]'
+  let _variant = variant
+  if (unggah) {
+    if (berhasil === 'berhasil') _variant = 'greenVerifikasi'
+    else _variant = 'orangeVerifikasi'
+  } else {
+    _variant = 'redVerifikasi'
   }
   return (
     <div className="grid grid-cols-2 mb-[10px]">
@@ -60,8 +68,19 @@ const TextChipVerifikasi = (props: any) => {
         {text}
       </div>
       <div className="flex justify-end items-center pr-[10px]">
-        <CustomChip variant={variant} shadow={false} className={`${chipStyle}`}>
-          {`${!unggah?'Belum diunggah': berhasil ==='berhasil'?'Verifikasi Berhasil': berhasil ==='menunggu'?'Menunggu Verifikasi':'Verifikasi Gagal'}`}
+        <CustomChip
+          variant={_variant}
+          shadow={false}
+          className={`${chipStyle}`}>
+          {`${
+            !unggah
+              ? 'Belum diunggah'
+              : berhasil === 'berhasil'
+              ? 'Verifikasi Berhasil'
+              : berhasil === 'menunggu'
+              ? 'Menunggu Verifikasi'
+              : 'Verifikasi Gagal'
+          }`}
         </CustomChip>
       </div>
     </div>
@@ -76,11 +95,7 @@ const Anggota = (props: any) => {
       <div className="font-helvatica text-400 text-[12px] mb-[10px] mt-[2px]">
         {Nama}
       </div>
-      <TextChipVerifikasi
-        text="Foto Profil"
-        textSize="12px"
-        unggah={false}
-      />
+      <TextChipVerifikasi text="Foto Profil" textSize="12px" unggah={false} />
       <TextChipVerifikasi
         text="Foto Kartu Pelajar"
         textSize="12px"
@@ -116,104 +131,133 @@ const Timeline = (competition: any) => {
       /* Adjust lg:min-h-[] to adjust timeline box height, 505px for full size box */
       return (
         <div className="bg-white rounded-[8px] lg:min-h-[505px] min-h-[100px]">
-          <p className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
+          <p
+            className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
             Timeline
           </p>
           {TIMELINE_CP.map((event, index) => (
-            <TextDate text1={event.title} text2={`${event.startDate.getDate()}/${event.startDate.getMonth()+1}/${event.startDate.getFullYear()}`} key={index}/>
+            <TextDate
+              text1={event.title}
+              text2={`${event.startDate.getDate()}/${
+                event.startDate.getMonth() + 1
+              }/${event.startDate.getFullYear()}`}
+              key={index}
+            />
           ))}
         </div>
       )
     case 'datavidia':
       return (
         <div className="bg-white rounded-[8px] lg:min-h-[505px] min-h-[100px]">
-          <p className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
+          <p
+            className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
             Timeline
           </p>
           {TIMELINE_DATAVIDIA.map((event, index) => (
-            <TextDate text1={event.title} text2={`${event.startDate.getDate()}/${event.startDate.getMonth()+1}/${event.startDate.getFullYear()}`} key={index}/>
+            <TextDate
+              text1={event.title}
+              text2={`${event.startDate.getDate()}/${
+                event.startDate.getMonth() + 1
+              }/${event.startDate.getFullYear()}`}
+              key={index}
+            />
           ))}
         </div>
       )
     case 'arkalogica':
       return (
         <div className="bg-white rounded-[8px] lg:min-h-[505px] min-h-[100px]">
-          <p className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
+          <p
+            className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
             Timeline
           </p>
           {TIMELINE_ARKALOGICA.map((event, index) => (
-            <TextDate text1={event.title} text2={`${event.startDate.getDate()}/${event.startDate.getMonth()+1}/${event.startDate.getFullYear()}`} key={index}/>
+            <TextDate
+              text1={event.title}
+              text2={`${event.startDate.getDate()}/${
+                event.startDate.getMonth() + 1
+              }/${event.startDate.getFullYear()}`}
+              key={index}
+            />
           ))}
         </div>
-      ) 
+      )
     case 'uxvidia':
       return (
         <div className="bg-white rounded-[8px] lg:min-h-[505px] min-h-[100px]">
-          <p className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
+          <p
+            className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
             Timeline
           </p>
           {TIMELINE_UXVIDIA.map((event, index) => (
-            <TextDate text1={event.title} text2={`${event.startDate.getDate()}/${event.startDate.getMonth()+1}/${event.startDate.getFullYear()}`} key={index}/>
+            <TextDate
+              text1={event.title}
+              text2={`${event.startDate.getDate()}/${
+                event.startDate.getMonth() + 1
+              }/${event.startDate.getFullYear()}`}
+              key={index}
+            />
           ))}
         </div>
-      ) 
+      )
     default:
       return (
         <div className="bg-white rounded-[8px] lg:min-h-[505px] min-h-[200px]">
-            <p className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
-              Timeline
-            </p>
+          <p
+            className={`font-archivo font-black text-[24px] mt-[24px] pl-[12px] mb-[14px] pt-[10px]`}>
+            Timeline
+          </p>
         </div>
       )
   }
 }
 
-const LatestCountdown = (competition: any) =>{
-  let dateTimeline = [];
-  const nowDate = new Date();
-  let i = 0;
-  let toShow;
+const LatestCountdown = (competition: any) => {
+  const dateTimeline = [] as TimelineDetail[]
+  const nowDate = new Date()
+  let i = 0
+  let toShow
   switch (competition.competition) {
     case 'competitive-programming':
-      TIMELINE_CP.map((time) => (
-        dateTimeline.push(time)
-      ));
-      break;
+      TIMELINE_CP.map(time => dateTimeline.push(time))
+      break
     case 'datavidia':
-      TIMELINE_DATAVIDIA.map((time) => (
-        dateTimeline.push(time)
-      ));
-      break;
+      TIMELINE_DATAVIDIA.map(time => dateTimeline.push(time))
+      break
     case 'arkalogica':
-      TIMELINE_ARKALOGICA.map((time) => (
-        dateTimeline.push(time)
-      ));
-      break;
+      TIMELINE_ARKALOGICA.map(time => dateTimeline.push(time))
+      break
     case 'uxvidia':
-      TIMELINE_UXVIDIA.map((time) => (
-        dateTimeline.push(time)
-      ));
-      break;
+      TIMELINE_UXVIDIA.map(time => dateTimeline.push(time))
+      break
     default:
-      dateTimeline.push(new Date())
+      dateTimeline.push({
+        title: '',
+        startDate: new Date(),
+        endDate: new Date()
+      })
   }
-  dateTimeline.sort((a,b) => a.startDate - b.startDate)
-  while (dateTimeline[i].startDate - nowDate < 0 && dateTimeline.length > 1) {
-    i++;
+  dateTimeline.sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
+  while (
+    dateTimeline[i].startDate.getTime() - nowDate.getTime() < 0 &&
+    dateTimeline.length > 1
+  ) {
+    i++
   }
-  if (dateTimeline.length > 1){
-    toShow = dateTimeline[i];
+  if (dateTimeline.length > 1) {
+    toShow = dateTimeline[i]
+  } else {
+    toShow = { title: '-', startDate: new Date(), endDate: new Date() }
   }
-  else {
-    toShow = {title: "-",
-    startDate: new Date(),
-    endDate: new Date()}
-  }
-  console.log(dateTimeline)
   return (
     <>
       <div className="mb-[12px] pl-[2px]">
-        <TextDate text1={toShow.title} text2={`${toShow.startDate.getDate()}/${toShow.startDate.getMonth()+1}/${toShow.startDate.getFullYear()}`} />
+        <TextDate
+          text1={toShow.title}
+          text2={`${toShow.startDate.getDate()}/${
+            toShow.startDate.getMonth() + 1
+          }/${toShow.startDate.getFullYear()}`}
+        />
       </div>
       <DashboardCountdown date={toShow.startDate.toISOString()} />
     </>
@@ -221,22 +265,25 @@ const LatestCountdown = (competition: any) =>{
 }
 
 const DashboardInfo = (props: any) => {
-  const [teamData, setTeamData] = useState<TeamData | null>();
-  const [membersData, setMembersData] = useState<ParticipantData[] | null>();
-  const [isEmpty, setIsEmpty] = useState(false);
- 
+  const [teamData, setTeamData] = useState<TeamData | null>()
+  const [membersData, setMembersData] = useState<ParticipantData[] | null>()
+  const [isEmpty, setIsEmpty] = useState(false)
+
   const fetchTeamData = async () => {
-    let [teamResponse, membersResponse] = await Promise.all([getTeamData(), getTeamMembersData()]);
-    const teamData = teamResponse.Data;
-    const membersData = membersResponse.Data;
-    setTeamData(teamData);
-    setMembersData(membersData);
-    setIsEmpty(!teamData.team_category);
+    const [teamResponse, membersResponse] = await Promise.all([
+      getTeamData(),
+      getTeamMembersData()
+    ])
+    const teamData = teamResponse.Data
+    const membersData = membersResponse.Data
+    setTeamData(teamData)
+    setMembersData(membersData)
+    setIsEmpty(!teamData.team_category)
   }
- 
+
   useEffect(() => {
-    fetchTeamData();
-  }, []);
+    fetchTeamData()
+  }, [])
 
   const subHeader1Style =
     'font-archivo font-black text-[24px] mt-[24px] pl-[10px]'
@@ -244,7 +291,7 @@ const DashboardInfo = (props: any) => {
 
   return (
     <div className="bg-[rgb(236,236,236)] relative">
-     <Toast
+      <Toast
         timer={6000}
         label={
           <>
@@ -253,7 +300,8 @@ const DashboardInfo = (props: any) => {
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLScTii0F2iEsHCObkS1FVdUi1uewwrDopTD9e7StxYE4o7Owdw/viewform"
               target="_blank"
-              style={{ textDecoration: 'underline' }}>
+              style={{ textDecoration: 'underline' }}
+              rel="noreferrer">
               bit.ly/TemporaryFormArkavidia
             </a>
           </>
@@ -262,9 +310,9 @@ const DashboardInfo = (props: any) => {
         position={'bottom'}
         key={'toast1'}
       />
-    <div className="pt-[60px] lg:pt-[58px]">
-      <Dashboard>
-        <div className="w-full">
+      <div className="pt-[60px] lg:pt-[58px]">
+        <Dashboard>
+          <div className="w-full">
             <div className="w-full mr-[116px] ml-[5px]">
               <div className="lg:ml-[11px] mb-[30px] lg:text-left text-center">
                 <div className="font-archivo text-900 text-[36px] lg:text-[48px]  ml-[2px] text-white text-stroke-black text-shadow">
@@ -277,7 +325,10 @@ const DashboardInfo = (props: any) => {
                     <div className="lg:grid lg:grid-row-2 lg:pl-[4%]  lg:rounded-[8px]">
                       <div className="rounded-[8px] bg-white pl-[12px]">
                         <div>
-                          <h5 className={`${subHeader1Style} pt-[22px] lg:pt-0`}>Penyisihan</h5>
+                          <h5
+                            className={`${subHeader1Style} pt-[22px] lg:pt-0`}>
+                            Penyisihan
+                          </h5>
                         </div>
                         <div>
                           <p className={`${textStyle} mt-2 mb-2`}>
@@ -291,7 +342,8 @@ const DashboardInfo = (props: any) => {
                         </div>
                       </div>
                       <div className="rounded-[8px] bg-white mt-[10px] pr-[20px] pl-[12px] z-[10] pb-10 lg:pb-0">
-                        <p className={`${subHeader1Style} mb-[22px] pt-[22px] lg:pt-0`}>
+                        <p
+                          className={`${subHeader1Style} mb-[22px] pt-[22px] lg:pt-0`}>
                           Pengumuman
                         </p>
                         <Section />
@@ -301,14 +353,12 @@ const DashboardInfo = (props: any) => {
                       </div>
                     </div>
                     <div className="bg-white px-[12px] rounded-[8px]">
-                      <h6 className={`${subHeader1Style} mb-[22px] pt-[22px] lg:pt-0`}>
+                      <h6
+                        className={`${subHeader1Style} mb-[22px] pt-[22px] lg:pt-0`}>
                         Status Profil
                       </h6>
                       <div className="pt-[13px] pb-[3px] pl-[10px]">
-                        <TextChipVerifikasi
-                          text="Status Tim"
-                          textSize="16px"
-                        />
+                        <TextChipVerifikasi text="Status Tim" textSize="16px" />
                       </div>
                       <h6 className={`${subHeader1Style}`}>Dokumen Peserta</h6>
                       <p className={`${textStyle} mb-[10px]`}>
@@ -322,13 +372,18 @@ const DashboardInfo = (props: any) => {
                       </div>
                       <div className="pt-[10px] ">
                         {membersData?.map((member, key) => (
-                          <Anggota key = {key} Jabatan={CapitalizeFirstLetter(member.memberships[0].role)} Nama={member.name}/>
+                          <Anggota
+                            key={key}
+                            Jabatan={CapitalizeFirstLetter(
+                              member.memberships[0].role
+                            )}
+                            Nama={member.name}
+                          />
                         ))}
                       </div>
                     </div>
                   </>
-                ) 
-                : (
+                ) : (
                   <>
                     <div className="grid lg:pl-[4%] rounded-[8px] flex-col">
                       <div className="rounded-[8px] bg-white pr-[20px] pl-[12px] ">
@@ -346,7 +401,8 @@ const DashboardInfo = (props: any) => {
                       </div>
                     </div>
                     <div className="bg-white px-[12px] rounded-[8px] lg:mb-0 mb-[24px]">
-                      <p className={`${subHeader1Style} mb-[22px] lg:pt-0 pt-[24px]`}>
+                      <p
+                        className={`${subHeader1Style} mb-[22px] lg:pt-0 pt-[24px]`}>
                         Status Profil
                       </p>
                       <div className="flex justify-center items-center mt-[130px]">
@@ -358,7 +414,7 @@ const DashboardInfo = (props: any) => {
                       </p>
                       <div className="flex justify-center pb-6">
                         <CustomButton bgColor="primary" size="normal">
-                          <a href = "/competition">Register Now</a>
+                          <a href="/competition">Register Now</a>
                         </CustomButton>
                       </div>
                     </div>
@@ -367,20 +423,19 @@ const DashboardInfo = (props: any) => {
                 <div className="flex-col">
                   <div className="bg-white mb-[12px] rounded-[8px] max-h-[320px] pb-[15px]">
                     <div
-                      className={`${subHeader1Style} mb-[10px] mt-[0px] pl-[12px] pt-[24px]`}
-                    >
+                      className={`${subHeader1Style} mb-[10px] mt-[0px] pl-[12px] pt-[24px]`}>
                       Countdown
                     </div>
-                    <LatestCountdown competition={teamData?.team_category}/>
+                    <LatestCountdown competition={teamData?.team_category} />
                   </div>
-                  <Timeline competition={teamData?.team_category}/>
+                  <Timeline competition={teamData?.team_category} />
                 </div>
               </div>
             </div>
-        </div>
-      </Dashboard>
-    </div>
-    <div className="invisible lg:visible absolute z-0 bottom-0 mb-[-5rem] ml-[-1rem]">
+          </div>
+        </Dashboard>
+      </div>
+      <div className="invisible lg:visible absolute z-0 bottom-0 mb-[-5rem] ml-[-1rem]">
         <Image src={FoxImage} />
       </div>
     </div>
