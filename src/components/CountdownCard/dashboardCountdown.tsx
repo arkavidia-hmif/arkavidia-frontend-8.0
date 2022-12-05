@@ -64,6 +64,8 @@ const DashboardCountdown = ({ date }: CountdownProps) => {
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
 
+  console.log(date)
+
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date()
@@ -86,7 +88,7 @@ const DashboardCountdown = ({ date }: CountdownProps) => {
       } else setHabis(false)
     }, 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [date])
 
   // Pembagian 6 Digit
   const d1 = Math.floor(days / 10)
