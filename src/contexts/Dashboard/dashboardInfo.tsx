@@ -12,6 +12,7 @@ import { getTeamMembersData } from '@src/services/participant'
 import { TeamData } from '@src/types/team'
 import { ParticipantData } from '@src/types/participant'
 import { TIMELINE_ARKALOGICA, TIMELINE_CP, TIMELINE_DATAVIDIA, TIMELINE_UXVIDIA } from '@src/const/CompetitionDetail'
+import Toast from '@src/components/Toast'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
 
@@ -55,8 +56,7 @@ const TextChipVerifikasi = (props: any) => {
   return (
     <div className="grid grid-cols-2 mb-[10px]">
       <div
-        className={`font-helvatica font-bold text-[${textSize}] col-span-1 flex items-center`}
-      >
+        className={`font-helvatica font-bold text-[${textSize}] col-span-1 flex items-center`}>
         {text}
       </div>
       <div className="flex justify-end items-center pr-[10px]">
@@ -244,6 +244,24 @@ const DashboardInfo = (props: any) => {
 
   return (
     <div className="bg-[rgb(236,236,236)] relative">
+     <Toast
+        timer={6000}
+        label={
+          <>
+            Please fill this form for alternative signup/registration if you are
+            experiencing issues:{' '}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScTii0F2iEsHCObkS1FVdUi1uewwrDopTD9e7StxYE4o7Owdw/viewform"
+              target="_blank"
+              style={{ textDecoration: 'underline' }}>
+              bit.ly/TemporaryFormArkavidia
+            </a>
+          </>
+        }
+        type={'danger'}
+        position={'bottom'}
+        key={'toast1'}
+      />
     <div className="pt-[60px] lg:pt-[58px]">
       <Dashboard>
         <div className="w-full">

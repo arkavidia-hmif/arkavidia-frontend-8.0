@@ -1,13 +1,66 @@
 import Dashboard from '@src/components/Navigation/Dashboard'
-import { useState } from 'react'
 import DataDiriIndividu from './DataDiriIndividu'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import useDataDiri from '@src/utils/customHooks/datadiri'
+import { getMemberData } from '@src/services/team'
+import { useEffect, useState } from 'react'
+import { MembershipParticipant } from '@src/types/participant'
 
 function DataDiri(): JSX.Element {
+  const [opened, setOpened] = useState(-1)
   const [dataKetua, setDataKetua] = useDataDiri({})
   const [dataAnggota1, setDataAnggota1] = useDataDiri({})
   const [dataAnggota2, setDataAnggota2] = useDataDiri({})
+
+  const syncTeamData = async () => {
+    const { setAll: setAllDataKetua } = setDataKetua
+    const { setAll: setAllDataAnggota1 } = setDataAnggota1
+    const { setAll: setAllDataAnggota2 } = setDataAnggota2
+
+    const rawData = (await getMemberData()) as { Data: MembershipParticipant[] }
+    const teamMemberData = rawData?.Data
+
+    // Tidy this up later!
+
+    const [
+      { name: namaKetuaF, email: emailKetuaF, career_interest: minatKetuaF },
+      {
+        name: namaAnggota1F,
+        email: emailAnggota1F,
+        career_interest: minatAnggota1F
+      },
+      {
+        name: namaAnggota2F,
+        email: emailAnggota2F,
+        career_interest: minatAnggota2F
+      }
+    ] = teamMemberData
+
+    setAllDataKetua({
+      nama: namaKetuaF,
+      email: emailKetuaF,
+      minat: minatKetuaF ?? [],
+      nomor: ''
+    })
+
+    setAllDataAnggota1({
+      nama: namaAnggota1F,
+      email: emailAnggota1F,
+      minat: minatAnggota1F ?? [],
+      nomor: ''
+    })
+
+    setAllDataAnggota2({
+      nama: namaAnggota2F,
+      email: emailAnggota2F,
+      minat: minatAnggota2F ?? [],
+      nomor: ''
+    })
+  }
+
+  useEffect(() => {
+    syncTeamData()
+  }, [])
 
   function handleSubmit() {}
 
@@ -20,16 +73,25 @@ function DataDiri(): JSX.Element {
         subject="Ketua"
         dataSetter={setDataKetua}
         dataState={dataKetua}
+        index={0}
+        opened={opened}
+        setOpened={setOpened}
       />
       <DataDiriIndividu
         subject="Anggota 1"
         dataSetter={setDataAnggota1}
         dataState={dataAnggota1}
+        index={1}
+        opened={opened}
+        setOpened={setOpened}
       />
       <DataDiriIndividu
         subject="Anggota 2"
         dataSetter={setDataAnggota2}
         dataState={dataAnggota2}
+        index={2}
+        opened={opened}
+        setOpened={setOpened}
       />
       <div className="w-full flex items-center justify-center">
         <CustomButton bgColor="primary" size="normal" onClick={handleSubmit}>

@@ -1,24 +1,27 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 
-export type IUseDataDiriInitial = {
+export interface IUseDataDiriInitial {
   initialNama?: string
   initialEmail?: string
   initialNomor?: string
   initialMinat?: string[]
 }
 
-export type DataDiriState = {
+export interface DataDiriState {
   nama: string
   email: string
   nomor: string
   minat: string[]
 }
 
-export type DataDiriSetter = {
+export interface DataDiriSetter {
   setNama: Dispatch<SetStateAction<string>>
   setNomor: Dispatch<SetStateAction<string>>
   setEmail: Dispatch<SetStateAction<string>>
-  removeOrAddMinat: (m: string) => void
+  setMinat: Dispatch<SetStateAction<string[]>>
+  removeOrAddMinat: (m: string) => void,
+  setAll: (all: DataDiriState) => void,
+
 }
 
 export type DataDiriHookRet = [DataDiriState, DataDiriSetter]
@@ -29,17 +32,17 @@ function useDataDiri({
   initialMinat,
   initialNomor
 }: IUseDataDiriInitial) {
-  const [nama, setNama] = useState((initialNama ?? '') as string)
-  const [email, setEmail] = useState((initialEmail ?? '') as string)
-  const [nomor, setNomor] = useState((initialNomor ?? '') as string)
-  const [minat, setMinat] = useState((initialMinat ?? []) as string[])
+  const [nama, setNama] = useState(initialNama ?? '')
+  const [email, setEmail] = useState(initialEmail ?? '')
+  const [nomor, setNomor] = useState(initialNomor ?? '')
+  const [minat, setMinat] = useState(initialMinat ?? [])
 
   function appendMinat(newMinat: string) {
     setMinat([...minat, newMinat])
   }
 
   function removeMinat(removedMinat: string) {
-    setMinat(minat.filter(m => m != removedMinat))
+    setMinat(minat.filter(m => m !== removedMinat))
   }
 
   function removeOrAddMinat(m: string) {
@@ -50,6 +53,13 @@ function useDataDiri({
     }
   }
 
+  function setAll({email, minat, nama, nomor}: DataDiriState) {
+    setNama(nama);
+    setEmail(email);
+    setMinat(minat);
+    setNomor(nomor);
+  }
+
   return [
     {
       nama,
@@ -57,7 +67,7 @@ function useDataDiri({
       nomor,
       minat
     },
-    { setNama, setEmail, setNomor, removeOrAddMinat }
+    { setNama, setEmail, setNomor, removeOrAddMinat, setAll, setMinat }
   ] as DataDiriHookRet
 }
 

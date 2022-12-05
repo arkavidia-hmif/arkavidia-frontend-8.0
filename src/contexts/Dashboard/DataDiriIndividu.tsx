@@ -1,21 +1,27 @@
 import ArrowDownIcon from '../../components/Icon/ArrowDownIcon'
 import ArrowTopIcon from '../../components/Icon/ArrowTopIcon'
 
-import { useState } from 'react'
+import { useState, Dispatch, SetStateAction } from 'react'
 import { TextField } from '@src/components/TextField'
 import CheckBoxButton from '@src/components/CheckBoxButton/CheckBoxButton'
 import { DataDiriSetter, DataDiriState } from '@src/utils/customHooks/datadiri'
 
-type DataDiriIndividuProps = {
+interface DataDiriIndividuProps {
   subject: string
   dataState: DataDiriState
   dataSetter: DataDiriSetter
+  index: number
+  opened: number
+  setOpened: Dispatch<SetStateAction<number>>
 }
 
 export default function DataDiriIndividu({
   subject,
   dataState: { nama, nomor, email, minat },
-  dataSetter: { setEmail, setNama, setNomor, removeOrAddMinat }
+  dataSetter: { setEmail, setNama, setNomor, removeOrAddMinat },
+  index,
+  opened,
+  setOpened
 }: DataDiriIndividuProps): JSX.Element {
   const [open, setOpen] = useState(false)
 
@@ -38,17 +44,21 @@ export default function DataDiriIndividu({
     <div className="flex flex-col items-center justify-center bg-white drop-shadow-md p-3 rounded-lg w-full select-none">
       <div
         onClick={() => {
+          setOpened(index)
           setOpen(prevOpen => !prevOpen)
         }}
-        className="flex flex-row items-center justify-between cursor-pointer w-full"
-      >
+        className="flex flex-row items-center justify-between cursor-pointer w-full">
         <h6 className="font-black capitalize text-2xl">Data Diri {subject}</h6>
         <div className="flex-grow"></div>
         <button>
-          {open ? <ArrowTopIcon size={28} /> : <ArrowDownIcon size={28} />}
+          {open && opened === index ? (
+            <ArrowTopIcon size={28} />
+          ) : (
+            <ArrowDownIcon size={28} />
+          )}
         </button>
       </div>
-      {open && (
+      {open && opened === index && (
         <div className="w-full flex flex-col items-center justify-start gap-4 m-1">
           <div className="w-full flex flex-col items-start justify-center">
             <p className="font-helvatica font-bold text-base">Nama {subject}</p>

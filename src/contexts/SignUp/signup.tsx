@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { TextField } from '@src/components/TextField/index'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import kolaborasi from '@src/assets/images/carousel-image/kolaborasi.svg'
@@ -8,43 +8,78 @@ import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
 import Toast from '@src/components/Toast'
-import { TeamRegisterReq } from '@src/types/team';
+import { TeamRegisterReq } from '@src/types/team'
 import { MemberList } from '@src/types/participant'
-import { register } from '@src/services/auth';
+import { register } from '@src/services/auth'
 // import { useRouter } from 'next/router'
 
 const SignUp = (): JSX.Element => {
-  const [pos, setPos] = useState(0);
-  const [username, setUsername] = useState("");
-  const [teamName, setTeamName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
-  const [teamLeader, setTeamLeader] = useState("");
-  const [leaderEmail, setLeaderEmail] = useState("");
-  const [member1, setMember1] = useState("");
-  const [member1Email, setMember1Email] = useState("");
-  const [member2, setMember2] = useState("");
-  const [member2Email, setMember2Email] = useState("");
+  const [pos, setPos] = useState(0)
+  const [username, setUsername] = useState('')
+  const [teamName, setTeamName] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPass, setConfirmPass] = useState('')
+  const [teamLeader, setTeamLeader] = useState('')
+  const [leaderEmail, setLeaderEmail] = useState('')
+  const [member1, setMember1] = useState('')
+  const [member1Email, setMember1Email] = useState('')
+  const [member2, setMember2] = useState('')
+  const [member2Email, setMember2Email] = useState('')
 
-  const [toastList, setToastList] = useState<JSX.Element[]>([]);
+  const [toastList, setToastList] = useState<JSX.Element[]>([])
 
   // const router = useRouter();
 
-
   const validation = () => {
-    if (!username || !teamName || !password || !confirmPass || !teamLeader || !leaderEmail || !member1 || !member1Email) {
-      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!'} type={'danger'} position={'top'} />]);
-      return false;
+    if (
+      !username ||
+      !teamName ||
+      !password ||
+      !confirmPass ||
+      !teamLeader ||
+      !leaderEmail ||
+      !member1 ||
+      !member1Email
+    ) {
+      setToastList([
+        ...toastList,
+        <Toast
+          timer={3000}
+          label={'Mohon lengkapi form!'}
+          type={'danger'}
+          position={'top'}
+          key={'toast1'}
+        />
+      ])
+      return false
     }
     if ((member2 && !member2Email) || (member2 && !member2Email)) {
-      setToastList([...toastList, <Toast timer={3000} label={'Mohon lengkapi form!'} type={'danger'} position={'top'} />]);
-      return false;
+      setToastList([
+        ...toastList,
+        <Toast
+          timer={3000}
+          label={'Mohon lengkapi form!'}
+          type={'danger'}
+          position={'top'}
+          key={'toast2'}
+        />
+      ])
+      return false
     }
     if (password !== confirmPass) {
-      setToastList([...toastList, <Toast timer={3000} label={'Password tidak sesuai dengan konfirmasi!'} type={'danger'} position={'top'} />]);
-      return false;
+      setToastList([
+        ...toastList,
+        <Toast
+          timer={3000}
+          label={'Password tidak sesuai dengan konfirmasi!'}
+          type={'danger'}
+          position={'top'}
+          key={'toast3'}
+        />
+      ])
+      return false
     }
-    return true;
+    return true
   }
 
   const handleOnRegister = async () => {
@@ -54,34 +89,64 @@ const SignUp = (): JSX.Element => {
           name: teamLeader,
           email: leaderEmail,
           career_interest: [],
-          role: "leader"
+          role: 'leader'
         },
         {
           name: member1,
           email: member1Email,
           career_interest: [],
-          role: "member"
+          role: 'member'
         }
-      ] as MemberList[];
-      if (member2 && member2Email) memberList.push({ name: member2, email: member2Email, career_interest: [], role: "member" })
+      ] as MemberList[]
+      if (member2 && member2Email) {
+        memberList.push({
+          name: member2,
+          email: member2Email,
+          career_interest: [],
+          role: 'member'
+        })
+      }
       const payload = {
         username: username,
         password: password,
         team_name: teamName,
-        member_list: memberList,
+        member_list: memberList
       } as TeamRegisterReq
-      const res = await register(payload);
-      console.log(res)
-      setToastList([...toastList, <Toast timer={3000} label={res == 'SUCCESS' ? 'Berhasil daftar!' : res ?? 'Gagal!'} type={res == 'SUCCESS' ? 'success' : 'danger'} position={'top'} />]);
+      const res = await register(payload)
+      setToastList([
+        ...toastList,
+        <Toast
+          timer={3000}
+          label={
+            res === 'SUCCESS'
+              ? 'Berhasil daftar!'
+              : (
+                  <>
+                    Please fill this form for alternative signup/registration if
+                    you are experiencing issues:{' '}
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScTii0F2iEsHCObkS1FVdUi1uewwrDopTD9e7StxYE4o7Owdw/viewform"
+                      target="_blank"
+                      style={{ textDecoration: 'underline' }}>
+                      bit.ly/TemporaryFormArkavidia
+                    </a>
+                  </>
+                )
+          }
+          type={res === 'SUCCESS' ? 'success' : 'danger'}
+          position={'top'}
+          key={'toast5'}
+        />
+      ])
       setInterval(() => {
-        if (res === 'SUCCESS') window.location.href = '/competition';
-      }, 1000);
+        if (res === 'SUCCESS') window.location.href = '/competition'
+      }, 1000)
     }
   }
 
-  let autoLoop = setTimeout(() => {
+  const autoLoop = setTimeout(() => {
     setPos(pos + 1)
-    if (pos == 2) {
+    if (pos === 2) {
       setPos(0)
     }
   }, 4000)
@@ -95,14 +160,13 @@ const SignUp = (): JSX.Element => {
             <div
               id="default-carousel"
               className="relative"
-              data-carousel="slide"
-            >
+              data-carousel="slide">
               <div className="relative h-auto overflow-hidden">
                 <div
-                  className={`content duration-1000 ease-in-out ${pos === 0 ? 'content' : 'hidden'
-                    }`}
-                  data-carousel-item
-                >
+                  className={`content duration-1000 ease-in-out ${
+                    pos === 0 ? 'content' : 'hidden'
+                  }`}
+                  data-carousel-item>
                   <div className="flex justify-center">
                     <Image src={roket} />
                   </div>
@@ -114,10 +178,10 @@ const SignUp = (): JSX.Element => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${pos === 1 ? 'content' : 'hidden'
-                    }`}
-                  data-carousel-item
-                >
+                  className={`content duration-1000 ease-in-out ${
+                    pos === 1 ? 'content' : 'hidden'
+                  }`}
+                  data-carousel-item>
                   <div className="flex justify-center">
                     <Image src={kolaborasi} />
                   </div>
@@ -129,10 +193,10 @@ const SignUp = (): JSX.Element => {
                 </div>
 
                 <div
-                  className={`content duration-1000 ease-in-out ${pos === 2 ? 'content' : 'hidden'
-                    }`}
-                  data-carousel-item
-                >
+                  className={`content duration-1000 ease-in-out ${
+                    pos === 2 ? 'content' : 'hidden'
+                  }`}
+                  data-carousel-item>
                   <div className="flex justify-center">
                     <Image src={piala} />
                   </div>
@@ -174,7 +238,8 @@ const SignUp = (): JSX.Element => {
                 </div>
               </div>
             </div>
-          </div> {/* HERE */}
+          </div>{' '}
+          {/* HERE */}
           <div className="box-border border-solid md:w-[50%] h-auto font-helvatica pt-40 pb-20 md:mt-0">
             <div className="w-[100%] flex justify-center mb-5 ">
               <h1 className="font-archivo text-6xl">Sign Up</h1>
@@ -189,7 +254,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={username}
                     setExternalState={setUsername}
-                    placeholder="Username" />
+                    placeholder="Username"
+                  />
                 </div>
               </div>
               <div className="m-2">
@@ -198,7 +264,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={teamName}
                     setExternalState={setTeamName}
-                    placeholder="Nama Tim" />
+                    placeholder="Nama Tim"
+                  />
                 </div>
               </div>
             </div>
@@ -235,7 +302,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={teamLeader}
                     setExternalState={setTeamLeader}
-                    placeholder="Nama Ketua Tim" />
+                    placeholder="Nama Ketua Tim"
+                  />
                 </div>
               </div>
               <div className="m-2">
@@ -244,7 +312,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={leaderEmail}
                     setExternalState={setLeaderEmail}
-                    placeholder="Email Ketua Tim" />
+                    placeholder="Email Ketua Tim"
+                  />
                 </div>
               </div>
             </div>
@@ -256,7 +325,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={member1}
                     setExternalState={setMember1}
-                    placeholder="Nama Anggota 1" />
+                    placeholder="Nama Anggota 1"
+                  />
                 </div>
               </div>
               <div className="m-2">
@@ -265,7 +335,8 @@ const SignUp = (): JSX.Element => {
                   <TextField
                     externalState={member1Email}
                     setExternalState={setMember1Email}
-                    placeholder="Email Anggota 1" />
+                    placeholder="Email Anggota 1"
+                  />
                 </div>
               </div>
             </div>
@@ -274,27 +345,40 @@ const SignUp = (): JSX.Element => {
               <div className="m-2">
                 <h2>Nama Anggota 2</h2>
                 <div>
-                  <TextField externalState={member2} setExternalState={setMember2} placeholder="Nama Anggota 2" />
+                  <TextField
+                    externalState={member2}
+                    setExternalState={setMember2}
+                    placeholder="Nama Anggota 2"
+                  />
                 </div>
               </div>
               <div className="m-2">
                 <h2>Email Anggota 2</h2>
                 <div>
-                  <TextField externalState={member2Email} setExternalState={setMember2Email} placeholder="Email Anggota 2" />
+                  <TextField
+                    externalState={member2Email}
+                    setExternalState={setMember2Email}
+                    placeholder="Email Anggota 2"
+                  />
                 </div>
               </div>
             </div>
 
-           
-
             {/* END FIELDS */}
 
             <div className="flex justify-center px-14 md:px-12 text-[12px]">
-                <p className="text-red300 font-helvatica font-bold">*Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica, 1 tim hanya boleh berisi 2 orang</p>
+              <p className="text-red300 font-helvatica font-bold">
+                *Anggota 2 bersifat opsional, khusus untuk lomba Arkalogica, 1
+                tim hanya boleh berisi 2 orang
+              </p>
             </div>
 
             <div className="flex justify-center mt-6">
-              <CustomButton bgColor="primary" icon={false} size="normal" onClick={handleOnRegister}>
+              <CustomButton
+                bgColor="primary"
+                icon={false}
+                size="normal"
+                onClick={handleOnRegister}>
                 <div className="w-[210px] md:w-[470px]">Sign Up</div>
               </CustomButton>
             </div>

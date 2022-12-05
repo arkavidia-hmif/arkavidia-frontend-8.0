@@ -7,7 +7,7 @@ import clsx from 'clsx'
 
 interface ToastProperties {
   type: string
-  label: string
+  label: string | JSX.Element
   position: string
   timer?: number
 }
@@ -48,7 +48,7 @@ const Positions: Record<string, { className: string }> = {
   },
   top: {
     className: 'top-10 left-[40vw] animate-toastSlideDown'
-  }, 
+  },
   left: {
     className: 'top-10 left-10 animate-toastSlideRight'
   },
@@ -76,17 +76,15 @@ const Toast: React.FC<ToastProperties> = props => {
       {showToast && (
         <div
           className={clsx(
-            'flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-sm bg-gray200 border border-solid rounded-lg fixed z-[100]',
+            'flex flex-row items-center p-3 gap-4 max-h-14 max-w-xs sm:max-h-16 sm:max-w-lg bg-gray200 border border-solid rounded-lg fixed z-[100]',
             Types[type].className,
             Positions[position].className
-          )}
-        >
+          )}>
           <div>{Types[type].primaryIcon}</div>
           <div className="font-helvatica leading-[1.125]">{label}</div>
           <div
             className="flex h-5 w-5 sm:h-6 sm:w-6 hover:cursor-pointer"
-            onClick={closeToast}
-          >
+            onClick={closeToast}>
             {Types[type].clearIcon}
           </div>
         </div>

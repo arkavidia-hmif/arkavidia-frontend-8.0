@@ -17,10 +17,10 @@ export const TIMELINE_ARKALOGICA = [
     {
         title: "Penyisihan",
         startDate: new Date("2023/01/21"),
-        endDate: new Date("2023/01/22")
+        endDate: new Date("2023/01/21")
     },
     {
-        title: "Pengumuman Finalist",
+        title: "Pengumuman Finalis",
         startDate: new Date("2023/02/04"),
         endDate: new Date("2023/02/04")
     },
@@ -89,7 +89,7 @@ export const TIMELINE_CP = [
         endDate: new Date("2023/01/22")
     },
     {
-        title: "Pengumuman Finalist",
+        title: "Pengumuman Finalis",
         startDate: new Date("2023/02/04"),
         endDate: new Date("2023/02/04")
     },
@@ -153,7 +153,7 @@ export const TIMELINE_DATAVIDIA = [
         endDate: new Date("2023/01/21")
     },
     {
-        title: "Pengumuman Finalist",
+        title: "Pengumuman Finalis",
         startDate: new Date("2023/02/04"),
         endDate: new Date("2023/02/04")
     },
@@ -219,22 +219,17 @@ export const FAQ_DATAVIDIA = [
     {
         title: "Penyisihan",
         startDate: new Date("2023/01/7"),
-        endDate: new Date("2023/01/21")
+        endDate: new Date("2023/01/14")
     },
     {
-        title: "Pengumuman Finalist",
+        title: "Pengumuman Finalis",
         startDate: new Date("2023/02/04"),
         endDate: new Date("2023/02/04")
     },
     {
-        title: "Submisi Pra-Final",
-        startDate: new Date("2023/02/05"),
-        endDate: new Date("2023/02/20")
-    },
-    {
-        title: "Warm Up Final",
-        startDate: new Date("2023/02/24"),
-        endDate: new Date("2023/02/24")
+        title: "Technical Meeting Finalis",
+        startDate: new Date("2023/02/11"),
+        endDate: new Date("2023/02/11")
     },
     {
         title: "Final",

@@ -45,8 +45,7 @@ const Logo: React.FC<logoProps> = props => {
 const DummyLink = (props: any): JSX.Element => {
   return (
     <div
-      className={`bg-gray200 border border-solid border-black mt-[2px] pt-[6px] pl-[6px] pb-[8px] font-helvatica font-normal text-[16px] leading-[18.4px] shadow-[4px_9px_0] ${props.color}`}
-    >
+      className={`bg-gray200 border border-solid border-black mt-[2px] pt-[6px] pl-[6px] pb-[8px] font-helvatica font-normal text-[16px] leading-[18.4px] shadow-[4px_9px_0] ${props.color}`}>
       <a href="">DUMMY LINK</a>
       {/* <h4 className=' flex border-box w-224 h-32 left-0 top-0 border-1 border-black border-solid absolute bg-black bg-opacity-20'>DUMMY LINK</h4> */}
     </div>
@@ -115,8 +114,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
   const Header = (
     <div className="flex gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[10px] my-[3%] lg:my-[6%] lg:mb-[2%]">
       <div className="flex flex-wrap row-span-2 col-span-2 border-[2px] border-black min-w-[125px] max-w-[125px]">
-        <Logo logoVariants="square">
-        </Logo>
+        <Logo logoVariants="square"></Logo>
       </div>
       <div className="grid grid-rows-2 grow">
         <div className="flex font-archivo text-white font-black bg-black text-[24px] lg:text-[36px] justify-center items-center lg:w-[85%] lg:min-w-[272px] lg:max-w-[465px]">
@@ -140,27 +138,23 @@ const CompEventFooter: React.FC<FooterProps> = props => {
         <div className="font-helvatica text-normal font-bold text-[14px] text-blue300">
           <a
             className="block mb-[10px] no-underline"
-            href="/competition/competitive-programming"
-          >
+            href="/competition/competitive-programming">
             Competitive Programming
           </a>
           <a
             className="block mb-[10px] no-underline"
-            href="/competition/datavidia"
-          >
+            href="/competition/datavidia">
             Datavidia
           </a>
           <a
             className="block mb-[10px] no-underline"
-            href="/competition/arkalogica"
-          >
+            href="/competition/arkalogica">
             Arkalogica
           </a>
           <a
             className="block mb-[10px] no-underline"
-            href="/competition/uxvidia"
-          >
-            UXVidia
+            href="/competition/uxvidia">
+            UXvidia
           </a>
         </div>
       </div>
@@ -169,19 +163,19 @@ const CompEventFooter: React.FC<FooterProps> = props => {
           Event
         </div>
         <div className="font-helvatica text-normal font-bold text-[14px] text-blue300">
-          <a className="block mb-[10px]" href="">
+          <a className="block mb-[10px]" href="/event/academya">
             Arkavidia Academya
           </a>
-          <a className="block mb-[10px]" href="">
+          <a className="block mb-[10px]" href="/event/afi">
             Arkavidia For Indonesia
           </a>
-          <a className="block mb-[10px]" href="">
+          <a className="block mb-[10px]" href="/event/agts">
             Arkavidia Goes To School
           </a>
-          <a className="block mb-[10px]" href="">
+          <a className="block mb-[10px]" href="/event/talks">
             Arkavidia Talks
           </a>
-          <a className="block mb-[10px]" href="">
+          <a className="block mb-[10px]" href="/event/itfest">
             IT Fest
           </a>
         </div>
@@ -196,8 +190,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
         backgroundImage:
           'linear-gradient(90deg, black 5%, transparent 5%), linear-gradient(black 5%, transparent 5%)',
         backgroundSize: '60px 60px'
-      }}
-    >
+      }}>
       <div className="bg-black">.</div>
       <div className="lg:grid lg:grid-cols-2">
         <div className="">{Header}</div>
@@ -216,22 +209,26 @@ const CompEventFooter: React.FC<FooterProps> = props => {
           <div className="flex gap-x-[12px] mb-[4.32%] ml-[4.42%] lg:ml-13 mt-[1.89%]">
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
               <a href="https://instagram.com/arkavidia/" target="_blank">
-              <InstagramIcon className="w-[24px] h-[24px]" />
+                <InstagramIcon className="w-[24px] h-[24px]" />
               </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
               <a href="https://www.tiktok.com/@arkavidia/" target="_blank">
-              <TiktokIcon className="w-[24px] h-[24px]" />
+                <TiktokIcon className="w-[24px] h-[24px]" />
               </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
-              <a href="https://www.youtube.com/channel/UC7QQH48TgjZKAIJeZNRrKyw" target="_blank">
-              <YoutubeIcon className="w-[24px] h-[24px]" />
+              <a
+                href="https://www.youtube.com/channel/UC7QQH48TgjZKAIJeZNRrKyw"
+                target="_blank">
+                <YoutubeIcon className="w-[24px] h-[24px]" />
               </a>
             </div>
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
-              <a href="https://www.linkedin.com/company/arkavidia" target="_blank">
-              <LinkedinIcon className="w-[24px] h-[24px]" />
+              <a
+                href="https://www.linkedin.com/company/arkavidia"
+                target="_blank">
+                <LinkedinIcon className="w-[24px] h-[24px]" />
               </a>
             </div>
           </div>
@@ -255,8 +252,7 @@ const GeneralFooter: React.FC<FooterProps> = props => {
   return (
     <>
       <div
-        className={`h-[455px] grid grid-cols-[30%_70%] pb-[5.1%] ${variantStyle[variant]}`}
-      >
+        className={`h-[455px] grid grid-cols-[30%_70%] pb-[5.1%] ${variantStyle[variant]}`}>
         <div>
           <Logo logoVariants="circle" />
           <About />
