@@ -120,7 +120,7 @@ const SignUp = (): JSX.Element => {
           label={
             res === 'SUCCESS'
               ? 'Berhasil daftar!'
-              : res ?? (
+              : (
                   <>
                     Please fill this form for alternative signup/registration if
                     you are experiencing issues:{' '}
