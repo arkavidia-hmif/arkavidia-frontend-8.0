@@ -57,7 +57,7 @@ const PrintCountdown = (
 }
 
 const DashboardCountdown = ({ date }: CountdownProps) => {
-  const [habis, setHabis] = useState(0)
+  const [habis, setHabis] = useState(false)
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
@@ -82,8 +82,8 @@ const DashboardCountdown = ({ date }: CountdownProps) => {
       setSeconds(s)
 
       if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-        setHabis(1)
-      }
+        setHabis(true)
+      } else setHabis(false)
     }, 1000)
     return () => clearInterval(interval)
   }, [])

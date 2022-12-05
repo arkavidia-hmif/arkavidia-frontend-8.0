@@ -75,7 +75,6 @@ const Countdown = ({ date, title }: CountdownProps) => {
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
 
-
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date()
@@ -95,7 +94,7 @@ const Countdown = ({ date, title }: CountdownProps) => {
 
       if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
         setHabis(true)
-      }else setHabis(false)
+      } else setHabis(false)
     }, 1000)
     return () => clearInterval(interval)
   }, [])
