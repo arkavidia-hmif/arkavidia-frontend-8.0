@@ -18,6 +18,7 @@ import {
   TIMELINE_UXVIDIA
 } from '@src/const/CompetitionDetail'
 import Toast from '@src/components/Toast'
+import { useRouter } from 'next/router'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
 
@@ -214,9 +215,6 @@ const Timeline = (competition: any) => {
 
 const LatestCountdown = (competition: any) => {
   const dateTimeline = [] as TimelineDetail[]
-  const nowDate = new Date()
-  let i = 0
-  let toShow
   switch (competition.competition) {
     case 'competitive-programming':
       TIMELINE_CP.map(time => dateTimeline.push(time))
@@ -237,18 +235,15 @@ const LatestCountdown = (competition: any) => {
         endDate: new Date()
       })
   }
-  dateTimeline.sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
-  while (
-    dateTimeline[i].startDate.getTime() - nowDate.getTime() < 0 &&
-    dateTimeline.length > 1
-  ) {
-    i++
+  const toShow = { title: '', startDate: new Date() }
+  for (const date of dateTimeline) {
+    if (date.startDate.getTime() - Date.now() >= 0) {
+      toShow.title = date.title
+      toShow.startDate = date.startDate
+      break
+    }
   }
-  if (dateTimeline.length > 1) {
-    toShow = dateTimeline[i]
-  } else {
-    toShow = { title: '-', startDate: new Date(), endDate: new Date() }
-  }
+
   return (
     <>
       <div className="mb-[12px] pl-[2px]">
@@ -259,12 +254,13 @@ const LatestCountdown = (competition: any) => {
           }/${toShow.startDate.getFullYear()}`}
         />
       </div>
-      <DashboardCountdown date={toShow.startDate.toISOString()} />
+      <DashboardCountdown date={toShow.startDate.toString()} />
     </>
   )
 }
 
 const DashboardInfo = (props: any) => {
+  const router = useRouter()
   const [teamData, setTeamData] = useState<TeamData | null>()
   const [membersData, setMembersData] = useState<ParticipantData[] | null>()
   const [isEmpty, setIsEmpty] = useState(false)
@@ -336,7 +332,12 @@ const DashboardInfo = (props: any) => {
                           </p>
                         </div>
                         <div className="flex justify-center pt-[12px] pb-[30px]">
-                          <CustomButton bgColor="primary" size="normal">
+                          <CustomButton
+                            bgColor="primary"
+                            size="normal"
+                            onClick={() =>
+                              router.push('/dashboard/submission')
+                            }>
                             Mulai Perlombaan
                           </CustomButton>
                         </div>
@@ -346,10 +347,18 @@ const DashboardInfo = (props: any) => {
                           className={`${subHeader1Style} mb-[22px] pt-[22px] lg:pt-0`}>
                           Pengumuman
                         </p>
+                        {/* <Section />
                         <Section />
                         <Section />
-                        <Section />
-                        <Section />
+                        <Section /> */}
+                        <div className="flex justify-center mt-[100px]">
+                          <Image src={NoAnnouncement} className="" />
+                        </div>
+                        <div>
+                          <p className="font-varela font-normal text-[20px] text-center mx-[22px] my-[22px] capitalize">
+                            Belum ada pengumuman nih. Tetap stay tune ya!
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div className="bg-white px-[12px] rounded-[8px]">

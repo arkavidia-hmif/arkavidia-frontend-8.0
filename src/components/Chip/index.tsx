@@ -20,6 +20,7 @@ type Variants =
 type ChipProps = {
   variant: Variants
   shadow: boolean
+  clickable?: boolean
   children?: React.ReactNode
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
@@ -39,12 +40,11 @@ const variantStyle: { [key in Variants]: string } = {
 
 const CustomChip: FC<ChipProps> = props => {
   const [selected, setSelected] = useState(false)
-  const { children, variant, shadow, className, ...rest } = props
+  const { children, variant, shadow, clickable, className, ...rest } = props
   return selected ? (
     <button
       className="rounded-xl px-3 py-2 text-xs font-bold font-helvatica border-2 border-gray400 text-gray400"
-      onClick={() => setSelected(!selected)}
-    >
+      onClick={() => (clickable ? setSelected(!selected) : null)}>
       {children}
     </button>
   ) : (
@@ -59,8 +59,7 @@ const CustomChip: FC<ChipProps> = props => {
         className
       )}
       {...rest}
-      onClick={() => setSelected(!selected)}
-    >
+      onClick={() => (clickable ? setSelected(!selected) : null)}>
       {children}
     </button>
   )
