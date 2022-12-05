@@ -39,6 +39,7 @@ function SideNav({ compe }: { compe: string }) {
       <div className="flex justify-center items-center">
         <Image width={'120px'} height={'120px'} src={getLogo(compe)} />
       </div>
+      <div className='flex lg:flex-col flex-row gap-8 justify-center items-center'>
       {routes.map((item, idx) => {
         return (
           <Link href={item.path} key={idx}>
@@ -52,6 +53,7 @@ function SideNav({ compe }: { compe: string }) {
           </Link>
         )
       })}
+      </div>
     </div>
   )
 }
@@ -68,12 +70,12 @@ function Dashboard({ children }: React.PropsWithChildren<{}>) {
     fetchTeamData()
   }, [])
   return (
-    <div className="p-14">
-      <div className="flex">
-        <div className="w-2/12 py-[33px]">
-          <SideNav compe={teamData?.team_category ?? ('' as string)}></SideNav>
+    <div className="p-5 lg:p-14">
+      <div className="lg:flex">
+        <div className="lg:w-2/12 py-[33px]">
+          <SideNav compe={teamData?.team_category ?? '' as string}></SideNav>
         </div>
-        <div className="flex flex-col w-10/12 px-[55px] py-[69px] gap-[30px]">
+        <div className="flex lg:flex-col lg:w-10/12 lg:px-[55px] py-[35px] lg:py-[69px] lg:gap-[30px]">
           {children}
         </div>
       </div>

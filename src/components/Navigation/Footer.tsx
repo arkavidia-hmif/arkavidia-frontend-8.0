@@ -21,7 +21,7 @@ type logoVar = 'square' | 'circle'
 const logoStyle: { [key in logoVar]: string } = {
   circle:
     'rounded-full w-[73px] h-[73px] lg:w-[124px] lg:h-[124px] ml-[24px] mt-[44px] mb-[30px] md:w-[100px] md:h-[100px]',
-  square: 'w-[73px] h-[73px] lg:w-[124px] lg:h-[124px]'
+  square: 'w-[73px] h-[73px] md:w-[98px] md:h-[98px] lg:w-[124px] lg:h-[124px]'
 }
 
 interface logoProps {
@@ -33,8 +33,9 @@ const Logo: React.FC<logoProps> = props => {
   const { children, logoVariants, ...rest } = props
   return (
     <div
-      className={`${logoStyle[logoVariants]} flex bg-cream300 text-center items-center justify-center border border-black `}>
-      <div className="w-[100px]">
+      className={`flex bg-cream300 text-center items-center justify-center border border-black `}
+    >
+      <div className='p-3'>
         <Image src={ArkavLogo} />
       </div>
     </div>
@@ -111,16 +112,19 @@ const CompEventFooter: React.FC<FooterProps> = props => {
     color = 'bg-green300'
   }
   const Header = (
-    <div className="grid grid-rows-2 grid-cols-11 gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[3%] my-[3%] lg:my-[6%] lg:mb-[2%]">
+    <div className="flex gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[10px] my-[3%] lg:my-[6%] lg:mb-[2%]">
       <div className="flex flex-wrap row-span-2 col-span-2 border-[2px] border-black min-w-[125px] max-w-[125px]">
         <Logo logoVariants="square"></Logo>
       </div>
-      <div className="col-span-8 font-archivo text-white text-900 bg-black flex text-[24px] lg:text-[36px] justify-center items-center lg:w-[85%]">
-        Arkavidia 8.0
-      </div>
-      <div
-        className={`flex col-span-8 font-helvatica text-white ${color} text-700 text-[12px] lg:text-[16px] text-center px-[5%] border-[2px] border-black justify-center items-center lg:w-[85%]`}>
-        ADAPTIVE COLLABORATION TO ENCOUNTER DIGITAL DISRUPTION
+      <div className="grid grid-rows-2 grow">
+        <div className="flex font-archivo text-white font-black bg-black text-[24px] lg:text-[36px] justify-center items-center lg:w-[85%] lg:min-w-[272px] lg:max-w-[465px]">
+          Arkavidia 8.0
+        </div>
+        <div
+          className={`flex font-helvatica text-white ${color} font-bold text-[12px] lg:text-[16px] text-center px-[5%] border-[2px] border-black justify-center items-center lg:w-[85%] lg:min-w-[272px] lg:max-w-[465px]`}
+        >
+          ADAPTIVE COLLABORATION TO ENCOUNTER DIGITAL DISRUPTION
+        </div>
       </div>
     </div>
   )
@@ -190,17 +194,19 @@ const CompEventFooter: React.FC<FooterProps> = props => {
       <div className="bg-black">.</div>
       <div className="lg:grid lg:grid-cols-2">
         <div className="">{Header}</div>
-        <div className="lg:row-span-2 mt-[4.8%] mb-[3.5%]">{Links}</div>
+        <div className="lg:row-span-2 mt-[4px] lg:mt-[4.8%] mb-[4px] lg:mb-[3.5%]">{Links}</div>
         <div className="lg:grid lg:grid-cols-2">
-          <div className="mx-[4.42%] my-[3.7%] w-[328px] y-[47px] lg:mt-[1%] lg:mb-[4.32%] lg:mx-[9%] ">
-            <div className="flex items-stretch py-[4.5%] pl-[5%] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
-              <ContactPhoneIcon className="inline mr-[3%] w-[24px] h-[18px] pb-[2px]" />
-              <div className="inline font-helvatica text-700">
+          <div className="mx-[4.42%] my-[8px] lg:my-[18px] lg:max-w-[328px]  y-[47px] lg:mt-[1%] lg:mb-[4.32%] lg:ml-[9%] lg:mr-0 ">
+            <div className="flex shrink min-w-[230px] py-[13px] pl-[17px] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
+              <div className=''>
+                <ContactPhoneIcon className="inline w-[24px] h-[18px] mr-[10px]" />
+              </div>
+              <div className="flex font-helvatica text-700 pt-[2px]">
                 CP: Nelsen (0821-1274-9139)
               </div>
             </div>
           </div>
-          <div className="flex gap-x-[12px] mb-[4.32%] ml-[18.14%] mt-[1.89%]">
+          <div className="flex gap-x-[12px] mb-[4.32%] ml-[4.42%] lg:ml-13 mt-[1.89%]">
             <div className="flex w-[46.53px] h-[47.18px]  bg-white shadow-[4.47px_4.82px_0] shadow-blue300 border border-black items-center justify-center">
               <a href="https://instagram.com/arkavidia/" target="_blank">
                 <InstagramIcon className="w-[24px] h-[24px]" />
