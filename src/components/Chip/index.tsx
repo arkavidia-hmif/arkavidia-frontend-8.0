@@ -1,10 +1,11 @@
+/* eslint-disable multiline-ternary */
 import React, { ButtonHTMLAttributes, FC, useState } from 'react'
 import clsx from 'clsx'
 
 // HOW TO USE //
 // <CustomChip variant='greenContained' shadow={true}>Your Text/Component Here</CustomChip>
 
-type Variants =
+export type Variants =
   | 'redOutlined'
   | 'redContained'
   | 'blueOutlined'

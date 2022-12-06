@@ -39,20 +39,20 @@ function SideNav({ compe }: { compe: string }) {
       <div className="flex justify-center items-center">
         <Image width={'120px'} height={'120px'} src={getLogo(compe)} />
       </div>
-      <div className='flex lg:flex-col flex-row gap-8 justify-center items-center'>
-      {routes.map((item, idx) => {
-        return (
-          <Link href={item.path} key={idx}>
-            {item.path === router.pathname ? (
-              <Tab>{item.name}</Tab>
-            ) : (
-              <a className="px-2 py-2 text-[20px] font-varela text-center">
-                {item.name}
-              </a>
-            )}
-          </Link>
-        )
-      })}
+      <div className="flex lg:flex-col flex-row lg:gap-8 sm:gap-5 justify-center items-center">
+        {routes.map((item, idx) => {
+          return (
+            <Link href={item.path} key={idx}>
+              {item.path === router.pathname ? (
+                <Tab>{item.name}</Tab>
+              ) : (
+                <a className="px-2 py-2 lg:text-[20px] sm:text-[12px] font-varela text-center">
+                  {item.name}
+                </a>
+              )}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
@@ -73,7 +73,7 @@ function Dashboard({ children }: React.PropsWithChildren<{}>) {
     <div className="p-5 lg:p-14">
       <div className="lg:flex">
         <div className="lg:w-2/12 py-[33px]">
-          <SideNav compe={teamData?.team_category ?? '' as string}></SideNav>
+          <SideNav compe={teamData?.team_category ?? ('' as string)}></SideNav>
         </div>
         <div className="flex lg:flex-col lg:w-10/12 lg:px-[55px] py-[35px] lg:py-[69px] lg:gap-[30px]">
           {children}
