@@ -2,28 +2,29 @@ import { useState } from 'react'
 
 // Colors and Icon
 import ArrowDownIcon from '../Icon/ArrowDownIcon'
-import colours from '@src/utils/colors'
 
 type DropdownData = string
 
 interface DropdownProps {
   data: DropdownData[]
+  selectedData: DropdownData | undefined
+  setSelectedData: (newSelectedData: DropdownData) => void
 }
 
-export default function Dropdown({ data }: DropdownProps) {
-  const [selectedData, setSelectedData] = useState<DropdownData | undefined>(
-    undefined
-  )
+export default function Dropdown({
+  data,
+  selectedData = undefined,
+  setSelectedData
+}: DropdownProps) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div
-      className={`relative w-36 font-normal lg:max-w-sm text-[${colours.blue300}]`}>
+    <div className={`relative w-36 font-normal lg:max-w-sm text-blue300`}>
       <div
         onClick={() => {
           setOpen(!open)
         }}
-        className={`bg-[${colours.gray200}] align-middle w-full h-10 font-bold text-xs leading-5 py-2 px-2 flex rounded-md border border-gray-300 cursor-pointer`}>
+        className={`bg-gray200 align-middle w-full h-10 font-bold text-xs leading-5 py-2 px-2 flex rounded-md border border-gray-300 cursor-pointer`}>
         {selectedData ?? `${'\u00A0'}`}
         <ArrowDownIcon
           size={20}
@@ -32,9 +33,7 @@ export default function Dropdown({ data }: DropdownProps) {
         />
       </div>
       <ul
-        className={`absolute z-10 bg-[${
-          colours.gray200
-        }] mt-2 w-full overflow-y-auto divide-y-2 divide-gray-300 rounded-md outline-1 outline-gray-300 ${
+        className={`absolute z-10 bg-gray200 mt-2 w-full overflow-y-auto divide-y-2 divide-gray-300 rounded-md outline-1 outline-gray-300 ${
           open ? 'max-h-48 outline' : 'max-h-0'
         }`}>
         {data?.map((d, index) => (
