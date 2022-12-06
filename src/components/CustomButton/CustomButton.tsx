@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import HomeIcon from '../Icon/HomeIcon'
 import clsx from 'clsx'
 
@@ -10,9 +10,9 @@ interface CustomButtonProps {
   children?: React.ReactNode
 }
 
-type colors = 'primary' | 'secondary' | 'ghost';
-type sizes = 'small' | 'normal' | 'full';
-type textColors = 'primary' | 'secondary' | 'ghost';
+type colors = 'primary' | 'secondary' | 'ghost'
+type sizes = 'small' | 'normal' | 'full'
+type textColors = 'primary' | 'secondary' | 'ghost'
 
 const variantColor: { [key in colors]: string } = {
   primary:
@@ -26,7 +26,7 @@ const variantColor: { [key in colors]: string } = {
 const variantSize: { [key in sizes]: string } = {
   small: 'w-auto h-10',
   normal: 'w-auto h-12',
-  full:'w-full h-12'
+  full: 'w-full h-12'
 }
 
 const variantTextColor: { [key in textColors]: string } = {
@@ -49,30 +49,25 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onClick
 }) => {
   return (
-    <div>
-      <button
-        onClick={onClick}
-        className={clsx(
-          'rounded-xl flex items-center justify-center mb-2',
-          variantColor[bgColor as colors],
-          variantSize[size as sizes]
-        )}
-      >
-        <div className="flex items-center justify-center font-helvatica font-bold text-base text-white px-8">
-          {icon && (
-            <HomeIcon
-              className={clsx(
-                'fill-white w-6 h-6 mr-2',
-                variantIconColor[bgColor as colors]
-              )}
-            />
+    <button
+      onClick={onClick}
+      className={clsx(
+        'rounded-xl flex items-center justify-center font-helvatica font-bold text-base text-white px-8',
+        variantColor[bgColor as colors],
+        variantSize[size as sizes]
+      )}>
+      {icon && (
+        <HomeIcon
+          className={clsx(
+            'fill-white w-6 h-6 mr-2',
+            variantIconColor[bgColor as colors]
           )}
-          <div className={clsx(variantTextColor[bgColor as textColors])}>
-            {children}
-          </div>
-        </div>
-      </button>
-    </div>
+        />
+      )}
+      <div className={clsx(variantTextColor[bgColor as textColors])}>
+        {children}
+      </div>
+    </button>
   )
 }
 

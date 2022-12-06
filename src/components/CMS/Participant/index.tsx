@@ -1,6 +1,6 @@
 import CustomButton from '@src/components/CustomButton/CustomButton'
 
-interface ParticipantCMSProps {
+export interface ParticipantCMSProps {
   name: string
   email: string
   number: string
@@ -58,7 +58,7 @@ const ParticipantCMS = ({
   proofLink = undefined
 }: ParticipantCMSProps): JSX.Element => {
   return (
-    <div className="flex flex-col items-start justify-center bg-gray200 p-6 rounded-2xl shadow-md gap-5  max-w-sm">
+    <div className="flex flex-col items-start justify-center bg-gray200 p-6 rounded-2xl shadow-md gap-5 w-96">
       <Field fieldContent={name} fieldName="Nama" />
       <Field fieldContent={email} fieldName="Email" />
       <Field fieldContent={number} fieldName="Nomor Handphone" />
