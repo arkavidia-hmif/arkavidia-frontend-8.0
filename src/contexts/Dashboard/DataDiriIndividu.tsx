@@ -1,10 +1,15 @@
+/* eslint-disable multiline-ternary */
 import ArrowDownIcon from '../../components/Icon/ArrowDownIcon'
 import ArrowTopIcon from '../../components/Icon/ArrowTopIcon'
-
+import UploadFileIndividu from './UploadFileIndividu'
 import { useState, Dispatch, SetStateAction } from 'react'
 import { TextField } from '@src/components/TextField'
 import CheckBoxButton from '@src/components/CheckBoxButton/CheckBoxButton'
-import { DataDiriSetter, DataDiriState } from '@src/utils/customHooks/datadiri'
+import {
+  DataDiriSetter,
+  DataDiriState,
+  FileType
+} from '@src/utils/customHooks/datadiri'
 
 interface DataDiriIndividuProps {
   subject: string
@@ -17,13 +22,28 @@ interface DataDiriIndividuProps {
 
 export default function DataDiriIndividu({
   subject,
-  dataState: { nama, nomor, email, minat },
-  dataSetter: { setEmail, setNama, setNomor, removeOrAddMinat },
+  dataState: { nama, nomor, email, minat, fileIndividu },
+  dataSetter: { setEmail, setNama, setNomor, removeOrAddMinat, setFile },
   index,
   opened,
   setOpened
 }: DataDiriIndividuProps): JSX.Element {
   const [open, setOpen] = useState(false)
+
+  const findPhotoStatus = (type: string) => {
+    if (!fileIndividu || fileIndividu.length === 0) return null
+    else {
+      const status = fileIndividu.find(p => p.type === type)
+      return status?.status ?? null
+    }
+  }
+
+  const kebabCaseConverter = (content: string) => {
+    return content
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .replace(/[\s_]+/g, '-')
+      .toLowerCase()
+  }
 
   const checkBoxContent = [
     'Software Engineering',
@@ -38,6 +58,32 @@ export default function DataDiriIndividu({
     'Business Intelligence',
     'Data Scientist',
     'Data Analyst'
+  ]
+
+  const fileTypeUpload = [
+    {
+      title: 'Upload Foto Pribadi',
+      helper:
+        'Upload file foto pribadi dengan ukuran maksimal 2MB dengan format .png/.jpeg',
+      type: 'pribadi' as FileType,
+      accept: 'image' as 'image' | 'pdf',
+      maxSize: 2
+    },
+    {
+      title: 'Upload Foto Kartu Pelajar',
+      helper:
+        'Upload file foto kartu pelajar dengan maksimal 2MB dengan format .png/.jpeg',
+      type: 'kartu-pelajar' as FileType,
+      accept: 'image' as 'image' | 'pdf',
+      maxSize: 2
+    },
+    {
+      title: 'Upload File Bukti Mahasiswa Aktif',
+      helper: 'Upload file bukti mahasiswa aktif dengan format .pdf',
+      type: 'bukti-mahasiswa-aktif' as FileType,
+      accept: 'pdf' as 'image' | 'pdf',
+      maxSize: 2
+    }
   ]
 
   return (
@@ -67,11 +113,12 @@ export default function DataDiriIndividu({
               placeholder={`Nama ${subject}`}
               externalState={nama}
               setExternalState={setNama}
-              ftype="default"
+              isDisable={true}
+              variant="disabled"
             />
           </div>
           <div className="w-full flex items-start justify-center gap-6">
-            <div className="w-1/2 flex flex-col items-start justify-center">
+            <div className="w-full flex flex-col items-start justify-center">
               <p className="font-helvatica font-bold text-base">
                 Email {subject}
               </p>
@@ -80,10 +127,11 @@ export default function DataDiriIndividu({
                 placeholder={`Email ${subject}`}
                 externalState={email}
                 setExternalState={setEmail}
-                ftype="default"
+                isDisable={true}
+                variant="disabled"
               />
             </div>
-            <div className="w-1/2 flex flex-col items-start justify-center">
+            {/* <div className="w-1/2 flex flex-col items-start justify-center">
               <p className="font-helvatica font-bold text-base">
                 Nomor Telepon {subject}
               </p>
@@ -94,7 +142,7 @@ export default function DataDiriIndividu({
                 setExternalState={setNomor}
                 ftype="default"
               />
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col w-full items-start justify-center gap-3">
             <p className="font-helvatica text-base font-bold">Minat Karir</p>
@@ -105,7 +153,7 @@ export default function DataDiriIndividu({
               {checkBoxContent.map(content => {
                 return (
                   <CheckBoxButton
-                    checked={minat.includes(content)}
+                    checked={minat.includes(kebabCaseConverter(content))}
                     groupName={`Minat ${subject}`}
                     toggleFunction={() => removeOrAddMinat(content)}
                     value={content}
@@ -114,6 +162,24 @@ export default function DataDiriIndividu({
                 )
               })}
             </div>
+          </div>
+          <div className="flex flex-col gap-3 w-full">
+            {fileTypeUpload.map(content => {
+              return (
+                <UploadFileIndividu
+                  title={content.title}
+                  helper={content.helper}
+                  type={content.type}
+                  accept={content.accept}
+                  maxSize={content.maxSize}
+                  status={findPhotoStatus(content.type)}
+                  setFileIndividu={(file: Blob, type: FileType) =>
+                    setFile(file, type)
+                  }
+                  key={`upload-${content.type}`}
+                />
+              )
+            })}
           </div>
         </div>
       )}

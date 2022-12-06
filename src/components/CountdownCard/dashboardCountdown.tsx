@@ -64,8 +64,6 @@ const DashboardCountdown = ({ date }: CountdownProps) => {
   const [seconds, setSeconds] = useState(0)
   const target = new Date(date)
 
-  console.log(date)
-
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date()

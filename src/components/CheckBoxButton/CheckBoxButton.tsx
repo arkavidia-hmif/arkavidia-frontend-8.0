@@ -19,7 +19,7 @@ export default function CheckBoxButton({
   disabled = false
 }: ICheckBoxButton): JSX.Element {
   return (
-    <div className="flex justify-start items-center gap-2">
+    <div className="flex justify-start items-center gap-2 cursor-pointer">
       <Checkbox.Root
         value={value}
         name={value}
