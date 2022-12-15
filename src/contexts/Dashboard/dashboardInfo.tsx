@@ -450,7 +450,7 @@ const DashboardInfo = (props: any) => {
                       </p>
                       <div className="flex justify-center pb-6">
                         <CustomButton bgColor="primary" size="normal">
-                          <a href="/competition">Register Now</a>
+                          <a href="https://bit.ly/TemporaryFormArkavidia">Register Now</a>
                         </CustomButton>
                       </div>
                     </div>
