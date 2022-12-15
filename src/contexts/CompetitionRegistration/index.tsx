@@ -32,9 +32,10 @@ const CompetitionRegistration = ({image, title, params, desc}: ICompetitionRegis
   }
 
   const handleOnRegisterCompe = async () => {
-    const response = await competitionRegistration(params);
-    handleShowToast(response);
-    if(response === 'SUCCESS') router.push('/dashboard/information')
+    // const response = await competitionRegistration(params);
+    // handleShowToast(response);
+    // if(response === 'SUCCESS') router.push('/dashboard/information')
+    window.location.href = "https://bit.ly/TemporaryFormArkavidia"
   }
 
 
