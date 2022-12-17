@@ -12,7 +12,7 @@ interface ITextField {
   variant?: 'default' | 'error' | 'success' | 'disabled'
   width?: string
   placeholder?: string
-  externalState: string
+  externalState: string | undefined
   setExternalState: Dispatch<SetStateAction<string>>
   isDisable?: boolean
 }
@@ -40,15 +40,12 @@ const TextField: React.FC<ITextField> = ({
   const [visible, setVisible] = useState(false)
 
   return (
-    <div className={`flex flex-col gap-1 ${width ? width : 'w-full'}`}>
+    <div className={`flex flex-col gap-1 ${width ?? 'w-full'}`}>
       <div
-        className={`relative flex items-center h-10 ${
-          width ? width : 'w-[260px]'
-        }`}
-      >
+        className={`relative flex items-center h-10 ${width ?? 'w-[260px]'}`}>
         <input
           type={ftype === 'show' ? (visible ? 'text' : 'password') : 'text'}
-          value={externalState}
+          value={externalState ?? ''}
           onChange={e => setExternalState(e.target.value)}
           disabled={isDisable ? true : variant === 'disabled'}
           placeholder={placeholder}
@@ -85,16 +82,26 @@ const TextField: React.FC<ITextField> = ({
 
 const TextArea: React.FC<ITextField> = ({
   description,
-  variant = 'default'
+  variant = 'default',
+  externalState,
+  setExternalState,
+  placeholder,
+  isDisable = false,
+  width = 'w-64'
 }): JSX.Element => {
   const [countChar, setCountChar] = useState(0)
 
   return (
-    <div className="flex flex-col w-64 gap-1">
+    <div className={`flex flex-col gap-1 ${width}`}>
       <textarea
-        placeholder="Text"
+        placeholder={placeholder}
+        disabled={isDisable}
+        value={externalState}
         maxLength={200}
-        onChange={e => setCountChar(e.target.value.length)}
+        onChange={e => {
+          setExternalState(e.target.value)
+          setCountChar(e.target.value.length)
+        }}
         className={`form-textarea py-3 px-4 text-xs resize-none
         rounded-md
         h-32
@@ -102,7 +109,9 @@ const TextArea: React.FC<ITextField> = ({
       />
       <div className="flex flex-row justify-between">
         {description && <label className="text-xs">{description}</label>}
-        <label className="text-xs text-right w-64 px-4">{countChar}/200</label>
+        <label className={`text-xs text-right ${width} px-4`}>
+          {countChar}/200
+        </label>
       </div>
     </div>
   )

@@ -9,23 +9,30 @@ interface DropdownProps {
   data: DropdownData[]
   selectedData: DropdownData | undefined
   setSelectedData: (newSelectedData: DropdownData) => void
+  noSelectedText: string
+  isFull?: boolean
 }
 
 export default function Dropdown({
   data,
   selectedData = undefined,
-  setSelectedData
+  setSelectedData,
+  isFull = false,
+  noSelectedText
 }: DropdownProps) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className={`relative w-36 font-normal lg:max-w-sm text-blue300`}>
+    <div
+      className={`${
+        isFull ? 'w-full' : 'w-36 lg:max-w-sm'
+      } relative font-normal text-blue300`}>
       <div
         onClick={() => {
           setOpen(!open)
         }}
         className={`bg-gray200 align-middle w-full h-10 font-bold text-xs leading-5 py-2 px-2 flex rounded-md border border-gray-300 cursor-pointer`}>
-        {selectedData ?? `${'\u00A0'}`}
+        {selectedData ?? noSelectedText}
         <ArrowDownIcon
           size={20}
           className="absolute right-0 mr-2 cursor-pointer"

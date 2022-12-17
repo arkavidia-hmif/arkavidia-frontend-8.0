@@ -3,9 +3,9 @@ import HomeIcon from '../Icon/HomeIcon'
 import clsx from 'clsx'
 
 interface CustomButtonProps {
-  bgColor?: string
+  bgColor?: colors
   icon?: boolean
-  size?: string
+  size?: sizes
   onClick?: () => void
   children?: React.ReactNode
 }
@@ -47,7 +47,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   size,
   children,
   onClick
-}) => {
+}: CustomButtonProps) => {
   return (
     <button
       onClick={onClick}

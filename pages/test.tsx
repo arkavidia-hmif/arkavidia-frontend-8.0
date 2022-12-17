@@ -1,10 +1,10 @@
-import TabBordered from '@src/components/TabBordered'
+import FormPengumuman from '@src/components/CMS/Pengumuman/Form'
 
 const Test = (): JSX.Element => {
   return (
-    <TabBordered selected={true} onClick={() => {}}>
-      Testjkvfsdnjdfvnkvdfnjkvdfnjk
-    </TabBordered>
+    <div className="py-28">
+      <FormPengumuman submitFunction={() => {}} />
+    </div>
   )
 }
 
