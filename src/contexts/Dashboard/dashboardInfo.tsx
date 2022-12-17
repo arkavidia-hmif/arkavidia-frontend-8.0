@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable multiline-ternary */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import CustomButton from '@src/components/CustomButton/CustomButton'
@@ -9,8 +13,9 @@ import NotRegistered from '@src/assets/images/StatusNotRegistered.svg'
 import Dashboard from '@src/components/Navigation/Dashboard'
 import { getTeamData } from '@src/services/team'
 import { getTeamMembersData } from '@src/services/participant'
+import { getPhotoParticipant } from '@src/services/photo'
 import { TeamData } from '@src/types/team'
-import { ParticipantData } from '@src/types/participant'
+import { ParticipantData, ParticipantPhoto } from '@src/types/participant'
 import {
   TIMELINE_ARKALOGICA,
   TIMELINE_CP,
@@ -32,32 +37,33 @@ interface TimelineDetail {
   endDate: Date
 }
 
-const Section = () => {
-  const space = 'mb-[10px]'
-  const font = 'font-helvatica'
-  return (
-    <div className="bg-gray200 pl-[10px] pt-[10px] mb-[13px]">
-      <p className={`${space} ${font} font-normal text-[12px]`}>
-        DD/MM/YYYY, HH:MM WIB
-      </p>
-      <p className={`${space} ${font} font-bold text-[16px]`}>
-        Judul Informasi
-      </p>
-      <p className={`${space} ${font} font-normal text-[12px] pb-[10px]`}>
-        &lt;&lt;Jangan lupa untuk melengkapi dokumen pendaftaran karena h-3
-        pendaftaran akan ditutup&gt;&gt;
-      </p>
-    </div>
-  )
-}
+// const Section = () => {
+//   const space = 'mb-[10px]'
+//   const font = 'font-helvatica'
+//   return (
+//     <div className="bg-gray200 pl-[10px] pt-[10px] mb-[13px]">
+//       <p className={`${space} ${font} font-normal text-[12px]`}>
+//         DD/MM/YYYY, HH:MM WIB
+//       </p>
+//       <p className={`${space} ${font} font-bold text-[16px]`}>
+//         Judul Informasi
+//       </p>
+//       <p className={`${space} ${font} font-normal text-[12px] pb-[10px]`}>
+//         &lt;&lt;Jangan lupa untuk melengkapi dokumen pendaftaran karena h-3
+//         pendaftaran akan ditutup&gt;&gt;
+//       </p>
+//     </div>
+//   )
+// }
 
 const TextChipVerifikasi = (props: any) => {
-  const { text, variant, textSize, berhasil, unggah } = props
+  const { text, variant, textSize, unggah } = props
   const chipStyle =
-    'w-[160px] h-[24px] flex justify-center items-center xl:text-[12px] lg:text-[9px]'
+    'w-[160px] h-[24px] flex justify-center items-center xl:text-[9px] lg:text-[7px]'
   let _variant = variant
   if (unggah) {
-    if (berhasil === 'berhasil') _variant = 'greenVerifikasi'
+    if (unggah.status === 'verified') _variant = 'greenVerifikasi'
+    else if (unggah.status === 'declined') _variant = 'redVerifikasi'
     else _variant = 'orangeVerifikasi'
   } else {
     _variant = 'redVerifikasi'
@@ -68,7 +74,7 @@ const TextChipVerifikasi = (props: any) => {
         className={`font-helvatica font-bold text-[${textSize}] col-span-1 flex items-center`}>
         {text}
       </div>
-      <div className="flex justify-end items-center pr-[10px]">
+      <div className="flex justify-end items-center pr-[5px]">
         <CustomChip
           variant={_variant}
           shadow={false}
@@ -76,9 +82,9 @@ const TextChipVerifikasi = (props: any) => {
           {`${
             !unggah
               ? 'Belum diunggah'
-              : berhasil === 'berhasil'
+              : unggah.status === 'verified'
               ? 'Verifikasi Berhasil'
-              : berhasil === 'menunggu'
+              : unggah.status === 'waiting-for-verification'
               ? 'Menunggu Verifikasi'
               : 'Verifikasi Gagal'
           }`}
@@ -89,23 +95,34 @@ const TextChipVerifikasi = (props: any) => {
 }
 
 const Anggota = (props: any) => {
-  const { Jabatan, Nama, className } = props
+  const { Jabatan, Nama, Photo } = props
+  const findPhotoStatus = (type: string) => {
+    if (!Photo || Photo.length === 0) return null
+    else {
+      const status = Photo.find((p: ParticipantPhoto) => p.type === type)
+      return status
+    }
+  }
   return (
     <div className="bg-gray200 py-[10px] mb-[12px] pl-[10px]">
       <div className="font-helvatica font-bold text-[16px] ">{Jabatan}</div>
       <div className="font-helvatica text-400 text-[12px] mb-[10px] mt-[2px]">
         {Nama}
       </div>
-      <TextChipVerifikasi text="Foto Profil" textSize="12px" unggah={false} />
+      <TextChipVerifikasi
+        text="Foto Profil"
+        textSize="12px"
+        unggah={findPhotoStatus('pribadi')}
+      />
       <TextChipVerifikasi
         text="Foto Kartu Pelajar"
         textSize="12px"
-        unggah={false}
+        unggah={findPhotoStatus('kartu-pelajar')}
       />
       <TextChipVerifikasi
         text="File Bukti Mahasiswa"
         textSize="12px"
-        unggah={false}
+        unggah={findPhotoStatus('bukti-mahasiswa-aktif')}
       />
     </div>
   )
@@ -271,7 +288,13 @@ const DashboardInfo = (props: any) => {
       getTeamMembersData()
     ])
     const teamData = teamResponse.Data
-    const membersData = membersResponse.Data
+    const tempMembersData = membersResponse.Data
+    const membersData = await Promise.all(
+      tempMembersData.map(async (m: ParticipantData) => {
+        const photo = await getPhotoParticipant(m.ID)
+        return { ...m, photos: photo.Data }
+      })
+    )
     setTeamData(teamData)
     setMembersData(membersData)
     setIsEmpty(!teamData.team_category)
@@ -371,12 +394,15 @@ const DashboardInfo = (props: any) => {
                       </div>
                       <h6 className={`${subHeader1Style}`}>Dokumen Peserta</h6>
                       <p className={`${textStyle} mb-[10px]`}>
-                        Harap melengkapi dokumen sebelum dd/mm/yyyy
+                        Harap melengkapi dokumen sebelum 24/12/2022
                       </p>
                       <div className="pt-[13px] pb-[3px] pl-[10px] bg-gray200">
                         <TextChipVerifikasi
                           text="Bukti Pembayaran"
                           textSize="16px"
+                          unggah={membersData
+                            ?.find(m => m.memberships[0].role === 'leader')
+                            ?.photos?.find(p => p.type === 'bukti-pembayaran')}
                         />
                       </div>
                       <div className="pt-[10px] ">
@@ -387,6 +413,7 @@ const DashboardInfo = (props: any) => {
                               member.memberships[0].role
                             )}
                             Nama={member.name}
+                            Photo={member.photos}
                           />
                         ))}
                       </div>
@@ -423,7 +450,7 @@ const DashboardInfo = (props: any) => {
                       </p>
                       <div className="flex justify-center pb-6">
                         <CustomButton bgColor="primary" size="normal">
-                          <a href="/competition">Register Now</a>
+                          <a href="https://bit.ly/TemporaryFormArkavidia">Register Now</a>
                         </CustomButton>
                       </div>
                     </div>

@@ -5,7 +5,7 @@ import React from 'react'
 
 const Tab = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
-    <button className="px-2 py-2 text-[20px] font-varela bg-yellow300 relative">
+    <button className="px-2 py-2 lg:text-[20px] sm:text-[12px] font-varela bg-yellow300 relative">
       <div className="folded"></div>
       {children}
     </button>

@@ -67,7 +67,7 @@ const Jumbotron = ({logo,title, description, guidebook} :IJumbotronCompe) => {
           </CustomButton>
         <CustomButton bgColor='primary' size='normal' onClick={handleRegister}>
           <div className="py-[10px] px-[50px]">
-          Register Now
+          <a href="https://bit.ly/TemporaryFormArkavidia">Register Now</a>
           </div>
           </CustomButton>
     </div>
