@@ -9,7 +9,7 @@ interface DropdownProps {
   data: DropdownData[]
   selectedData: DropdownData | undefined
   setSelectedData: (newSelectedData: DropdownData) => void
-  noSelectedText: string
+  noSelectedText?: string
   isFull?: boolean
 }
 
@@ -18,7 +18,7 @@ export default function Dropdown({
   selectedData = undefined,
   setSelectedData,
   isFull = false,
-  noSelectedText
+  noSelectedText = ''
 }: DropdownProps) {
   const [open, setOpen] = useState(false)
 
