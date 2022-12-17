@@ -2,7 +2,7 @@ import CustomButton from '@src/components/CustomButton/CustomButton'
 import { PengumumanState } from '@src/utils/customHooks/pengumuman'
 
 // Ini tipe sementara doang.
-type PengumumanFetched = PengumumanState & { isDraft: boolean }
+export type PengumumanFetched = PengumumanState & { isDraft: boolean }
 
 function TabelFirstRow({ text }: { text: string }) {
   return (

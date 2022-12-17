@@ -33,7 +33,7 @@ function CMS() {
       {openedPage === 'submisi' ? (
         <CMSSubmisi></CMSSubmisi>
       ) : (
-        <CMSPengumuman></CMSPengumuman>
+        <CMSPengumuman pengumumanList={[]}></CMSPengumuman>
       )}
     </section>
   )
