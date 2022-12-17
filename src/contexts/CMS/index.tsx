@@ -1,0 +1,42 @@
+import { useState } from 'react'
+import CMSPengumuman from './Pengumuman'
+import CMSSubmisi from './Submisi'
+
+type OpenedCMSPage = 'pengumuman' | 'submisi'
+
+function CMS() {
+  const [openedPage, setOpenedPage] = useState('submisi' as OpenedCMSPage)
+  return (
+    <section className="flex flex-col items-center justify-start w-full">
+      <div className="flex flex-row justify-between items-start w-full max-w-xl font-varela">
+        <button
+          onClick={() => setOpenedPage('submisi')}
+          className="flex flex-col gap-1 justify-start items-center cursor-pointer">
+          <p className={`block rounded-sm  text-lg `}>Submisi</p>
+          <div
+            className={`h-1 rounded-md ${
+              openedPage === 'submisi' ? 'bg-yellow300' : 'bg-blue300'
+            }  w-full max-w-[104px]`}
+          />
+        </button>
+        <button
+          onClick={() => setOpenedPage('pengumuman')}
+          className="flex flex-col gap-1 justify-start items-center cursor-pointer">
+          <p className={`block rounded-sm  text-lg `}>Pengumuman</p>
+          <div
+            className={`h-1 rounded-md ${
+              openedPage === 'pengumuman' ? 'bg-yellow300' : 'bg-blue300'
+            }  w-full max-w-[104px]`}
+          />
+        </button>
+      </div>
+      {openedPage === 'submisi' ? (
+        <CMSSubmisi></CMSSubmisi>
+      ) : (
+        <CMSPengumuman></CMSPengumuman>
+      )}
+    </section>
+  )
+}
+
+export default CMS
