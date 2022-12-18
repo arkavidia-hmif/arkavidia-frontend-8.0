@@ -8,9 +8,9 @@ interface IPengumumanInitial {
 }
 
 export interface PengumumanState {
-    category?: string | undefined
-    title?: string
-    information?: string
+    category: string | undefined
+    title: string
+    information: string
     publicationDate: Date | null
 }
 

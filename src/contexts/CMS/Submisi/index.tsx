@@ -1,9 +1,13 @@
-import TeamCMS from '@src/components/CMS/Team'
+import TeamCMS, { TeamCMSProps } from '@src/components/CMS/Team'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import Dropdown from '@src/components/Dropdown'
 import { useState } from 'react'
 
-function CMSSubmisi() {
+interface CMSSubmisiProps {
+  teamList: TeamCMSProps[]
+}
+
+function CMSSubmisi({ teamList }: CMSSubmisiProps) {
   const [viewedCategory, setViewedCategory] = useState(
     undefined as undefined | string
   )
@@ -22,22 +26,9 @@ function CMSSubmisi() {
         </CustomButton>
       </div>
       <div className="flex flex-col w-full gap-10 items-center justify-start">
-        <TeamCMS
-          members={[]}
-          paymentLink="fcfvbf0"
-          proposalLink="dfsdsf"
-          status="pass"
-          teamID="klmdklv"
-          teamName="Bruh"
-        />
-        <TeamCMS
-          members={[]}
-          paymentLink="fcfvbf0"
-          proposalLink="dfsdsf"
-          status="pass"
-          teamID="klmdklv"
-          teamName="Bruh"
-        />
+        {teamList.map(team => {
+          return <TeamCMS {...team} key={`${team.teamID}${team.teamName}`} />
+        })}
       </div>
     </section>
   )

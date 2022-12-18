@@ -6,7 +6,7 @@ import ParticipantCMS, { ParticipantCMSProps } from '../Participant'
 
 type TeamStatus = 'pass' | 'denied' | 'verification'
 
-interface TeamCMSProps {
+export interface TeamCMSProps {
   teamName: string
   teamID: string
   status: TeamStatus
