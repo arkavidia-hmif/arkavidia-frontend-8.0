@@ -35,12 +35,12 @@ function usePengumuman ({initialCategory = undefined, initialTitle = "", initial
     const [publicationDate, setPublicationDate] = useState(initialPublicationDate)    
 
     useEffect(() => {
-      console.log(publicationDate, "Actual Pub After Change")
+    //   console.log(publicationDate, "Actual Pub After Change")
     }, [publicationDate])
 
     function setDates (year: number, month: number, date: number) {
         const newDate = publicationDate ? new Date(publicationDate) : new Date();
-        console.log(date, month, year, "Supposedly new date")
+        // console.log(date, month, year, "Supposedly new date")
         newDate.setFullYear(year)
         newDate.setMonth(month)
         newDate.setDate(date)
