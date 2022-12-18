@@ -1,4 +1,5 @@
 import CustomButton from '@src/components/CustomButton/CustomButton'
+import DatePicker from '@src/components/DatePicker'
 import Dropdown from '@src/components/Dropdown'
 import { TextArea, TextField } from '@src/components/TextField'
 import usePengumuman, {
@@ -11,9 +12,10 @@ function FormPengumuman({
   submitFunction: (arg0: PengumumanState) => void
 }) {
   const [
-    { category, information, title },
-    { setCategory, setInformation, setTitle }
+    { category, information, title, publicationDate },
+    { setCategory, setInformation, setTitle, setPublicationDate }
   ] = usePengumuman({})
+
   return (
     <section className="flex flex-col items-start p-6 gap-10 text-black w-full max-w-3xl">
       <h2 className=" font-black capitalize text-5xl font-archivo">
@@ -46,6 +48,15 @@ function FormPengumuman({
             setExternalState={setInformation}
             placeholder={'Masukkan informasi'}
             width="w-full"
+          />
+        </div>
+        <div className="flex flex-col gap-2 items-start w-full">
+          <p className="font-bold text-base">Waktu Publikasi</p>
+          <DatePicker
+            minimumDate="19-11-2003"
+            maximumDate="01-01-2025"
+            externalState={publicationDate}
+            setExternalState={setPublicationDate}
           />
         </div>
       </section>
