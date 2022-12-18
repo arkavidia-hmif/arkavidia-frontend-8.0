@@ -8,6 +8,8 @@ interface CustomButtonProps {
   size?: sizes
   onClick?: () => void
   children?: React.ReactNode
+  iconElement?: JSX.Element
+  minPad?: boolean
 }
 
 type colors = 'primary' | 'secondary' | 'ghost'
@@ -24,8 +26,8 @@ const variantColor: { [key in colors]: string } = {
 }
 
 const variantSize: { [key in sizes]: string } = {
-  small: 'w-auto h-10',
-  normal: 'w-auto h-12',
+  small: 'w-auto px-6 py-2',
+  normal: 'w-auto px-8 py-3',
   full: 'w-full h-12'
 }
 
@@ -46,17 +48,18 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   icon,
   size,
   children,
-  onClick
+  onClick,
+  iconElement
 }: CustomButtonProps) => {
   return (
     <button
       onClick={onClick}
       className={clsx(
-        'rounded-xl flex items-center justify-center font-helvatica font-bold text-base text-white px-8',
+        'rounded-xl flex items-center justify-center font-helvatica font-bold text-base text-white',
         variantColor[bgColor as colors],
         variantSize[size as sizes]
       )}>
-      {icon && (
+      {icon && iconElement && (
         <HomeIcon
           className={clsx(
             'fill-white w-6 h-6 mr-2',
