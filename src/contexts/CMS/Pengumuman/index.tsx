@@ -4,17 +4,35 @@ import TabelPengumuman, {
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import EmptyAnnouncement from '@src/assets/images/EmptyAnnouncement.svg'
 import Image from 'next/image'
+import { useState } from 'react'
+import { createPortal } from 'react-dom'
+import FormPengumuman from '@src/components/CMS/Pengumuman/Form'
 
 function CMSPengumuman({
   pengumumanList
 }: {
   pengumumanList: PengumumanFetched[]
 }) {
+  const [showModal, setShowModal] = useState(false)
   return (
     <section className="w-full flex flex-col justify-start items-center gap-10">
+      {showModal &&
+        createPortal(
+          <div className="fixed z-50 top-0 bottom-0 left-0 right-0 bg-black/50 flex flex-col justify-center items-center">
+            <FormPengumuman
+              cancelFunction={() => setShowModal(false)}
+              publishFunction={bruh => {}}
+              saveFunction={bruh => {}}
+            />
+          </div>,
+          document.body
+        )}
       <div className="w-full flex justify-center items-start">
         <div className="flex-grow" />
-        <CustomButton bgColor="primary" size="normal" onClick={() => {}}>
+        <CustomButton
+          bgColor="primary"
+          size="normal"
+          onClick={() => setShowModal(true)}>
           Tambah Pengumuman
         </CustomButton>
       </div>

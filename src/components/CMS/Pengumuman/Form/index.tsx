@@ -7,18 +7,24 @@ import usePengumuman, {
   PengumumanState
 } from '@src/utils/customHooks/pengumuman'
 
+interface FormPengumumanProps {
+  publishFunction: (arg0: PengumumanState) => void
+  saveFunction: (arg0: PengumumanState) => void
+  cancelFunction: () => void
+}
+
 function FormPengumuman({
-  submitFunction
-}: {
-  submitFunction: (arg0: PengumumanState) => void
-}) {
+  publishFunction,
+  cancelFunction,
+  saveFunction
+}: FormPengumumanProps) {
   const [
     { category, information, title, publicationDate },
     { setCategory, setInformation, setTitle, setDates, setTime }
   ] = usePengumuman({})
 
   return (
-    <section className="flex flex-col items-start p-6 gap-10 text-black w-full max-w-3xl">
+    <section className="flex flex-col items-start p-6 gap-10 text-black w-full max-w-3xl bg-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
       <h2 className=" font-black capitalize text-5xl font-archivo">
         Pengumuman
       </h2>
@@ -65,10 +71,14 @@ function FormPengumuman({
         </div>
       </section>
       <section className="w-full flex gap-3">
-        <CustomButton bgColor="secondary" onClick={() => {}} size="normal">
+        <CustomButton
+          bgColor="secondary"
+          onClick={cancelFunction}
+          size="normal">
           Cancel
         </CustomButton>
         <div className="flex-grow" />
+        {/* Ini belum diganti pakai fungsi save dan submit betulannya */}
         <CustomButton bgColor="ghost" onClick={() => {}} size="normal">
           Save
         </CustomButton>
