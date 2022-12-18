@@ -22,7 +22,7 @@ function TabelPengumuman({
   pengumumanList: PengumumanFetched[]
 }) {
   return (
-    <section className="grid grid-cols-3 auto-rows-auto border-[1px] border-black font-helvatica w-full">
+    <section className="grid grid-cols-[2fr_1fr_1fr] auto-rows-auto border-[1px] border-black font-helvatica w-full">
       <TabelFirstRow text="Pengumuman" />
       <TabelFirstRow text="Kategori" />
       <TabelFirstRow text="Aksi" />
