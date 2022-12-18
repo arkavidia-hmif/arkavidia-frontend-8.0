@@ -1,15 +1,16 @@
+import { PengumumanDatesSetter } from '@src/utils/customHooks/pengumuman'
 import { z } from 'zod'
 
 interface DatePickerProps {
-  externalState: Date | null
-  setExternalState: (arg0: Date | null) => void
+  dateState: Date | null
+  setDateState: PengumumanDatesSetter
   minimumDate: string
   maximumDate: string
 }
 
 function DatePicker({
-  externalState,
-  setExternalState,
+  dateState,
+  setDateState,
   maximumDate,
   minimumDate
 }: DatePickerProps) {
@@ -20,12 +21,11 @@ function DatePicker({
   return (
     <input
       value={
-        externalState === null
+        dateState === null
           ? ''
-          : `${externalState.getFullYear()}-${externalState
-              .getMonth()
+          : `${dateState.getFullYear()}-${(dateState.getMonth() + 1)
               .toString()
-              .padStart(2, '0')}-${externalState
+              .padStart(2, '0')}-${dateState
               .getDate()
               .toString()
               .padStart(2, '0')}`
@@ -35,8 +35,13 @@ function DatePicker({
       min={minimumDate}
       max={maximumDate}
       onChange={e => {
-        if (dateValidatorSchema.safeParse(e.target.valueAsDate).success) {
-          setExternalState(e.target.valueAsDate)
+        const newDate = e.target.valueAsDate
+        if (newDate && dateValidatorSchema.safeParse(newDate).success) {
+          setDateState(
+            newDate.getFullYear(),
+            newDate.getMonth(),
+            newDate.getDate()
+          )
         }
       }}></input>
   )

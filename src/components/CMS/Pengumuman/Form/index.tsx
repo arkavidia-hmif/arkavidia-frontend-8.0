@@ -2,6 +2,7 @@ import CustomButton from '@src/components/CustomButton/CustomButton'
 import DatePicker from '@src/components/DatePicker'
 import Dropdown from '@src/components/Dropdown'
 import { TextArea, TextField } from '@src/components/TextField'
+import TimePicker from '@src/components/TimePicker'
 import usePengumuman, {
   PengumumanState
 } from '@src/utils/customHooks/pengumuman'
@@ -13,7 +14,7 @@ function FormPengumuman({
 }) {
   const [
     { category, information, title, publicationDate },
-    { setCategory, setInformation, setTitle, setPublicationDate }
+    { setCategory, setInformation, setTitle, setDates, setTime }
   ] = usePengumuman({})
 
   return (
@@ -52,12 +53,15 @@ function FormPengumuman({
         </div>
         <div className="flex flex-col gap-2 items-start w-full">
           <p className="font-bold text-base">Waktu Publikasi</p>
-          <DatePicker
-            minimumDate="19-11-2003"
-            maximumDate="01-01-2025"
-            externalState={publicationDate}
-            setExternalState={setPublicationDate}
-          />
+          <div className="flex gap-2 justify-start">
+            <DatePicker
+              minimumDate="19-11-2003"
+              maximumDate="01-01-2025"
+              dateState={publicationDate}
+              setDateState={setDates}
+            />
+            <TimePicker timeState={publicationDate} setTimeState={setTime} />
+          </div>
         </div>
       </section>
       <section className="w-full flex gap-3">
