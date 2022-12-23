@@ -394,7 +394,7 @@ const DashboardInfo = (props: any) => {
                       </div>
                       <h6 className={`${subHeader1Style}`}>Dokumen Peserta</h6>
                       <p className={`${textStyle} mb-[10px]`}>
-                        Harap melengkapi dokumen sebelum 24/12/2022
+                        Harap melengkapi dokumen sebelum 24/12/2022 23:59 WIB
                       </p>
                       <div className="pt-[13px] pb-[3px] pl-[10px] bg-gray200">
                         <TextChipVerifikasi
