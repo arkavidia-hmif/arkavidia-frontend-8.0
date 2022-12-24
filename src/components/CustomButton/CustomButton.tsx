@@ -13,7 +13,7 @@ interface CustomButtonProps {
 }
 
 type colors = 'primary' | 'secondary' | 'ghost'
-type sizes = 'small' | 'normal' | 'full'
+type sizes = 'xs' | 'small' | 'normal' | 'full'
 type textColors = 'primary' | 'secondary' | 'ghost'
 
 const variantColor: { [key in colors]: string } = {
@@ -26,6 +26,7 @@ const variantColor: { [key in colors]: string } = {
 }
 
 const variantSize: { [key in sizes]: string } = {
+  xs: 'w-auto px-3 py-1',
   small: 'w-auto px-6 py-2',
   normal: 'w-auto px-8 py-3',
   full: 'w-full h-12'

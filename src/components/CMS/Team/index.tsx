@@ -15,6 +15,33 @@ export interface TeamCMSProps {
   paymentLink: string
 }
 
+const dump = [
+  {
+    name: 'a',
+    email: 'b',
+    number: 'c',
+    photoLink: 'd',
+    cardLink: 'e',
+    proofLink: 'f'
+  },
+  {
+    name: 'a',
+    email: 'b',
+    number: 'c',
+    photoLink: 'd',
+    cardLink: 'e',
+    proofLink: 'f'
+  },
+  {
+    name: 'a',
+    email: 'b',
+    number: 'c',
+    photoLink: 'd',
+    cardLink: 'e',
+    proofLink: 'f'
+  }
+]
+
 const TeamCMS = ({
   teamName,
   teamID,
@@ -46,9 +73,9 @@ const TeamCMS = ({
         </section>
       </div>
       {!open ? null : (
-        <div className="flex flex-col items-center justify-center gap-12 w-full rounded-3xl border-2 border-black py-11">
-          <section className="flex items-center justify-around w-full">
-            {members.map(
+        <div className="flex flex-col items-start justify-start gap-12 w-full rounded-3xl border-2 border-black py-11 px-8">
+          <section className="flex items-center justify-around w-full gap-3">
+            {dump.map(
               ({ email, name, number, cardLink, photoLink, proofLink }) => {
                 return (
                   <ParticipantCMS
@@ -64,17 +91,17 @@ const TeamCMS = ({
               }
             )}
           </section>
-          <section className="flex items-center justify-center gap-4">
+          <section className="flex items-center justify-start gap-4">
             <CustomButton
               size="small"
               onClick={() => window.open(`https://${proposalLink}`, '_blank')}
-              bgColor="primary">
+              bgColor="ghost">
               Download Proposal
             </CustomButton>
             <CustomButton
               size="small"
               onClick={() => window.open(`https://${paymentLink}`, '_blank')}
-              bgColor="primary">
+              bgColor="ghost">
               Download Bukti Pembayaran
             </CustomButton>
           </section>

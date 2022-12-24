@@ -7,8 +7,8 @@ type OpenedCMSPage = 'pengumuman' | 'submisi'
 function CMS() {
   const [openedPage, setOpenedPage] = useState('submisi' as OpenedCMSPage)
   return (
-    <section className="flex flex-col items-center justify-start w-full gap-8 px-28">
-      <div className="flex flex-row justify-between items-start w-full max-w-xl font-varela">
+    <section className="flex flex-col items-center justify-start w-full gap-8 px-20 py-[10rem]">
+      <div className="flex flex-row justify-between items-start w-1/4 max-w-sm font-varela">
         <button
           onClick={() => setOpenedPage('submisi')}
           className="flex flex-col gap-1 justify-start items-center cursor-pointer">
