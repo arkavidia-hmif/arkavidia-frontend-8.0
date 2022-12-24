@@ -1,5 +1,5 @@
 import SEO from '@src/components/SEO'
-import CMS from '@src/contexts/cms'
+import CMS from '@src/contexts/CMS'
 
 const CMSPage = (): JSX.Element => {
   return (
