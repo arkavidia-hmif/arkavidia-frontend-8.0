@@ -115,6 +115,7 @@ const SignUp = (): JSX.Element => {
         member_list: memberList
       } as TeamRegisterReq
       const res = await register(payload)
+      console.log(res)
       setToastList([
         ...toastList,
         <Toast

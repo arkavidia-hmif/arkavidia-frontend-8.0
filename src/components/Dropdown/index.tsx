@@ -1,64 +1,62 @@
-import { useEffect, useState } from "react";
+import { useState } from 'react'
 
 // Colors and Icon
-import ArrowDownIcon from "../Icon/ArrowDownIcon";
-import colours from "@src/utils/colors";
+import ArrowDownIcon from '../Icon/ArrowDownIcon'
 
-// Contoh Data
-const listData = [
-    { id: 1, value: "Small" },
-    { id: 2, value: "Medium" },
-    { id: 3, value: "Medium" },
-    { id: 4, value: "Medium" },
-    { id: 5, value: "Large" },
-  ];
+type DropdownData = string
 
-export default function Dropdown() {
-  const [data, setData] = useState<any[]>();
-  const [selectedId, setSelectedId] = useState<any[]>();
-  const [open, setOpen] = useState(false);
-  const selectedData = data?.find(d => d.id === selectedId); // use id, in case there are same data
+interface DropdownProps {
+  data: DropdownData[]
+  selectedData: DropdownData | undefined
+  setSelectedData: (newSelectedData: DropdownData) => void
+  noSelectedText?: string
+  isFull?: boolean
+}
 
-  useEffect(() => {
-    setData(listData);
-  }, []);
-  
+export default function Dropdown({
+  data,
+  selectedData = undefined,
+  setSelectedData,
+  isFull = false,
+  noSelectedText = ''
+}: DropdownProps) {
+  const [open, setOpen] = useState(false)
+
   return (
-    <div className={`relative w-36 font-normal lg:max-w-sm text-[${colours.blue300}]`}>
+    <div
+      className={`${
+        isFull ? 'w-full' : 'w-36 lg:max-w-sm'
+      } relative font-normal text-blue300`}>
       <div
         onClick={() => {
-          setOpen(!open);
-        }} 
-        className={`bg-[${colours.gray200}] inline-block align-middle w-full h-10 font-bold text-xs leading-5 py-2 px-2 flex rounded-md border border-gray-300 cursor-pointer`}>
-        {selectedData ? selectedData.value : `${'\u00A0'}`}
-        <ArrowDownIcon 
+          setOpen(!open)
+        }}
+        className={`bg-gray200 align-middle w-full h-10 font-bold text-xs leading-5 py-2 px-2 flex rounded-md border border-gray-300 cursor-pointer`}>
+        {selectedData ?? noSelectedText}
+        <ArrowDownIcon
           size={20}
           className="absolute right-0 mr-2 cursor-pointer"
           color="#445F6F"
         />
       </div>
-      <ul className={`absolute z-10 bg-[${colours.gray200}] mt-2 w-full overflow-y-auto divide-y-2 divide-gray-300 rounded-md outline-1 outline-gray-300 ${open ? 'max-h-48 outline' : 'max-h-0'}`}>
-        {
-          data?.map((d) => (
-            <li 
-              key={d?.id}
-              className={`cursor-pointer py-2 px-4 w-full h-10 text-xs leading-5 hover:bg-gray-300
-              ${d?.id === selectedId &&
-              'bg-gray-300 font-bold'}`
+      <ul
+        className={`absolute z-10 bg-gray200 mt-2 w-full overflow-y-auto divide-y-2 divide-gray-300 rounded-md outline-1 outline-gray-300 ${
+          open ? 'max-h-48 outline' : 'max-h-0'
+        }`}>
+        {data?.map((d, index) => (
+          <li
+            key={`${d} ${index}`}
+            className={`cursor-pointer py-2 px-4 w-full h-10 text-xs leading-5 hover:bg-gray-300
+              ${d === selectedData && 'bg-gray-300 font-bold'}`}
+            onClick={() => {
+              if (d !== selectedData) {
+                setSelectedData(d)
+                setOpen(false)
               }
-              onClick={() =>{
-                if(d?.id !== selectedId) {
-                  setSelectedId(d?.id);
-                  setOpen(false);
-                }
-              }}  
-            >
-              <span className="inline-block align-middle">
-                {d?.value}
-              </span>
-            </li>
-          ))
-        }
+            }}>
+            <span className="inline-block align-middle">{d}</span>
+          </li>
+        ))}
       </ul>
     </div>
   )
