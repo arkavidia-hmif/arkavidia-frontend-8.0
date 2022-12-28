@@ -31,7 +31,7 @@ const About = (): JSX.Element => {
         <div
           className="
           w-3/5">
-          <Countdown date="2022/12/25" title="" />
+          <Countdown date="2023/01/01" title="" />
         </div>
       </div>
       <div

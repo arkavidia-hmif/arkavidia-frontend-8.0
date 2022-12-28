@@ -12,8 +12,8 @@ const CountdownComp = (): JSX.Element => {
       <div className="flex bg-brownblack justify-center w-full pb-[30px]">
         <div className="w-3/5">
           <Countdown
-            date="2022/12/25"
-            title="Sabtu, 24 Desember 2022 - 23:59 WIB"
+            date="2023/01/01"
+            title="Sabtu, 31 Desember 2022 - 23:59 WIB"
           />
         </div>
       </div>
