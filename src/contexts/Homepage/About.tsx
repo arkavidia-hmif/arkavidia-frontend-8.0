@@ -37,7 +37,6 @@ const About = (): JSX.Element => {
       <div
         className="bg-brownblack text-center
         xl:h-[104px]">
-        <a href="https://bit.ly/TemporaryFormArkavidia">
           <button
             className="text-center mt-2 mb-4 font-medium text-white bg-red300 rounded-xl hover:bg-red200 hover:drop-shadow-lg transition-all active:bg-red400 
             px-[40px] py-[7px] text-[12px]
@@ -45,11 +44,10 @@ const About = (): JSX.Element => {
             lg:px-[120px] lg:py-[15px] lg:text-[15px]
             xl:px-[160px] xl:py-[20px] xl:text-[16px]
               "
-            // onClick={handleRegister}
+            onClick={handleRegister}
           >
             Register Now
           </button>
-        </a>
       </div>
       <div
         className="
