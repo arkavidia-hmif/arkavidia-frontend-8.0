@@ -310,7 +310,7 @@ const DashboardInfo = (props: any) => {
 
   return (
     <div className="bg-[rgb(236,236,236)] relative">
-      <Toast
+      {/* <Toast
         timer={6000}
         label={
           <>
@@ -328,7 +328,7 @@ const DashboardInfo = (props: any) => {
         type={'danger'}
         position={'bottom'}
         key={'toast1'}
-      />
+      /> */}
       <div className="pt-[60px] lg:pt-[58px]">
         <Dashboard>
           <div className="w-full">
