@@ -155,7 +155,9 @@ export default function DataDiriIndividu({
                   <CheckBoxButton
                     checked={minat.includes(kebabCaseConverter(content))}
                     groupName={`Minat ${subject}`}
-                    toggleFunction={() => removeOrAddMinat(content)}
+                    toggleFunction={() =>
+                      removeOrAddMinat(kebabCaseConverter(content))
+                    }
                     value={content}
                     key={`${content} ${subject}`}
                   />

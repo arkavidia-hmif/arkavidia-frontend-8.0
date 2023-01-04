@@ -59,7 +59,7 @@ export const changePass = async (payload: ChangePassReq) => {
       method: 'PUT',
       url: URL + API.auth.changePass,
       headers: {
-        Authorization: `${auth.token}`
+        Authorization: `Bearer ${auth.token}`
       },
       data: payload
     })

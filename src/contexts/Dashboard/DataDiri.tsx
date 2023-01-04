@@ -1,10 +1,6 @@
-/* eslint-disable multiline-ternary */
-/* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/consistent-type-assertions */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import Dashboard from '@src/components/Navigation/Dashboard'
 import DataDiriIndividu from './DataDiriIndividu'
-import BuktiPembayaran from './BuktiPembayaran'
+// import BuktiPembayaran from './BuktiPembayaran'
 import CustomButton from '@src/components/CustomButton/CustomButton'
 import useDataDiri from '@src/utils/customHooks/datadiri'
 import { getMemberData } from '@src/services/team'
@@ -39,7 +35,11 @@ function DataDiri(): JSX.Element {
     const teamMemberData = await Promise.all(
       tempTeamMemberData?.map(async (m: MembershipParticipant) => {
         const photo = await getPhotoParticipant(m.id)
-        return { ...m, photos: photo.data ?? null }
+        return {
+          ...m,
+          photos: photo.data ?? null,
+          career_interest: m.career_interest ?? null
+        }
       })
     )
 
@@ -78,6 +78,8 @@ function DataDiri(): JSX.Element {
         photos: fileIndividu2F
       }
     ] = teamMemberData
+
+    console.log(teamMemberData)
 
     setAllDataKetua({
       id: idKetuaF,
@@ -193,18 +195,18 @@ function DataDiri(): JSX.Element {
         break
     }
     const payloadCareerInterest = {
-      career_interest: data.minat.map(m => kebabCaseConverter(m))
+      career_interest: data?.minat?.map(m => kebabCaseConverter(m))
     } as ChangeCareerInterestReq
     const resCareerInterest = await changeCareerInterest(
       payloadCareerInterest,
-      data.id ?? 0
+      data.id ?? -999
     )
     if (errorHandling(resCareerInterest)) {
       setLoading(false)
       return
     }
     let completed = true
-    data.fileIndividu.map(async f => {
+    data?.fileIndividu?.map(async f => {
       const payloadPhoto = {
         participant_id: data.id,
         type: f.type,
@@ -241,13 +243,13 @@ function DataDiri(): JSX.Element {
       <h3 className="font-archivo text-5xl text-shadow text-white">
         Data Peserta
       </h3>
-      <BuktiPembayaran
+      {/* <BuktiPembayaran
         setFile={setBuktiPembayaran}
         fileIndividu={dataKetua.fileIndividu}
         index={4}
         opened={opened}
         setOpened={setOpened}
-      />
+      /> */}
       <DataDiriIndividu
         subject="Ketua"
         dataSetter={setDataKetua}
