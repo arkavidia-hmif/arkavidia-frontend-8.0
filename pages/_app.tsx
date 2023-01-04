@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
     store.getState()?.auth?.token !== null
   )
   const [isAdmin, setIsAdmin] = useState<boolean | null>(
-    store.getState()?.auth?.admin !== null
+    store.getState()?.auth?.admin === true
   )
   const sessionChecker = async () => {
     if (isLogin) {
@@ -39,7 +39,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
         ])
         setIsLogin(false)
       }
-      setIsAdmin(store.getState()?.auth?.admin ?? null)
+      setIsAdmin(store.getState()?.auth?.admin ?? false)
     }
   }
 
@@ -51,6 +51,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
         router.pathname.includes('profile')
       )
         router.replace('/')
+      if (router.pathname === '/cms/dashboard' && !isAdmin) router.replace('/')
     } else {
       if (router.pathname === '/sign-in' || router.pathname === '/sign-up')
         router.replace('/profile')

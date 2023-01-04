@@ -5,7 +5,8 @@ import ArkalogicaLogo from '@src/assets/images/LogoArkalogica.svg'
 import CPLogo from '@src/assets/images/LogoCP.svg'
 import DatavidiaLogo from '@src/assets/images/LogoDatavidia.svg'
 import UXVdiaLogo from '@src/assets/images/LogoUXVidia.svg'
-import ArkavidiaLogo from '@src/assets/images/logo/logo-arkavidia.png'
+// import ArkavidiaLogo from '@src/assets/images/logo/logo-arkavidia.png'
+import EmptyImage from '@src/assets/images/empty.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getTeamData } from '@src/services/team'
@@ -28,7 +29,7 @@ const getLogo = (type: string) => {
     case 'uxvidia':
       return UXVdiaLogo
     default:
-      return ArkavidiaLogo
+      return EmptyImage
   }
 }
 
@@ -41,17 +42,19 @@ function SideNav({ compe }: { compe: string }) {
       </div>
       <div className="flex lg:flex-col flex-row lg:gap-8 sm:gap-5 justify-center items-center">
         {routes.map((item, idx) => {
-          return (
-            <Link href={item.path} key={idx}>
-              {item.path === router.pathname ? (
-                <Tab>{item.name}</Tab>
-              ) : (
-                <a className="px-2 py-2 lg:text-[20px] sm:text-[12px] font-varela text-center">
-                  {item.name}
-                </a>
-              )}
-            </Link>
-          )
+          if (idx === 2 && compe !== 'uxvidia') return null
+          else
+            return (
+              <Link href={item.path} key={idx}>
+                {item.path === router.pathname ? (
+                  <Tab>{item.name}</Tab>
+                ) : (
+                  <a className="px-2 py-2 lg:text-[20px] sm:text-[12px] font-varela text-center">
+                    {item.name}
+                  </a>
+                )}
+              </Link>
+            )
         })}
       </div>
     </div>
@@ -63,7 +66,7 @@ function Dashboard({ children }: React.PropsWithChildren<{}>) {
 
   const fetchTeamData = async () => {
     const response = await getTeamData()
-    setTeamData(response.Data)
+    setTeamData(response.data)
   }
 
   useEffect(() => {

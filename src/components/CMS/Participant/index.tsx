@@ -3,7 +3,6 @@ import CustomButton from '@src/components/CustomButton/CustomButton'
 export interface ParticipantCMSProps {
   name: string
   email: string
-  number: string
   photoLink?: string
   cardLink?: string
   proofLink?: string
@@ -58,7 +57,6 @@ const FieldImage = ({
 const ParticipantCMS = ({
   email,
   name,
-  number,
   cardLink = undefined,
   photoLink = undefined,
   proofLink = undefined

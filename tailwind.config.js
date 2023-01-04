@@ -46,27 +46,29 @@ module.exports = {
       },
       keyframes: {
         toastSlideUp: {
-          '0%': { transform: 'translateY(200%)' },
+          '0%': { transform: 'translateY(200%)' }
         },
         toastSlideDown: {
-          '0%': { transform: 'translateY(-200%)' },
+          '0%': { transform: 'translateY(-200%)' }
         },
         toastSlideLeft: {
-          '0%': { transform: 'translateX(200%)' },
+          '0%': { transform: 'translateX(200%)' }
         },
         toastSlideRight: {
-          '0%': { transform: 'translateX(-200%)' },
+          '0%': { transform: 'translateX(-200%)' }
         }
       },
       boxShadow: {
         buttonShadow : '3px 7px black',
-        buttonPressed: '0 5px black',
+        buttonPressed: '0 5px black'
       },
       animation: {
         toastSlideUp: 'toastSlideUp 1s',
         toastSlideDown: 'toastSlideDown 1s',
         toastSlideLeft: 'toastSlideLeft 1s',
         toastSlideRight: 'toastSlideRight 1s',
+        bounce200: 'bounce 1s infinite 200ms',
+        bounce400: 'bounce 1s infinite 400ms'
       }
     },
   },
@@ -92,6 +94,6 @@ module.exports = {
 
       addUtilities(utilities, variants('borderColor'))
     },
-    require('tailwindcss-text-fill-stroke'),
+    require('tailwindcss-text-fill-stroke')
   ]
 }

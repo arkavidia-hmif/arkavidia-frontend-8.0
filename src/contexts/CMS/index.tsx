@@ -31,17 +31,7 @@ function CMS() {
         </button>
       </div>
       {openedPage === 'submisi' ? (
-        <CMSSubmisi
-          teamList={[
-            {
-              members: [],
-              paymentLink: 'klvfdv',
-              proposalLink: 'klfmdl',
-              status: 'pass',
-              teamID: '54',
-              teamName: 'dfjkvdfnvk'
-            }
-          ]}></CMSSubmisi>
+        <CMSSubmisi />
       ) : (
         <CMSPengumuman
           pengumumanList={[

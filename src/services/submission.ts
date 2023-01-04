@@ -19,7 +19,7 @@ export const addSubmission = async (payload: AddSubmissionReq) => {
       },
       data: payloadData
     })
-    return response.data.Message
+    return response.data.message
   } catch (e) {
     return 'FAILED'
   }

@@ -17,6 +17,7 @@ import {
 } from '@src/types/participant'
 import { AddPhotoReq } from '@src/types/photo'
 import Toast from '@src/components/Toast'
+import CircleLoading from '@src/components/Loading/Circle'
 
 function DataDiri(): JSX.Element {
   const [opened, setOpened] = useState(-1)
@@ -25,45 +26,52 @@ function DataDiri(): JSX.Element {
   const [dataAnggota1, setDataAnggota1] = useDataDiri({})
   const [dataAnggota2, setDataAnggota2] = useDataDiri({})
   const [toastList, setToastList] = useState<JSX.Element[]>([])
-  const [loading, setLoading] = useState(false)
-
-  const handleChangeBuktiPembayaran = (file: Blob) => {
-    setBuktiPembayaran(file)
-  }
+  const [loading, setLoading] = useState<boolean>(false)
+  const [initialLoading, setInitialLoading] = useState<boolean>(true)
 
   const syncTeamData = async () => {
     const { setAll: setAllDataKetua } = setDataKetua
     const { setAll: setAllDataAnggota1 } = setDataAnggota1
     const { setAll: setAllDataAnggota2 } = setDataAnggota2
 
-    const rawData = (await getMemberData()) as { Data: MembershipParticipant[] }
-    const tempTeamMemberData = rawData?.Data
+    const rawData = (await getMemberData()) as { data: MembershipParticipant[] }
+    const tempTeamMemberData = rawData?.data ?? []
     const teamMemberData = await Promise.all(
-      tempTeamMemberData.map(async (m: MembershipParticipant) => {
-        const photo = await getPhotoParticipant(m.ID)
-        return { ...m, photos: photo.Data }
+      tempTeamMemberData?.map(async (m: MembershipParticipant) => {
+        const photo = await getPhotoParticipant(m.id)
+        return { ...m, photos: photo.data ?? null }
       })
     )
 
     // Tidy this up later!
 
+    const dummy = {
+      id: -999,
+      name: '',
+      email: '',
+      career_interest: null,
+      photos: null
+    }
+
+    if (teamMemberData.length === 2) teamMemberData.push(dummy)
+
     const [
       {
-        ID: idKetuaF,
+        id: idKetuaF,
         name: namaKetuaF,
         email: emailKetuaF,
         career_interest: minatKetuaF,
         photos: fileIndividuKetuaF
       },
       {
-        ID: id1F,
+        id: id1F,
         name: namaAnggota1F,
         email: emailAnggota1F,
         career_interest: minatAnggota1F,
         photos: fileIndividu1F
       },
       {
-        ID: id2F,
+        id: id2F,
         name: namaAnggota2F,
         email: emailAnggota2F,
         career_interest: minatAnggota2F,
@@ -97,6 +105,7 @@ function DataDiri(): JSX.Element {
       nomor: '',
       fileIndividu: fileIndividu2F
     })
+    setInitialLoading(false)
   }
 
   useEffect(() => {
@@ -222,14 +231,18 @@ function DataDiri(): JSX.Element {
     location.reload()
   }
 
-  return (
+  return initialLoading ? (
+    <div className="flex w-full h-[100vh] justify-center items-center">
+      <CircleLoading />
+    </div>
+  ) : (
     <Dashboard>
       {toastList}
       <h3 className="font-archivo text-5xl text-shadow text-white">
         Data Peserta
       </h3>
       <BuktiPembayaran
-        setFile={handleChangeBuktiPembayaran}
+        setFile={setBuktiPembayaran}
         fileIndividu={dataKetua.fileIndividu}
         index={4}
         opened={opened}

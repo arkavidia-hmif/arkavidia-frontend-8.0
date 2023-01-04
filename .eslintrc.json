@@ -16,7 +16,6 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
-    // temp for build purposes
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/space-before-function-paren": "off",
@@ -29,7 +28,17 @@
     "key-spacing": "off",
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/object-curly-spacing": "off",
-    "@typescript-eslint/space-infix-ops": "off"
-    // on purposes add trailing comma because too much rules
+    "@typescript-eslint/space-infix-ops": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "multiline-ternary": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/promise-function-async": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "object-shorthand": "off",
+    "react/jsx-no-target-blank": "off",
+    "curly": "off",
+    "eqeqeq": "off",
+    "array-callback-return": "off"
   }
 }

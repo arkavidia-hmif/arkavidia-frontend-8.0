@@ -15,14 +15,14 @@ export const register = async (payload: TeamRegisterReq) => {
       data: payload
     })
     const data = response.data as LoginRes
-    const token = data.Data
+    const token = data.data
     store.dispatch(setToken(token))
     console.log(response)
-    return data.Message
+    return data.message
   } catch (e) {
     const err = e as AxiosError
     const errorMsg = err.response as ErrorRes
-    return errorMsg?.data?.Message
+    return errorMsg?.data?.message
   }
 }
 
@@ -34,9 +34,9 @@ export const login = async (payload: TeamLoginReq) => {
       data: payload
     })
     const data = response.data as LoginRes
-    const token = data.Data
+    const token = data.data
     store.dispatch(setToken(token))
-    return data.Message
+    return data.message
   } catch (e) {
     return 'FAILED'
   }
@@ -63,8 +63,9 @@ export const changePass = async (payload: ChangePassReq) => {
       },
       data: payload
     })
-    return response.data.Message
+    return response.data.message
   } catch (e) {
+    console.log(e)
     return 'FAILED'
   }
 }

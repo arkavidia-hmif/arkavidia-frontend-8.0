@@ -42,11 +42,10 @@ const AdminLogin = () => {
       password: password
     } as TeamLoginReq
     const response = await loginAdmin(payload)
-    console.log(response)
     handleShowToast(response)
     setInterval(() => {
       setLoading(false)
-      if (response === 'SUCCESS') window.location.href = '/competition'
+      if (response === 'SUCCESS') window.location.href = '/cms/dashboard'
     }, 1000)
   }
 

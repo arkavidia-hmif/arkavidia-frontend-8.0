@@ -45,11 +45,11 @@ export interface MembershipTeam {
 }
 
 export interface MembershipParticipant {
-  ID: number
+  id: number
   name: string
   email: string
   career_interest: string[] | null
-  memberships: string | null
+  memberships?: string | null
   photos: ParticipantPhoto[] | null
 }
 

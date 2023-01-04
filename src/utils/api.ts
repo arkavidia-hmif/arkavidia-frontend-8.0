@@ -24,7 +24,13 @@ const API = {
     addPhoto: '/photo/'
   },
   admin: {
-    login: '/admin/sign-in'
+    login: '/admin/sign-in',
+    allTeam: (
+      page: number | string,
+      size: number | string,
+      competition: string
+    ) => `/team/all?page=${page}&size=${size}&team_category=${competition}`,
+    participants: (teamID: number | string) => `/participant/?team_id=${teamID}`
   }
 }
 
