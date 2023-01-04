@@ -18,6 +18,7 @@ export const getPhotoParticipant = async (participantId: number | string) => {
     })
     return response.data
   } catch (e) {
+    console.log(e)
     return 'FAILED'
   }
 }
