@@ -1,28 +1,38 @@
 const API = {
   auth: {
-    register: '/sign-up',
-    login: '/sign-in',
+    register: '/team/',
+    login: '/team/sign-in',
     logout: '/logout',
-    changePass: '/change-password'
+    changePass: '/team/password'
   },
   team: {
-    compRegis: (compe: string) =>
-      `/competition-registration?competition=${compe}`,
-    teamData: '/get-team',
+    compRegis: (compe: string) => `/team/registration?competition=${compe}`,
+    teamData: '/team/',
     memberData: '/get-member'
   },
   submission: {
-    add: '/add-submission'
+    add: '/submission/'
   },
   participant: {
-    memberData: '/get-member',
+    memberData: '/participant/',
     changeCareerInterest: (participantId: number | string) =>
-      `/change-career-interest?participant_id=${participantId}`
+      `/participant/career-interest?participant_id=${participantId}`
   },
   photo: {
     photo: (participantId: number | string) =>
-      `/get-photo?participant_id=${participantId}`,
-    addPhoto: '/add-photo'
+      `/photo/?participant_id=${participantId}`,
+    addPhoto: '/photo/'
+  },
+  admin: {
+    login: '/admin/sign-in',
+    allTeam: (
+      page: number | string,
+      size: number | string,
+      competition: string
+    ) => `/team/all?page=${page}&size=${size}&team_category=${competition}`,
+    participants: (teamID: number | string) =>
+      `/participant/?team_id=${teamID}`,
+    changePhotoStatus: (id: number | string) => `/photo/status?photo_id=${id}`
   }
 }
 

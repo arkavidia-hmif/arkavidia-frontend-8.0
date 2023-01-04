@@ -16,12 +16,17 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
   const [isLogin, setIsLogin] = useState<boolean>(
     store.getState()?.auth?.token !== null
   )
-
+  const [isAdmin, setIsAdmin] = useState<boolean | null>(
+    store.getState()?.auth?.admin === true
+  )
   const sessionChecker = async () => {
     if (isLogin) {
       const res = await getTeamData()
       if (typeof res !== 'string') return
-      if (res.includes('token is expired by')) {
+      if (
+        res.includes('ERROR: NO TOKEN PROVIDED') ||
+        res.includes('ERROR: TOKEN CANNOT BE PARSED')
+      ) {
         await logout().then(() => {
           window.location.href = '/'
         })
@@ -37,6 +42,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
         ])
         setIsLogin(false)
       }
+      setIsAdmin(store.getState()?.auth?.admin ?? false)
     }
   }
 
@@ -48,6 +54,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
         router.pathname.includes('profile')
       )
         router.replace('/')
+      if (router.pathname === '/cms/dashboard' && !isAdmin) router.replace('/')
     } else {
       if (router.pathname === '/sign-in' || router.pathname === '/sign-up')
         router.replace('/profile')
@@ -64,7 +71,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
   } else {
     return (
       <div className="flex-col w-full overflow-x-hidden">
-        <Navbar isLogged={isLogin} isAdmin={false} />
+        <Navbar isLogged={isLogin} isAdmin={isAdmin ?? false} />
         {toastList}
         <Component {...pageProps} />
         <Footer variant="redCompEvent" />

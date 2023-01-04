@@ -42,7 +42,7 @@ const datas = [
     title: 'IT Fest',
     value:
       'IT Festival merupakan pameran yang diisi oleh berbagai perusahaan dan startup di bidang teknologi informasi. Selain itu, startup/perusahaan juga dapat membuka kesempatan bagi para pengunjung untuk turut berpartisipasi dalam perusahaan sebagai seorang intern. Kegiatan ini diharapkan dapat mencerdaskan sekaligus merangkul pengunjung yang hadir. Dengan metode penyampaian yang menarik dan interaktif, diharapkan pengunjung dapat mengenal dan dapat ikut membantu mengedukasi masyarakat luas dengan pengetahuan mengenai startup dan teknologi yang bersangkutan.'
-  },
+  }
 ]
 
 export default function Timeline() {
@@ -73,23 +73,24 @@ export default function Timeline() {
                 slidesPerView={1}
                 autoplay={{
                   delay: 4000,
-                  disableOnInteraction: false,
+                  disableOnInteraction: false
                 }}
                 pagination={{
-                  clickable: true,
+                  clickable: true
                 }}
-                modules={[Autoplay, Pagination]}
-              >
+                modules={[Autoplay, Pagination]}>
                 {datas.map((data, idx) => {
                   return (
                     <SwiperSlide key={idx}>
-                      <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 p-4 border-2 border-black">
-                        <div className="text-4xl font-['Archivo']">{data.title}</div>
+                      <div className="flex flex-col gap-6 bg-cream300 w-full mt-2 mb-8 p-4 border-2 border-black">
+                        <div className="text-4xl font-['Archivo']">
+                          {data.title}
+                        </div>
                         <div className="text-base leading-4 font-helvetica text-justify">
                           {data.value}
                         </div>
                         <button
-                          className={`bg-[#1F307C] h-12 text-white font-bold btn py-2 px-4 rounded-lg w-full`}>
+                          className={`bg-[#1F307C] h-fitcontent text-white font-bold btn py-2 px-4 rounded-lg w-full`}>
                           Lihat Selengkapnya
                         </button>
                       </div>

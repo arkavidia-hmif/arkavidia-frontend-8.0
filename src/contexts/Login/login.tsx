@@ -7,7 +7,7 @@ import roket from '@src/assets/images/carousel-image/roket.svg'
 import buttonFilled from '@src/assets/button-radio/radio-filled.svg'
 import buttonUnfill from '@src/assets/button-radio/radio-unfill.svg'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Fox from '@src/assets/images/sign-in/fox.svg'
 import { TeamLoginReq } from '@src/types/team'
 import { login } from '@src/services/auth'
@@ -34,6 +34,7 @@ const Login = () => {
         }
         type={res == 'SUCCESS' ? 'success' : 'danger'}
         position={'top'}
+        key={Math.random()}
       />
     ])
   }
@@ -53,8 +54,6 @@ const Login = () => {
       if (response === 'SUCCESS') window.location.href = '/competition'
     }, 1000)
   }
-
-  useEffect(() => {}, [])
 
   const autoLoop = setTimeout(() => {
     if (pos == 2) {

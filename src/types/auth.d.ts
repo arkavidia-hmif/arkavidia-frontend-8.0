@@ -1,15 +1,15 @@
 export interface LoginRes {
   // Token
-  Data: string;
-  Message: string;
+  data: string
+  message: string
 }
 
 export interface ErrorRes {
-  data :{
-    Message?: string
+  data: {
+    message?: string
   }
 }
 
 export interface Auth {
-  token: string | null;
+  token: string | null
 }

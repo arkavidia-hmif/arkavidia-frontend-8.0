@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/promise-function-async */
-/* eslint-disable multiline-ternary */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import CustomButton from '@src/components/CustomButton/CustomButton'
@@ -22,7 +18,8 @@ import {
   TIMELINE_DATAVIDIA,
   TIMELINE_UXVIDIA
 } from '@src/const/CompetitionDetail'
-import Toast from '@src/components/Toast'
+import CircleLoading from '@src/components/Loading/Circle'
+// import Toast from '@src/components/Toast'
 import { useRouter } from 'next/router'
 // How to use: <DashboardInfo isEmpty ='true'/>
 // isEmpty can be set to 'true' or 'false'
@@ -59,7 +56,7 @@ interface TimelineDetail {
 const TextChipVerifikasi = (props: any) => {
   const { text, variant, textSize, unggah } = props
   const chipStyle =
-    'w-[160px] h-[24px] flex justify-center items-center xl:text-[9px] lg:text-[7px]'
+    'w-[160px] h-[24px] flex justify-center items-center xl:text-[9px] lg:text-[7px] cursor-default'
   let _variant = variant
   if (unggah) {
     if (unggah.status === 'verified') _variant = 'greenVerifikasi'
@@ -281,14 +278,15 @@ const DashboardInfo = (props: any) => {
   const [teamData, setTeamData] = useState<TeamData | null>()
   const [membersData, setMembersData] = useState<ParticipantData[] | null>()
   const [isEmpty, setIsEmpty] = useState(false)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const fetchTeamData = async () => {
     const [teamResponse, membersResponse] = await Promise.all([
       getTeamData(),
       getTeamMembersData()
     ])
-    const teamData = teamResponse.Data
-    const tempMembersData = membersResponse.Data
+    const teamData = teamResponse.data
+    const tempMembersData = membersResponse.data
     const membersData = await Promise.all(
       tempMembersData.map(async (m: ParticipantData) => {
         const photo = await getPhotoParticipant(m.ID)
@@ -298,6 +296,7 @@ const DashboardInfo = (props: any) => {
     setTeamData(teamData)
     setMembersData(membersData)
     setIsEmpty(!teamData.team_category)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -308,9 +307,13 @@ const DashboardInfo = (props: any) => {
     'font-archivo font-black text-[24px] mt-[24px] pl-[10px]'
   const textStyle = 'font-helvatica font-normal text-[12px] pl-[10px] mr-[3px]'
 
-  return (
+  return loading ? (
+    <div className="flex w-full h-[100vh] justify-center items-center">
+      <CircleLoading />
+    </div>
+  ) : (
     <div className="bg-[rgb(236,236,236)] relative">
-      <Toast
+      {/* <Toast
         timer={6000}
         label={
           <>
@@ -328,7 +331,7 @@ const DashboardInfo = (props: any) => {
         type={'danger'}
         position={'bottom'}
         key={'toast1'}
-      />
+      /> */}
       <div className="pt-[60px] lg:pt-[58px]">
         <Dashboard>
           <div className="w-full">
@@ -394,7 +397,7 @@ const DashboardInfo = (props: any) => {
                       </div>
                       <h6 className={`${subHeader1Style}`}>Dokumen Peserta</h6>
                       <p className={`${textStyle} mb-[10px]`}>
-                        Harap melengkapi dokumen sebelum 24/12/2022 23:59 WIB
+                        Harap melengkapi dokumen sebelum 31/12/2022 23:59 WIB
                       </p>
                       <div className="pt-[13px] pb-[3px] pl-[10px] bg-gray200">
                         <TextChipVerifikasi
@@ -450,7 +453,9 @@ const DashboardInfo = (props: any) => {
                       </p>
                       <div className="flex justify-center pb-6">
                         <CustomButton bgColor="primary" size="normal">
-                          <a href="https://bit.ly/TemporaryFormArkavidia">Register Now</a>
+                          <a href="https://bit.ly/TemporaryFormArkavidia">
+                            Register Now
+                          </a>
                         </CustomButton>
                       </div>
                     </div>
