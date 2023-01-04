@@ -84,7 +84,7 @@ function useDataDiri({
   }
 
   function setFile(file: File | Blob, type: FileType) {
-    if (!fileIndividu.find(e => e.type === type)) {
+    if (!fileIndividu?.find(e => e.type === type)) {
       appendFile({ file: file, type: type })
     } else {
       changeFile({ file: file, type: type })

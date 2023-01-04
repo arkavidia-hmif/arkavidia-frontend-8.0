@@ -20,7 +20,7 @@ const API = {
   },
   photo: {
     photo: (participantId: number | string) =>
-      `/photo?participant_id=${participantId}`,
+      `/photo/?participant_id=${participantId}`,
     addPhoto: '/photo/'
   },
   admin: {
@@ -30,7 +30,9 @@ const API = {
       size: number | string,
       competition: string
     ) => `/team/all?page=${page}&size=${size}&team_category=${competition}`,
-    participants: (teamID: number | string) => `/participant/?team_id=${teamID}`
+    participants: (teamID: number | string) =>
+      `/participant/?team_id=${teamID}`,
+    changePhotoStatus: (id: number | string) => `/photo/status?photo_id=${id}`
   }
 }
 

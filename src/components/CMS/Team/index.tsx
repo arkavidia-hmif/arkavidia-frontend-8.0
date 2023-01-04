@@ -15,6 +15,17 @@ export interface TeamCMSProps {
   status: TeamStatus
 }
 
+export interface PhotosData {
+  id: number
+  file_name: string
+  file_extension: string
+  type: string
+  status: string
+}
+
+const BASE_STORAGE_URL =
+  'https://storage.googleapis.com/arkavidia-8/competition/photo/'
+
 const TeamCMS = ({ team_name, id, status }: TeamCMSProps): JSX.Element => {
   const [open, setOpen] = useState(false)
   const [participantList, setParticipantList] = useState<
@@ -35,17 +46,30 @@ const TeamCMS = ({ team_name, id, status }: TeamCMSProps): JSX.Element => {
   }
 
   const fetchParticipants = async () => {
-    const response = await getPhotoParticipant(id)
+    const response = await getParticipantsTeam(id)
     if (response.message === 'SUCCESS') {
-      setParticipantList(response.data)
+      const tempParticipantsData = response.data
+      const participantData = await Promise.all(
+        tempParticipantsData?.map(async (d: ParticipantCMSProps) => {
+          const photo = await fetchParticipantPhotos(d.id)
+          return { ...d, photos: photo }
+        })
+      )
+      setParticipantList(participantData)
       setLoading(false)
     }
   }
 
   const fetchParticipantPhotos = async (participant_id: string | number) => {
-    const response = await getParticipantsTeam(participant_id)
-    if (response.message === 'SUCCESS') {
-      return response.data
+    const response = await getPhotoParticipant(participant_id)
+    if (response.message === 'SUCCESS' && response.data) {
+      const data = response.data.map((d: PhotosData) => {
+        return {
+          ...d,
+          url: `${BASE_STORAGE_URL}${d.file_name}${d.file_extension}`
+        }
+      })
+      return data
     }
   }
 
@@ -97,8 +121,16 @@ const TeamCMS = ({ team_name, id, status }: TeamCMSProps): JSX.Element => {
       ) : (
         <div className="flex flex-col items-start justify-start gap-12 w-full rounded-3xl border-2 border-black py-11 px-8">
           <section className="flex items-center justify-around w-full gap-3">
-            {participantList?.map(({ email, name }) => {
-              return <ParticipantCMS key={name} email={email} name={name} />
+            {participantList?.map(({ id, email, name, photos }) => {
+              return (
+                <ParticipantCMS
+                  key={name}
+                  id={id}
+                  email={email}
+                  name={name}
+                  photos={photos}
+                />
+              )
             })}
           </section>
           {/* <section className="flex items-center justify-start gap-4">

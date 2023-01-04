@@ -35,9 +35,10 @@ function DataDiri(): JSX.Element {
     const teamMemberData = await Promise.all(
       tempTeamMemberData?.map(async (m: MembershipParticipant) => {
         const photo = await getPhotoParticipant(m.id)
+        console.log(photo)
         return {
           ...m,
-          photos: photo.data ?? null,
+          photos: photo.data ?? [],
           career_interest: m.career_interest ?? null
         }
       })
@@ -50,7 +51,7 @@ function DataDiri(): JSX.Element {
       name: '',
       email: '',
       career_interest: null,
-      photos: null
+      photos: null ?? []
     }
 
     if (teamMemberData.length === 2) teamMemberData.push(dummy)
@@ -78,8 +79,6 @@ function DataDiri(): JSX.Element {
         photos: fileIndividu2F
       }
     ] = teamMemberData
-
-    console.log(teamMemberData)
 
     setAllDataKetua({
       id: idKetuaF,
@@ -214,6 +213,7 @@ function DataDiri(): JSX.Element {
       } as AddPhotoReq
       if (f.file) {
         const resAddPhoto = await addPhoto(payloadPhoto)
+        // console.log(resAddPhoto)
         if (errorHandling(resAddPhoto)) completed = false
       }
     })

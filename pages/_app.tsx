@@ -23,7 +23,10 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element | null => {
     if (isLogin) {
       const res = await getTeamData()
       if (typeof res !== 'string') return
-      if (res.includes('token is expired by')) {
+      if (
+        res.includes('ERROR: NO TOKEN PROVIDED') ||
+        res.includes('ERROR: TOKEN CANNOT BE PARSED')
+      ) {
         await logout().then(() => {
           window.location.href = '/'
         })

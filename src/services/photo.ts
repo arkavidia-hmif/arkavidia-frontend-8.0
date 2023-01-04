@@ -36,7 +36,7 @@ export const addPhoto = async (payload: AddPhotoReq) => {
       headers: {
         Authorization: `Bearer ${auth.token}`
       },
-      data: payloadData
+      data: payload
     })
     return response.data
   } catch (e) {

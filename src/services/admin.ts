@@ -56,3 +56,26 @@ export const getParticipantsTeam = async (teamID: number | string) => {
     return 'FAILED'
   }
 }
+
+export const changePhotoStatus = async (
+  photo_id: string | number,
+  status: string
+) => {
+  const { auth } = store.getState()
+  try {
+    const response = await axios({
+      method: 'PUT',
+      url: URL + API.admin.changePhotoStatus(photo_id),
+      headers: {
+        Authorization: `Bearer ${auth.token}`
+      },
+      data: {
+        status: status
+      }
+    })
+    return response.data
+  } catch (e) {
+    console.log(e)
+    return 'FAILED'
+  }
+}
