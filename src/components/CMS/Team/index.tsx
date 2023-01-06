@@ -62,7 +62,7 @@ const TeamCMS = ({ team_name, id, status }: TeamCMSProps): JSX.Element => {
 
   const fetchParticipantPhotos = async (participant_id: string | number) => {
     const response = await getPhotoParticipant(participant_id)
-    if (response.message === 'SUCCESS' && response.data) {
+    if (response?.message === 'SUCCESS' && response.data) {
       const data = response.data.map((d: PhotosData) => {
         return {
           ...d,
