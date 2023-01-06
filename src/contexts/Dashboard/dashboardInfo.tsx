@@ -363,7 +363,10 @@ const DashboardInfo = (props: any) => {
                             bgColor="primary"
                             size="normal"
                             onClick={() =>
-                              router.push('/dashboard/submission')
+                              teamData?.team_category === 'uxvidia' ||
+                              teamData?.team_name === 'datavidia'
+                                ? router.push('/dashboard/submission')
+                                : null
                             }>
                             Mulai Perlombaan
                           </CustomButton>
