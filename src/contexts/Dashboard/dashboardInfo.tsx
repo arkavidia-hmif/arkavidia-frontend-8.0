@@ -364,7 +364,7 @@ const DashboardInfo = (props: any) => {
                             size="normal"
                             onClick={() =>
                               teamData?.team_category === 'uxvidia' ||
-                              teamData?.team_name === 'datavidia'
+                              teamData?.team_category === 'datavidia'
                                 ? router.push('/dashboard/submission')
                                 : null
                             }>
