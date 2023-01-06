@@ -213,8 +213,10 @@ function DataDiri(): JSX.Element {
       } as AddPhotoReq
       if (f.file) {
         const resAddPhoto = await addPhoto(payloadPhoto)
+        // TEMPORARY FOR HOT FIX
+        if (resAddPhoto) completed = true
         // console.log(resAddPhoto)
-        if (errorHandling(resAddPhoto)) completed = false
+        // if (errorHandling(resAddPhoto)) completed = false
       }
     })
     if (completed) {
