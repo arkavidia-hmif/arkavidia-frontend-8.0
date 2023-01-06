@@ -57,14 +57,14 @@ const TextChipVerifikasi = (props: any) => {
   const { text, variant, textSize, unggah } = props
   const chipStyle =
     'w-[160px] h-[24px] flex justify-center items-center xl:text-[9px] lg:text-[7px] cursor-default'
-  let _variant = variant
-  if (unggah) {
-    if (unggah.status === 'verified') _variant = 'greenVerifikasi'
-    else if (unggah.status === 'declined') _variant = 'redVerifikasi'
-    else _variant = 'orangeVerifikasi'
-  } else {
-    _variant = 'redVerifikasi'
-  }
+  const _variant = 'greenVerifikasi'
+  // if (unggah) {
+  //   if (unggah.status === 'verified') _variant = 'greenVerifikasi'
+  //   else if (unggah.status === 'declined') _variant = 'redVerifikasi'
+  //   else _variant = 'orangeVerifikasi'
+  // } else {
+  //   _variant = 'redVerifikasi'
+  // }
   return (
     <div className="grid grid-cols-2 mb-[10px]">
       <div
@@ -76,7 +76,7 @@ const TextChipVerifikasi = (props: any) => {
           variant={_variant}
           shadow={false}
           className={`${chipStyle}`}>
-          {`${
+          {/* {`${
             !unggah
               ? 'Belum diunggah'
               : unggah.status === 'verified'
@@ -84,7 +84,8 @@ const TextChipVerifikasi = (props: any) => {
               : unggah.status === 'waiting-for-verification'
               ? 'Menunggu Verifikasi'
               : 'Verifikasi Gagal'
-          }`}
+          }`} */}
+          Verifikasi Berhasil
         </CustomChip>
       </div>
     </div>

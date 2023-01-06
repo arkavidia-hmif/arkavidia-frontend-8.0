@@ -174,7 +174,7 @@ export default function DataDiriIndividu({
                   type={content.type}
                   accept={content.accept}
                   maxSize={content.maxSize}
-                  status={findPhotoStatus(content.type)}
+                  status={'verified'}
                   setFileIndividu={(file: Blob, type: FileType) =>
                     setFile(file, type)
                   }

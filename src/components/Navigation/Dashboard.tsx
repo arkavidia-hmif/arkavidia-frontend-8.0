@@ -15,7 +15,8 @@ import { TeamData } from '@src/types/team'
 const routes = [
   { name: 'Informasi', path: '/dashboard/information' },
   { name: 'Data Peserta', path: '/dashboard/participant-data' },
-  { name: 'Submission', path: '/dashboard/submission' }
+  { name: 'Submission', path: 'https://bit.ly/SubmisiPenyisihanUXvidia2023' },
+  { name: 'Submission', path: 'https://bit.ly/SubmisiPenyisihanDatavidia2023' }
 ]
 
 const getLogo = (type: string) => {
@@ -43,6 +44,7 @@ function SideNav({ compe }: { compe: string }) {
       <div className="flex lg:flex-col flex-row lg:gap-8 sm:gap-5 justify-center items-center">
         {routes.map((item, idx) => {
           if (idx === 2 && compe !== 'uxvidia') return null
+          if (idx === 3 && compe !== 'datavidia') return null
           else
             return (
               <Link href={item.path} key={idx}>
