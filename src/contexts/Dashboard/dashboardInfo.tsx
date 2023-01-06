@@ -291,7 +291,7 @@ const DashboardInfo = (props: any) => {
     const membersData = await Promise.all(
       tempMembersData.map(async (m: ParticipantData) => {
         const photo = await getPhotoParticipant(m.ID)
-        return { ...m, photos: photo.Data }
+        return { ...m, photos: photo?.data }
       })
     )
     setTeamData(teamData)

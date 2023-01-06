@@ -6,6 +6,7 @@ import { AddPhotoReq } from '@src/types/photo'
 const URL = process.env.NEXT_PUBLIC_API_URL as string
 
 export const getPhotoParticipant = async (participantId: number | string) => {
+  if (!participantId) return null
   const { auth } = store.getState()
 
   try {

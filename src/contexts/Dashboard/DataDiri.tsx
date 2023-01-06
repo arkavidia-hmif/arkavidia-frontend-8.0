@@ -35,10 +35,9 @@ function DataDiri(): JSX.Element {
     const teamMemberData = await Promise.all(
       tempTeamMemberData?.map(async (m: MembershipParticipant) => {
         const photo = await getPhotoParticipant(m.id)
-        console.log(photo)
         return {
           ...m,
-          photos: photo.data ?? [],
+          photos: photo?.data ?? [],
           career_interest: m.career_interest ?? null
         }
       })
