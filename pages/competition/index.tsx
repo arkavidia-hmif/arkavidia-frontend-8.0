@@ -3,6 +3,7 @@ import Jumbotron from '@src/contexts/Competition/Jumbotron'
 import Prize from '@src/contexts/Competition/Prize'
 import Category from '@src/contexts/Competition/Category'
 import EventComingSoon from '@src/contexts/EventLanding/EventComingSoon'
+import PreEvent from '@src/contexts/EventLanding/PreEvent'
 
 const Competition = (): JSX.Element => {
   return (
