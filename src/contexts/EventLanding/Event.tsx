@@ -1,19 +1,16 @@
 import Image from 'next/image'
-import background from '@src/assets/images/event-landing/blue-background.svg'
+import background from '@src/assets/images/event-landing/background-yellow.svg'
 import board from '@src/assets/images/event-landing/board.svg'
-import star from '@src/assets/images/event-landing/star.svg'
 
-const PreEvent = () => {
+const Event = () => {
   return (
     <div className="relative flex flex-col items-center w-full h-full ">
-      {/* PRE-EVENT */}
-      <div className="w-[788px] h-[104px] bg-black flex justify-center items-center">
+      <div className="w-[841px] h-[104px] bg-black flex justify-center items-center">
         <h1 className="font-archivo font-black text-white text-[72px]">
-          PRE-EVENT
+          MAIN EVENT
         </h1>
       </div>
 
-      {/* CONTAINER */}
       <div className="relative mt-16 flex flex-col items-center">
         {/* BACKGROUND */}
         <div className=" min-w-[1440px]">
@@ -62,16 +59,8 @@ const PreEvent = () => {
           </div>
         </div>
       </div>
-
-      {/* STARS */}
-      <div className="absolute top-[350px] right-20 w-[60px]">
-        <Image src={star}></Image>
-      </div>
-      <div className="absolute top-28 left-20">
-        <Image src={star}></Image>
-      </div>
     </div>
   )
 }
 
-export default PreEvent
+export default Event

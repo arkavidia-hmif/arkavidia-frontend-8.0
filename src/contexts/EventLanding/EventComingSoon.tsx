@@ -11,7 +11,7 @@ const EventComingSoon = () => {
         </h1>
       </div>
 
-      <div className="w-full flex justify-center items-center mt-[100px] pb-[150px]">
+      <div className="w-full flex justify-center items-center mt-[100px] pb-[180px]">
         <Image src={comingSoon} />
         <div className="absolute top-28 right-0">
           <Image src={boy} />
