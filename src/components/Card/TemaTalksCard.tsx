@@ -6,7 +6,7 @@ type Speaker = {
   picture?: StaticImageData
 }
 
-interface CardProps {
+export interface CardProps {
   isCompleted: boolean
   title: string
   date: Date
@@ -14,21 +14,6 @@ interface CardProps {
   documentationLink: string
   signupLink: string
 }
-
-const month: string[] = [
-  'Januari',
-  'Februari',
-  'Maret',
-  'April',
-  'Mei',
-  'Juni',
-  'Juli',
-  'Agustus',
-  'September',
-  'Oktober',
-  'November',
-  'Desember'
-]
 
 const dateOptions: Intl.DateTimeFormatOptions = {
   month: 'long',
@@ -38,7 +23,7 @@ const dateOptions: Intl.DateTimeFormatOptions = {
   minute: '2-digit'
 }
 
-export default function TemaTalks({
+export default function TemaTalksCard({
   isCompleted,
   title,
   date,
@@ -49,7 +34,7 @@ export default function TemaTalks({
   return (
     <div
       className={clsx(
-        'w-full rounded-3xl p-4 flex flex-col items-center lg:p-9 lg:pb-16 lg:relative lg:items-start',
+        'w-full rounded-3xl p-4 flex flex-col items-center lg:p-9 lg:pb-20 lg:relative lg:items-start',
         isCompleted ? 'bg-gray200 text-gray500' : 'bg-white text-black'
       )}>
       <h3 className="w-full font-archivo text-2xl font-black capitalize md:text-3xl lg:text-5xl">
@@ -62,7 +47,7 @@ export default function TemaTalks({
         {speakers.map(({ name, picture }, idx) => (
           <div key={idx}>
             {picture ? <Image src={picture} width={200} height={120} /> : null}
-            <p className="font-helvatica text-xl mt-2 text-center lg:text-left">
+            <p className="font-helvatica text-xl text-center mt-1 lg:mt-2 lg:text-left">
               {name}
             </p>
           </div>
@@ -77,7 +62,7 @@ export default function TemaTalks({
       ) : (
         <a
           href={signupLink}
-          className="bg-blue300 hover:bg-blue200 rounded-xl w-full text-white py-3.5 px-4 font-helvatica font-bold text-center mt-8 lg:absolute lg:right-9 lg:bottom-9 lg:mt-0 lg:w-60">
+          className="bg-blue300 hover:bg-blue200 rounded-xl w-full text-white py-3.5 px-4 font-helvatica font-bold text-center mt-8 lg:absolute lg:right-9 lg:bottom-5 lg:mt-0 lg:w-60 xl:bottom-9">
           Daftar
         </a>
       )}
