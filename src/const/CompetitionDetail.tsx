@@ -101,7 +101,7 @@ export const TIMELINE_CP = [
   {
     title: 'Penyisihan',
     startDate: new Date('2023/01/21'),
-    endDate: new Date('2023/01/22')
+    endDate: new Date('2023/01/21')
   },
   {
     title: 'Pengumuman Finalis',
