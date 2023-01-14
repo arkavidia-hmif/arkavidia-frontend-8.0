@@ -57,6 +57,8 @@ const Event = () => {
               </div>
             </div>
           </div>
+
+          {/* SLIDER */}
         </div>
       </div>
     </div>

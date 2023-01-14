@@ -60,6 +60,8 @@ const PreEvent = () => {
               </div>
             </div>
           </div>
+
+          {/* SLIDER */}
         </div>
       </div>
 
