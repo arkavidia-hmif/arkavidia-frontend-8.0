@@ -1,9 +1,14 @@
 import TemaTalksCard, { CardProps } from '@src/components/Card/TemaTalksCard'
 
+/** Tema talks section properties */
 interface SectionProps {
   talks: CardProps[]
 }
 
+/**
+ * Tema talks section
+ * @param talks - List of talks
+ */
 export default function TemaTalks({ talks }: SectionProps): JSX.Element {
   return (
     <section className="bg-[#FEB20E]">

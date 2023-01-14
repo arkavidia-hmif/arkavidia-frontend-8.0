@@ -1,11 +1,22 @@
 import Image, { StaticImageData } from 'next/image'
 import clsx from 'clsx'
 
+/** Date format option */
+const dateOptions: Intl.DateTimeFormatOptions = {
+  month: 'long',
+  year: 'numeric',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+}
+
+/** Tema talks speaker type */
 type Speaker = {
   name: string
   picture?: StaticImageData
 }
 
+/** Tema talks card properties */
 export interface CardProps {
   isCompleted: boolean
   title: string
@@ -15,14 +26,15 @@ export interface CardProps {
   signupLink: string
 }
 
-const dateOptions: Intl.DateTimeFormatOptions = {
-  month: 'long',
-  year: 'numeric',
-  day: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit'
-}
-
+/**
+ * Tema talks card component
+ * @param isCompleted - Tema talks status
+ * @param title - Tema talks title
+ * @param date - Tema talks date
+ * @param speakers - Tema talks speakers
+ * @param documentationLink - Documentation link
+ * @param signupLink - Tema talks registration link
+ */
 export default function TemaTalksCard({
   isCompleted,
   title,
@@ -37,12 +49,15 @@ export default function TemaTalksCard({
         'w-full rounded-3xl p-4 flex flex-col items-center lg:p-9 lg:pb-20 lg:relative lg:items-start',
         isCompleted ? 'bg-gray200 text-gray500' : 'bg-white text-black'
       )}>
+      {/* Tema talks header */}
       <h3 className="w-full font-archivo text-2xl font-black capitalize md:text-3xl lg:text-5xl">
         {title}
       </h3>
       <p className="w-full font-varela text-xl lg:text-2xl">
         {date.toLocaleDateString('id-ID', dateOptions)}
       </p>
+
+      {/* Tema talks speakers */}
       <div className="flex flex-col gap-7 mt-8 lg:mt-7 lg:flex-row">
         {speakers.map(({ name, picture }, idx) => (
           <div key={idx}>
@@ -53,6 +68,8 @@ export default function TemaTalksCard({
           </div>
         ))}
       </div>
+
+      {/* Registration/documentation button */}
       {isCompleted ? (
         <a
           href={documentationLink}
