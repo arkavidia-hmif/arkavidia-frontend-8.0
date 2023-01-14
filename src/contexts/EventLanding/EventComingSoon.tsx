@@ -12,10 +12,10 @@ const EventComingSoon = () => {
       </div>
 
       <div className="w-full flex justify-center items-center mt-[14vh] pb-[24vh]">
-        <div className="w-[80%] lg:w-auto">
+        <div className="w-[80vw] lg:w-auto">
           <Image src={comingSoon} />
         </div>
-        <div className="w-[30vw] absolute top-[18vh] right-0">
+        <div className="w-[30vw] absolute  right-0">
           <Image src={boy} />
         </div>
       </div>
