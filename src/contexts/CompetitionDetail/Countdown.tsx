@@ -10,7 +10,7 @@ const CountdownComp = (): JSX.Element => {
         REGISTRATION
       </div>
       <div className="flex bg-brownblack justify-center w-full pb-[30px]">
-        <div className="w-3/5">
+        <div className="w-full lg:w-3/5">
           <Countdown
             date="2023/01/01"
             title="Sabtu, 31 Desember 2022 - 23:59 WIB"
