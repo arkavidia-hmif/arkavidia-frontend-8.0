@@ -5,6 +5,7 @@
 /* Write custom base/ component/ utility styles with `@layer` directive */
 
 @layer base {
+
   [type='text'],
   [type='email'],
   [type='url'],
@@ -39,7 +40,7 @@
 
 @layer components {
   .prose :where(code):not(:where([class~='not-prose'] *)) {
-    @apply bg-gray-200 dark:bg-gray-800 dark:text-white font-normal px-1 py-0.5 rounded-md text-sm;
+    @apply bg-gray-200 dark: bg-gray-800 dark:text-white font-normal px-1 py-0.5 rounded-md text-sm;
   }
 
   .prose :where(code):not(:where([class~='not-prose'] *))::before {
@@ -80,7 +81,25 @@
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
       3px 3px 0 #000, 8px 7px 0px black;
   }
+  .left-text-shadow-3{
+    text-shadow:-3px 3px 0 #000;
+  }
+  .left-text-shadow-4{
+    text-shadow:-4px 4px 0 #000;
+  }
+  .left-text-shadow-5{
+    text-shadow:-5px 5px 0 #000;
+  }
   .text-stroke-black {
     -webkit-text-stroke: 1px black;
+  }
+  .blue200-text-shadow-5 {
+    text-shadow: -5px 5px 0 #6979BE;
+  }
+  .blue200-text-shadow-2 {
+    text-shadow: -2px 2px 0 #6979BE;
+  }
+  .blue200-text-shadow-3 {
+    text-shadow: -3px 3px 0 #6979BE;
   }
 }
