@@ -33,23 +33,30 @@ export default function Countdown({ targetDate }: { targetDate: Date }) {
   }, [])
 
   return (
-    <div className="flex flex-row items-center justify-center">
-      <TimeCountdown timeFrame="Days" remaining={currentDate.day} />
-      <p className="text-6xl font-black">:</p>
-      <TimeCountdown timeFrame="Hours" remaining={currentDate.hour} />
-      <p className="text-6xl font-black">:</p>
-      <TimeCountdown timeFrame="Minutes" remaining={currentDate.minute} />
+    <div className="flex flex-col items-stretch justify-start">
+      <div className="flex flex-row items-center justify-center">
+        <TimeCountdown remaining={currentDate.day} />
+        <p className="text-2xl lg:text-6xl font-black">:</p>
+        <TimeCountdown remaining={currentDate.hour} />
+        <p className="text-2xl lg:text-6xl font-black">:</p>
+        <TimeCountdown remaining={currentDate.minute} />
+      </div>
+      <div className="flex flex-row w-full">
+        {['DAYS', 'HOURS', 'MINUTES'].map(timeframe => {
+          return (
+            <p
+              className="w-full text-base font-bold text-white py-2 lg:py-3 self-stretch text-center"
+              key={timeframe}>
+              {timeframe}
+            </p>
+          )
+        })}
+      </div>
     </div>
   )
 }
 
-function TimeCountdown({
-  remaining,
-  timeFrame
-}: {
-  remaining: number
-  timeFrame: string
-}) {
+function TimeCountdown({ remaining }: { remaining: number }) {
   const stringRemaining = remaining.toString().padStart(2, '0')
   return (
     <section className="flex flex-col items-center px-3 lg:px-8">
@@ -57,9 +64,6 @@ function TimeCountdown({
         <NumberBar value={stringRemaining[0]} />
         <NumberBar value={stringRemaining[1]} />
       </div>
-      <h4 className="text-base font-bold text-white py-2 lg:py-3 w-full self-stretch text-center">
-        {timeFrame.toUpperCase()}
-      </h4>
     </section>
   )
 }
