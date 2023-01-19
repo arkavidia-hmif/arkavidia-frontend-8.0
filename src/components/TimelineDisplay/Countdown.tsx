@@ -52,12 +52,12 @@ function TimeCountdown({
 }) {
   const stringRemaining = remaining.toString().padStart(2, '0')
   return (
-    <section className="flex flex-col items-center px-8">
-      <div className="flex gap-4 items-center justify-start">
+    <section className="flex flex-col items-center px-3 lg:px-8">
+      <div className="flex gap-[0.375rem] lg:gap-4 items-center justify-start">
         <NumberBar value={stringRemaining[0]} />
         <NumberBar value={stringRemaining[1]} />
       </div>
-      <h4 className="text-base font-bold text-white py-3 w-full self-stretch text-center">
+      <h4 className="text-base font-bold text-white py-2 lg:py-3 w-full self-stretch text-center">
         {timeFrame.toUpperCase()}
       </h4>
     </section>
@@ -66,7 +66,7 @@ function TimeCountdown({
 
 function NumberBar({ value }: { value: string }) {
   return (
-    <div className="pt-[2.125rem] pb-[1.9375rem] px-5 font-archivo font-black text-6xl shadow-lg shadow-black border-[3px] border-black rounded-[20px]">
+    <div className="pt-[0.75rem] pb-[0.6875rem] lg:pt-[2.125rem] lg:pb-[1.9375rem] px-2 lg:px-5 font-archivo font-black text-xl lg:text-6xl shadow-lg shadow-black border-[3px] border-black rounded-lg lg:rounded-[20px]">
       <p>{value}</p>
     </div>
   )
