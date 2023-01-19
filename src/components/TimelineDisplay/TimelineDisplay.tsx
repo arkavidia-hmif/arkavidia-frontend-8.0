@@ -1,13 +1,23 @@
 import Countdown from './Countdown'
+import Timeline from './Timeline'
+
+export interface TimelineEvent {
+  name: string
+  year: number
+  month: number
+  date: number
+}
 
 export default function TimelineDisplay({
   targetYear,
   targetDate,
-  targetMonth
+  targetMonth,
+  events
 }: {
   targetYear: number
   targetMonth: number
   targetDate: number
+  events: TimelineEvent[]
 }) {
   return (
     <section className="flex flex-col items-center justify-start w-full gap-8">
@@ -17,6 +27,7 @@ export default function TimelineDisplay({
           REGISTRATION
         </h3>
         <Countdown targetDate={new Date(targetYear, targetMonth, targetDate)} />
+        <Timeline events={events} />
       </section>
     </section>
   )

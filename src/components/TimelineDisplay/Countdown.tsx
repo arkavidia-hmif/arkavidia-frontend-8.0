@@ -70,7 +70,7 @@ function TimeCountdown({ remaining }: { remaining: number }) {
 
 function NumberBar({ value }: { value: string }) {
   return (
-    <div className="pt-[0.75rem] pb-[0.6875rem] lg:pt-[2.125rem] lg:pb-[1.9375rem] px-2 lg:px-5 font-archivo font-black text-xl lg:text-6xl shadow-lg shadow-black border-[3px] border-black rounded-lg lg:rounded-[20px]">
+    <div className="bg-white pt-[0.75rem] pb-[0.6875rem] lg:pt-[2.125rem] lg:pb-[1.9375rem] px-2 lg:px-5 font-archivo font-black text-xl lg:text-6xl shadow-lg shadow-black border-[3px] border-black rounded-lg lg:rounded-[20px]">
       <p>{value}</p>
     </div>
   )
