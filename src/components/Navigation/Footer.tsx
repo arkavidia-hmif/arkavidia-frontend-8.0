@@ -185,7 +185,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
 
   return (
     <div
-      className={variantStyle[variant]}
+      className={`z-[1] ${variantStyle[variant]}`}
       style={{
         backgroundImage:
           'linear-gradient(90deg, black 5%, transparent 5%), linear-gradient(black 5%, transparent 5%)',
