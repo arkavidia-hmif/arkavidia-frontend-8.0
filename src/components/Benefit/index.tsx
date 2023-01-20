@@ -1,6 +1,6 @@
 export default function Benefit({ benefits }: { benefits: string[] }) {
   return (
-    <section className="flex flex-col justify-start items-center gap-7 w-full">
+    <section className="flex flex-col justify-start items-center gap-7 w-full z-10">
       <h2 className="font-archivo font-bold text-white text-2xl lg:text-6xl">
         BENEFIT
       </h2>

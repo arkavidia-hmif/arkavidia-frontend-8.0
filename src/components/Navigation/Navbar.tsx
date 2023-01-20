@@ -70,7 +70,7 @@ function HoverDropdown({
   contents: Array<{ text: string; href: string }>
 }) {
   return (
-    <div className="hidden peer-hover:absolute peer-hover:flex hover:absolute hover:flex flex-col w-64 py-3 top-20 left-1/2 transform -translate-x-1/2 border-solid border-2 border-black rounded-2xl bg-white">
+    <div className="hidden peer-hover:absolute peer-hover:flex hover:absolute hover:flex flex-col w-64 py-3 top-20 left-1/2 transform -translate-x-1/2 border-solid border-2 border-black rounded-2xl bg-white z-50">
       {contents.map((content, idx) => (
         <a
           key={idx}

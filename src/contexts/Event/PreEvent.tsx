@@ -5,7 +5,7 @@ import star from '@src/assets/images/event-landing/star.svg'
 
 const PreEvent = () => {
   return (
-    <div className="relative flex flex-col items-center w-full h-full ">
+    <div className="relative flex flex-col items-center w-full h-full mt-[5rem]">
       {/* PRE-EVENT */}
       <div className="w-[75%] pt-2 pb-2 lg:pb-0 lg:pt-0 lg:w-[788px] lg:h-[104px] bg-black flex justify-center items-center">
         <h1 className="font-archivo font-black text-white text-[2.5em] lg:text-[72px]">

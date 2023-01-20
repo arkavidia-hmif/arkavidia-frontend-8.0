@@ -33,9 +33,8 @@ const Logo: React.FC<logoProps> = props => {
   const { children, logoVariants, ...rest } = props
   return (
     <div
-      className={`flex bg-cream300 text-center items-center justify-center border border-black `}
-    >
-      <div className='p-3'>
+      className={`flex bg-cream300 text-center items-center justify-center border border-black `}>
+      <div className="p-3">
         <Image src={ArkavLogo} />
       </div>
     </div>
@@ -112,7 +111,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
     color = 'bg-green300'
   }
   const Header = (
-    <div className="flex gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[10px] my-[3%] lg:my-[6%] lg:mb-[2%]">
+    <div className="flex gap-x-[3px] lg:gap-x-0 mx-[4.5%] mb-[10px] my-[3%] lg:my-[6%] lg:mb-[2%] relative z-50">
       <div className="flex flex-wrap row-span-2 col-span-2 border-[2px] border-black min-w-[125px] max-w-[125px]">
         <Logo logoVariants="square"></Logo>
       </div>
@@ -121,8 +120,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
           Arkavidia 8.0
         </div>
         <div
-          className={`flex font-helvatica text-white ${color} font-bold text-[12px] lg:text-[16px] text-center px-[5%] border-[2px] border-black justify-center items-center lg:w-[85%] lg:min-w-[272px] lg:max-w-[465px]`}
-        >
+          className={`flex font-helvatica text-white ${color} font-bold text-[12px] lg:text-[16px] text-center px-[5%] border-[2px] border-black justify-center items-center lg:w-[85%] lg:min-w-[272px] lg:max-w-[465px]`}>
           ADAPTIVE COLLABORATION TO ENCOUNTER DIGITAL DISRUPTION
         </div>
       </div>
@@ -130,7 +128,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
   )
 
   const Links = (
-    <div className="bg-white grid grid-cols-2 mx-[4.42%] border border-black lg:mr-0">
+    <div className="bg-white grid grid-cols-2 mx-[4.42%] border border-black lg:mr-0 relative z-50">
       <div className="mx-[10%] grid-rows-5">
         <div className="font-helvatica text-700 text-[16px] font-bold text-white bg-black text-center my-[4%]">
           Competition
@@ -185,7 +183,7 @@ const CompEventFooter: React.FC<FooterProps> = props => {
 
   return (
     <div
-      className={`z-[1] ${variantStyle[variant]}`}
+      className={`relative z-20 ${variantStyle[variant]}`}
       style={{
         backgroundImage:
           'linear-gradient(90deg, black 5%, transparent 5%), linear-gradient(black 5%, transparent 5%)',
@@ -194,11 +192,13 @@ const CompEventFooter: React.FC<FooterProps> = props => {
       <div className="bg-black">.</div>
       <div className="lg:grid lg:grid-cols-2">
         <div className="">{Header}</div>
-        <div className="lg:row-span-2 mt-[4px] lg:mt-[4.8%] mb-[4px] lg:mb-[3.5%]">{Links}</div>
+        <div className="lg:row-span-2 mt-[4px] lg:mt-[4.8%] mb-[4px] lg:mb-[3.5%]">
+          {Links}
+        </div>
         <div className="lg:grid lg:grid-cols-2">
           <div className="mx-[4.42%] my-[8px] lg:my-[18px] lg:max-w-[328px]  y-[47px] lg:mt-[1%] lg:mb-[4.32%] lg:ml-[9%] lg:mr-0 ">
             <div className="flex shrink min-w-[230px] py-[13px] pl-[17px] shadow-[4.47px_4.82px_0] shadow-blue300 lg:py-[3.6%] bg-white border border-black">
-              <div className=''>
+              <div className="">
                 <ContactPhoneIcon className="inline w-[24px] h-[18px] mr-[10px]" />
               </div>
               <div className="flex font-helvatica text-700 pt-[2px]">
@@ -252,7 +252,7 @@ const GeneralFooter: React.FC<FooterProps> = props => {
   return (
     <>
       <div
-        className={`h-[455px] grid grid-cols-[30%_70%] pb-[5.1%] ${variantStyle[variant]}`}>
+        className={`h-[455px] relative z-50 grid grid-cols-[30%_70%] pb-[5.1%] ${variantStyle[variant]}`}>
         <div>
           <Logo logoVariants="circle" />
           <About />
