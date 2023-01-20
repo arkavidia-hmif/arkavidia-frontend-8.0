@@ -37,15 +37,14 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
   ]
 
   return (
-    <div className="flex flex-col items-center w-[18vw] shrink-0 h-min">
+    <div className="flex flex-col items-center w-[40w] lg:w-[18vw] shrink-0 h-min">
       {/* Disk icon */}
       <div className="w-full relative flex items-center justify-center">
         <div
           className={clsx(
             'h-[50%] w-full border-b-8 absolute top-0',
             borderColor
-          )}
-        ></div>
+          )}></div>
         <Image width={72} src={DiskImage} />
       </div>
 
@@ -54,22 +53,32 @@ function _DateComponent({ title, startDate, endDate, isCurrent }: DateProps) {
         className={clsx(
           'mt-4 font-black text-2xl capitalize font-archivo px-1 text-center',
           textColor
-        )}
-      >
+        )}>
         {title}
       </h6>
       <p className={clsx('font-Helvatica font-bold text-base', textColor)}>
-      {(startDate.getDate() != endDate.getDate()) || (startDate.getMonth() != endDate.getMonth()) || (startDate.getFullYear() != endDate.getFullYear()) ? (
-        <>
-        <span>{startDate.getDate()}{month[startDate.getMonth()] != month[endDate.getMonth()] && ` ${month[startDate.getMonth()]}`}{startDate.getFullYear() != endDate.getFullYear() && ` ${startDate.getFullYear()}`}</span>
-         - <span>{endDate.getDate()}</span>{' '}
-        <span>
-          {month[endDate.getMonth()]} {endDate.getFullYear()}
-        </span>
-        </>
-      ) : (
-        <span>{startDate.getDate()} {month[startDate.getMonth()]} {startDate.getFullYear()}</span>
-      )}
+        {startDate.getDate() != endDate.getDate() ||
+        startDate.getMonth() != endDate.getMonth() ||
+        startDate.getFullYear() != endDate.getFullYear() ? (
+          <>
+            <span>
+              {startDate.getDate()}
+              {month[startDate.getMonth()] != month[endDate.getMonth()] &&
+                ` ${month[startDate.getMonth()]}`}
+              {startDate.getFullYear() != endDate.getFullYear() &&
+                ` ${startDate.getFullYear()}`}
+            </span>
+            - <span>{endDate.getDate()}</span>{' '}
+            <span>
+              {month[endDate.getMonth()]} {endDate.getFullYear()}
+            </span>
+          </>
+        ) : (
+          <span>
+            {startDate.getDate()} {month[startDate.getMonth()]}{' '}
+            {startDate.getFullYear()}
+          </span>
+        )}
       </p>
     </div>
   )

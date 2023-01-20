@@ -24,7 +24,7 @@ export default function Timeline({ dates }: AppProps) {
 
   return (
     <section className="w-full flex flex-col items-center bg-yellow300 pt-24 pb-8 relative">
-      <div className="absolute left-5 top-10">
+      <div className="hidden lg:block absolute left-5 top-10">
         <Image src={Star} />
       </div>
       <h3 className="font-black text-6xl text-center uppercase font-archivo mb-16">
@@ -35,7 +35,7 @@ export default function Timeline({ dates }: AppProps) {
         title={nearestDate.title}
       />
       <CompTimeline dates={dates} />
-      <div className="absolute right-[-5%] top-20">
+      <div className="hidden lg:block absolute right-[-5%] top-20">
         <Image src={Game} />
       </div>
     </section>
