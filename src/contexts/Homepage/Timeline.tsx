@@ -49,7 +49,7 @@ export default function Timeline() {
   return (
     <>
       <div className="absolute">
-        <div className="relative top-[0px] left-[0px]">
+        <div className="hidden lg:block relative top-[0px] left-[0px]">
           <Image src={Clock} />
         </div>
       </div>

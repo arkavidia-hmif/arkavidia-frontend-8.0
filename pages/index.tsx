@@ -1,12 +1,8 @@
-import getConfig from 'next/config';
-import SEO from '@src/components/SEO';
-import Jumbotron from '@src/contexts/Homepage/Jumbotron';
-import About from '@src/contexts/Homepage/About';
-import Timeline from '@src/contexts/Homepage/Timeline';
-import FAQ from '@src/contexts/Homepage/FAQPage';
-
-const { publicRuntimeConfig } = getConfig()
-const { name } = publicRuntimeConfig.site
+import SEO from '@src/components/SEO'
+import Jumbotron from '@src/contexts/Homepage/Jumbotron'
+import About from '@src/contexts/Homepage/About'
+import Timeline from '@src/contexts/Homepage/Timeline'
+import FAQ from '@src/contexts/Homepage/FAQPage'
 
 const Home = (): JSX.Element => {
   return (
