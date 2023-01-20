@@ -1,7 +1,7 @@
 import TALKS1 from '@src/assets/images/talks/1.jpg'
 import TALKS2 from '@src/assets/images/talks/2.jpg'
-import TALKS3 from '@src/assets/images/talks/3.JPG'
-import TALKS6 from '@src/assets/images/talks/6.JPG'
+import TALKS3 from '@src/assets/images/talks/3.jpg'
+import TALKS6 from '@src/assets/images/talks/6.jpg'
 import PD1 from '@src/assets/images/podcast/1.jpg'
 import PD2 from '@src/assets/images/podcast/2.jpg'
 
