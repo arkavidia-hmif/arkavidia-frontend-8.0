@@ -1,5 +1,5 @@
-import SEO from '@src/components/SEO';
-import Jumbotron from '@src/contexts/Competition/Jumbotron';
+import SEO from '@src/components/SEO'
+import Jumbotron from '@src/contexts/Competition/Jumbotron'
 import Prize from '@src/contexts/Competition/Prize'
 import Category from '@src/contexts/Competition/Category'
 import EventDocumentation from '@src/contexts/EventLanding/EventDocumentation';
@@ -15,4 +15,4 @@ const Competition = (): JSX.Element => {
   )
 }
 
-export default Competition;
+export default Competition
