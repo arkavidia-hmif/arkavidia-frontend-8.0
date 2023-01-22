@@ -48,8 +48,9 @@ export default function Timeline({
     : widthOnDuration(events)
   return (
     <div className="bg-gradient-to-t to-transparent from-red200 pt-[2.25rem] w-full max-w-7xl flex flex-col justify-start items-start pb-4">
-      <div className="w-full overflow-x-auto max-w-7xl pb-4 snap-x snap-mandatory">
-        <div className="w-fit flex flex-row items-start justify-start">
+      <div className="w-full overflow-x-auto max-w-7xl pb-4 snap-x snap-mandatory flex flex-row items-start justify-start">
+        <div className="flex-grow"></div>
+        <div className="w-fit flex flex-row items-center justify-center">
           {events.map((event, index) => {
             return (
               <TimelinePoint
@@ -63,8 +64,9 @@ export default function Timeline({
             )
           })}
         </div>
+        <div className="flex-grow"></div>
       </div>
-      <div className="px-3 w-full">
+      <div className="px-3 w-full self-start">
         <div className="w-full bg-yellow200 h-4 rounded-full relative">
           <div
             className={`absolute z-10 top-0 left-0 h-full bg-white rounded-full`}
