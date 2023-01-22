@@ -47,7 +47,7 @@ export default function Timeline({
     ? widthOnCompleted(events)
     : widthOnDuration(events)
   return (
-    <div className="bg-gradient-to-t to-transparent from-red200 pt-[2.25rem] w-full max-w-7xl flex flex-col justify-start items-start pb-4">
+    <div className="bg-gradient-to-t to-transparent from-red200 lg:pt-[2.25rem] w-full max-w-7xl flex flex-col justify-start items-start pb-4">
       <div className="w-full overflow-x-auto max-w-7xl pb-4 snap-x snap-mandatory flex flex-row items-start justify-start">
         <div className="flex-grow"></div>
         <div className="w-fit flex flex-row items-center justify-center">
@@ -99,7 +99,10 @@ function TimelinePoint({
     'Desember'
   ]
   return (
-    <article className="flex flex-col items-center justify-start font-archivo w-[16.25rem] snap-end">
+    <article
+      className={`${
+        completed ? 'text-white' : 'text-black'
+      } flex flex-col items-center justify-start font-archivo w-[16.25rem] snap-end`}>
       <div className="h-[4.5rem] w-full p-0 relative flex items-center justify-center">
         <div className="flex items-center justify-center w-full top-1/2 absolute">
           <div
